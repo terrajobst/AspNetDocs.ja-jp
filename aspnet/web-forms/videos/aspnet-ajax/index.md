@@ -2,22 +2,22 @@
 uid: web-forms/videos/aspnet-ajax/index
 title: ASP.NET AJAX |Microsoft Docs
 author: rick-anderson
-description: JavaScript のエキスパートがない場合でも、応答性の高いページを作成する ASP.NET AJAX を使用する方法。
+description: JavaScript の専門家ではない場合でも、ASP.NET AJAX を使用して応答性の高いページを作成する方法。
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 754b8c66-cefc-42d6-9f02-685efabdfcc6
 msc.legacyurl: /web-forms/videos/aspnet-ajax
 msc.type: chapter
 ms.openlocfilehash: 52cc785a92bc3e902f0f3266333d6157c6a78354
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65116133"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78510106"
 ---
 # <a name="aspnet-ajax"></a>ASP.NET AJAX
 
-> JavaScript のエキスパートがない場合でも、応答性の高いページを作成する ASP.NET AJAX を使用する方法。
+> JavaScript の専門家ではない場合でも、ASP.NET AJAX を使用して応答性の高いページを作成する方法。
 
 - [ASP.NET AJAX の概要](how-do-i-get-started-with-aspnet-ajax.md)
 - [ASP.NET AJAX の部分的ページ更新を実行する](how-do-i-implement-dynamic-partial-page-updates-with-aspnet-ajax.md)

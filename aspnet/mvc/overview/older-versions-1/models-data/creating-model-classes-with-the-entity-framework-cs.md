@@ -1,213 +1,213 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/creating-model-classes-with-the-entity-framework-cs
-title: モデル クラスを作成、Entity framework (c#) |Microsoft Docs
+title: Entity Framework (C#) を使用してモデルクラスを作成するMicrosoft Docs
 author: microsoft
-description: このチュートリアルでは、Microsoft Entity Framework で ASP.NET MVC を使用する方法について説明します。 エンティティ ウィザードを使用して、ADO.NET エンティティ データを作成する方法を学習します.
+description: このチュートリアルでは、Microsoft Entity Framework で ASP.NET MVC を使用する方法について説明します。 Entity Wizard を使用して ADO.NET エンティティを作成する方法について説明します。
 ms.author: riande
 ms.date: 01/27/2009
 ms.assetid: 61644169-e8b1-45dd-bf96-9c2301b69879
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-the-entity-framework-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 2e0e365c287fc455015d237ea466301335805d14
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65122448"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78469438"
 ---
 # <a name="creating-model-classes-with-the-entity-framework-c"></a>Entity Framework でモデル クラスを作成する (C#)
 
-によって[Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft)
 
-> このチュートリアルでは、Microsoft Entity Framework で ASP.NET MVC を使用する方法について説明します。 エンティティ ウィザードを使用して、ADO.NET Entity Data Model を作成する方法について説明します。 このチュートリアルの過程で、選択、挿入、更新、および Entity Framework を使用してデータベースのデータを削除する方法について説明する web アプリケーションを構築します。
+> このチュートリアルでは、Microsoft Entity Framework で ASP.NET MVC を使用する方法について説明します。 Entity Wizard を使用して、ADO.NET Entity Data Model を作成する方法について説明します。 このチュートリアルでは、Entity Framework を使用してデータベースデータを選択、挿入、更新、および削除する方法を示す web アプリケーションを作成します。
 
-このチュートリアルの目的では、ASP.NET MVC アプリケーションを構築するときに、Microsoft Entity Framework を使用してデータ アクセス クラスを作成する方法について説明します。 このチュートリアルは、Microsoft Entity Framework の以前の知識を負いません。 このチュートリアルの目的は、Entity Framework を使用して、選択、挿入、更新、およびデータベースのレコードを削除する方法を理解します。
+このチュートリアルの目的は、ASP.NET MVC アプリケーションを構築するときに、Microsoft Entity Framework を使用してデータアクセスクラスを作成する方法について説明することです。 このチュートリアルでは、Microsoft Entity Framework に関する以前の知識がないことを前提としています。 このチュートリアルの最後に、Entity Framework を使用してデータベースレコードを選択、挿入、更新、および削除する方法について説明します。
 
-Microsoft Entity Framework は、オブジェクト リレーショナル マッピング (O/RM) ツール、データベースからデータ アクセス層を自動的に生成することができます。 Entity Framework では、手動で、データ アクセス クラスを構築する面倒な作業を回避することができます。
+Microsoft Entity Framework は、オブジェクトリレーショナルマッピング (O/RM) ツールです。このツールを使用すると、データベースからデータアクセス層を自動的に生成できます。 Entity Framework を使用すると、手動でデータアクセスクラスを構築する面倒な作業を回避できます。
 
-ASP.NET MVC を使用した Microsoft Entity Framework を使用する方法について説明するには、簡単なサンプル アプリケーションをビルドします。 表示し、映画データベース レコードを編集することができます、映画データベース アプリケーションを作成します。
+ASP.NET MVC で Microsoft Entity Framework を使用する方法を説明するために、簡単なサンプルアプリケーションを作成します。 ムービーデータベースアプリケーションを作成し、ムービーデータベースレコードを表示および編集できるようにします。
 
-このチュートリアルでは、Visual Studio 2008 または Service Pack 1 の Visual Web Developer 2008 があることを前提としています。 Entity Framework を使用するために Service Pack 1 を必要があります。 Visual Studio 2008 Service Pack 1 または Service Pack 1 の Visual Web Developer は、次のアドレスからダウンロードできます。
+このチュートリアルでは、Visual Studio 2008 または Visual Web Developer 2008 (Service Pack 1) を使用していることを前提としています。 Entity Framework を使用するには、Service Pack 1 が必要です。 次のアドレスから、Visual Studio 2008 Service Pack 1 または Visual Web Developer with Service Pack 1 をダウンロードできます。
 
 > [https://www.asp.net/downloads/](https://www.asp.net/downloads)
 
 > [!NOTE] 
 > 
-> ASP.NET MVC と Entity Framework の Microsoft 必須の接続がありません。 ASP.NET MVC で使用できる Entity Framework のいくつかの選択肢があります。 たとえば、Microsoft LINQ to SQL や NHibernate など、SubSonic などその他の O/RM ツールを使用して、MVC のモデル クラスをビルドすることができます。
+> ASP.NET MVC と Microsoft Entity Framework の間には、重要な接続はありません。 ASP.NET MVC で使用できる Entity Framework には、いくつかの選択肢があります。 たとえば、Microsoft LINQ to SQL、NHibernate、SubSonic などの他の O/RM ツールを使用して、MVC モデルクラスを構築できます。
 
-## <a name="creating-the-movie-sample-database"></a>ムービーのサンプル データベースの作成
+## <a name="creating-the-movie-sample-database"></a>ムービーサンプルデータベースの作成
 
-映画データベース アプリケーションでは、次の列を含むデータベース テーブルのムービーをという名前を使用します。
+ムービーデータベースアプリケーションでは、次の列を含む、ムービーという名前のデータベーステーブルを使用します。
 
-| 列名 | データの種類 | Null 値を許可しますか。 | プライマリ キーとは |
+| 列名 | データ型 | Null を許容しますか? | 主キーか? |
 | --- | --- | --- | --- |
-| ID | int | False | True |
-| Title | nvarchar(100) | False | False |
+| Id | INT | False | True |
+| タイトル | nvarchar(100) | False | False |
 | ディレクター | nvarchar(100) | False | False |
 
-このテーブルは、次の手順に従って、ASP.NET MVC プロジェクトに追加できます。
+このテーブルを ASP.NET MVC プロジェクトに追加するには、次の手順を実行します。
 
-1. アプリを右クリックして\_メニュー オプションを選択して、ソリューション エクスプ ローラー ウィンドウで、データ フォルダー**追加]、[新しい項目。**
-2. **新しい項目の追加**ダイアログ ボックスで、 **SQL Server データベース**MoviesDB.mdf、名、データベースを提供し、クリックして、**追加**ボタンをクリックします。
-3. サーバー エクスプ ローラー/データベース エクスプ ローラー ウィンドウを開く MoviesDB.mdf ファイルをダブルクリックします。
-4. MoviesDB.mdf データベース接続を展開し、[テーブル] フォルダーを右クリックしてメニュー オプションを選択**新しいテーブルの追加**します。
-5. テーブル デザイナーでは、Id、タイトル、およびディレクター列を追加します。
-6. をクリックして、**保存**ボタン (フロッピー ディスクのアイコンがある) 映画名と、新しいテーブルを保存します。
+1. ソリューションエクスプローラーウィンドウで [App\_Data] フォルダーを右クリックし、メニューオプション [追加]、[新しい項目] の順に選択し**ます。**
+2. **[新しい項目の追加]** ダイアログボックスで、 **[SQL Server データベース]** を選択し、データベースに MoviesDB という名前を付けて、 **[追加]** ボタンをクリックします。
+3. MoviesDB ファイルをダブルクリックして、[サーバーエクスプローラー/データベースエクスプローラー] ウィンドウを開きます。
+4. MoviesDB データベース接続を展開し、テーブル フォルダーを右クリックして、**新しいテーブルの追加** メニューオプションを選択します。
+5. テーブルデザイナーで、Id、タイトル、ディレクター の各列を追加します。
+6. **[保存]** ボタン (フロッピーのアイコン) をクリックして、ムービーという名前の新しいテーブルを保存します。
 
-映画データベースのテーブルを作成した後は、テーブルにサンプル データを追加する必要があります。 映画のテーブルを右クリックし、メニュー オプションを選択**テーブル データの表示**します。 表示されたグリッドには、偽の映画のデータを入力できます。
+ムービーデータベーステーブルを作成したら、いくつかのサンプルデータをテーブルに追加する必要があります。 映画 テーブルを右クリックし、**テーブルデータの表示** メニューオプションを選択します。 表示されるグリッドにフェイクムービーデータを入力できます。
 
-## <a name="creating-the-adonet-entity-data-model"></a>ADO.NET Entity Data Model を作成します。
+## <a name="creating-the-adonet-entity-data-model"></a>ADO.NET Entity Data Model の作成
 
-Entity Framework を使用するには、Entity Data Model を作成する必要があります。 Visual Studio の利用*Entity Data Model ウィザード*データベースからエンティティ データ モデルを自動的に生成します。
+Entity Framework を使用するには、Entity Data Model を作成する必要があります。 Visual Studio の*Entity Data Model ウィザード*を利用すると、データベースから Entity Data Model を自動的に生成できます。
 
-この場合は、以下の手順に従ってください。
+次の手順に従います。
 
-1. ソリューション エクスプ ローラー ウィンドウで、Models フォルダーを右クリックし、メニュー オプションを選択**追加、新しい項目の**します。
-2. **新しい項目の追加**ダイアログ ボックスで、データ カテゴリを選択します (図 1 参照)。
-3. 選択、 **ADO.NET Entity Data Model**テンプレート、名 MoviesDBModel.edmx、エンティティ データ モデルを提供し、**追加**ボタンをクリックします。 クリックすると、**追加**ボタンは、データ モデル ウィザードを起動します。
-4. **モデルのコンテンツの選択**ステップで、選択、**をデータベースから生成**オプションを選択し、をクリックして、**次**ボタン (図 2 参照)。
-5. **データ接続の選択**ステップ、MoviesDB.mdf データベース接続を選択し、エンティティ接続設定 MoviesDBEntities、という名前を入力してください、**次**ボタン (図 3 参照)。
-6. **データベース オブジェクトの選択**ステップ ムービー データベースのテーブルを選択して、クリックして、**完了**(図 4 参照) ボタンをクリックします。
+1. ソリューションエクスプローラーウィンドウで [モデル] フォルダーを右クリックし、メニューオプション [**追加]、[新しい項目**] の順に選択します。
+2. **新しい項目の追加** ダイアログで、データ カテゴリを選択します (図1を参照)。
+3. **ADO.NET Entity Data Model**テンプレートを選択し、Entity Data Model の名前を MoviesDBModel に指定して、 **[追加]** ボタンをクリックします。 **[追加]** ボタンをクリックすると、データモデルウィザードが起動します。
+4. **[モデルの内容の選択]** ステップで、 **[データベースから生成]** オプションを選択し、 **[次へ]** ボタンをクリックします (図2を参照)。
+5. **[データ接続の選択]** 手順で、MoviesDB データベース接続を選択し、エンティティ接続設定の名前 MoviesDBEntities を入力して、 **[次へ]** ボタンをクリックします (図3を参照)。
+6. **[データベースオブジェクトの選択]** ステップで、ムービーデータベース テーブルを選択し、 **[完了]** ボタンをクリックします (図4を参照)。
 
-次の手順を完了すると、ADO.NET Entity Data Model デザイナー (エンティティ デザイナー) を開きます。
+これらの手順を完了すると、ADO.NET Entity Data Model Designer (Entity Designer) が開きます。
 
-**図 1 – 新しい Entity Data Model を作成します。**
+**図1–新しい Entity Data Model の作成**
 
 ![clip_image002](creating-model-classes-with-the-entity-framework-cs/_static/image1.jpg)
 
-**図 2 – モデル内容のステップを選択**
+**図2–モデルの内容を選択する手順**
 
 ![clip_image004](creating-model-classes-with-the-entity-framework-cs/_static/image2.jpg)
 
-**図 3: データ接続の選択**
+**図 3-データ接続を選択する**
 
 ![clip_image006](creating-model-classes-with-the-entity-framework-cs/_static/image3.jpg)
 
-**図 4-データベース オブジェクトの選択**
+**図4–データベースオブジェクトを選択する**
 
 ![clip_image008](creating-model-classes-with-the-entity-framework-cs/_static/image4.jpg)
 
-#### <a name="modifying-the-adonet-entity-data-model"></a>ADO.NET エンティティ データ モデルの変更
+#### <a name="modifying-the-adonet-entity-data-model"></a>ADO.NET Entity Data Model の変更
 
-Entity Data Model を作成した後は、エンティティ デザイナーを利用して、モデルを変更できます (図 5 を参照してください)。 ソリューション エクスプ ローラー ウィンドウ内で、Models フォルダーに含まれている MoviesDBModel.edmx ファイルをダブルクリックして、いつでも、エンティティ デザイナーを開くことができます。
+Entity Data Model を作成したら、Entity Designer を利用してモデルを変更できます (図5を参照)。 [ソリューションエクスプローラー] ウィンドウ内の [モデル] フォルダーに格納されている MoviesDBModel ファイルをダブルクリックすると、いつでも Entity Designer を開くことができます。
 
-**5 –、ADO.NET Entity Data Model デザイナーを図します。**
+**図 5: ADO.NET Entity Data Model デザイナー**
 
 ![clip_image010](creating-model-classes-with-the-entity-framework-cs/_static/image5.jpg)
 
-たとえば、エンティティ デザイナーを使用して、エンティティ モデルのデータ ウィザードで生成するクラスの名前を変更することができます。 ウィザードでは、映画をという名前の新しいデータ アクセス クラスを作成します。 つまり、ウィザードは、データベース テーブルとまったく同じ名前のクラスしました。 使用するのでこのクラスを特定のムービー インスタンスを表す、ムービーに映画からクラスの名前する必要があります。
+たとえば、エンティティモデルデータウィザードによって生成されるクラスの名前を変更するには、Entity Designer を使用します。 このウィザードでは、ムービーという名前の新しいデータアクセスクラスが作成されました。 つまり、ウィザードでは、データベーステーブルとまったく同じ名前が付けられています。 このクラスを使用して特定のムービーインスタンスを表すため、ムービーからムービーにクラスの名前を変更する必要があります。
 
-エンティティ クラスの名前を変更する場合は、エンティティ デザイナーでクラス名をダブルクリックして、新しい名前を入力します (図 6 参照)。 また、エンティティ デザイナーでエンティティを選択した後、[プロパティ] ウィンドウ内のエンティティの名前を変更できます。
+エンティティクラスの名前を変更する場合は、Entity Designer でクラス名をダブルクリックし、新しい名前を入力します (図6を参照)。 また、Entity Designer でエンティティを選択した後で、プロパティウィンドウ内のエンティティの名前を変更することもできます。
 
-**図 6 – エンティティの名前を変更します。**
+**図6–エンティティ名の変更**
 
 ![clip_image012](creating-model-classes-with-the-entity-framework-cs/_static/image6.jpg)
 
-保存ボタン (フロッピー ディスクのアイコン) をクリックして変更を行った後に、エンティティ データ モデルを保存してください。 バック グラウンドでは、エンティティ デザイナーは、一連の c# クラスを生成します。 ソリューション エクスプ ローラー ウィンドウから MoviesDBModel.Designer.cs ファイルを開くことで、これらのクラスを表示できます。
+変更を行った後は、[保存] ボタン (フロッピーディスクのアイコン) をクリックして Entity Data Model を保存してください。 バックグラウンドでは、Entity Designer によってクラスのC#セットが生成されます。 これらのクラスを表示するには、[ソリューションエクスプローラー] ウィンドウで MoviesDBModel.Designer.cs ファイルを開きます。
 
-次に、エンティティ デザイナーを使用するときに、変更が上書きされますので、Designer.cs ファイル内のコードを変更しないでください。 Designer.cs ファイルで定義されたエンティティ クラスの機能を拡張するかどうかは、作成することができます*部分クラス*で個別のファイル。
+Designer.cs ファイルのコードを変更しないでください。変更内容は、次回 Entity Designer を使用したときに上書きされます。 Designer.cs ファイルで定義されているエンティティクラスの機能を拡張する場合は、*部分クラス*を別々のファイルに作成できます。
 
-#### <a name="selecting-database-records-with-the-entity-framework"></a>Entity Framework でのデータベース レコードを選択します。
+#### <a name="selecting-database-records-with-the-entity-framework"></a>Entity Framework を使用したデータベースレコードの選択
 
-ムービーのレコードの一覧を表示するページを作成し、映画データベース アプリケーションを構築してみましょう。 リスト 1 で、Home コント ローラーは、Index() という名前のアクションを公開します。 Index() アクションに、ムービーのデータベース テーブルからすべてのムービー レコード、Entity Framework を活用してに返します。
+ムービーレコードの一覧を表示するページを作成して、ムービーデータベースアプリケーションの作成を開始しましょう。 リスト1のホームコントローラーは、Index () という名前のアクションを公開します。 Index () アクションは、Entity Framework を利用して、ムービーデータベーステーブルのすべてのムービーレコードを返します。
 
-**Listing 1 – Controllers\HomeController.cs**
+**リスト1– Controllers\ homecontroller.cs**
 
 [!code-csharp[Main](creating-model-classes-with-the-entity-framework-cs/samples/sample1.cs)]
 
-リスト 1 で、コント ローラーがコンス トラクターが含まれることに注意してください。 コンス トラクターによって初期化という名前のクラスレベル フィールド\_db します。 \_Db フィールドは、Microsoft Entity Framework によって生成されたデータベースのエンティティを表します。 \_Db フィールドは、エンティティ デザイナーによって生成された MoviesDBEntities クラスのインスタンスです。
+リスト1のコントローラーには、コンストラクターが含まれていることに注意してください。 コンストラクターは \_db という名前のクラスレベルのフィールドを初期化します。 \_db フィールドは、Microsoft Entity Framework によって生成されるデータベースエンティティを表します。 \_db フィールドは、Entity Designer によって生成された MoviesDBEntities クラスのインスタンスです。
 
-TheMoviesDBEntities クラスを Home コント ローラーを使用するためには、MovieEntityApp.Models 名前空間をインポートする必要があります (*MVCProjectName*します。モデルの場合)。
+Home コントローラーで Oviesdbentities クラスを使用するには、Mogo Entityapp. Model 名前空間 (*Mvcprojectname*) をインポートする必要があります。モデル)。
 
-\_Db フィールドは、映画データベース テーブルからレコードを取得する Index() 操作内で使用します。 式\_db します。MovieSet では、映画データベース テーブルからすべてのレコードを表します。 ムービー オブジェクトのジェネリック コレクションをムービーのセットに変換する ToList() メソッドが使用される (リスト&lt;ムービー&gt;)。
+\_db フィールドは、ムービーデータベーステーブルからレコードを取得するために Index () アクション内で使用されます。 式 \_db です。Mo視聴セットは、ムービーデータベーステーブルのすべてのレコードを表します。 ToList () メソッドは、ムービーのセットを、ムービーオブジェクトのジェネリックコレクション (List&lt;Movie&gt;) に変換するために使用されます。
 
-LINQ to Entities を利用して、ムービーのレコードが取得されます。 リスト 1 で Index() アクションは LINQ を使用して*メソッド構文*データベース レコードのセットを取得します。 LINQ を使用することができる場合は、*クエリ構文*代わりにします。 次の 2 つのステートメントでは、まったく同じことを行います。
+ムービーレコードは LINQ to Entities のヘルプを使用して取得されます。 リスト1の Index () アクションでは、LINQ*メソッド構文*を使用してデータベースレコードのセットを取得します。 必要に応じて、代わりに LINQ*クエリ構文*を使用できます。 次の2つのステートメントは、まったく同じことを行います。
 
 [!code-csharp[Main](creating-model-classes-with-the-entity-framework-cs/samples/sample2.cs)]
 
-どの LINQ 構文を使用 – メソッド構文またはクエリ構文 – 最も直感的に表示されています。 2 つのアプローチの間のパフォーマンスに違いはありません – 唯一の違いはスタイル。
+最も直感的にわかるような LINQ 構文 (メソッド構文またはクエリ構文) を使用します。 2つの方法の間でパフォーマンスに違いはありません。唯一の違いは style です。
 
-リスト 2 でビューを使用すると、ムービーのレコードを表示します。
+リスト2のビューは、ムービーレコードを表示するために使用されます。
 
-**Listing 2 – Views\Home\Index.aspx**
+**リスト2– Views\Home\Index.aspx**
 
 [!code-aspx[Main](creating-model-classes-with-the-entity-framework-cs/samples/sample3.aspx)]
 
-リスト 2 でビューが含まれています、 **foreach**ループをムービーの各レコードを反復処理し、ムービーのレコードのタイトルとディレクター プロパティの値が表示されます。 各レコードの横にある、編集、削除のリンクが表示されることに注意してください。 ビューの下部にあるさらに、ムービーの追加リンクが表示されます (図 7 を参照してください)。
+リスト2のビューには、各ムービーレコードを反復処理し、ムービーレコードのタイトルと監督のプロパティの値を表示する**foreach**ループが含まれています。 各レコードの横に [編集] リンクと [削除] リンクが表示されます。 さらに、[ムービーの追加] リンクがビューの下部に表示されます (図7を参照)。
 
-**図 7 –、インデックス ビュー**
+**図 7: インデックスビュー**
 
 ![clip_image014](creating-model-classes-with-the-entity-framework-cs/_static/image7.jpg)
 
-インデックス ビューは、*ビュー型指定された*します。 インデックス ビューには、&lt;ページ % @ %&gt;ディレクティブ、 *Inherits*ムービー オブジェクトの厳密に型指定のジェネリック List コレクションにモデルのプロパティをキャストする属性 (リスト&lt;ムービー)。
+インデックスビューは、*型指定*されたビューです。 インデックスビューには、&lt;% @ Page%&gt; ディレクティブが含まれています。これは、Model プロパティを、ムービーオブジェクト (List&lt;Movie) の厳密に型指定されたジェネリックリストコレクションにキャストする*継承*属性です。
 
-## <a name="inserting-database-records-with-the-entity-framework"></a>Entity Framework でのデータベース レコードを挿入します。
+## <a name="inserting-database-records-with-the-entity-framework"></a>Entity Framework を使用したデータベースレコードの挿入
 
-Entity Framework を使用すると、データベース テーブルに新しいレコードを挿入しやすきます。 3 を一覧表示するには、ムービーのデータベース テーブルに新しいレコードを挿入するために使用できる、ホーム コント ローラー クラスに追加された 2 つの新しいアクションが含まれています。
+Entity Framework を使用すると、データベーステーブルに新しいレコードを簡単に挿入できます。 リスト3には、新しいレコードをムービーデータベーステーブルに挿入するために使用できる Home controller クラスに追加された2つの新しいアクションが含まれています。
 
-**3 – controllers \homecontroller.cs (メソッドの追加) を一覧表示します。**
+**リスト3– Controllers\ homecontroller.cs (メソッドの追加)**
 
 [!code-csharp[Main](creating-model-classes-with-the-entity-framework-cs/samples/sample4.cs)]
 
-Add() の最初のアクションでは、ビューを単純に返します。 ビューには、新しいムービー データベースを追加するフォームが含まれます (図 8 参照) を記録します。 フォームを送信するときに、2 番目の Add() アクションが呼び出されます。
+最初の Add () アクションでは、単にビューを返します。 このビューには、新しいムービーデータベースレコードを追加するためのフォームが含まれています (図8を参照)。 フォームを送信すると、2番目の Add () アクションが呼び出されます。
 
-2 番目の Add() アクションは、AcceptVerbs 属性で修飾されていることに注意してください。 HTTP POST 操作を実行する場合にのみ、この操作を呼び出すことができます。 つまり、この操作は、HTML フォームを投稿する場合にのみ呼び出すことができます。
+2番目の Add () アクションが、AcceptVerbs 属性で修飾されていることに注意してください。 このアクションは、HTTP POST 操作を実行する場合にのみ呼び出すことができます。 つまり、このアクションは、HTML フォームを投稿するときにのみ呼び出すことができます。
 
-2 番目の Add() アクションは、ASP.NET MVC TryUpdateModel() メソッドのヘルプで、Entity Framework Movie クラスの新しいインスタンスを作成します。 TryUpdateModel() メソッドは、Add() メソッドに渡される FormCollection 内のフィールドを受け取り、Movie クラスに HTML フォーム フィールドの値を割り当てます。
+2番目の Add () アクションは、ASP.NET MVC TryUpdateModel () メソッドを使用して、Entity Framework Movie クラスの新しいインスタンスを作成します。 TryUpdateModel () メソッドは、Add () メソッドに渡された FormCollection 内のフィールドを受け取り、これらの HTML フォームフィールドの値を Movie クラスに割り当てます。
 
-Entity Framework を使用する場合は、tryupdatemodel に渡します"または"UpdateModel メソッドを使用して、エンティティ クラスのプロパティを更新する場合、プロパティの「ホワイト リスト」を指定してください。
+Entity Framework を使用する場合は、TryUpdateModel メソッドまたは UpdateModel メソッドを使用してエンティティクラスのプロパティを更新するときに、プロパティの "ホワイトリスト" を指定する必要があります。
 
-次に、Add() アクションは、いくつかの簡単なフォーム検証を実行します。 アクションは、タイトルとディレクターの両方のプロパティに値があることを確認します。 検証エラーがある場合、検証エラー メッセージは、ModelState に追加されます。
+次に、Add () アクションは、単純なフォーム検証を実行します。 アクションは、Title プロパティと Director プロパティの両方に値があることを確認します。 検証エラーが発生した場合は、検証エラーメッセージが ModelState に追加されます。
 
-検証エラーがない場合、新しいムービーのレコードは、Entity Framework を利用して、映画データベース テーブルに追加されます。 新しいレコードは、次の 2 つのコード行をデータベースに追加されます。
+検証エラーがない場合は、Entity Framework のヘルプを含む新しいムービーレコードがムービーデータベーステーブルに追加されます。 新しいレコードは、次の2行のコードを使用してデータベースに追加されます。
 
 [!code-csharp[Main](creating-model-classes-with-the-entity-framework-cs/samples/sample5.cs)]
 
-コードの最初の行では、Entity Framework によって追跡されているムービーのセットに新しいムービー エンティティを追加します。 基になるデータベースに追跡されている映画を自由に変更を加え、2 つ目のコード行を保存します。
+コードの1行目では、Entity Framework によって追跡されている一連のムービーに新しい Movie エンティティを追加します。 コードの2行目では、追跡しているムービーに加えられたすべての変更を、基になるデータベースに保存します。
 
-**図 8-追加のビュー**
+**図 8: [追加] ビュー**
 
 ![clip_image016](creating-model-classes-with-the-entity-framework-cs/_static/image8.jpg)
 
-#### <a name="updating-database-records-with-the-entity-framework"></a>Entity Framework でのデータベース レコードを更新しています
+#### <a name="updating-database-records-with-the-entity-framework"></a>Entity Framework を使用したデータベースレコードの更新
 
-新しいデータベース レコードを挿入するだけに準拠した方法として、Entity Framework でのデータベース レコードを編集するほぼ同じ方法に従うことができます。 4 を一覧表示するには、Edit() という名前の 2 つの新しいコント ローラー アクションが含まれています。 Edit() の最初のアクションは、ムービーのレコードを編集するための HTML フォームを返します。 2 番目の Edit() アクションは、データベースを更新しようとします。
+ほぼ同じアプローチに従って、新しいデータベースレコードを挿入する方法として Entity Framework を使用してデータベースレコードを編集できます。 リスト4には、Edit () という名前の新しいコントローラーアクションが2つ含まれています。 最初の Edit () アクションでは、ムービーレコードを編集するための HTML フォームが返されます。 2番目の Edit () アクションは、データベースを更新しようとします。
 
-**4 – controllers \homecontroller.cs (Edit メソッド) を一覧表示します。**
+**リスト4– Controllers\ homecontroller.cs (メソッドの編集)**
 
 [!code-csharp[Main](creating-model-classes-with-the-entity-framework-cs/samples/sample6.cs)]
 
-2 番目の Edit() アクションは、ムービーの編集中の Id と一致するデータベースからムービー レコードを取得することによって開始します。 エンティティ ステートメントに次の LINQ では、特定の Id と一致する最初のデータベース レコードを取得します。
+2番目の Edit () アクションは、編集中のムービーの Id と一致するムービーレコードをデータベースから取得することによって開始されます。 次の LINQ to Entities ステートメントは、特定の Id に一致する最初のデータベースレコードを取得します。
 
 [!code-csharp[Main](creating-model-classes-with-the-entity-framework-cs/samples/sample7.cs)]
 
-次に、ムービー エンティティのプロパティには HTML フォームのフィールドの値を割り当てる TryUpdateModel() メソッドを使用します。 更新する正確なプロパティを指定するホワイト リストが提供されることに注意してください。
+次に、TryUpdateModel () メソッドを使用して、HTML フォームフィールドの値を movie エンティティのプロパティに割り当てます。 更新するプロパティを正確に指定するためのホワイトリストが提供されていることに注意してください。
 
-次に、単純な検証を実行して、ムービーのタイトルとディレクターの両方のプロパティに値があることを確認します。 プロパティのいずれかがない場合、値、ModelState に検証エラー メッセージを追加し、ModelState.IsValid 値 false を返します。
+次に、ムービータイトルとディレクタープロパティの両方に値が設定されていることを確認するために、いくつかの単純な検証を実行します。 いずれかのプロパティに値が指定されていない場合、ModelState と ModelState に検証エラーメッセージが追加されます。 IsValid は値 false を返します。
 
-最後に、検証エラーがない場合、基になる映画データベース テーブルで更新されます変更 SaveChanges() メソッドを呼び出すことによって。
+最後に、検証エラーがない場合は、SaveChanges () メソッドを呼び出すことにより、基になるムービーデータベーステーブルが変更されて更新されます。
 
-データベースのレコードを編集するときは、データベースの更新を実行するコント ローラー アクションを編集中のレコードの Id を渡す必要があります。 それ以外の場合、コント ローラー アクションでは、基になるデータベースを更新するレコードはわかりません。 リストに 5 に含まれている、編集ビューには、編集中のデータベース レコードの Id を表す隠しフォーム フィールドが含まれています。
+データベースレコードを編集する場合は、編集するレコードの Id を、データベースの更新を実行するコントローラーアクションに渡す必要があります。 それ以外の場合、コントローラーアクションは、基になるデータベースで更新するレコードを認識しません。 リスト5に含まれる編集ビューには、編集中のデータベースレコードの Id を表す非表示のフォームフィールドが含まれています。
 
-**Listing 5 – Views\Home\Edit.aspx**
+**リスト5– Views\Home\Edit.aspx**
 
 [!code-aspx[Main](creating-model-classes-with-the-entity-framework-cs/samples/sample8.aspx)]
 
-## <a name="deleting-database-records-with-the-entity-framework"></a>Entity Framework でのデータベース レコードを削除します。
+## <a name="deleting-database-records-with-the-entity-framework"></a>Entity Framework を使用したデータベースレコードの削除
 
-このチュートリアルに取り組む必要があります、最終的なデータベース操作では、データベース レコードを削除しています。 リスト 6 でコント ローラー アクションを使用すると、特定のデータベース レコードを削除します。
+このチュートリアルで対処する必要がある最後のデータベース操作は、データベースレコードを削除することです。 リスト6のコントローラーアクションを使用して、特定のデータベースレコードを削除できます。
 
-**Listing 6 -- \Controllers\HomeController.cs (Delete action)**
+**リスト 6--\Controllers\HomeController.cs (Delete アクション)**
 
 [!code-csharp[Main](creating-model-classes-with-the-entity-framework-cs/samples/sample9.cs)]
 
-Delete() アクションは、まず、Id と一致するエンティティは、アクションに渡されるムービーを取得します。 次に、ムービーは、SaveChanges() メソッドを続けて DeleteObject() メソッドを呼び出すことによって、データベースから削除されます。 最後に、ユーザーはインデックス ビューにリダイレクトされます。
+Delete () アクションは、アクションに渡された Id と一致するムービーエンティティを最初に取得します。 次に、DeleteObject () メソッドを呼び出し、その後に SaveChanges () メソッドを呼び出して、ムービーをデータベースから削除します。 最後に、ユーザーはインデックスビューにリダイレクトされます。
 
 ## <a name="summary"></a>まとめ
 
-このチュートリアルの目的は、ASP.NET MVC と Microsoft Entity Framework を活用して、データベース駆動型 web アプリケーションをビルドする方法をデモしました。 使用すると、選択、挿入、更新、アプリケーションを構築し、データベース レコードを削除する方法を学習しました。
+このチュートリアルの目的は、ASP.NET MVC と Microsoft Entity Framework を利用して、データベース駆動型 web アプリケーションを構築する方法を示すことでした。 データベースレコードの選択、挿入、更新、および削除を可能にするアプリケーションを構築する方法について学習しました。
 
-まず、Visual Studio 内からのエンティティ データ モデルを生成する、Entity Data Model ウィザードを使用する方法について説明します。 次に、LINQ to Entities を使用して、データベース テーブルから一連のデータベース レコードを取得する方法について説明します。 最後に、Entity Framework を使用して挿入、更新、およびデータベースのレコードを削除しました。
+まず、Entity Data Model ウィザードを使用して、Visual Studio 内から Entity Data Model を生成する方法について説明しました。 次に、LINQ to Entities を使用してデータベーステーブルから一連のデータベースレコードを取得する方法について説明します。 最後に、Entity Framework を使用して、データベースレコードを挿入、更新、および削除しています。
 
 > [!div class="step-by-step"]
-> [次へ](creating-model-classes-with-linq-to-sql-cs.md)
+> [Next](creating-model-classes-with-linq-to-sql-cs.md)

@@ -9,11 +9,11 @@ ms.assetid: dab291a0-a8b5-46fa-9dd8-3d35b249201f
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-cs
 msc.type: authoredcontent
 ms.openlocfilehash: a8c1388b73524a8bb918b67aa265db894c07636f
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74572368"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78493426"
 ---
 # <a name="examining-the-events-associated-with-inserting-updating-and-deleting-c"></a>挿入、更新、削除に関連付けられているイベントを調べる (C#)
 
@@ -264,13 +264,13 @@ ObjectDataSource には挿入機能があり、DetailsView のスマートタグ
 
 **図 20**: 新しい製品の `CategoryID` と `SupplierID` の値が1に設定されました ([クリックすると、フルサイズの画像が表示](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image58.png)されます)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 編集、挿入、および削除のプロセスでは、データ Web コントロールと ObjectDataSource の両方が、いくつかの事前レベルおよび事後レベルのイベントを処理します。 このチュートリアルでは、事前レベルのイベントを確認し、これらを使用して入力パラメーターをカスタマイズする方法、またはデータの変更操作をデータ Web コントロールと ObjectDataSource のイベントの両方から完全にキャンセルする方法について説明しました。 次のチュートリアルでは、投稿レベルのイベントのイベントハンドラーの作成と使用について説明します。
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

@@ -1,23 +1,23 @@
 ---
 uid: web-pages/overview/getting-started/index
-title: ASP.NET Web Pages の概要 |Microsoft Docs
+title: はじめに ASP.NET Web ページ |Microsoft Docs
 author: rick-anderson
-description: 学習について ASP.NET Web ページの ASP.NET Web ページおよび新しい Razor 構文は、サーバー コードを HTML t と結合する高速で、わかりやすく、軽量な方法を提供しています.
+description: ASP.NET Web ページ ASP.NET Web ページについて説明します。新しい Razor 構文では、サーバーコードと HTML t...
 ms.author: riande
 ms.date: 05/18/2012
 ms.assetid: 99253c4e-a125-4c21-85e7-a6dd74d93892
 msc.legacyurl: /web-pages/overview/getting-started
 msc.type: chapter
 ms.openlocfilehash: 50a249d0e64cff2a8c4f16f38f530b6d52f755de
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133173"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78520648"
 ---
-# <a name="getting-started-with-aspnet-web-pages"></a>ASP.NET Web ページの概要
+# <a name="getting-started-with-aspnet-web-pages"></a>ASP.NET Web ページでのはじめに
 
-> どのような Web ページと WebMatrix は、さらにすべてをインストール、最初に、サイトを展開する方法です。
+> Web ページと WebMatrix の概要に加えて、すべてをインストールし、作業を開始し、サイトを展開する方法についても説明します。
 
 - [Visual Studio で ASP.NET Web ページをプログラミングする](program-asp-net-web-pages-in-visual-studio.md)
 - [ASP.NET Web プログラミング Razor 構文入門](introducing-razor-syntax-c.md)
@@ -27,7 +27,7 @@ ms.locfileid: "65133173"
 - [Web サイトにソーシャル ネットワーキングを追加する](13-adding-social-networking-to-your-web-site.md)
 - [ASP.NET Web ページの概要](introducing-aspnet-web-pages-2/index.md)
 
-    - [はじめに](introducing-aspnet-web-pages-2/getting-started.md)
+    - [作業の開始](introducing-aspnet-web-pages-2/getting-started.md)
     - [プログラミングの基礎](introducing-aspnet-web-pages-2/intro-to-web-pages-programming.md)
     - [データの表示](introducing-aspnet-web-pages-2/displaying-data.md)
     - [HTML フォームの基本](introducing-aspnet-web-pages-2/form-basics.md)

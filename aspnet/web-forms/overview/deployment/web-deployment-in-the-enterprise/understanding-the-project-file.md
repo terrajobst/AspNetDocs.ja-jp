@@ -9,21 +9,21 @@ ms.assetid: 07978d9d-341c-4524-bcba-62976f390f77
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-project-file
 msc.type: authoredcontent
 ms.openlocfilehash: 419fe51aaf65bddcc2c50380f099f842a8d9439c
-ms.sourcegitcommit: 84b1681d4e6253e30468c8df8a09fe03beea9309
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/02/2019
-ms.locfileid: "73445691"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78508054"
 ---
 # <a name="understanding-the-project-file"></a>プロジェクトファイルについて
 
 [Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[[Download PDF]\(PDF をダウンロード\)](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > ビルドと配置のプロセスの中核となるのは、Microsoft Build Engine (MSBuild) プロジェクトファイルです。 このトピックでは、まず MSBuild とプロジェクトファイルの概念的な概要について説明します。 ここでは、プロジェクトファイルを操作するときに使用する主要なコンポーネントについて説明します。また、プロジェクトファイルを使用して実際のアプリケーションを配置する方法の例を示します。
 > 
-> 学習内容:
+> ここでは、次の内容について学習します。
 > 
 > - MSBuild が MSBuild プロジェクトファイルを使用してプロジェクトをビルドする方法。
 > - MSBuild をインターネットインフォメーションサービス (IIS) Web 配置ツール (Web 配置) などの展開テクノロジと統合する方法について説明します。
@@ -97,13 +97,13 @@ Web プロジェクト用のカスタムプロジェクトファイルを作成�
 > [!NOTE]
 > Msbuild.exe で使用できる引数とスイッチの詳細については、「 [Msbuild コマンドラインリファレンス](https://msdn.microsoft.com/library/ms164311.aspx)」を参照してください。
 
-同じプロパティ構文を使用して、環境変数と組み込みプロジェクトプロパティの値を取得できます。 よく使用される多くのプロパティが定義されており、関連するパラメーター名を含めることによってプロジェクトファイルで使用できます。 たとえば、現在のプロジェクト プラットフォームを取得する&#x2014;など **x86** または **AnyCpu**&#x2014;含めることができます、 **$(Platform)** プロパティ参照でプロジェクト ファイルです。 詳細については、「[ビルドコマンドとプロパティのマクロ](https://msdn.microsoft.com/library/c02as0cs.aspx)」、「 [MSBuild プロジェクトの共通プロパティ](https://msdn.microsoft.com/library/bb629394.aspx)」、および「[予約済みのプロパティ](https://msdn.microsoft.com/library/ms164309.aspx)」を参照してください。
+同じプロパティ構文を使用して、環境変数と組み込みプロジェクトプロパティの値を取得できます。 よく使用される多くのプロパティが定義されており、関連するパラメーター名を含めることによってプロジェクトファイルで使用できます。 たとえば、&#x2014;現在のプロジェクトプラットフォーム ( **x86**や**AnyCpu**&#x2014;など) を取得するには、プロジェクトファイルに **$ (platform)** プロパティの参照を含めることができます。 詳細については、「[ビルドコマンドとプロパティのマクロ](https://msdn.microsoft.com/library/c02as0cs.aspx)」、「 [MSBuild プロジェクトの共通プロパティ](https://msdn.microsoft.com/library/bb629394.aspx)」、および「[予約済みのプロパティ](https://msdn.microsoft.com/library/ms164309.aspx)」を参照してください。
 
 プロパティは、多くの場合、*条件*と組み合わせて使用されます。 ほとんどの MSBuild 要素は**Condition**属性をサポートしています。これにより、msbuild が要素を評価する条件を指定できます。 たとえば、次のプロパティ定義について考えてみます。
 
 [!code-xml[Main](understanding-the-project-file/samples/sample5.xml)]
 
-MSBuild では、このプロパティの定義を処理するとき、まず確認するかどうか、 **$(OutputRoot)** プロパティの値が使用可能な。 プロパティ値が空白&#x2014;の場合、ユーザーはこのプロパティ&#x2014;の値を指定していません。条件が**true**に評価され、プロパティ値がに設定され**ます。\** 発行します。ユーザーがこのプロパティの値を指定した場合、条件は**false**と評価され、静的なプロパティ値は使用されません。
+MSBuild がこのプロパティ定義を処理するときに、 **$ (Outputroot)** プロパティ値が使用可能かどうかを最初に確認します。 プロパティ値が空白&#x2014;の場合、ユーザーはこのプロパティ&#x2014;の値を指定していません。条件が**true**に評価され、プロパティ値がに設定され**ます。\** 発行します。ユーザーがこのプロパティの値を指定した場合、条件は**false**と評価され、静的なプロパティ値は使用されません。
 
 条件を指定するさまざまな方法の詳細については、「 [MSBuild の条件](https://msdn.microsoft.com/library/7szfhaft.aspx)」を参照してください。
 
@@ -130,10 +130,10 @@ Item 要素には、 [Itemmetadata](https://msdn.microsoft.com/library/ms164284.
 
 ### <a name="targets-and-tasks"></a>ターゲットとタスク
 
-MSBuild スキーマでは、 [task](https://msdn.microsoft.com/library/77f2hx1s.aspx)要素は個々のビルド命令 (またはタスク) を表します。 MSBuild には、多数の定義済みタスクが含まれています。 例 :
+MSBuild スキーマでは、 [task](https://msdn.microsoft.com/library/77f2hx1s.aspx)要素は個々のビルド命令 (またはタスク) を表します。 MSBuild には、多数の定義済みタスクが含まれています。 次に例を示します。
 
 - **コピー**タスクは、ファイルを新しい場所にコピーします。
-- **Csc**タスクは、Visual C# コンパイラを起動します。
+- **Csc**タスクは、Visual C#コンパイラを呼び出します。
 - **Vbc.exe**タスクは、Visual Basic コンパイラを呼び出します。
 - **Exec**タスクは、指定されたプログラムを実行します。
 - **メッセージ**タスクは、メッセージを logger に書き込みます。
@@ -219,7 +219,7 @@ MSBuild スキーマでは、 [task](https://msdn.microsoft.com/library/77f2hx1s
 
 次のトピック「[ビルドプロセスについ](understanding-the-build-process.md)て」では、プロジェクトファイルを使用してビルドと配置を制御する方法について詳しく説明しています。これは、現実的なレベルの複雑さでソリューションをデプロイする方法を説明することによって行われます。
 
-## <a name="further-reading"></a>関連項目
+## <a name="further-reading"></a>参考資料
 
 プロジェクトファイルと WPP の詳細については、「Microsoft Build Engine の内部」を参照してください[。: MSBuild と Team Foundation Build](http://amzn.com/0735645248) By 作成者 Iロウ Hashimi およびウィリアム Bartholomew、ISBN: 978-0-7356-4524-0。
 

@@ -9,11 +9,11 @@ ms.assetid: b651dc58-93c7-4f83-a74e-3b99f6d60848
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs
 msc.type: authoredcontent
 ms.openlocfilehash: e26b8e841f86272a158b0c09b62ab2790d01d191
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74571431"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78479362"
 ---
 # <a name="an-overview-of-inserting-updating-and-deleting-data-c"></a>データの挿入、更新、および削除の概要 (C#)
 
@@ -148,7 +148,7 @@ ObjectDataSource がページに追加され、構成されたら、データを
 
 GridView はプロパティウィンドウまたは宣言型の構文を通じて ObjectDataSource にバインドできますが、そのためには、適切な BoundField および `DataKeyNames` マークアップを手動で追加する必要があります。
 
-GridView コントロールには、行レベルの編集と削除のサポートが組み込まれています。 削除をサポートするように GridView を構成すると、削除ボタンの列が追加されます。 エンドユーザーが特定の行の [削除] ボタンをクリックすると、ポストバック ensues と GridView によって次の手順が実行されます。
+GridView コントロールには、行レベルの編集と削除のサポートが組み込まれています。 構成の削除をサポートするために GridView 列の削除ボタンを追加します。 エンドユーザーは、特定の行の削除ボタンをクリックすると、ポストバックに陥ります、GridView は、次の手順を実行します。
 
 1. ObjectDataSource の `DeleteParameters` 値が割り当てられています
 2. ObjectDataSource の `Delete()` メソッドが呼び出され、指定されたレコードが削除されます。
@@ -163,7 +163,7 @@ GridView コントロールには、行レベルの編集と削除のサポー�
 
 GridView に削除機能を追加するには、単にそのスマートタグにアクセスし、[削除を有効にする] チェックボックスをオンにします。
 
-![[削除を有効にする] チェックボックスをオンにします。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image24.png)
+![有効にするチェック ボックスを削除するを確認してください。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image24.png)
 
 **図 10**: [削除を有効にする] チェックボックスをオンにする
 
@@ -173,7 +173,7 @@ CommandField には、CommandField に表示される一連のボタンを示す
 
 [!code-aspx[Main](an-overview-of-inserting-updating-and-deleting-data-cs/samples/sample5.aspx)]
 
-信じられないかもしれませんが、GridView に削除サポートを追加しています。 図11に示すように、ブラウザーを使用してこのページにアクセスすると、[削除] ボタンの列が表示されます。
+信じられないかもしれませんが、GridView に削除サポートを追加しています。 図 11 に示すようとブラウザーの削除ボタンの列からこのページにアクセスが存在します。
 
 [CommandField ![Delete ボタンの列が追加されます。](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image26.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image25.png)
 
@@ -365,15 +365,15 @@ GridView および DetailsView と同様に、[削除] ボタンをクリック�
 > [!NOTE]
 > DetailsView と同様に、FormView の `CurrentMode` プロパティは、表示されているインターフェイスを示し、その `DefaultMode` プロパティは、編集または挿入の完了後に FormView が返すモードを示します。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、GridView、DetailsView、および FormView を使用したデータの挿入、編集、および削除の基本について説明します。 これら3つのコントロールは、データ Web コントロールと ObjectDataSource によって ASP.NET ページに1行のコードを記述しなくても使用できる、いくつかの組み込みデータ変更機能を提供します。 ただし、単純なポイントとクリックの手法では、非常に低速で単純なデータ変更のユーザーインターフェイスが表示されます。 検証を提供したり、プログラムの値を挿入したり、例外を適切に処理したり、ユーザーインターフェイスをカスタマイズしたりするには、次のいくつかのチュートリアルで説明する手法を活用する必要があります。
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
 > [!div class="step-by-step"]
-> [次へ](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md)
+> [Next](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md)

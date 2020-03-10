@@ -1,192 +1,192 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-vb
-title: '繰り返し #4 – アプリケーションを疎結合 (VB) を作成する |Microsoft Docs'
+title: 'イテレーション #4 –アプリケーションを疎結合にする (VB) |Microsoft Docs'
 author: microsoft
-description: この 4 番目のイテレーションで、保守し、Contact Manager アプリケーションの変更を容易にできるようにするソフトウェア設計パターンをいくつかの利点を実行します。 .
+description: この4回目のイテレーションでは、複数のソフトウェア設計パターンを利用して、連絡先マネージャーアプリケーションを簡単に管理および変更できるようにします。 ...
 ms.author: riande
 ms.date: 02/20/2009
 ms.assetid: 92c70297-4430-4e4e-919a-9c2333a8d09a
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 422c75406d9c08279d0c2224ee4b6db3a71eb1b3
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65117730"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78470224"
 ---
-# <a name="iteration-4--make-the-application-loosely-coupled-vb"></a>繰り返し #4 – アプリケーションを疎結合 (VB) を作成します。
+# <a name="iteration-4--make-the-application-loosely-coupled-vb"></a>イテレーション #4 –アプリケーションを疎結合にする (VB)
 
-によって[Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft)
 
-[コードをダウンロードします。](iteration-4-make-the-application-loosely-coupled-vb/_static/contactmanager_4_vb1.zip)
+[コードのダウンロード](iteration-4-make-the-application-loosely-coupled-vb/_static/contactmanager_4_vb1.zip)
 
-> この 4 番目のイテレーションで、保守し、Contact Manager アプリケーションの変更を容易にできるようにするソフトウェア設計パターンをいくつかの利点を実行します。 たとえば、Repository パターンと依存関係の注入パターンを使用するようにアプリケーションをリファクタリングします。
+> この4回目のイテレーションでは、複数のソフトウェア設計パターンを利用して、連絡先マネージャーアプリケーションを簡単に管理および変更できるようにします。 たとえば、リポジトリパターンと依存関係の注入パターンを使用するようにアプリケーションをリファクターします。
 
-## <a name="building-a-contact-management-aspnet-mvc-application-vb"></a>ASP.NET MVC 連絡先管理アプリケーション (VB) の構築
+## <a name="building-a-contact-management-aspnet-mvc-application-vb"></a>Contact Management ASP.NET MVC アプリケーションの構築 (VB)
 
-このチュートリアル シリーズでは、開始から終了に全体連絡先管理アプリケーションを構築します。 Contact Manager アプリケーションは、ユーザーの一覧については店舗連絡先情報の名前、電話番号、電子メール アドレスにするようにことができます。
+この一連のチュートリアルでは、最初から最後まで、連絡先管理アプリケーション全体を作成します。 連絡先マネージャーアプリケーションを使用すると、連絡先情報 (名前、電話番号、電子メールアドレスなど) をユーザーの一覧に格納できます。
 
-複数のイテレーションにおける、アプリケーションを構築します。 反復処理ごとに、アプリケーション徐々 に向上します。 この複数のイテレーションのアプローチの目的は、各変更の理由を理解するためです。
+複数のイテレーションに対してアプリケーションをビルドします。 各イテレーションで、アプリケーションを段階的に改善します。 この複数のイテレーションアプローチの目的は、各変更の理由を理解できるようにすることです。
 
-- 繰り返し #1 - は、アプリケーションを作成します。 最初のイテレーションを作成、連絡先マネージャー最も簡単な方法で考えられるします。 基本的なデータベース操作のサポートを追加します。作成、読み取り、更新、および削除 (CRUD)。
+- イテレーション #1-アプリケーションを作成します。 最初のイテレーションでは、最も簡単な方法で Contact Manager を作成します。 基本的なデータベース操作 (作成、読み取り、更新、削除) のサポートを追加します。
 
-- 繰り返し #2 - は、素敵に見えるアプリケーションを作成します。 このイテレーションで、アプリケーションの見た目を向上させる、既定の ASP.NET MVC ビュー マスター ページを変更し、カスケード スタイル シート。
+- イテレーション #2-アプリケーションの外観を良くします。 このイテレーションでは、既定の ASP.NET MVC ビューマスターページとカスケードスタイルシートを変更することによって、アプリケーションの外観を改善します。
 
-- 繰り返し #3 - フォーム検証を追加します。 3 番目のイテレーションでは、基本的なフォーム検証を追加します。 ユーザーは、必要なフォームのフィールドを完了しなくても、フォームを送信できないようにようにします。 また、電子メール アドレスと電話番号を検証しました。
+- イテレーション #3-フォーム検証を追加します。 3番目のイテレーションでは、基本的なフォーム検証を追加します。 必要なフォームフィールドを完了しないで、フォームを送信できないようにします。 また、電子メールアドレスと電話番号も検証します。
 
-- 繰り返し #4 - は、アプリケーションを疎結合を作成します。 この 4 番目のイテレーションで、保守し、Contact Manager アプリケーションの変更を容易にできるようにするソフトウェア設計パターンをいくつかの利点を実行します。 たとえば、Repository パターンと依存関係の注入パターンを使用するようにアプリケーションをリファクタリングします。
+- イテレーション #4-アプリケーションの疎結合を実現します。 この4回目のイテレーションでは、複数のソフトウェア設計パターンを利用して、連絡先マネージャーアプリケーションを簡単に管理および変更できるようにします。 たとえば、リポジトリパターンと依存関係の注入パターンを使用するようにアプリケーションをリファクターします。
 
-- 繰り返し #5 - 単体テストを作成します。 5 番目のイテレーションでアプリケーションと簡単に維持単体テストを追加して変更します。 データ モデル クラスの模擬テストを実行し、コント ローラーと検証ロジックの単体テストをビルドします。
+- イテレーション #5-単体テストを作成します。 5番目のイテレーションでは、単体テストを追加することによって、アプリケーションの保守と変更を容易にします。 データモデルクラスをモック化し、コントローラーと検証ロジックの単体テストをビルドします。
 
-- 繰り返し #6 - は、テスト駆動開発を使用します。 この 6 番目のイテレーションでは、アプリケーションに新しい機能を追加には、まず単体テストの記述、単体テストに対してコードを記述します。 このイテレーションは、連絡先グループを追加します。
+- イテレーション #6-テスト駆動型開発を使用します。 この6番目のイテレーションでは、最初に単体テストを記述し、単体テストに対してコードを記述することによって、アプリケーションに新しい機能を追加します。 このイテレーションでは、連絡先グループを追加します。
 
-- 繰り返し #7 - Ajax 機能を追加します。 7 番目のイテレーションで改良、応答性と、アプリケーションのパフォーマンスの Ajax のサポートを追加します。
+- イテレーション #7-Ajax 機能を追加します。 7番目のイテレーションでは、Ajax のサポートを追加することによって、アプリケーションの応答性とパフォーマンスを向上させます。
 
 ## <a name="this-iteration"></a>このイテレーション
 
-この 4 番目のイテレーションの Contact Manager アプリケーションは、アプリケーションをより弱い結合にアプリケーションをリファクタリングします。 アプリケーションが疎結合、ときに、アプリケーションの他の部分のコードを変更することがなくアプリケーションの 1 つの部分のコードを変更できます。 疎結合アプリケーションは、変更に柔軟に対応します。
+Contact Manager アプリケーションのこの4番目のイテレーションでは、アプリケーションの疎結合を行うようにアプリケーションをリファクターします。 アプリケーションが疎結合されている場合は、アプリケーションの他の部分のコードを変更することなく、アプリケーションのある部分でコードを変更できます。 疎結合アプリケーションでは、変更の回復性が向上します。
 
-現時点では、すべての Contact Manager アプリケーションで使用されるデータ アクセスと検証ロジックは、コント ローラー クラスに含まれます。 これは、不適切な考え方です。 アプリケーションの 1 つの部分を変更する必要がある場合、アプリケーションの別の部分にバグが生じる可能性があります。 たとえば、検証ロジックを変更する恐れが、データ アクセスまたはコント ローラー ロジックに新しいバグを導入あります。
-
-> [!NOTE] 
-> 
-> (SRP) クラスを変更する 1 つ以上の理由がないことはありません必要があります。 大規模な単一責任の原則違反は、コント ローラー、検証、およびデータベース ロジックを混在させます。
-
-アプリケーションを変更する必要があるいくつかの理由があります。 アプリケーションに新しい機能を追加する必要があります、アプリケーションでは、バグを修正する必要があります。 またはアプリケーションの機能を実装する方法を変更する必要があります。 アプリケーションは、静的なことはほとんどありません。 拡張し、時間の経過と共に変化する傾向があります。
-
-たとえば、変更、データ アクセス層を実装する方法を決定することに想像してください。 右、Contact Manager アプリケーションを使用して Microsoft Entity Framework がデータベースにアクセスします。 ただし、ADO.NET Data Services や NHibernate などの新規または別のデータ アクセス テクノロジに移行することがあります。 ただし、データ アクセス コードを検証し、コント ローラーのコードから分離されてないため、データ アクセスに直接関連付けられていないその他のコードを変更することがなく、アプリケーションでデータ アクセス コードを変更する方法はありません。
-
-アプリケーションが疎結合、ときにその一方で、ことができますに変更を加える 1 つのアプリケーションの一部をアプリケーションの他の部分に触れることがなく。 たとえば、検証またはコント ローラーのロジックを変更することがなく、データ アクセス テクノロジを切り替えることができます。
-
-このイテレーションより疎結合アプリケーションに Contact Manager アプリケーションのリファクタリングを有効にするいくつかのソフトウェア設計パターンの利点を実行します。 の終了後は、連絡先マネージャーが勝利した t 操作を実行する前に出力しないこと。 ただし、今後より簡単にアプリケーションを変更することを予定です。
+現在、Contact Manager アプリケーションで使用されるすべてのデータアクセスおよび検証ロジックは、コントローラークラスに含まれています。 これは不適切な考え方です。 アプリケーションの一部を変更する必要がある場合は常に、アプリケーションの別の部分にバグを導入するリスクがあります。 たとえば、検証ロジックを変更すると、新しいバグがデータアクセスまたはコントローラーロジックに導入されるリスクがあります。
 
 > [!NOTE] 
 > 
-> リファクタリングは、既存の機能が失われないようにアプリケーションを書き直しのプロセスです。
+> (SRP) クラスは、複数の理由で変更することはできません。 コントローラー、検証、データベースのロジックを組み合わせることは、単一責任の原則に大きな違反となります。
 
-## <a name="using-the-repository-software-design-pattern"></a>リポジトリのソフトウェア設計パターンを使用
+アプリケーションの変更が必要になる理由はいくつかあります。 アプリケーションに新しい機能を追加する必要がある場合や、アプリケーションのバグを修正する必要がある場合、またはアプリケーションの機能を実装する方法を変更する必要がある場合があります。 アプリケーションが静的であることはほとんどありません。 時間の経過と共に成長し、変化する傾向があります。
 
-最初の変更は、リポジトリ パターンと呼ばれるソフトウェアの設計パターンの活用することです。 アプリケーションの残りの部分から、データ アクセス コードを分離するのにリポジトリ パターンを使用します。
+たとえば、データアクセス層の実装方法を変更する場合を考えてみましょう。 現在、Contact Manager アプリケーションは、Microsoft Entity Framework を使用してデータベースにアクセスします。 ただし、ADO.NET Data Services や NHibernate などの別のデータアクセステクノロジに移行することもできます。 ただし、データアクセスコードは検証とコントローラーのコードから分離されていないため、データアクセスに直接関連しない他のコードを変更することなく、アプリケーションのデータアクセスコードを変更することはできません。
 
-リポジトリ パターンを実装するには、次の 2 つの手順を完了する必要があります。
+一方、アプリケーションが疎結合されている場合は、アプリケーションの他の部分に触れることなく、アプリケーションのある部分に変更を加えることができます。 たとえば、検証やコントローラーロジックを変更することなく、データアクセステクノロジを切り替えることができます。
 
-1. インターフェイスを作成します。
-2. インターフェイスを実装する具象クラスを作成します。
+このイテレーションでは、連絡先マネージャーアプリケーションをより疎結合されたアプリケーションにリファクタリングできるようにする、いくつかのソフトウェア設計パターンを利用しています。 完了すると、連絡先マネージャーは、これまでに実行されなかったことをすべて実行します。 ただし、将来、アプリケーションをより簡単に変更できるようになります。
 
-最初に、すべての実行に必要なデータ アクセス メソッドを記述するインターフェイスを作成する必要があります。 リスト 1 で IContactManagerRepository インターフェイスが含まれています。 このインターフェイスは、5 つの方法を説明します。CreateContact()、DeleteContact()、EditContact()、GetContact、および ListContacts() します。
+> [!NOTE] 
+> 
+> リファクタリングは、既存の機能が失われないようにアプリケーションを書き換えるプロセスです。
 
-**1 - Models\IContactManagerRepository.vb を一覧表示します。**
+## <a name="using-the-repository-software-design-pattern"></a>リポジトリソフトウェア設計パターンの使用
+
+最初の変更点は、リポジトリパターンと呼ばれるソフトウェア設計パターンを利用することです。 リポジトリパターンを使用して、データアクセスコードをアプリケーションの他の部分から分離します。
+
+リポジトリパターンを実装するには、次の2つの手順を完了する必要があります。
+
+1. インターフェイスを作成する
+2. インターフェイスを実装する具象クラスを作成する
+
+最初に、実行する必要があるすべてのデータアクセスメソッドを記述するインターフェイスを作成する必要があります。 IContactManagerRepository インターフェイスは、リスト1に含まれています。 このインターフェイスには、CreateContact ()、DeleteContact ()、EditContact ()、GetContact、ListContacts () の5つのメソッドが記述されています。
+
+**リスト 1-Models\IContactManagerRepository.vb**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample1.vb)]
 
-次に、IContactManagerRepository インターフェイスを実装する具象クラスを作成する必要があります。 Microsoft Entity Framework を使用して、データベースへのアクセスには、ため EntityContactManagerRepository をという名前の新しいクラスを作成します。 このクラスは、リスト 2 に含まれます。
+次に、IContactManagerRepository インターフェイスを実装する具象クラスを作成する必要があります。 ここでは、データベースにアクセスするために Microsoft Entity Framework を使用しているため、EntityContactManagerRepository という名前の新しいクラスを作成します。 このクラスは、リスト2に含まれています。
 
-**Listing 2 - Models\EntityContactManagerRepository.vb**
+**リスト 2-Models\EntityContactManagerRepository.vb**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample2.vb)]
 
-EntityContactManagerRepository クラスが IContactManagerRepository インターフェイスを実装することに注意してください。 クラスは、そのインターフェイスによって記述されたメソッドの 5 つすべてを実装します。
+EntityContactManagerRepository クラスに IContactManagerRepository インターフェイスが実装されていることに注意してください。 クラスは、そのインターフェイスによって記述された5つのメソッドすべてを実装します。
 
-なぜインターフェイスで頭を悩ませる必要があるでしょうか。 なぜ、インターフェイスとそれを実装するクラスの両方を作成する必要があるのでしょうか。
+インターフェイスを使用する必要があるのはなぜでしょうか。 インターフェイスとそれを実装するクラスの両方を作成する必要があるのはなぜですか。
 
-1 つの例外を除き、アプリケーションの残りの部分は操作インターフェイスと具象クラスではありません。 EntityContactManagerRepository クラスによって公開されるメソッドを呼び出す代わりに、IContactManagerRepository インターフェイスによって公開されるメソッドを呼び出します。
+1つの例外として、アプリケーションの残りの部分は、具象クラスではなく、インターフェイスと対話します。 EntityContactManagerRepository クラスによって公開されるメソッドを呼び出すのではなく、IContactManagerRepository インターフェイスによって公開されているメソッドを呼び出します。
 
-これにより、アプリケーションの残りの部分を変更することがなく新しいクラスを使用してインターフェイスを実装しましたできます。 たとえば、いくつかの将来の日付で DataServicesContactManagerRepository IContactManagerRepository インターフェイスを実装するクラスを実装する可能性があります。 DataServicesContactManagerRepository クラスは、ADO.NET Data Services を使用して、Microsoft Entity Framework ではなく、データベースにアクセスする可能性があります。
+このようにして、アプリケーションの残りの部分を変更することなく、新しいクラスを使用してインターフェイスを実装できます。 たとえば、将来の日付で、IContactManagerRepository インターフェイスを実装する DataServicesContactManagerRepository クラスを実装することが必要になる場合があります。 DataServicesContactManagerRepository クラスは、ADO.NET Data Services を使用して、Microsoft Entity Framework ではなくデータベースにアクセスする場合があります。
 
-EntityContactManagerRepository の具象クラスではなく IContactManagerRepository インターフェイスに対して、アプリケーション コードがプログラミングされた場合は、コードの残りの部分のいずれかを変更することがなく具象クラスを切り替えることできます。 たとえば、切り替えることができます、EntityContactManagerRepository クラスから DataServicesContactManagerRepository クラスに、データ アクセスまたは検証ロジックを変更することがなく。
+アプリケーションコードが具象 EntityContactManagerRepository クラスではなく IContactManagerRepository インターフェイスに対してプログラミングされている場合、コードの残りの部分を変更せずに具象クラスを切り替えることができます。 たとえば、データアクセスや検証ロジックを変更せずに、EntityContactManagerRepository クラスから DataServicesContactManagerRepository クラスに切り替えることができます。
 
-具象クラスではなくインターフェイス (抽象化) に対するプログラミングによって、アプリケーションの変更に柔軟に対応します。
+具象クラスではなくインターフェイス (抽象化) に対してプログラミングを行うと、アプリケーションの変更に対する回復性が向上します。
 
 > [!NOTE] 
 > 
-> メニュー オプションのリファクタリング、インターフェイスの抽出を選択して、Visual Studio 内の具象クラスからインターフェイスをすばやく作成できます。 たとえば、まず EntityContactManagerRepository クラスを作成でき、IContactManagerRepository インターフェイスを自動的に生成するインターフェイスの抽出を使用できます。
+> メニューオプション [リファクター]、[インターフェイスの抽出] の順に選択すると、Visual Studio 内の具象クラスからインターフェイスをすばやく作成できます。 たとえば、まず EntityContactManagerRepository クラスを作成し、次に Extract インターフェイスを使用して IContactManagerRepository インターフェイスを自動的に生成できます。
 
-## <a name="using-the-dependency-injection-software-design-pattern"></a>依存関係の挿入ソフトウェア設計パターンを使用
+## <a name="using-the-dependency-injection-software-design-pattern"></a>依存関係の注入ソフトウェア設計パターンの使用
 
-別のリポジトリ クラスには、データ アクセス コードを移行しましたが、このクラスを使用して、連絡先のコント ローラーを変更する必要があります。 依存関係の挿入、コント ローラーで、リポジトリ クラスを使用すると呼ばれるソフトウェアの設計パターンの利用されます。
+データアクセスコードを別のリポジトリクラスに移行したので、このクラスを使用するように Contact controller を変更する必要があります。 Microsoft は、コントローラーでリポジトリクラスを使用するために、依存関係の注入と呼ばれるソフトウェア設計パターンを利用します。
 
-変更後にお問い合わせくださいコント ローラーは、リスト 3 に含まれています。
+変更した連絡先コントローラーは、リスト3に含まれています。
 
-**Listing 3 - Controllers\ContactController.vb**
+**リスト 3-コントローラーと vb**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample3.vb)]
 
-リスト 3 の連絡先のコント ローラーが 2 つのコンス トラクターをあることに注意してください。 IContactManagerRepository インターフェイスの具象インスタンスは、最初のコンス トラクターは、2 番目のコンス トラクターに渡します。 連絡先のコント ローラー クラスは*コンス トラクターの依存関係挿入*します。
+リスト3の Contact controller に2つのコンストラクターがあることに注意してください。 1つ目のコンストラクターは、IContactManagerRepository インターフェイスの具象インスタンスを2番目のコンストラクターに渡します。 Contact controller クラスは、*コンストラクターの依存関係の挿入*を使用します。
 
-1 つのみで場所と EntityContactManagerRepository クラスを使用することは最初のコンス トラクターです。 クラスの残りの部分では、具体的な EntityContactManagerRepository クラスではなく IContactManagerRepository インターフェイスを使用します。
+最初のコンストラクターでは、EntityContactManagerRepository クラスが使用されるのは1つだけです。 クラスの残りの部分では、具象 EntityContactManagerRepository クラスではなく、IContactManagerRepository インターフェイスを使用します。
 
-これにより、今後 IContactManagerRepository クラスの実装を切り替えるには簡単です。 EntityContactManagerRepository クラスではなく DataServicesContactRepository クラスを使用する場合は、最初のコンス トラクターを変更するだけです。
+これにより、将来、IContactManagerRepository クラスの実装を簡単に切り替えることができます。 EntityContactManagerRepository クラスの代わりに DataServicesContactRepository クラスを使用する場合は、最初のコンストラクターを変更するだけです。
 
-コンス トラクターの依存関係の挿入によっても、連絡先のコント ローラー クラス非常にテスト可能です。 単体テストでは、IContactManagerRepository クラスのモック実装を渡すことによって、連絡先のコント ローラーをインスタンス化できます。 この機能の依存関係の挿入は、Contact Manager アプリケーションの単体テストを構築するときに、次の反復処理することで非常に重要なになります。
+コンストラクターの依存関係の挿入によって、Contact controller クラスも非常にテスト可能になります。 単体テストでは、IContactManagerRepository クラスのモック実装を渡すことによって Contact コントローラーをインスタンス化できます。 依存関係の注入のこの機能は、Contact Manager アプリケーションの単体テストをビルドするときに、次のイテレーションで非常に重要になります。
 
 > [!NOTE] 
 > 
-> IContactManagerRepository インターフェイスの特定の実装から連絡先のコント ローラー クラスを完全に分離する場合を行う StructureMap や Microsoft などの依存関係の挿入をサポートするフレームワークを活用Entity Framework (MEF)。 依存関係の挿入のフレームワークを利用してしないコードで具象クラスを参照する必要があります。
+> IContactManagerRepository インターフェイスの特定の実装から Contact controller クラスを完全に分離する場合は、構造体 Map や Microsoft のような依存関係の注入をサポートするフレームワークを利用できます。Entity Framework (MEF)。 依存関係挿入フレームワークを利用することで、コード内の具象クラスを参照する必要がなくなります。
 
 ## <a name="creating-a-service-layer"></a>サービス層の作成
 
-お気付きかもしれません、検証ロジックがリスト 3 の変更後のコント ローラー クラスで、コント ローラー ロジックの混在まだします。 データ アクセス ロジックを分離することをお勧めする同様の理由で、検証ロジックを分離することをお勧めを勧めします。
+リスト3の変更されたコントローラークラスのコントローラーロジックと検証ロジックが混在していることがわかっているかもしれません。 データアクセスロジックを分離するという同じ理由から、検証ロジックを分離することをお勧めします。
 
-この問題を解決するには、個別を作成できます[サービス層](http://martinfowler.com/eaaCatalog/serviceLayer.html)します。 サービス層は、コント ローラーおよびリポジトリ クラスの間に挿入できる別のレイヤーです。 サービス層には、検証ロジックのすべてを含む、ビジネス ロジックが含まれています。
+この問題を解決するには、別の[サービスレイヤー](http://martinfowler.com/eaaCatalog/serviceLayer.html)を作成します。 サービスレイヤーは、コントローラーとリポジトリクラスの間に挿入できる個別のレイヤーです。 サービス層には、すべての検証ロジックを含むビジネスロジックが含まれています。
 
-リスト 4、ContactManagerService が含まれています。 連絡先のコント ローラー クラスからの検証ロジックが含まれています。
+ContactManagerService は、リスト4に含まれています。 これには、Contact controller クラスの検証ロジックが含まれています。
 
-**4 - Models\ContactManagerService.vb を一覧表示します。**
+**リスト 4-Model\ Contactmanagerservice. vb**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample4.vb)]
 
-ContactManagerService のコンス トラクターが、ValidationDictionary が必要なことに注意してください。 サービス層は、この ValidationDictionary によってコント ローラーのレイヤーと通信します。 デコレーター パターンについて説明しますと、次のセクションで詳しく ValidationDictionary について説明します。
+ContactManagerService のコンストラクターには、ValidationDictionary が必要であることに注意してください。 サービス層は、この ValidationDictionary を介してコントローラーレイヤーと通信します。 次のセクションでは、デコレータパターンについて説明するときに、ValidationDictionary について詳しく説明します。
 
-さらに、ContactManagerService が IContactManagerService インターフェイスを実装することに注意してください。 常に具象クラスではなくインターフェイスに対するプログラミングを行うよう努力する必要があります。 Contact Manager アプリケーションの他のクラスは ContactManagerService クラスと直接対話しません。 代わりに、1 つの例外を除き、Contact Manager アプリケーションの残りの部分は IContactManagerService インターフェイスに対してプログラミングします。
+さらに、ContactManagerService が IContactManagerService インターフェイスを実装していることに注目してください。 具象クラスではなく、常にインターフェイスに対してプログラミングすることをお勧めします。 Contact Manager アプリケーションの他のクラスは、ContactManagerService クラスと直接やり取りしません。 代わりに、1つの例外を除き、Contact Manager アプリケーションの残りの部分は IContactManagerService インターフェイスに対してプログラミングされます。
 
-IContactManagerService インターフェイスは、リスト 5 に含まれています。
+IContactManagerService インターフェイスは、リスト5に含まれています。
 
-**5 - Models\IContactManagerService.vb を一覧表示します。**
+**リスト 5-Models\IContactManagerService.vb**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample5.vb)]
 
-変更後にお問い合わせくださいコント ローラー クラスは、リスト 6 に含まれます。 連絡先のコント ローラーが不要になった ContactManager リポジトリと対話することに注意してください。 代わりに、連絡先のコント ローラーは、ContactManager サービスと対話します。 各レイヤーは、他のレイヤーから可能な限り分離します。
+変更した Contact controller クラスは、リスト6に含まれています。 Contact controller が ContactManager リポジトリとやり取りしなくなったことに注意してください。 代わりに、Contact controller は ContactManager サービスとやり取りします。 各レイヤーは、他のレイヤーから可能な限り分離されます。
 
-**Listing 6 - Controllers\ContactController.vb**
+**リスト 6-コントローラーの一覧表示、vb**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample6.vb)]
 
-アプリケーションで不要になった単一責任原則 (SRP) の実行します。 リスト 6 で連絡先コント ローラーがアプリケーションの実行フローを制御する以外のすべての責任の切り離されました。 すべての検証ロジックは、連絡先のコント ローラーから削除され、サービス層にプッシュされます。 すべてのデータベース ロジックはリポジトリ層にプッシュされました。
+このアプリケーションでは、単一責任原則 (SRP) の afoul が実行されなくなりました。 リスト6の連絡先コントローラーは、アプリケーション実行のフローを制御する以外に、すべての責任から取り除かれています。 すべての検証ロジックが Contact コントローラーから削除され、サービス層にプッシュされました。 すべてのデータベースロジックがリポジトリレイヤーにプッシュされました。
 
-## <a name="using-the-decorator-pattern"></a>デコレーター パターンを使用します。
+## <a name="using-the-decorator-pattern"></a>デコレータパターンの使用
 
-完全に、コント ローラーの層から、サービス層を分離するためにできるようにします。 原則として、MVC アプリケーションへの参照を追加することがなく、コント ローラーの層から別のアセンブリに、サービス層をコンパイルすることができなければなりません。
+ここでは、サービスレイヤーをコントローラーレイヤーから完全に分離できるようにしたいと考えています。 原則として、MVC アプリケーションに参照を追加しなくても、サービスレイヤーをコントローラーレイヤーとは別のアセンブリでコンパイルできるようにする必要があります。
 
-ただし、このサービス層は、コント ローラーのレイヤーに検証エラー メッセージを渡すことができる必要があります。 コント ローラーとサービス層を結合せずに検証エラー メッセージを通信するために、サービス層を有効にいますか。 という名前のソフトウェア デザイン パターンの活用する、[デコレーター パターン](http://en.wikipedia.org/wiki/Decorator_pattern)します。
+ただし、サービスレイヤーは検証エラーメッセージをコントローラーレイヤーに渡すことができる必要があります。 サービス層がコントローラーとサービス層を結合せずに検証エラーメッセージを伝達できるようにするにはどうすればよいですか。 [デコレータパターン](http://en.wikipedia.org/wiki/Decorator_pattern)というソフトウェア設計パターンを利用できます。
 
-コント ローラーでは、ModelState をという名前の ModelStateDictionary を使用して、検証エラーを表します。 そのため、ModelState をコント ローラーのレイヤーからサービス レイヤーに渡すしたくなるかもしれません。 ただし、ModelState を使用して、サービス層では、サービス層に依存しないように、ASP.NET MVC フレームワークの機能です。 ASP.NET MVC アプリケーションではなく、WPF アプリケーションで、サービス層を使用する、将来は不良になります。 その場合は、ModelStateDictionary クラスを使用する ASP.NET MVC フレームワークを参照するでしょう。
+コントローラーは ModelState という名前の ModelStateDictionary を使用して、検証エラーを表します。 そのため、コントローラーレイヤーからサービスレイヤーに ModelState を渡すことが必要になる場合があります。 ただし、サービス層で ModelState を使用すると、サービス層は ASP.NET MVC フレームワークの機能に依存するようになります。 これは、いつか、ASP.NET MVC アプリケーションではなく、WPF アプリケーションでサービス層を使用することが必要になる場合があるため、問題になります。 この場合、ModelStateDictionary クラスを使用するために ASP.NET MVC フレームワークを参照する必要はありません。
 
-デコレーター パターンでは、新しいクラスにインターフェイスを実装するために、既存のクラスをラップすることができます。 連絡先マネージャー プロジェクトには、リスト 7 に含まれる ModelStateWrapper クラスが含まれています。 ModelStateWrapper クラスは、8 の一覧で、インターフェイスを実装します。
+デコレータパターンを使用すると、インターフェイスを実装するために、新しいクラスの既存のクラスをラップすることができます。 連絡先マネージャープロジェクトには、リスト7に含まれる ModelStateWrapper クラスが含まれています。 ModelStateWrapper クラスは、リスト8のインターフェイスを実装します。
 
-**Listing 7 - Models\Validation\ModelStateWrapper.vb**
+**リスト 7-Models\Validation\ModelStateWrapper.vb**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample7.vb)]
 
-**Listing 8 - Models\Validation\IValidationDictionary.vb**
+**リスト 8-モデル \ 検証 \ vb**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample8.vb)]
 
-見てリスト 5 を実行する場合は、ContactManager サービス層が排他的 IValidationDictionary インターフェイスを使用することが表示されます。 ContactManager サービスでは、ModelStateDictionary クラスに依存しません。 連絡先のコント ローラーは、ContactManager サービスを作成するとき、コント ローラーは次のように、ModelState をラップします。
+リスト5をよく見ると、ContactManager サービスレイヤーが IValidationDictionary インターフェイスのみを使用していることがわかります。 ContactManager サービスは ModelStateDictionary クラスに依存しません。 Contact controller が ContactManager サービスを作成すると、コントローラーは次のように ModelState をラップします。
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample9.vb)]
 
 ## <a name="summary"></a>まとめ
 
-このイテレーションで Contact Manager アプリケーションに新しい機能を追加したことしませんでした。 このイテレーションの目標は、リファクタリング、Contact Manager アプリケーションを維持し、変更ができるので簡単でした。
+このイテレーションでは、Contact Manager アプリケーションに新しい機能を追加しませんでした。 このイテレーションの目的は、連絡先マネージャーアプリケーションをリファクタリングして、管理と変更が容易になるようにすることでした。
 
-まず、リポジトリのソフトウェア設計パターンを実装します。 すべてのデータ アクセス コードを ContactManager リポジトリ クラスを個別に移行したとします。
+まず、リポジトリソフトウェア設計パターンを実装しています。 すべてのデータアクセスコードを別の ContactManager リポジトリクラスに移行しています。
 
-私たちも、検証ロジックをコント ローラー ロジックから分離されます。 すべての検証コードを含む別のサービス層を作成しました。 コント ローラー レイヤー、サービス層と対話し、サービス層がリポジトリ層と対話します。
+また、この検証ロジックをコントローラーロジックから分離しています。 ここでは、すべての検証コードを含む別のサービスレイヤーを作成しました。 コントローラーレイヤーはサービス層と対話し、サービス層はリポジトリレイヤーと対話します。
 
-サービス層を作成したときに、ModelState をサービス層から分離するデコレーター パターンの利点をしました。 サービス層には、ModelState のではなく IValidationDictionary インターフェイスに対してプログラミングされました。
+サービスレイヤーを作成したときに、デコレータパターンを利用してサービスレイヤーから ModelState を分離しました。 サービス層では、ModelState ではなく IValidationDictionary インターフェイスに対してプログラミングされていました。
 
-最後に、依存関係の注入パターンをという名前のソフトウェア デザイン パターンの利用をしました。 このパターンでは、具象クラスではなくインターフェイス (抽象化) に対してプログラミングできます。 依存関係の挿入のデザイン パターンを実装することも、によりコードがしやすい。 次のイテレーションでは、このプロジェクトに単体テストを追加します。
+最後に、依存関係の挿入パターンというソフトウェア設計パターンを利用しました。 このパターンを使用すると、具象クラスではなくインターフェイス (抽象化) に対してプログラミングできます。 依存関係の注入デザインパターンを実装することで、コードのテストが容易になります。 次のイテレーションでは、プロジェクトに単体テストを追加します。
 
 > [!div class="step-by-step"]
 > [前へ](iteration-3-add-form-validation-vb.md)

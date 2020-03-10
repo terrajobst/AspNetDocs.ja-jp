@@ -1,146 +1,146 @@
 ---
 uid: aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio
-title: プログラミングの ASP.NET Web Pages (Razor) を使用して Visual Studio |Microsoft Docs
+title: Visual Studio を使用したプログラミング ASP.NET Web ページ (Razor) |Microsoft Docs
 author: Rick-Anderson
-description: この付録では、Visual Studio 2010 または Visual Web Developer 2010 Express を Razor 構文を使用して ASP.NET Web Pages をプログラムに使用する方法について説明します。
+description: この付録では、Visual Studio 2010 または Visual Web Developer 2010 Express を使用して、Razor 構文で ASP.NET Web ページをプログラミングする方法について説明します。
 ms.author: riande
 ms.date: 02/13/2014
 ms.assetid: 0acfec5a-48f2-4766-a801-a0f426966f0a
 msc.legacyurl: /web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio
 msc.type: authoredcontent
 ms.openlocfilehash: 1a76098779d05912bf7bdf2de5fdce024770752c
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134607"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78514294"
 ---
-# <a name="programming-aspnet-web-pages-razor-using-visual-studio"></a>Visual Studio を使用して ASP.NET Web ページ (Razor) のプログラミング
+# <a name="programming-aspnet-web-pages-razor-using-visual-studio"></a>Visual Studio を使用したプログラミング ASP.NET Web ページ (Razor)
 
-によって[Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac)
 
-> この記事では、Visual Studio または Visual Web Developer Express を web サイトの ASP.NET Web Pages (Razor) のプログラムに使用する方法について説明します。
+> この記事では、Visual Studio または Visual Web Developer Express を使用して ASP.NET Web ページ (Razor) web サイトをプログラミングする方法について説明します。
 >
 > 学習内容
 >
-> - Visual Studio のバージョンの ASP.NET Web ページを操作する (ある場合) をインストールするために必要とします。
-> - Visual Web Developer 2010 Express を ASP.NET Web Pages のサポートを追加する方法。
-> - Visual Studio で ASP.NET Razor ページ, IntelliSense や、デバッガーを使用する機能を使用する方法。
+> - お使いのバージョンの Visual Studio で ASP.NET Web ページを操作するために必要なもの (ある場合)。
+> - Visual Web Developer 2010 Express に ASP.NET Web ページのサポートを追加する方法について説明します。
+> - Visual Studio の機能を使用して、IntelliSense やデバッガーなどの ASP.NET Razor ページを操作する方法について説明します。
 >
 >
-> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
+> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されているソフトウェアのバージョン
 >
 >
-> - ASP.NET Web Pages (Razor) 3
+> - ASP.NET Web ページ (Razor) 3
 > - Visual Studio 2013
 > - WebMatrix 3
 >
 >
-> このチュートリアルは、ASP.NET Web Pages 2、Visual Studio 2012、Visual Studio 2010、および WebMatrix 2 により連携します。
+> このチュートリアルは、ASP.NET Web ページ2、Visual Studio 2012、Visual Studio 2010、および WebMatrix 2 でも動作します。
 
-WebMatrix またはその他の多くのコード エディターを使用して、Razor 構文を使用する ASP.NET Web pages をプログラミングできます。 さまざまな種類のアプリケーション (web サイトがだけでなく) を作成するための強力なツール一式を提供するすべての機能を備えた統合開発環境 (IDE) である Microsoft Visual Studio を使用することもできます。 ASP.NET Razor ページを使用することができますを使用する[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)します。
+WebMatrix または他の多くのコードエディターを使用して Razor 構文で ASP.NET Web ページをプログラミングできます。 Microsoft Visual Studio を使用することもできます。これは、web サイトだけではなく、さまざまな種類のアプリケーションを作成するための強力なツールセットを提供する、フル機能の統合開発環境 (IDE) です。 ASP.NET Razor ページを操作するには、 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)を使用できます。
 
-ASP.NET Razor web ページを使用したプログラミングの Visual Studio が提供されている 2 つの特に便利な機能は次のとおりです。
+ASP.NET Razor web ページを使用したプログラミングのために Visual Studio が提供する、次の2つの便利な機能があります。
 
-- *IntelliSense*します。 Visual Studio に組み込まれている IntelliSense 機能は、WebMatrix では、IntelliSense のより包括的なです。
-- *デバッガー*します。 デバッガーでは、実行、変数を調べること、およびコード 1 行ずつステップ実行中にプログラムを停止することで、コードのトラブルシューティングを行うことができます。
+- *IntelliSense*。 Visual Studio に組み込まれている IntelliSense 機能は、WebMatrix の IntelliSense よりも包括的です。
+- *デバッガー*。 デバッガーを使用すると、実行中のプログラムを停止したり、変数を調べたり、コードを行ごとにステップ実行したりして、コードのトラブルシューティングを行うことができます。
 
-## <a name="using-visual-studio-with-different-versions-of-aspnet-web-pages"></a>Visual Studio を使用して、さまざまなバージョンの ASP.NET Web ページ
+## <a name="using-visual-studio-with-different-versions-of-aspnet-web-pages"></a>異なるバージョンの ASP.NET Web ページでの Visual Studio の使用
 
-Visual Studio 2017 での ASP.NET web アプリを開発するには、インストール、 **ASP.NET および web 開発**ワークロード。
+Visual Studio 2017 で ASP.NET web アプリを開発するには、 **ASP.NET と web 開発**ワークロードをインストールします。
 
-Visual Studio 2012 と Visual Studio 2013 には、ASP.NET Web Pages のサポートが含まれます。 (ASP.NET Web Pages をサポートするために必要なパッケージは、Visual Studio をインストールするときにインストールされます)。
+Visual Studio 2012 および Visual Studio 2013 には ASP.NET Web ページのサポートが含まれています。 (ASP.NET Web ページをサポートするために必要なパッケージは、Visual Studio のインストール時にインストールされます)。
 
-Visual Studio 2010 サポートは含まれません既定の ASP.NET Web ページ。 Visual Studio 2010 では、ASP.NET Web Pages を使用するには、ASP.NET MVC パッケージをインストールする必要があります。 ASP.NET Web Pages 2 を取得するには、ASP.NET MVC 4 をインストールします。
+Visual Studio 2010 では、ASP.NET Web ページの既定のサポートは含まれていません。 Visual Studio 2010 で ASP.NET Web ページを使用するには、ASP.NET MVC パッケージをインストールする必要があります。 ASP.NET Web ページ2を取得するには、ASP.NET MVC 4 をインストールします。
 
-次の表では、異なるバージョンの Visual Studio で ASP.NET Web Pages のサポートをまとめたものです。
+次の表は、さまざまなバージョンの Visual Studio での ASP.NET Web ページのサポートをまとめたものです。
 
 |  | Visual Studio 2010 | Visual Studio 2012 | Visual Studio 2013 |
 | --- | --- | --- | --- |
-| **ASP.NET Web ページ 2** | ASP.NET MVC 4 をインストールします。 | (含まれています) | (含まれています) |
-| **ASP.NET Web ページ 3** |  | 更新プログラムを ASP.NET Web ページから 3 つの NuGet | (含まれています) |
+| **ASP.NET Web ページ2** | ASP.NET MVC 4 をインストールする | 含める | 含める |
+| **ASP.NET Web ページ3** |  | NuGet を使用して ASP.NET Web ページ3に更新する | 含める |
 
-Visual Studio 2010 を使用する、次を参照してください。 [Visual Studio 2010 で ASP.NET Web Pages のサポートのインストール](#vs2010support)します。
+Visual Studio 2010 を使用するには、「 [Visual studio 2010 での ASP.NET Web ページのサポートのインストール](#vs2010support)」を参照してください。
 
-## <a name="launching-visual-studio-from-webmatrix"></a>WebMatrix から Visual Studio を起動します。
+## <a name="launching-visual-studio-from-webmatrix"></a>WebMatrix からの Visual Studio の起動
 
-WebMatrix で、プロジェクトの開始が Visual Studio に切り替える場合、WebMatrix が簡単に Visual Studio でプロジェクトを開く ボタンを提供します。 有効にするには、このボタンは、コンピューターにインストールされている Visual Studio が必要です。 次の図では、WebMatrix で、ボタンを示します。
+WebMatrix でプロジェクトを開始し、Visual Studio に切り替えたい場合は、Visual Studio で簡単にプロジェクトを開くためのボタンが WebMatrix に用意されています。 このボタンを有効にするには、コンピューターに Visual Studio がインストールされている必要があります。 次の図は、WebMatrix のボタンを示しています。
 
-![Visual Studio を起動します。](program-asp-net-web-pages-in-visual-studio/_static/image1.png)
+![Visual Studio を起動する](program-asp-net-web-pages-in-visual-studio/_static/image1.png)
 
-ボタンをクリックすると、プロジェクトは Visual Studio で開きます。 切り替えることができますを行き来 WebMatrix や Visual Studio は問題なく。 すべてのファイルが他の環境で変更された最新の変更の取得を再読み込みする必要がある場合に通知されます。
+このボタンをクリックすると、Visual Studio でプロジェクトが開きます。 WebMatrix と Visual Studio は、問題なく切り替えることができます。 他の環境でファイルが変更された場合は通知されます。最新の変更を取得するには、ファイルを再読み込みする必要があります。
 
-## <a name="creating-aspnet-razor-site-in-visual-studio"></a>Visual Studio で ASP.NET Razor のサイトを作成します。
+## <a name="creating-aspnet-razor-site-in-visual-studio"></a>Visual Studio での ASP.NET Razor サイトの作成
 
-Visual Studio で ASP.NET Razor の web サイトを作成します。
+Visual Studio で ASP.NET Razor web サイトを作成するには、次のようにします。
 
 1. Visual Studio を開きます。
-2. **ファイル** メニューのをクリックして**新しい Web サイト**します。
+2. **[ファイル]** メニューの **[新しい Web サイト]** をクリックします。
 
-    ![新しい web サイトを作成します。](program-asp-net-web-pages-in-visual-studio/_static/image2.png)
-3. **新しい Web サイト** ダイアログ ボックスで、(Visual C# または Visual Basic) を使用する言語を選択します。
-4. 選択、 **ASP.NET Web サイト (Razor)** テンプレート。
+    ![新しい web サイトの作成](program-asp-net-web-pages-in-visual-studio/_static/image2.png)
+3. **[新しい Web サイト]** ダイアログボックスで、使用する言語 (ビジュアルC#または Visual Basic) を選択します。
+4. **[ASP.NET Web Site (Razor)]** テンプレートを選択します。
 
-    ![razor のサイト](program-asp-net-web-pages-in-visual-studio/_static/image3.png)
+    ![razor サイト](program-asp-net-web-pages-in-visual-studio/_static/image3.png)
 5. **[OK]** をクリックします。
 
-新しいプロジェクトが存在し、既定の web ページを簡単には格納されます。
+新しいプロジェクトが存在し、作業を開始するのに役立ついくつかの既定の web ページが表示されます。
 
-### <a name="using-intellisense"></a>Using IntelliSense
+### <a name="using-intellisense"></a>IntelliSense の使用
 
-サイトを作成するので、Visual Studio で IntelliSense がどのように動作するかが確認できます。
+サイトを作成したので、Visual Studio での IntelliSense の動作を確認できます。
 
-1. 作成した web サイトで開く、 *Default.cshtml*ページ。
-2. 後に、 `<h3>`  ページで、タグを入力`@ServerInfo.`(ドットを含む)。 IntelliSense の使用可能なメソッドの表示方法に注意してください、`ServerInfo`ドロップダウン リストでヘルパー。
+1. 先ほど作成した web サイトで、既定の [ *cshtml* ] ページを開きます。
+2. ページの `<h3>` タグの後に、「`@ServerInfo.` (ドットを含む)」と入力します。 IntelliSense によって、`ServerInfo` ヘルパーの使用可能なメソッドがドロップダウンリストに表示されることに注意してください。
 
     ![intellisense](program-asp-net-web-pages-in-visual-studio/_static/image4.png)
-3. 選択、`GetHtml`メソッドを一覧し、Enter キーを押します。 IntelliSense は、メソッドで自動的に入力されます。 (C# での任意のメソッドに追加する必要がありますと`()`メソッドの後の文字)。完成したコード、`GetHtml`メソッドは次のようになります。
+3. 一覧から `GetHtml` メソッドを選択し、enter キーを押します。 IntelliSense は、メソッドを自動的に入力します。 (のC#メソッドと同様に、メソッドの後に `()` 文字を追加する必要があります)。`GetHtml` メソッドの完成したコードは、次の例のようになります。
 
     [!code-cshtml[Main](program-asp-net-web-pages-in-visual-studio/samples/sample1.cshtml)]
-4. Ctrl + f5 キーを押してページを実行します。 これは、ページがどのようにと、ブラウザーに表示されます。
+4. Ctrl キーを押しながら F5 キーを押して、ページを実行します。 ブラウザーに表示された場合、ページは次のようになります。
 
-    ![ブラウザーで既定のページ](program-asp-net-web-pages-in-visual-studio/_static/image5.png)
+    ![ブラウザーの既定のページ](program-asp-net-web-pages-in-visual-studio/_static/image5.png)
 5. ブラウザーを閉じます。
 
-### <a name="using-the-debugger"></a>デバッガーを使用します。
+### <a name="using-the-debugger"></a>デバッガーの使用
 
-1. 上部にある、 *Default.cshtml*ページで後で始まる行`Page.Title`、次のコード行を追加します。
+1. *既定の cshtml*ページの先頭で、`Page.Title`で始まる行の後に、次のコード行を追加します。
 
     [!code-csharp[Main](program-asp-net-web-pages-in-visual-studio/samples/sample2.cs)]
-2. エディター、コードの左側の灰色の余白を追加するにはこの新しい行の横にあるクリックして、*ブレークポイント*します。 ブレークポイントは、何が起こっているかを確認できるようにその時点で、プログラムの実行を停止するデバッガーを示すマーカーです。
+2. コードの左側にあるエディターの灰色の余白で、*ブレークポイント*を追加するために、この新しい行の横をクリックします。 ブレークポイントは、その時点でプログラムの実行を停止するようにデバッガーに指示するマーカーで、何が起こっているかを確認できます。
 
     ![ブレークポイントの設定](program-asp-net-web-pages-in-visual-studio/_static/image6.png)
-3. 呼び出しを削除、`ServerInfo.GetHtml`メソッド呼び出しを追加し、`@myTime`代わりに変数。 この呼び出しは、新しい行のコードによって返される現在の時刻値を表示します。
-4. F5 キーを押して、デバッガーでページを実行します。 ページは、設定したブレークポイントで停止します。 次の図は、ページ内でどのようにエディター (黄色) でブレークポイントを設定しました。
+3. `ServerInfo.GetHtml` メソッドの呼び出しを削除し、その場所に `@myTime` 変数の呼び出しを追加します。 この呼び出しでは、新しいコード行によって返される現在の時刻値が表示されます。
+4. F5 キーを押して、デバッガーでページを実行します。 設定したブレークポイントでページが停止します。 次の図は、エディターでのページの表示とブレークポイント (黄色) を示しています。
 
-    ![デバッグのブレークポイント](program-asp-net-web-pages-in-visual-studio/_static/image7.png)
-5. [デバッグ] ツールバーをクリックして、**ステップ イン**次のコード行を実行するボタン (または F11 キーを押します)。 このボタンをクリックするたびに、実行を次のコード行に進みます。
+    ![ブレークポイントのデバッグ](program-asp-net-web-pages-in-visual-studio/_static/image7.png)
+5. デバッグ ツールバーで、**ステップイン** ボタンをクリックするか、F11 キーを押して次のコード行を実行します。 このボタンをクリックするたびに、実行を次のコード行に進めます。
 
-    ![ステップ イン ボタン](program-asp-net-web-pages-in-visual-studio/_static/image8.png)
-6. 値を調べて、`myTime`変数の上にマウス ポインターを保持しているかに表示される値を調べることによって、**ローカル**と**呼び出し履歴**windows。 Visual Studio では、変数の値を表示します。
+    ![[ステップイン] ボタン](program-asp-net-web-pages-in-visual-studio/_static/image8.png)
+6. `myTime` 変数の値を確認するには、マウスポインターをその上に置くか、 **[ローカル]** ウィンドウと **[呼び出し履歴]** ウィンドウに表示されている値を調べます。 Visual Studio では、変数の値が表示されます。
 
-    ![表示時刻の値](program-asp-net-web-pages-in-visual-studio/_static/image9.png)
-7. 変数を調べると、コードのステップが完了したら、f5 キーを押して 1 行ずつ停止することがなく、ページの実行を継続します。 すべてのコードのステップが完了したら、ブラウザーにページが表示されます。
+    ![時間値の表示](program-asp-net-web-pages-in-visual-studio/_static/image9.png)
+7. 変数を調べてコードをステップ実行したら、F5 キーを押して、各行で停止することなくページの実行を続けます。 すべてのコードのステップ実行が完了すると、ブラウザーにページが表示されます。
 
-デバッガーについてと、Visual Studio でコードをデバッグする方法についての詳細についてを参照してください。[チュートリアル。Visual Web Developer で Web ページのデバッグ](https://msdn.microsoft.com/library/z9e7w6cs.aspx)します。
+デバッガーの詳細と、Visual Studio でコードをデバッグする方法の詳細については、「[チュートリアル: Visual Web Developer での Web ページのデバッグ](https://msdn.microsoft.com/library/z9e7w6cs.aspx)」を参照してください。
 
-## <a name="using-razor-in-aspnet-mvc-projects-with-visual-studio"></a>Visual Studio を使用した ASP.NET MVC プロジェクトでの Razor の使用
+## <a name="using-razor-in-aspnet-mvc-projects-with-visual-studio"></a>Visual Studio での ASP.NET MVC プロジェクトでの Razor の使用
 
-ASP.NET MVC プロジェクトで幅広く、Razor 構文が使用されます。 MVC は、動的な web サイトを構築する、パターン ベースの強力な方法です。 ASP.NET Web Pages サイトの保守が困難になると、ASP.NET MVC アプリケーションに変換することを検討する可能性があります。 MVC アプリケーションの作成の例は、次を参照してください。 [ASP.NET MVC 5 の概要](../../../mvc/overview/getting-started/introduction/getting-started.md)します。
+Razor 構文は、ASP.NET MVC プロジェクトでも広く使用されています。 MVC は、動的な web サイトを構築するための強力なパターンベースの方法です。 ASP.NET Web ページサイトの保守が困難になった場合は、ASP.NET MVC アプリケーションに変換することを検討してください。 MVC アプリケーションを作成する例については、「[はじめに with ASP.NET MVC 5](../../../mvc/overview/getting-started/introduction/getting-started.md)」を参照してください。
 
 <a id="vs2010support"></a>
 ## <a name="installing-support-for-aspnet-web-pages-in-visual-studio-2010"></a>Visual Studio 2010 での ASP.NET Web ページのサポートのインストール
 
-このセクションでは、Visual Studio の Visual Web Developer Express 2010 と ASP.NET Web ページのツールをインストールする方法を示します。
+このセクションでは、Visual Web Developer Express 2010 と ASP.NET Web ページ Tools for Visual Studio をインストールする方法について説明します。
 
-1. Web Platform Installer がまだしていない場合は、次の URL からダウンロードします。
+1. Web Platform Installer をまだ持っていない場合は、次の URL からダウンロードしてください。
 
     [https://www.microsoft.com/web/downloads/platform.aspx](https://www.microsoft.com/web/downloads/platform.aspx)
 2. Web Platform Installer を実行します。
-3. をクリックして、**製品**タブ。
+3. **[製品]** タブをクリックします。
 
-    ![WebPI 製品 タブ](program-asp-net-web-pages-in-visual-studio/_static/image10.png)
-4. 検索**ASP.NET MVC 4** (ASP.NET Web ページ 2) の順にクリックします**追加**します。 これらの製品には、ASP.NET Razor web サイトを構築するための Visual Studio ツールが含まれます。
+    ![WebPI 製品タブ](program-asp-net-web-pages-in-visual-studio/_static/image10.png)
+4. **ASP.NET MVC 4** (ASP.NET Web ページ 2) を検索し、 **[追加]** をクリックします。 これらの製品には、ASP.NET Razor web サイトをビルドするための Visual Studio ツールが含まれています。
 
-    ![WebPi のインストール オプション](program-asp-net-web-pages-in-visual-studio/_static/image11.png)
-5. クリックして**インストール**インストールを完了します。
+    ![WebPi インストールオプション](program-asp-net-web-pages-in-visual-studio/_static/image11.png)
+5. **[インストール]** をクリックしてインストールを完了します。

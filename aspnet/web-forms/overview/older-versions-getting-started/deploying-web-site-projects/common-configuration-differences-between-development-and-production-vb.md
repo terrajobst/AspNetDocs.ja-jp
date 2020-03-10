@@ -9,17 +9,17 @@ ms.assetid: 548e75f6-4d6c-4cb4-8da8-417915eb8393
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/common-configuration-differences-between-development-and-production-vb
 msc.type: authoredcontent
 ms.openlocfilehash: cc65af6eb4fca8b3b805e11e26da468a958a4221
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74619952"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78513250"
 ---
 # <a name="common-configuration-differences-between-development-and-production-vb"></a>開発と運用の間の一般的な構成の違い (VB)
 
 [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[PDF のダウンロード](https://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial05_ConfigDifferences_vb.pdf)
+[[Download PDF]\(PDF をダウンロード\)](https://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial05_ConfigDifferences_vb.pdf)
 
 > 前のチュートリアルでは、開発環境から運用環境に関連するすべてのファイルをコピーして、web サイトをデプロイしました。 ただし、環境によって構成に違いがあることは珍しくありません。そのため、各環境には一意の Web.config ファイルが必要です。 このチュートリアルでは、一般的な構成の違いについて説明し、個別の構成情報を保持するための戦略について説明します。
 
@@ -107,13 +107,13 @@ Web デプロイプロジェクトの使用方法の詳細については、 [MS
 > [!NOTE]
 > Web 配置プロジェクトは Visual Studio アドインとして実装されており、Visual Studio Express エディション (Visual Web Developer を含む) ではアドインがサポートされていないため、Visual Web Developer では Web 配置プロジェクトを使用できません。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 開発における web アプリケーションの外部リソースと動作は、通常、同じアプリケーションが運用環境にある場合とは異なります。 たとえば、データベース接続文字列、コンパイルオプション、および処理されない例外が発生した場合の動作は、通常、環境によって異なります。 デプロイプロセスでは、これらの違いに対応する必要があります。 このチュートリアルで説明したように、最も簡単な方法は、代替構成ファイルを運用環境に手動でコピーすることです。 Web 配置プロジェクトアドインを使用する場合や、このようなカスタマイズに対応できる、より形式化されたビルドまたは展開プロセスを使用する場合は、より洗練されたソリューションが可能です。
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 

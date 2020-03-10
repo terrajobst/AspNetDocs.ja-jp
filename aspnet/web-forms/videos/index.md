@@ -9,11 +9,11 @@ ms.assetid: f215d6b9-8a84-4bd8-8881-e9527d814950
 msc.legacyurl: /web-forms/videos
 msc.type: book
 ms.openlocfilehash: 0082330e75a905469c66b04277d70416555c30c3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59397215"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78514402"
 ---
 # <a name="videos"></a>ビデオ
 
@@ -73,7 +73,7 @@ ms.locfileid: "59397215"
     - [ASP.NET Web ページでブラウザーの機能を検出する](how-do-i/how-do-i-detect-browser-capabilities-in-aspnet-web-pages.md)
     - [ASP.NET サーバー コントロールをそのレンダリングに使用されるアダプターにマッピングする](how-do-i/how-do-i-map-an-aspnet-server-control-to-the-adaptor-used-to-render-it.md)
     - [クエリ文字列を利用し、あるページから別のページに情報を渡す](how-do-i/how-do-i-pass-information-from-one-page-to-another-using-a-query-string.md)
-    - [Aspnet を使用して、\_merge.exe アセンブリをマージするためのユーティリティ](how-do-i/how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies.md)
+    - [Aspnet\_merge .exe ユーティリティを使用してアセンブリをマージする](how-do-i/how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies.md)
     - [ASP.NET でページ間ポストバックを実装する](how-do-i/how-do-i-implement-a-cross-page-postback-in-aspnet.md)
     - [プログラミングで ASP.NET Web ページにコントロールを追加する](how-do-i/how-do-i-add-controls-to-an-aspnet-web-page-programmatically.md)
     - [非表示フィールドを利用し、クライアント側の情報を格納し、操作する](how-do-i/how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information.md)
@@ -180,7 +180,7 @@ ms.locfileid: "59397215"
     - [構造化照会言語に関するその他の情報](sql-2005/more-structured-query-language.md)
     - [セキュリティとネットワーク接続について理解する](sql-2005/understanding-security-and-network-connectivity.md)
     - [SQL Server 2005 Express Edition に Web アプリケーションを接続する](sql-2005/connecting-your-web-application-to-sql-server-2005-express-edition.md)
-    - [SQL Server Management Studio を使用する](sql-2005/using-sql-server-management-studio.md)
+    - [SQL Server Management Studio の使用](sql-2005/using-sql-server-management-studio.md)
     - [Reporting Services 入門](sql-2005/getting-started-with-reporting-services.md)
     - [Business Intelligence Development Studio でレポートをビルドし、カスタマイズする](sql-2005/building-and-customizing-reports-in-business-intelligence-development-studio.md)
     - [ストアド プロシージャを作成し、使用する](sql-2005/creating-and-using-stored-procedures.md)
@@ -221,16 +221,16 @@ ms.locfileid: "59397215"
     - [[ASP.NET 2.0 入門:] ASP.NET 2.0 の基礎](migrating/intro-to-aspnet-20-aspnet-20-fundamentals.md)
     - [[ASP.NET 2.0 入門:] ユーザー インターフェイス要素](migrating/intro-to-aspnet-20-user-interface-elements.md)
     - [クラシック ASP から ASP.NET に移行する](migrating/migrating-from-classic-asp-to-aspnet.md)
-    - [JSP 開発者向け ASP.NET 入門:ASP.NET 2.0 へようこそ](migrating/intro-to-aspnet-for-jsp-developers-welcome-to-aspnet-20.md)
-    - [JSP 開発者向け ASP.NET 入門:アプリケーションの構築](migrating/intro-to-aspnet-for-jsp-developers-building-applications.md)
-    - [ColdFusion 開発者向け ASP.NET 入門:ASP.NET をレパートリーに追加します。](migrating/intro-to-aspnet-for-coldfusion-developers-adding-aspnet-to-your-repertoire.md)
-    - [ColdFusion 開発者向け ASP.NET 入門:ASP.NET アプリケーションの構築](migrating/introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application.md)
+    - [JSP 開発者向け ASP.NET 入門: ASP.NET 2.0 へようこそ](migrating/intro-to-aspnet-for-jsp-developers-welcome-to-aspnet-20.md)
+    - [JSP 開発者向け ASP.NET 入門: アプリケーションをビルドする](migrating/intro-to-aspnet-for-jsp-developers-building-applications.md)
+    - [ColdFusion 開発者向け ASP.NET 入門: ASP.NET をレパートリーに追加する](migrating/intro-to-aspnet-for-coldfusion-developers-adding-aspnet-to-your-repertoire.md)
+    - [ColdFusion 開発者向け ASP.NET 入門: ASP.NET アプリケーションをビルドする](migrating/introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application.md)
     - [PHP と Windows プラットフォームの間の相互運用](migrating/interop-between-php-and-the-windows-platform.md)
 - [2.0 アプリケーションをビルドする](building-20-applications/index.md)
 
     - [[レッスン 1:] Visual Web Developer Express 入門](building-20-applications/lesson-1-getting-started-with-visual-web-developer-express.md)
     - [[レッスン 2:] Web フォーム ユーザー インターフェイスを作成する](building-20-applications/lesson-2-creating-a-web-forms-user-interface.md)
-    - [[レッスン 3:]イベントとポストバックについてより理解します。](building-20-applications/lesson-3-understanding-more-about-events-and-postback.md)
+    - [[レッスン 3:]イベントとポストバックについて理解する](building-20-applications/lesson-3-understanding-more-about-events-and-postback.md)
     - [[レッスン 4:] Web アプリケーションの状態について理解する](building-20-applications/lesson-4-understanding-web-application-state.md)
     - [[レッスン 5:] Web サイトのデバッグとトレース](building-20-applications/lesson-5-debugging-and-tracing-your-website.md)
     - [[レッスン 6:] スタイルシートとマスター ページを使用する](building-20-applications/lesson-6-working-with-stylesheets-and-master-pages.md)
@@ -353,15 +353,15 @@ ms.locfileid: "59397215"
         - [ASP アプリケーションからデータセットとフィルターを使用する](data-access/adonet-data-services/how-to-work-with-datasets-and-filters-from-an-asp-application.md)
     - [LINQ の操作方法](data-access/how-do-i-with-linq/index.md)
 
-        - [LINQ to SQL:概要](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-overview.md)
-        - [LINQ to SQL:データ モデル](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-data-model.md)
-        - [LINQ to SQL:データベースのクエリを実行します。](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-querying-the-database.md)
-        - [LINQ to SQL:データベースの更新](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-the-database.md)
-        - [LINQ to SQL:LinqDataSource](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-linqdatasource.md)
-        - [LINQ to SQL:Custom LinqDataSource](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-custom-linqdatasource.md)
-        - [LINQ to SQL:ストアド プロシージャの使用](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-using-stored-procedures.md)
-        - [LINQ to SQL:ストアド プロシージャで更新しています](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-with-stored-procedures.md)
-        - [LINQ to SQL:任意の SQL を実行します。](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-executing-arbitrary-sql.md)
+        - [LINQ to SQL: 概要](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-overview.md)
+        - [LINQ to SQL: データ モデル](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-data-model.md)
+        - [LINQ to SQL: データベースにクエリを実行する](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-querying-the-database.md)
+        - [LINQ to SQL: データベースを更新する](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-the-database.md)
+        - [LINQ to SQL: LinqDataSource](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-linqdatasource.md)
+        - [LINQ to SQL: カスタム LinqDataSource](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-custom-linqdatasource.md)
+        - [LINQ to SQL: ストアド プロシージャを使用する](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-using-stored-procedures.md)
+        - [LINQ to SQL: ストアド プロシージャによる更新](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-with-stored-procedures.md)
+        - [LINQ to SQL: 任意の SQL を実行する](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-executing-arbitrary-sql.md)
     - [VB チーム提供の LINQ ビデオ](data-access/linq-videos-from-the-vb-team/index.md)
 
         - [LINQ 入門](data-access/linq-videos-from-the-vb-team/how-do-i-get-started-with-linq.md)
@@ -392,7 +392,7 @@ ms.locfileid: "59397215"
     - [ASP.NET 動的データ カスタム フォームの初期設定](aspnet-dynamic-data/aspnet-dynamic-data-custom-form-formatting.md)
 - [ASP.NET 3.5](aspnet-35/index.md)
 
-    - [操作方法](aspnet-35/how-do-i/index.md)
+    - [[カテゴリから検索]](aspnet-35/how-do-i/index.md)
 
         - [Visual Studio 2008 でマスター ページを作成する](aspnet-35/how-do-i/how-do-i-create-a-master-page-in-visual-studio-2008.md)
         - [Visual Studio 2008 で入れ子になったマスター ページを作成する](aspnet-35/how-do-i/how-do-i-create-nested-master-page-in-visual-studio-2008.md)
@@ -410,7 +410,7 @@ ms.locfileid: "59397215"
         - [Visual Studio 2008 の ASP.NET AJAX サポート](aspnet-35/aspnet-ajax/aspnet-ajax-support-in-visual-studio-2008.md)
         - [既存の ASP.NET ページに AJAX 機能を追加する](aspnet-35/aspnet-ajax/adding-ajax-functionality-to-an-existing-aspnet-page.md)
         - [Web サイトで AJAX 対応 Web サービスを作成し、使用する](aspnet-35/aspnet-ajax/creating-and-using-an-ajax-enabled-web-service-in-a-web-site.md)
-        - [ASP.NET AJAX:ASP.NET AJAX のデモンストレーション](aspnet-35/aspnet-ajax/aspnet-ajax-a-demonstration-of-aspnet-ajax.md)
+        - [ASP.NET AJAX: ASP.NET AJAX のデモンストレーション](aspnet-35/aspnet-ajax/aspnet-ajax-a-demonstration-of-aspnet-ajax.md)
         - [ADO.NET Data Services と ASP.NET AJAX サポート](aspnet-35/aspnet-ajax/adonet-data-services-with-aspnet-ajax-support.md)
         - [ASP.NET Ajax History 入門](aspnet-35/aspnet-ajax/introduction-to-aspnet-ajax-history.md)
         - [スクリプトを結合し、AJAX のパフォーマンスを改善する](aspnet-35/aspnet-ajax/using-script-combining-to-improve-ajax-performance.md)

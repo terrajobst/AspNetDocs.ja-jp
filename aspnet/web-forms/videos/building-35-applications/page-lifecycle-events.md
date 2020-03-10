@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/building-35-applications/page-lifecycle-events
-title: ページのライフ サイクル イベント |Microsoft Docs
+title: ページライフサイクルイベント |Microsoft Docs
 author: JoeStagner
-description: ASP.NET では、ASP.NET ページ ライフ サイクルで重要なすべての時系列インスタンスにフックで非常に豊富なイベント処理メカニズムを提供します。 このビデオでは、列挙型をされます.
+description: ASP.NET には、ASP.NET ページのライフサイクルのすべての重要な時系列インスタンスにフックする、非常に豊富なイベントメカニズムが用意されています。 このビデオは列挙されます...
 ms.author: riande
 ms.date: 04/09/2009
 ms.assetid: 11237821-220e-4357-9fa6-38245084e093
 msc.legacyurl: /web-forms/videos/building-35-applications/page-lifecycle-events
 msc.type: video
 ms.openlocfilehash: 28fc01819aeb1a0bc74ff80fadb44a9f69de3a88
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59390247"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78519946"
 ---
 # <a name="page-lifecycle-events"></a>ページ ライフサイクル イベント
 
-によって[Joe Stagner](https://github.com/JoeStagner)
+[Joe Stagner](https://github.com/JoeStagner)
 
-ASP.NET では、ASP.NET ページ ライフ サイクルで重要なすべての時系列インスタンスにフックで非常に豊富なイベント処理メカニズムを提供します。 このビデオは、多くの共通のライフ サイクル イベント、その起動順序、および各イベントを使用するいくつかの種類に列挙されます。
+ASP.NET には、ASP.NET ページのライフサイクルのすべての重要な時系列インスタンスにフックする、非常に豊富なイベントメカニズムが用意されています。 このビデオでは、共通のライフサイクルイベントの多く、その発生順序、および各イベントを使用する可能性のある種類を列挙します。
 
-[&#9654;(12 分) のビデオを見る](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/page-lifecycle-events)
+[&#9654;ビデオを見る (12 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/page-lifecycle-events)

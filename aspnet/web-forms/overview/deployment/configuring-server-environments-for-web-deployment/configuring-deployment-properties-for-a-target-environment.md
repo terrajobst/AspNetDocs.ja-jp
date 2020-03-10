@@ -1,113 +1,113 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment
-title: ターゲット環境の展開のプロパティの構成 |Microsoft Docs
+title: ターゲット環境の配置プロパティの構成 |Microsoft Docs
 author: jrjlee
-description: このトピックでは、特定のターゲット環境にサンプルの連絡先マネージャー ソリューションをデプロイするために環境固有のプロパティを構成する方法について説明しています.
+description: このトピックでは、サンプルの Contact Manager ソリューションを特定のターゲット環境にデプロイするために、環境固有のプロパティを構成する方法について説明します。
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: b5b86e03-b8ed-46e6-90fa-e1da88ef34e9
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment
 msc.type: authoredcontent
 ms.openlocfilehash: 9742be7d718384c1b108d5f2c0c43e8e8d4fe8a9
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108667"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78516808"
 ---
 # <a name="configuring-deployment-properties-for-a-target-environment"></a>ターゲット環境の配置プロパティを構成する
 
-によって[Jason Lee](https://github.com/jrjlee)
+[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[[Download PDF]\(PDF をダウンロード\)](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> このトピックでは、特定のターゲット環境にサンプルの連絡先マネージャー ソリューションをデプロイするために環境固有のプロパティを構成する方法について説明します。
+> このトピックでは、サンプルの Contact Manager ソリューションを特定のターゲット環境にデプロイするために、環境固有のプロパティを構成する方法について説明します。
 
-このトピックでは、一連の Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に基づいているチュートリアルの一部を形成します。このチュートリアル シリーズは、サンプル ソリューションを使用して&#x2014;、 [Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)ソリューション&#x2014;現実的なレベルの ASP.NET MVC 3 アプリケーション、Windows の通信など、複雑な web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
+このトピックでは、Fabrikam, Inc. という架空の企業のエンタープライズ展開要件に基づいて、一連のチュートリアルの一部を説明します。このチュートリアルシリーズでは、&#x2014; [Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)ソリューション&#x2014;のサンプルソリューションを使用して、ASP.NET MVC 3 アプリケーション、Windows Communication Foundation (WCF) サービス、データベースプロジェクトなど、現実的なレベルの複雑さを持つ web アプリケーションを表します。
 
-これらのチュートリアルの中核の展開方法が分割のプロジェクト ファイルの方法で説明されているに基づいて[ビルド プロセスを理解する](../web-deployment-in-the-enterprise/understanding-the-build-process.md)、によって制御されるビルド プロセスでは、2 つのプロジェクト ファイル&#x2014;1 つを格納しています。すべての変換先の環境と環境固有のビルドと配置の設定を含む 1 つに適用される手順をビルドします。 ビルド時に、環境固有のプロジェクト ファイルは、ビルド手順の完全なセットを形成する環境に依存しないプロジェクト ファイルにマージされます。
+これらのチュートリアルの中核となる配置方法は、「ビルド[プロセスについ](../web-deployment-in-the-enterprise/understanding-the-build-process.md)て」で説明されている「プロジェクトファイルの分割」の方法に基づいて&#x2014;います。この方法では、ビルドプロセスは、各配置先環境に適用されるビルド命令を含む2つのプロジェクトファイルと、環境固有のビルドおよび配置設定を含んでいます。 ビルド時に、環境固有のプロジェクトファイルが環境に依存しないプロジェクトファイルにマージされ、ビルド命令の完全なセットが形成されます。
 
 ## <a name="process-overview"></a>プロセスの概要
 
-連絡先マネージャー ソリューション ビルドしてデプロイに使用するプロジェクト ファイルは、2 つの物理ファイルに分かれています。
+Contact Manager ソリューションのビルドと配置に使用するプロジェクトファイルは、次の2つの物理ファイルに分割されます。
 
-- ユニバーサルを含む 1 つのビルド設定および処理手順 (、 *Publish.proj*ファイル)。
-- 特定の環境を含む 1 つのビルド設定 (*Env Dev.proj*、 *Env Stage.proj*など)。
+- ユニバーサルビルド設定と命令 ( *Publish*ファイル) を含む1つ。
+- 1つは、環境固有のビルド設定 (*env、proj*、 *env*など) を格納するものです。
 
-ビルド時に、適切な環境に固有のプロジェクト ファイルは、universal にマージ*Publish.proj*ビルド手順の完全なセットを形成するファイル。 作成または展開シナリオについて説明する設定と環境固有のプロジェクト ファイルをカスタマイズすることで、特定の展開先環境へのデプロイを構成できます。
+ビルド時に、適切な環境固有のプロジェクトファイルが universal *Publish. proj*ファイルにマージされ、ビルド命令の完全なセットが形成されます。 独自の配置シナリオを記述した設定を使用して、環境固有のプロジェクトファイルを作成またはカスタマイズすることにより、特定の宛先環境への配置を構成できます。
 
-これらの値の多くは、移行先環境を構成する方法によって決まります&#x2014;Web Deployment Agent サービス (リモート エージェント) または Web 配置ハンドラーを使用して、ターゲット web サーバーが構成されているかどうかに具体的には、します。 これらの方法の詳細については、および独自の環境の適切なアプローチの選択に関するガイダンスについては、「 [Web 配置を右側のアプローチを選択](choosing-the-right-approach-to-web-deployment.md)します。
+これらの値の多くは、宛先の環境が特に&#x2014;どのように構成されているかによって決定されます。対象の web サーバーが Web Deployment Agent サービス (リモートエージェント) と Web 配置ハンドラーのどちらを使用するように構成されているかによって決まります。 これらの方法の詳細と、独自の環境に適したアプローチを選択するためのガイダンスについては、「 [Web 配置に適切なアプローチを選択する](choosing-the-right-approach-to-web-deployment.md)」を参照してください。
 
-[Contact Manager シナリオ](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)2 つの環境に固有のプロジェクト ファイルが必要です。
+[Contact Manager のシナリオ](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)には、次の2つの環境固有のプロジェクトファイルが必要です。
 
-- 開発者のテスト環境への配置 (*Env Dev.proj*)。 開発者のテスト環境が」の説明に従って、リモート エージェントを使用してリモート展開を受け入れるように構成されている[シナリオ。Web 配置のテスト環境を構成する](scenario-configuring-a-test-environment-for-web-deployment.md)します。 このファイルは、エンドポイント アドレスだけでなく、接続文字列などのサービス エンドポイントの場所に固有の設定は、リモート エージェントを提供する必要があります。
-- ステージング環境への配置 (*Env Stage.proj*)。 ステージング環境が」の説明に従って、Web 配置ハンドラーを使用してリモート展開を受け入れるように構成されている[シナリオ。Web デプロイのステージング環境を構成する](scenario-configuring-a-staging-environment-for-web-deployment.md)します。 このファイルは、Web 配置ハンドラーのエンドポイント アドレスと接続文字列のような場所に固有の設定を提供し、エンドポイントをサービスする必要があります。
+- 開発者テスト環境への配置 (*Env Dev. proj*)。 開発者テスト環境は、リモートエージェントを使用したリモート配置を受け入れるように構成されています。詳細については、「[シナリオ: Web 配置用のテスト環境を構成](scenario-configuring-a-test-environment-for-web-deployment.md)する」を参照してください。 このファイルには、リモートエージェントエンドポイントアドレスと、接続文字列やサービスエンドポイントなどの場所固有の設定を指定する必要があります。
+- ステージング環境への配置 (*Env-Stage. proj*)。 ステージング環境は、Web 配置ハンドラーを使用したリモートデプロイを受け入れるように構成されています。詳細については、「[シナリオ: Web デプロイのステージング環境の構成](scenario-configuring-a-staging-environment-for-web-deployment.md)」を参照してください。 このファイルには、Web 配置ハンドラエンドポイントアドレスだけでなく、接続文字列やサービスエンドポイントなどの場所固有の設定も指定する必要があります。
 
-Web パッケージ自体の内容の環境に固有のプロジェクト ファイルで構成設定に影響しないことを確認することが重要&#x2014;制御代わりに、パッケージの展開方法と、どのようなパラメーター値は、パッケージが提供されます抽出されます。 」の説明に従って、手動で web パッケージを運用環境にインポートする[シナリオ。Web 配置を運用環境を構成する](scenario-configuring-a-production-environment-for-web-deployment.md)と[Web パッケージを手動でインストール](../web-deployment-in-the-enterprise/manually-installing-web-packages.md)ので、どのような設定が、パッケージを生成したときに環境固有のプロジェクト ファイルで使用されるかは関係ありません。 パッケージをインポートするときに、接続文字列と、サービス エンドポイントなどの任意のパラメーター化された値を要求インターネット インフォメーション サービス (IIS) マネージャーが表示されます。
+環境固有のプロジェクトファイルで構成する設定は、web パッケージ自体&#x2014;の内容には影響しないことに注意してください。パッケージの配置方法と、パッケージの抽出時に提供されるパラメーター値を制御します。 「[シナリオ: Web 配置用に運用環境を構成](scenario-configuring-a-production-environment-for-web-deployment.md)する」および「 [Web パッケージを手動でインストール](../web-deployment-in-the-enterprise/manually-installing-web-packages.md)する」の説明に従って、web パッケージを運用環境に手動でインポートする場合は、パッケージの生成時に環境固有のプロジェクトファイルで使用した設定には関係ありません。 インターネットインフォメーションサービス (IIS) マネージャーでは、パッケージをインポートするときに、接続文字列やサービスエンドポイントなどのパラメーター化された値を入力するように求められます。
 
-連絡先マネージャー ソリューションを独自のターゲット環境をデプロイするには、か、このファイルをカスタマイズまたはこれをテンプレートとして使用でき、独自のファイルを作成できます。
+連絡先マネージャーソリューションを独自のターゲット環境に配置するには、このファイルをカスタマイズするか、テンプレートとして使用し、独自のファイルを作成します。
 
-**連絡先マネージャー ソリューションを環境に固有の展開設定を構成するには**
+**Contact Manager ソリューションの環境固有の配置設定を構成するには**
 
-1. Visual Studio 2010 では、ContactManager WCF ソリューションを開きます。
-2. **ソリューション エクスプ ローラー**ウィンドウで、展開、**発行**フォルダー、展開、 **EnvConfig**フォルダー、およびダブルクリック**Env Dev.proj**.
+1. Visual Studio 2010 で ContactManager-WCF ソリューションを開きます。
+2. **[ソリューションエクスプローラー]** ウィンドウで、 **Publish**フォルダーを展開し、 **EnvConfig**フォルダーを展開して、 **[Env-Dev. proj]** をダブルクリックします。
 
     ![](configuring-deployment-properties-for-a-target-environment/_static/image1.png)
-3. プロパティ値を置き換える、 *Env Dev.proj*テスト環境の正しい値を持つファイル。
+3. *Env*ファイル内のプロパティ値を、独自のテスト環境の正しい値に置き換えます。
 
     > [!NOTE]
-    > この手順を次の表では、これらの各プロパティの詳細を提供します。
-4. 作業内容を保存し、閉じます、 *Env Dev.proj*ファイル。
+    > これらの各プロパティの詳細については、この手順の後の表を参照してください。
+4. 作業内容を保存し、 *Env Dev. proj*ファイルを閉じます。
 
-## <a name="choosing-the-right-deployment-properties"></a>適切な展開のプロパティ を選択
+## <a name="choosing-the-right-deployment-properties"></a>適切に展開するためのプロパティの選択
 
-この表は、サンプルの環境に固有のプロジェクト ファイル内の各プロパティの目的は、 *Env Dev.proj*を指定する必要があります値のいくつかの指針を示します。
+次の表で*は、環境*固有のサンプルプロジェクトファイルの各プロパティの目的について説明し、指定する必要のある値についていくつかのガイダンスを提供します。
 
-|                                                        プロパティ名                                                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+|                                                        プロパティ名                                                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        詳細                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 |------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|              <strong>MSDeployComputerName</strong>変換先の web サーバーまたはサービス エンドポイントの名前。               |                                                                                                                                                                                                                                              移行先の web サーバーでリモート エージェント サービスをデプロイする場合は、対象コンピューターの名前を指定できます (たとえば、 <strong>TESTWEB1</strong>または<strong>TESTWEB1.fabrikam.net</strong>)、またはリモートを指定できますエージェントのエンドポイント (たとえば、 `http://TESTWEB1/MSDEPLOYAGENTSERVICE`)。 展開いずれの場合も同じように動作します。 移行先の web サーバーで Web 配置ハンドラーに配置する場合、サービス エンドポイントを指定し、クエリ文字列パラメーターとして、IIS web サイトの名前を含めます (たとえば、 `https://STAGEWEB1:8172/MSDeploy.axd?site=DemoSite`)。                                                                                                                                                                                                                                              |
-|         <strong>MSDeployAuth</strong> Web Deploy がリモート コンピューターへの認証に使用するメソッド。          |                                                                                                                                                                                                                          これに設定する必要があります<strong>NTLM</strong>または<strong>基本的な</strong>します。 通常、使用する<strong>NTLM</strong>リモート エージェント サービスをデプロイする場合と<strong>基本的な</strong>Web 配置ハンドラーに配置する場合。 基本認証を使用する場合は、ユーザー名とパスワード (Web 配置) IIS Web 配置ツールの配置を実行するために権限を借用する必要がありますを指定する必要があります。 この例ではこれらの値を通じて提供されます、 <strong>MSDeployUsername</strong>と<strong>MSDeployPassword</strong>プロパティ。 NTLM 認証を使用する場合は、これらのプロパティを省略するか、空白のままにできます。                                                                                                                                                                                                                          |
-| <strong>MSDeployUsername</strong>基本認証を使用する場合は、Web Deploy はこのアカウントを使用、リモート コンピューター上です。  |                                                                                                                                                                                                                                                                                                                                                                                                                       これは、形式をとる必要があります<em>ドメイン</em>\*ユーザー名 * (たとえば、 <strong>FABRIKAM\matt</strong>)。 この値は基本認証を指定する場合にのみ使用します。 NTLM 認証を使用する場合、プロパティを省略できます。 値が指定されている場合は、これは無視されます。                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| <strong>MSDeployPassword</strong>基本認証を使用する場合 Web Deploy はパスワードを使用してこのリモート コンピューター。 |                                                                                                                                                                                                                                                                                                                                                                                                                    これで指定したユーザー アカウントのパスワード、 <strong>MSDeployUsername</strong>プロパティ。 この値は基本認証を指定する場合にのみ使用します。 NTLM 認証を使用する場合、プロパティを省略できます。 値が指定されている場合は、これは無視されます。                                                                                                                                                                                                                                                                                                                                                                                                                    |
-|     <strong>ContactManagerIisPath</strong> Contact Manager MVC アプリケーションを配置する、IIS パス。     |                                                                                                                                                                                                                                                                                                                                                                        IIS マネージャーで、フォームに表示されるパスを指定する必要がありますこれ [<em>IIS web サイト名</em>]/[<em>web</em><em>アプリケーション名</em>]。 IIS web サイトが、アプリケーションを展開する前に存在する必要があることに注意してください。 たとえば、DemoSite という名前の IIS の web サイトを作成した場合は、DemoSite/ContactManager として MVC アプリケーション用の IIS パスを指定できます。                                                                                                                                                                                                                                                                                                                                                                        |
-|   <strong>ContactManagerServiceIisPath</strong> Contact Manager WCF サービスをデプロイする、IIS パス。    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          たとえば、DemoSite という名前の IIS の web サイトを作成した場合は、として WCF サービスの IIS パスを指定でした<strong>DemoSite/ContactManagerService</strong>します。                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-|                  <strong>ContactManagerTargetUrl</strong> WCF サービスに到達できる URL。                   |                                                                                                                                                     これは、形式になります [<em>IIS web サイトのルート URL</em>]/[<em>サービス アプリケーション名</em>]/[<em>サービス エンドポイント</em>]。 たとえばをポート 85 で IIS の web サイトを作成した場合、URL が具現化する`http://localhost:85/ContactManagerService/ContactService.svc`します。 MVC アプリケーションと WCF サービスが同じサーバーに展開されていることに注意してください。 その結果、この URL は、のみがインストールされているコンピューターからアクセスします。 このため、URL で localhost または、IP アドレスではなく、コンピューター名またはホスト ヘッダーを使用することをお勧めします。 コンピューター名またはホスト ヘッダーを使用する場合、[ループバック チェック](https://go.microsoft.com/?linkid=9805131)IIS でのセキュリティ機能が URL をブロックし、返す可能性があります、 <strong>HTTP 401.1 - 権限がありません</strong>エラー。                                                                                                                                                     |
-|                  <strong>CmDatabaseConnectionString</strong>データベース サーバーの接続文字列。                  | 接続文字列は、両方の資格情報が、VSDBCMD をデータベース サーバーに接続し、データベースと web サーバーのアプリケーション プールが、データベース サーバーに接続し、データベースとの対話に使用する資格情報の作成に使用するを決定します。 基本的がある 2 つの選択肢は、ここです。 指定できる<strong>Integrated Security = true</strong>、統合 Windows 認証を使用する場合。<strong>データ ソース = TESTDB1; Integrated Security = true</strong>ここでは、VSDBCMD の実行可能ファイルを実行しているユーザーの資格情報を使用して、データベースが作成され、アプリケーションが web サーバー コンピューターの id を使用してデータベースへのアクセスアカウント。 ユーザー名と SQL Server アカウントのパスワードを指定することができます。 この場合は、SQL Server 資格情報では、VSDBCMD データベースを作成して、データベースと対話するアプリケーション プールの両方が使用されます。<strong>データ ソース = TESTDB1;ユーザー Id = ASqlUser;パスワード = Pa$ $w0rd</strong>のチュートリアルでは、このトピックでは、統合 Windows 認証を使用することを前提としています。 |
-|        <strong>CmTargetDatabase</strong>名前に付ける、データベースのデータベース サーバーで作成します。        |                                                                                                                                                                                                                                                                                                                                                                                                                                                     ここで指定する値は、VSDBCMD コマンドにパラメーターとして追加されます。 Web サーバー上のアプリケーション プールは、データベースとの対話に使用できる完全な接続文字列を作成することも使用されます。                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|              <strong>Msdeploycomputername</strong>対象の web サーバーまたはサービスエンドポイントの名前。               |                                                                                                                                                                                                                                              対象の web サーバー上のリモートエージェントサービスにデプロイする場合は、ターゲットコンピューター名 (たとえば、 <strong>TESTWEB1</strong>または<strong>TESTWEB1.fabrikam.net</strong>) を指定するか、リモートエージェントエンドポイントを指定できます (たとえば、`http://TESTWEB1/MSDEPLOYAGENTSERVICE`)。 各ケースでは、配置は同じように動作します。 送信先 Web サーバーの Web 配置ハンドラーに配置する場合は、サービスエンドポイントを指定し、IIS web サイトの名前をクエリ文字列パラメーターとして含める必要があります (`https://STAGEWEB1:8172/MSDeploy.axd?site=DemoSite`など)。                                                                                                                                                                                                                                              |
+|         <strong>Msdeployauth</strong>Web 配置がリモートコンピューターに対して認証を行うために使用するメソッド。          |                                                                                                                                                                                                                          これは<strong>NTLM</strong>または<strong>Basic</strong>に設定する必要があります。 通常、リモートエージェントサービスに配置している場合は<strong>NTLM</strong>を使用し、Web 配置ハンドラーに配置する場合は<strong>Basic</strong>を使用します。 基本認証を使用する場合は、展開を実行するために IIS Web 配置ツール (Web 配置) が偽装する必要があるユーザー名とパスワードも指定する必要があります。 この例では、これらの値は、 <strong>Msdeployusername</strong>プロパティと<strong>MSDeployPassword</strong>プロパティを通じて提供されます。 NTLM 認証を使用する場合は、これらのプロパティを省略するか、空白のままにしておくことができます。                                                                                                                                                                                                                          |
+| <strong>Msdeployusername</strong>基本認証を使用する場合、Web 配置はリモートコンピューターでこのアカウントを使用します。  |                                                                                                                                                                                                                                                                                                                                                                                                                       これは、<em>ドメイン</em>\*username * (たとえば、 <strong>FABRIKAM\matt</strong>) の形式で指定する必要があります。 この値は、基本認証を指定した場合にのみ使用されます。 NTLM 認証を使用する場合は、プロパティを省略できます。 値を指定した場合は無視されます。                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| <strong>MSDeployPassword</strong>基本認証を使用する場合、Web 配置はリモートコンピューターでこのパスワードを使用します。 |                                                                                                                                                                                                                                                                                                                                                                                                                    これは、 <strong>Msdeployusername</strong>プロパティで指定したユーザーアカウントのパスワードです。 この値は、基本認証を指定した場合にのみ使用されます。 NTLM 認証を使用する場合は、プロパティを省略できます。 値を指定した場合は無視されます。                                                                                                                                                                                                                                                                                                                                                                                                                    |
+|     <strong>ContactManagerIisPath</strong>Contact Manager MVC アプリケーションをデプロイする IIS パス。     |                                                                                                                                                                                                                                                                                                                                                                        このパスは、IIS マネージャーに表示される [<em>iis web サイト名</em>]/[<em>web</em><em>アプリケーション名</em>] の形式で指定する必要があります。 アプリケーションを配置する前に、IIS web サイトが存在する必要があることに注意してください。 たとえば、DemoSite という名前の IIS web サイトを作成した場合は、MVC アプリケーションの IIS パスを DemoSite/ContactManager として指定できます。                                                                                                                                                                                                                                                                                                                                                                        |
+|   <strong>ContactManagerServiceIisPath</strong>Contact Manager WCF サービスをデプロイする IIS パス。    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          たとえば、DemoSite という名前の IIS web サイトを作成した場合は、WCF サービスの IIS パスを<strong>demosite/ContactManagerService</strong>として指定できます。                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+|                  <strong>Contactmanagertargeturl</strong>WCF サービスに到達できる URL。                   |                                                                                                                                                     これは、[<em>IIS web サイトのルート URL</em>]/[<em>サービスアプリケーション名</em>]/[<em>サービスエンドポイント</em>] の形式になります。 たとえば、ポート85で IIS web サイトを作成した場合、URL の形式は `http://localhost:85/ContactManagerService/ContactService.svc`になります。 MVC アプリケーションと WCF サービスは同じサーバーにデプロイされていることに注意してください。 このため、この URL は、インストールされているコンピューターからのみアクセスされます。 このため、URL では localhost または IP アドレスを使用することをお勧めします。コンピューター名やホストヘッダーではなく、IP アドレスを使用することをお勧めします。 コンピューター名またはホストヘッダーを使用する場合、IIS の[ループバックチェック](https://go.microsoft.com/?linkid=9805131)のセキュリティ機能によって URL がブロックされ、 <strong>HTTP 401.1-未承認</strong>のエラーが返されることがあります。                                                                                                                                                     |
+|                  <strong>CmDatabaseConnectionString</strong>データベースサーバーの接続文字列です。                  | 接続文字列は、VSDBCMD がデータベースサーバーへの接続に使用する資格情報と、データベースを作成するために使用する資格情報、およびデータベースサーバーへの接続とデータベースとの対話に web サーバーアプリケーションプールが使用する資格情報の両方を決定します。 基本的に、ここでは2つの選択肢があります。 <strong>Integrated security = true</strong>を指定できます。この場合、統合 Windows 認証が使用されます。 <strong>DATA Source = TESTDB1; integrated security = true</strong>の場合、VSDBCMD 実行可能ファイルを実行するユーザーの資格情報を使用してデータベースが作成され、アプリケーションは web サーバーコンピューターアカウントの id を使用してデータベースにアクセスします。 または、SQL Server アカウントのユーザー名とパスワードを指定することもできます。 この場合、データベースを作成するための VSDBCMD と、データベースとの対話のためのアプリケーションプール ( <strong>Data Source = TESTDB1;) の両方で、SQL Server の資格情報が使用されます。ユーザー Id = ASqlUser;Password = Pa $ $w 0rd</strong>このトピックのチュートリアルでは、統合 Windows 認証を使用することを前提としています。 |
+|        <strong>Cmtargetdatabase</strong>データベースサーバーに作成するデータベースの名前を指定します。        |                                                                                                                                                                                                                                                                                                                                                                                                                                                     ここで指定する値は、パラメーターとして VSDBCMD コマンドに追加されます。 また、web サーバー上のアプリケーションプールがデータベースとの対話に使用できる完全な接続文字列を作成するためにも使用されます。                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 
-これらの例では、特定の展開シナリオのこれらのプロパティを構成する方法を示します。
+これらの例は、特定の展開シナリオでこれらのプロパティを構成する方法を示しています。
 
-### <a name="example-1x2014deployment-to-the-remote-agent-service"></a>例 1&#x2014;リモート エージェントのサービスへのデプロイ
+### <a name="example-1x2014deployment-to-the-remote-agent-service"></a>例 1&#x2014;リモートエージェントサービスへの展開
 
-この例では、次のように記述されています。
+次の点に注意してください。
 
-- TESTWEB1 でリモート エージェントのサービスにデプロイします。
-- Web 配置で NTLM 認証を使用してを指示しています。 Web Deploy は、Microsoft Build Engine (MSBuild) を呼び出すために使用する資格情報を使用して実行されます。
-- デプロイに統合認証を使用している、 **ContactManager**データベース TESTDB1 をします。 MSBuild を呼び出すために使用する資格情報を使用して、データベースが配置されます。
+- TESTWEB1 のリモートエージェントサービスに配置しています。
+- NTLM 認証を使用する Web 配置を指示しています。 Microsoft Build Engine (MSBuild) の呼び出しに使用した資格情報を使用して Web 配置が実行されます。
+- 統合認証を使用して、 **Contactmanager**データベースを TESTDB1 にデプロイしています。 データベースは、MSBuild を呼び出すために使用した資格情報を使用してデプロイされます。
 
 [!code-xml[Main](configuring-deployment-properties-for-a-target-environment/samples/sample1.xml)]
 
-### <a name="example-2x2014deployment-to-the-web-deploy-handler-endpoint"></a>例 2&#x2014;web 配置ハンドラーのエンドポイントをデプロイします。
+### <a name="example-2x2014deployment-to-the-web-deploy-handler-endpoint"></a>例 2&#x2014;Web 配置ハンドラエンドポイントへの配置
 
-この例では、次のように記述されています。
+次の点に注意してください。
 
-- STAGEWEB1 の Web 配置ハンドラーのサービス エンドポイントにデプロイします。
-- Web 配置で基本認証を使用してを指示しています。
-- Web 配置でリモート コンピューターで FABRIKAM\stagingdeployer アカウントを借用する必要があることを指定しています。
-- デプロイには、SQL Server 認証を使用している、 **ContactManager** STAGEDB1 データベース。
+- STAGEWEB1 の Web 配置 Handler サービスエンドポイントに配置しています。
+- 基本認証を使用する Web 配置を指示しています。
+- リモートコンピューター上の FABRIKAM\stagingdeployer アカウントを偽装する Web 配置を指定しています。
+- SQL Server 認証を使用して、 **Contactmanager**データベースを STAGEDB1 にデプロイしています。
 
 [!code-xml[Main](configuring-deployment-properties-for-a-target-environment/samples/sample2.xml)]
 
 ## <a name="conclusion"></a>まとめ
 
-この時点では、ビルドし、1 つまたは複数の展開先環境に連絡先マネージャー ソリューションをデプロイするプロジェクト ファイルが完全に構成します。
+この時点で、プロジェクトファイルは、Contact Manager ソリューションをビルドして1つ以上の送信先環境に配置するように完全に構成されています。
 
-これらのプロジェクト ファイルを使用して、シングル ステップ、反復可能な展開プロセスの一環として、実行する必要があります、 *Publish.proj* MSBuild を使用してファイルし、環境固有のプロジェクト ファイルの場所をパラメーターとして渡します。 これは、さまざまな方法で行うことができます。
+このようなプロジェクトファイルを単一ステップの反復可能なデプロイプロセスの一部として使用するには、MSBuild を使用して*Publish*ファイルを実行し、環境固有のプロジェクトファイルの場所をパラメーターとして渡す必要があります。 これは、さまざまな方法で行うことができます。
 
-- MSBuild やカスタム プロジェクト ファイルの概要の概要については、次を参照してください。[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)します。
-- カスタムのプロジェクト ファイルを実行する MSBuild コマンドを考案する方法については、次を参照してください。 [Web パッケージを展開する](../web-deployment-in-the-enterprise/deploying-web-packages.md)します。
-- シングル ステップで反復可能な展開でコマンド ファイルに、MSBuild コマンドを組み込む方法については、次を参照してください。[の作成と展開コマンド ファイルを実行している](../web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file.md)します。
-- チーム ビルドから、カスタムのプロジェクト ファイルを実行する方法については、次を参照してください。[ビルド定義をサポートする展開を作成する](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md)します。
+- MSBuild の概要とカスタムプロジェクトファイルの概要については、「[プロジェクトファイルについ](../web-deployment-in-the-enterprise/understanding-the-project-file.md)て」を参照してください。
+- カスタムプロジェクトファイルを実行する MSBuild コマンドを作成する方法の詳細については、「 [Web パッケージの配置](../web-deployment-in-the-enterprise/deploying-web-packages.md)」を参照してください。
+- 単一ステップの反復可能なデプロイのために MSBuild コマンドをコマンドファイルに組み込む方法については、「[配置コマンドファイルの作成と実行](../web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file.md)」を参照してください。
+- チームビルドからカスタムプロジェクトファイルを実行する方法については、「[配置をサポートするビルド定義の作成](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md)」を参照してください。
 
 > [!div class="step-by-step"]
-> [前へ](creating-a-server-farm-with-the-web-farm-framework.md)
+> [[戻る]](creating-a-server-farm-with-the-web-farm-framework.md)

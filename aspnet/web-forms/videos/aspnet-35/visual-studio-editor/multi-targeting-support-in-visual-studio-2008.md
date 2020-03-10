@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/aspnet-35/visual-studio-editor/multi-targeting-support-in-visual-studio-2008
-title: Visual Studio 2008 でのサポートを対象とするマルチ |Microsoft Docs
+title: Visual Studio 2008 での複数ターゲットのサポート |Microsoft Docs
 author: JoeStagner
-description: Visual Studio 2008 のマルチ ターゲットを設定機能を示します。 以前は、対象となる .NET versi を一致するように Visual Studio のバージョンを選択する必要がある.
+description: ここでは、Visual Studio 2008 のマルチターゲット機能について説明します。 以前は、対象となる .NET versi に一致するように Visual Studio のバージョンを選択する必要がありました。
 ms.author: riande
 ms.date: 11/15/2007
 ms.assetid: 297bd67d-10d9-406d-9c6e-9db0bbe35491
 msc.legacyurl: /web-forms/videos/aspnet-35/visual-studio-editor/multi-targeting-support-in-visual-studio-2008
 msc.type: video
 ms.openlocfilehash: a5cbe366b9733f1083223abc37afaa1142a3ff8c
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59388934"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78462322"
 ---
 # <a name="multi-targeting-support-in-visual-studio-2008"></a>Visual Studio 2008 の Multi Targeting サポート
 
-によって[Joe Stagner](https://github.com/JoeStagner)
+[Joe Stagner](https://github.com/JoeStagner)
 
-Visual Studio 2008 のマルチ ターゲットを設定機能を示します。 以前は、対象の .NET バージョンが一致するように Visual Studio のバージョンを選択する必要があります。 たとえば、Visual Studio 2005 では、.NET 2.5 で働いていました。 ここで、Visual Studio 2008 では、アプリケーションに適切な .NET のバージョンを選択できます。
+ここでは、Visual Studio 2008 のマルチターゲット機能について説明します。 以前は、対象の .NET バージョンと一致するように Visual Studio のバージョンを選択する必要がありました。 たとえば、Visual Studio 2005 は .NET 2.5 で動作していました。 現在、Visual Studio 2008 では、アプリケーションに適した .NET のバージョンを選択できます。
 
-[&#9654;ビデオ (5 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/multi-targeting-support-in-visual-studio-2008)
+[&#9654;ビデオを見る (5 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/multi-targeting-support-in-visual-studio-2008)
 
 > [!div class="step-by-step"]
 > [前へ](javascript-debugging-in-visual-studio-2008.md)

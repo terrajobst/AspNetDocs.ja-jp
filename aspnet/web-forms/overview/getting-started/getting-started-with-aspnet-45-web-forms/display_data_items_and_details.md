@@ -1,176 +1,176 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/display_data_items_and_details
-title: 項目し、詳細のデータの表示 |Microsoft Docs
+title: データ項目と詳細の表示 |Microsoft Docs
 author: Erikre
-description: このチュートリアル シリーズが ASP.NET 4.7 および Microsoft Visual Studio 2017 に ASP.NET Web フォーム アプリケーションの構築の基礎を表示します。
+description: このチュートリアルシリーズでは、ASP.NET 4.7 および Microsoft Visual Studio 2017 を使用して ASP.NET Web フォームアプリケーションを構築するための基礎を説明します。
 ms.author: riande
 ms.date: 1/04/2019
 ms.assetid: 64a491a8-0ed6-4c2f-9c1c-412962eb6006
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/display_data_items_and_details
 msc.type: authoredcontent
 ms.openlocfilehash: 130c9ffd29df612dac5bb954830a2eb9b738aaf0
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65109619"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78520810"
 ---
-# <a name="display-data-items-and-details"></a>データ アイテムの表示と詳細
+# <a name="display-data-items-and-details"></a>データ項目と詳細の表示
 
-によって[Erik Reitan](https://github.com/Erikre)
+[Erik Reitan](https://github.com/Erikre)
 
-> このチュートリアル シリーズでは、ASP.NET 4.7 および Microsoft Visual Studio 2017 に ASP.NET Web フォーム アプリケーションの構築の基礎を説明します。
+> このチュートリアルシリーズでは、ASP.NET 4.7 と Microsoft Visual Studio 2017 を使用して ASP.NET Web フォームアプリケーションを構築するための基本について説明します。
 
-このチュートリアルでは、データ項目と ASP.NET Web フォームと Entity Framework Code First でのデータ項目の詳細を表示する方法を学習します。 このチュートリアルでは、Wingtip 玩具店のチュートリアル シリーズの一部として、前の「UI とナビゲーション」チュートリアルに基づいています。 このチュートリアルを完了した後に製品が表示されます、 *ProductsList.aspx*ページと、製品の詳細について、 *ProductDetails.aspx*ページ。
+このチュートリアルでは、ASP.NET Web フォームおよび Entity Framework Code First でデータ項目とデータ項目の詳細を表示する方法について説明します。 このチュートリアルは、Wingtip 玩具 Store チュートリアルシリーズの一部として、前の「UI とナビゲーション」チュートリアルに基づいています。 このチュートリアルを完了すると、 *Productdetails .aspx*ページに製品が表示され、 *productdetails .aspx*ページに製品の詳細が表示されます。
 
-## <a name="youll-learn-how-to"></a>以下の方法について説明します。
+## <a name="youll-learn-how-to"></a>学習内容は次のとおりです。
 
-- データベースから製品を表示するデータ コントロールを追加します。
-- データ コントロールを選択したデータに接続します。
-- データベースから製品の詳細を表示するデータ コントロールを追加します。
-- クエリ文字列から値を取得し、その値を使用して、データベースから取得したデータを制限するには
+- データベースから製品を表示するデータコントロールを追加する
+- データコントロールを選択したデータに接続する
+- データコントロールを追加して、製品の詳細をデータベースから表示する
+- クエリ文字列から値を取得し、その値を使用して、データベースから取得されるデータを制限します。
 
-### <a name="features-introduced-in-this-tutorial"></a>このチュートリアルで導入された機能:
+### <a name="features-introduced-in-this-tutorial"></a>このチュートリアルで導入された機能は次のとおりです。
 
 - モデル バインド
 - 値プロバイダー
 
-## <a name="add-a-data-control"></a>データ コントロールを追加します。
+## <a name="add-a-data-control"></a>データコントロールを追加する
 
-いくつかの異なるオプションを使用すると、サーバー コントロールにデータをバインドします。 最も一般的なのとおりです。
+サーバーコントロールにデータをバインドするには、いくつかの異なるオプションを使用できます。 最も一般的なものは次のとおりです。
 
-* データ ソース コントロールの追加
-* コードを手動で追加します。
-* モデル バインドを使用します。
+* データソースコントロールの追加
+* 手動によるコードの追加
+* モデルバインドの使用
 
-### <a name="use-a-data-source-control-to-bind-data"></a>データ ソース コントロールを使用してデータをバインドするには
+### <a name="use-a-data-source-control-to-bind-data"></a>データソースコントロールを使用してデータをバインドする
 
-データ ソース コントロールの追加データを表示するコントロールにデータ ソース コントロールをリンクすることができます。 この方法により、ここでは、代わりにできますプログラムでは、サーバー側コントロールをデータ ソースに接続します。
+データソースコントロールを追加すると、データを表示するコントロールにデータソースコントロールをリンクすることができます。 この方法では、プログラムによってサーバー側のコントロールをデータソースに接続するのではなく、宣言によって宣言できます。
 
-### <a name="code-by-hand-to-bind-data"></a>データをバインドするには、手動でコード
+### <a name="code-by-hand-to-bind-data"></a>データをバインドするための手作業のコード
 
-手動でコーディングが含まれます。
+手作業でコーディングするには、次の作業が必要です。
 
 1. 値の読み取り
-2. かどうかは null をチェックします。
-3. 適切な型に変換します。
-4. 変換成功の確認
-5. クエリで値を使用します。 
+2. Null であるかどうかを確認しています
+3. 適切な型への変換
+4. 変換が成功したかどうかのチェック
+5. クエリで値を使用する 
 
-このアプローチにより、データ アクセス ロジックを完全に制御できます。
+この方法では、データアクセスロジックを完全に制御できます。
 
-### <a name="use-model-binding-to-bind-data"></a>モデル バインドを使用してデータをバインドするには
+### <a name="use-model-binding-to-bind-data"></a>モデルバインドを使用したデータのバインド
 
-モデル バインドでは、はるかに少ないコードで結果をバインドすることができ、使用すると、アプリケーション全体で機能を再利用できます。 豊富なデータ バインディング フレームワークを提供しながらコード中心のデータ アクセス ロジックと作業が簡略化します。
+モデルバインドを使用すると、結果をはるかに少ないコードでバインドできるため、アプリケーション全体で機能を再利用することができます。 コード中心のデータアクセスロジックを簡単に操作できるだけでなく、豊富なデータバインディングフレームワークも提供します。
 
-## <a name="display-products"></a>製品を表示します。
+## <a name="display-products"></a>製品の表示
 
-このチュートリアルでは、データをバインドするのにモデル バインドを使用します。 モデル バインドを使用してデータを選択するデータ コントロールを構成するには、コントロールを設定する`SelectMethod`プロパティ ページのコードでメソッドの名前にします。 データ コントロールでは、ページのライフ サイクルの適切なタイミングでメソッドを呼び出すし、自動的に返されるデータをバインドします。 明示的に呼び出す必要はありません、`DataBind`メソッド。
+このチュートリアルでは、モデルバインドを使用してデータをバインドします。 モデルバインドを使用してデータを選択するようにデータコントロールを構成するには、コントロールの `SelectMethod` プロパティをページのコードのメソッド名に設定します。 データコントロールは、ページライフサイクルの適切なタイミングでメソッドを呼び出し、返されたデータを自動的にバインドします。 `DataBind` メソッドを明示的に呼び出す必要はありません。
 
-1. **ソリューション エクスプ ローラー**オープン*ProductList.aspx*します。
-2. このマークアップで既存のマークアップに置き換えます。   
+1. **ソリューションエクスプローラー**で、 *productlist .aspx*を開きます。
+2. 既存のマークアップを次のマークアップに置き換えます。   
 
     [!code-aspx-csharp[Main](display_data_items_and_details/samples/sample1.aspx)]
 
-このコードを使用して、 **ListView**という名前のコントロール`productList`商品を表示します。
+このコードでは、`productList` という名前の**ListView**コントロールを使用して、製品を表示します。
 
 [!code-aspx-csharp[Main](display_data_items_and_details/samples/sample2.aspx)]
 
-テンプレートとスタイルを使用して定義する方法、 **ListView**コントロールにデータが表示されます。 任意の繰り返し構造内のデータと便利です。 ただしこの**ListView**の例には、データベースのデータだけが表示されます、編集、挿入、およびデータを削除して、並べ替えやデータをページにユーザーを有効にするコードがないこともできます。
+テンプレートとスタイルを使用して、 **ListView**コントロールでデータを表示する方法を定義します。 これは、任意の繰り返し構造のデータに便利です。 この**ListView**の例では、データベースデータを表示するだけでなく、コードを使用せずに、ユーザーがデータを編集、挿入、および削除したり、データを並べ替えたり、ページしたりできるようにすることもできます。
 
-設定して、`ItemType`プロパティ、 **ListView**制御、データ バインディング式`Item`が使用可能なコントロールが厳密に型指定されました。 指定するなど、IntelliSense 項目オブジェクトの詳細を選択するには前のチュートリアルで前述の`ProductName`:
+**ListView**コントロールの `ItemType` プロパティを設定することにより、データバインディング式 `Item` を使用できるようになり、コントロールが厳密に型指定されます。 前のチュートリアルで説明したように、`ProductName`を指定するなど、IntelliSense を使用して Item オブジェクトの詳細を選択できます。
 
-![データを表示する項目と IntelliSense の詳細](display_data_items_and_details/_static/image1.png)
+![データ項目と詳細の表示-IntelliSense](display_data_items_and_details/_static/image1.png)
 
-モデル バインドを使用して指定することもいる、`SelectMethod`値。 この値 (`GetProducts`) に対応するメソッドのコードを追加します次の手順で製品を表示するには、遅れています。
+また、モデルバインディングを使用して `SelectMethod` 値を指定しています。 この値 (`GetProducts`) は、次の手順で製品を表示するために分離コードに追加するメソッドに対応しています。
 
-### <a name="add-code-to-display-products"></a>製品を表示するコードを追加します。
+### <a name="add-code-to-display-products"></a>製品を表示するコードを追加する
 
-この手順では、データを読み込むコードを追加します、 **ListView**コントロールに、データベースから製品データ。 コードでは、すべての製品と個々 のカテゴリの製品を表示をサポートします。
+この手順では、データベースの製品データを**ListView**コントロールに設定するコードを追加します。 このコードでは、すべての製品と個々のカテゴリ製品の表示をサポートしています。
 
-1. **ソリューション エクスプ ローラー**を右クリックして*ProductList.aspx*選び**コードの表示**します。
-2. 既存のコードを置き換える、 *ProductList.aspx.cs*このファイル。   
+1. **ソリューションエクスプローラー**で、[ *productlist* ] を右クリックし、 **[コードの表示]** を選択します。
+2. *ProductList.aspx.cs*ファイル内の既存のコードを次のコードに置き換えます。   
 
     [!code-csharp[Main](display_data_items_and_details/samples/sample3.cs)]
 
-このコードを示しています、`GetProducts`メソッドを**ListView**コントロールの`ItemType`内のプロパティ参照、 *ProductList.aspx*ページ。 コードの設定を特定のデータベース カテゴリに結果を制限するため、`categoryId`に渡されるクエリ文字列値から、 *ProductList.aspx*ときにページ、 *ProductList.aspx*ページは、移動します。 `QueryStringAttribute`クラス、`System.Web.ModelBinding`名前空間を使用して、クエリ文字列変数の値を取得`id`します。 これに指示するクエリ文字列から値をバインドしようとするモデル バインド、`categoryId`実行時にパラメーター。
+このコードは、 **ListView**コントロールの `ItemType` プロパティが*productlist. .aspx*ページで参照する `GetProducts` メソッドを示しています。 結果を特定のデータベースカテゴリに制限するために、コードは*Productlist. .aspx*ページに移動したときに、 *productlist. .aspx*ページに渡されるクエリ文字列値の `categoryId` 値を設定します。 `System.Web.ModelBinding` 名前空間の `QueryStringAttribute` クラスは、クエリ文字列変数 `id`の値を取得するために使用されます。 これにより、モデルバインドは、クエリ文字列の値を実行時に `categoryId` パラメーターにバインドするように指示します。
 
-クエリの結果に一致するデータベース内のこれらの製品に制限されています ページにクエリ文字列として有効なカテゴリが渡される、`categoryId`値。 たとえば場合、 *ProductsList.aspx*はページの URL:
+有効なカテゴリがクエリ文字列としてページに渡されると、クエリの結果は、`categoryId` 値に一致するデータベース内の製品に制限されます。 たとえば、製品*リスト .aspx*ページの URL が次のようになっているとします。
 
 [!code-console[Main](display_data_items_and_details/samples/sample4.cmd)]
 
-ページには、製品のみが表示されます。 場所、 `categoryId` equals`1`します。
+このページには、`categoryId` が `1`に等しい製品のみが表示されます。
 
-クエリ文字列が含まれていないときに場合、すべての製品が表示されます、 *ProductList.aspx*ページが呼び出されます。
+*Productlist .aspx*ページが呼び出されたときにクエリ文字列が含まれていない場合は、すべての製品が表示されます。
 
-これらのメソッドの値のソースとして参照されます*値プロバイダー* (など*QueryString*)、パラメーターの属性を使用する値プロバイダーを示すとして参照されます*値プロバイダー属性*(など`id`)。 ASP.NET には、クエリ文字列、cookie、フォーム値、コントロール、ビュー ステート、セッション状態、およびプロファイルのプロパティなどの Web フォーム アプリケーションでの値プロバイダーとすべてのユーザー入力の一般的なソースの対応する属性が含まれています。 カスタム値プロバイダーを記述することもできます。
+これらのメソッドの値のソースは、*値*プロバイダー ( *QueryString*など) と呼ばれ、使用する値プロバイダーを示すパラメーター属性は、*値プロバイダー属性*(`id`など) と呼ばれます。 ASP.NET には、クエリ文字列、cookie、フォーム値、コントロール、ビューステート、セッション状態、プロファイルプロパティなど、Web フォームアプリケーションでのユーザー入力のすべての一般的なソースに対して、値プロバイダーとそれに対応する属性が含まれています。 カスタム値プロバイダーを作成することもできます。
 
 ### <a name="run-the-application"></a>アプリケーションの実行
 
-すべての製品またはカテゴリの製品を表示するアプリケーションを実行します。
+今すぐアプリケーションを実行して、すべての製品またはカテゴリの製品を表示します。
 
-1. キーを押して**F5** Visual Studio でアプリケーションを実行するときにします。  
-   ブラウザーが開きを示しています、 *Default.aspx*ページ。
+1. Visual Studio で**F5**キーを押してアプリケーションを実行します。  
+   ブラウザーが開き、 *default.aspx*ページが表示されます。
 
-2. 選択**自動車**製品カテゴリのナビゲーション メニュー。  
-   *ProductList.aspx*ページのみ表示**自動車**カテゴリの製品です。 このチュートリアルの後半では、製品の詳細を表示します。  
+2. 製品カテゴリのナビゲーションメニューから **[車両]** を選択します。  
+   *Productlist .aspx*ページには、**車両**カテゴリの製品のみが表示されます。 このチュートリアルの後半では、製品の詳細を表示します。  
 
-    ![データを表示する項目と詳細 - 自動車](display_data_items_and_details/_static/image2.png)
+    ![データ項目と詳細を表示する-自動車](display_data_items_and_details/_static/image2.png)
 
-3. 選択**製品**上部にあるナビゲーション メニュー。  
-   もう一度、 *ProductList.aspx*ページが表示されますが、今度は製品の全リストが表示されます。   
+3. 上部のナビゲーションメニューから **[製品]** を選択します。  
+   ここでも、 *productlist .aspx*ページが表示されますが、今回は製品の一覧全体が表示されます。   
 
-    ![データを表示する項目と製品の詳細](display_data_items_and_details/_static/image3.png)
+    ![データ項目と詳細の表示-製品](display_data_items_and_details/_static/image3.png)
 
 4. ブラウザーを閉じて、Visual Studio に戻ります。
 
-### <a name="add-a-data-control-to-display-product-details"></a>製品の詳細を表示するデータ コントロールを追加します。
+### <a name="add-a-data-control-to-display-product-details"></a>データコントロールを追加して製品の詳細を表示する
 
-内のマークアップを次に、変更を*ProductDetails.aspx*ページが特定の製品情報を表示する前のチュートリアルで追加しました。
+次に、前のチュートリアルで追加した*Productdetails .aspx*ページのマークアップを変更して、特定の製品情報を表示します。
 
-1. **ソリューション エクスプ ローラー**オープン*ProductDetails.aspx*します。
+1. **ソリューションエクスプローラー**で、 *productdetails .aspx*を開きます。
 
-2. このマークアップで既存のマークアップに置き換えます。
+2. 既存のマークアップを次のマークアップに置き換えます。
 
     [!code-aspx-csharp[Main](display_data_items_and_details/samples/sample5.aspx)] 
 
-    このコードを使用して、 **FormView**特定の製品の詳細を表示するコントロール。 このマークアップは、データを表示するために使用するメソッドと同様のメソッドを使用して、 *ProductList.aspx*ページ。 **FormView**コントロールを使用すると、データ ソースから一度に 1 つのレコードを表示します。 使用すると、 **FormView**コントロール、データ バインドされた値を表示および編集テンプレートを作成します。 これらのテンプレートは、バインド式のコントロールを含めるし、フォームの外観と機能を定義する書式設定します。
+    このコードでは、 **FormView**コントロールを使用して特定の製品の詳細を表示します。 このマークアップは、 *Productlist. .aspx*ページでのデータの表示に使用されるメソッドなどのメソッドを使用します。 **FormView**コントロールは、データソースから一度に1つのレコードを表示するために使用されます。 **FormView**コントロールを使用する場合は、データバインド値を表示および編集するためのテンプレートを作成します。 これらのテンプレートには、フォームの外観と機能を定義するコントロール、バインド式、および書式設定が含まれています。
 
-前のマークアップをデータベースに接続するには、コードを追加する必要があります。
+前のマークアップをデータベースに接続するには、追加のコードが必要です。
 
-1. **ソリューション エクスプ ローラー**、右クリック*ProductDetails.aspx*  をクリックし、**コードの表示**します。  
+1. **ソリューションエクスプローラー**で、[ *productdetails. .aspx* ] を右クリックし、 **[コードの表示]** をクリックします。  
    *ProductDetails.aspx.cs*ファイルが表示されます。
 
-2. このコードでは、既存のコードを置き換えます。   
+2. 既存のコードを次のコードに置き換えます。   
 
     [!code-csharp[Main](display_data_items_and_details/samples/sample6.cs)]
 
-このコードをチェックする"`productID`"クエリ文字列値。 有効なクエリ文字列値が見つかった場合は、一致する製品が表示されます。 クエリ文字列が見つからない、またはその値が無効です、製品は表示されません。
+このコードでは、"`productID`" クエリ文字列値があるかどうかを確認します。 有効なクエリ文字列値が見つかった場合は、照合製品が表示されます。 クエリ文字列が見つからない場合、またはその値が有効でない場合は、製品は表示されません。
 
 ### <a name="run-the-application"></a>アプリケーションの実行
 
-プロダクト ID に基づいて、表示される個別の製品を表示するアプリケーションを実行するようになりました
+これで、アプリケーションを実行して、製品 ID に基づいて表示される個々の製品を確認できます。
 
-1. キーを押して**F5** Visual Studio でアプリケーションを実行するときにします。  
-   ブラウザーが開きを示しています、 *Default.aspx*ページ。
+1. Visual Studio で**F5**キーを押してアプリケーションを実行します。  
+   ブラウザーが開き、 *default.aspx*ページが表示されます。
 
-2. 選択**ボート**カテゴリのナビゲーション メニュー。  
-   *ProductList.aspx*ページが表示されます。
+2. カテゴリナビゲーションメニューから **[ボート]** を選択します。  
+   *Productlist .aspx*ページが表示されます。
 
-3. 選択**用紙ボート**製品一覧から。
-   *ProductDetails.aspx*ページが表示されます。
+3. 製品リストから **[用紙ボート]** を選択します。
+   *Productdetails .aspx*ページが表示されます。
 
-    ![データを表示する項目と製品の詳細](display_data_items_and_details/_static/image4.png)
+    ![データ項目と詳細の表示-製品](display_data_items_and_details/_static/image4.png)
     
 4. ブラウザーを閉じます。
 
-## <a name="additional-resources"></a>その他の技術情報
+## <a name="additional-resources"></a>その他のリソース
 
-[取得して、モデル バインディングと web フォームでデータの表示](../../presenting-and-managing-data/model-binding/retrieving-data.md)
+[モデルバインドと web フォームを使用したデータの取得と表示](../../presenting-and-managing-data/model-binding/retrieving-data.md)
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-このチュートリアルでは、マークアップと製品と製品の詳細を表示するコードを追加しました。 厳密に型指定されたデータ コントロール、モデル バインド、および値プロバイダーについて説明しました。 次のチュートリアルでは、Wingtip Toys のサンプル アプリケーションをショッピング カートを追加します。 
+このチュートリアルでは、製品と製品の詳細を表示するためのマークアップとコードを追加しました。 厳密に型指定されたデータコントロール、モデルバインディング、および値プロバイダーについて学習しました。 次のチュートリアルでは、Wingtip Toys サンプルアプリケーションにショッピングカートを追加します。 
 
 > [!div class="step-by-step"]
 > [前へ](ui_and_navigation.md)

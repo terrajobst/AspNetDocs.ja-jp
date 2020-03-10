@@ -10,11 +10,11 @@ ms.assetid: d4dfc435-bda6-4621-9762-9ba270f8de4e
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
 ms.openlocfilehash: 989dd0f0e18b338be057b9c5657586eff996d8ea
-ms.sourcegitcommit: b95316530fa51087d6c400ff91814fe37e73f7e8
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70000764"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78499366"
 ---
 # <a name="tutorial-use-ef-migrations-in-an-aspnet-mvc-app-and-deploy-to-azure"></a>チュートリアル: ASP.NET MVC アプリで EF の移行を使用して Azure にデプロイする
 
@@ -25,23 +25,23 @@ ms.locfileid: "70000764"
 
 デプロイにはソース管理と継続的インテグレーションプロセスを使用することをお勧めしますが、このチュートリアルではこれらのトピックについては説明しません。 詳細については、「 [Azure を使用した実際のクラウドアプリの構築](xref:aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction)」の[ソース管理](xref:aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)と[継続的インテグレーション](xref:aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery)に関する章を参照してください。
 
-このチュートリアルでは、次の作業を行いました。
+このチュートリアルでは、次のことを行いました。
 
 > [!div class="checklist"]
 > * Code First 移行を有効にする
 > * Azure にアプリをデプロイする (省略可能)
 
-## <a name="prerequisites"></a>必須コンポーネント
+## <a name="prerequisites"></a>前提条件
 
 - [接続復元性とコマンド傍受](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md)
 
 ## <a name="enable-code-first-migrations"></a>Code First 移行を有効にする
 
-新しいアプリケーションを開発して、データ モデルが頻繁に変更される場合、モデルが変更されるたびに、モデルはデータベースと同期されなくなります。 データモデルを変更するたびに、データベースを自動的に削除して再作成するように Entity Framework を構成しました。 エンティティクラスを追加、削除、または変更したり、 `DbContext`クラスを変更したりすると、次にアプリケーションを実行するときに、既存のデータベースが自動的に削除され、モデルに一致する新しいデータベースが作成され、テストデータでシードされます。
+新しいアプリケーションを開発して、データ モデルが頻繁に変更される場合、モデルが変更されるたびに、モデルはデータベースと同期されなくなります。 データモデルを変更するたびに、データベースを自動的に削除して再作成するように Entity Framework を構成しました。 エンティティクラスを追加、削除、または変更したり、`DbContext` クラスを変更したりすると、次にアプリケーションを実行するときに、既存のデータベースが自動的に削除され、モデルに一致する新しいデータベースが作成されて、テストデータでシードされます。
 
 このメソッドは、実稼働環境にアプリケーションを展開するまで、データベースとデータ モデルの同期の維持がうまく機能します。 アプリケーションが運用環境で実行されている場合、通常は保持するデータを格納し、新しい列の追加などの変更を行うたびにすべてのデータを失わないようにします。 [Code First Migrations](https://msdn.microsoft.com/data/jj591621)機能では、データベースを削除して再作成するのではなく、Code First でデータベーススキーマを更新できるようにすることで、この問題を解決します。 このチュートリアルでは、アプリケーションを展開し、移行を有効にする準備をします。
 
-1. 前の手順で設定した初期化子を無効にするに`contexts`は、アプリケーションの web.config ファイルに追加した要素をコメントアウトするか削除します。
+1. 前の手順で設定した初期化子を無効にするには、アプリケーションの Web.config ファイルに追加した `contexts` 要素をコメントアウトするか削除します。
 
     [!code-xml[Main](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.xml?highlight=2,6)]
 2. また、アプリケーションの*web.config*ファイルで、接続文字列内のデータベースの名前を ContosoUniversity2 に変更します。
@@ -51,18 +51,18 @@ ms.locfileid: "70000764"
     この変更により、最初の移行で新しいデータベースが作成されるようにプロジェクトが設定されます。 これは必須ではありませんが、後で推奨される理由がわかります。
 3. **[ツール]** メニューで、 **[NuGet パッケージ マネージャー]**  >  **[パッケージ マネージャー コンソール]** の順に選択します。
 
-1. `PM>`プロンプトで、次のコマンドを入力します。
+1. `PM>` プロンプトで、次のコマンドを入力します。
 
     ```text
     enable-migrations
     add-migration InitialCreate
     ```
 
-    この`enable-migrations`コマンドにより、ContosoUniversity プロジェクトに*移行*フォルダーが作成され、そのフォルダーに*Configuration.cs*ファイルが配置されます。このファイルを編集して、移行を構成することができます。
+    `enable-migrations` コマンドを実行すると、ContosoUniversity プロジェクトに*移行*フォルダーが作成され、そのフォルダーに*Configuration.cs*ファイルが配置されます。このファイルを編集して、移行を構成することができます。
 
-    (データベース名を変更するように指示された手順を実行しなかった場合は、既存のデータベースが検索`add-migration`され、自動的にコマンドが実行されます。 これは、データベースを配置する前に、移行コードのテストを実行しないことを意味するだけです。 後で`update-database`コマンドを実行すると、データベースが既に存在しているため、何も起こりません。)
+    (データベース名を変更するように指示された手順を実行しなかった場合は、既存のデータベースが検索され、[`add-migration`] コマンドが自動的に実行されます。 これは、データベースを配置する前に、移行コードのテストを実行しないことを意味するだけです。 後で `update-database` コマンドを実行すると、データベースが既に存在しているため、何も起こりません。)
 
-    *ContosoUniversity\Migrations\Configuration.cs*ファイルを開きます。 前に見た初期化子クラスと同様に`Configuration` 、クラスに`Seed`はメソッドが含まれています。
+    *ContosoUniversity\Migrations\Configuration.cs*ファイルを開きます。 前に見た初期化子クラスと同様に、`Configuration` クラスには `Seed` メソッドが含まれています。
 
     [!code-csharp[Main](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample3.cs)]
 
@@ -70,9 +70,9 @@ ms.locfileid: "70000764"
 
 ### <a name="set-up-the-seed-method"></a>Seed メソッドを設定する
 
-すべてのデータモデルの変更に対してデータベースを削除して再作成する場合は、初期化`Seed`子クラスのメソッドを使用してテストデータを挿入します。これは、すべてのモデルが変更された後、データベースが削除され、すべてのテストデータが失われるためです。 Code First Migrations を使用すると、データベースの変更後もテストデータが保持されるため、通常、 [Seed](https://msdn.microsoft.com/library/hh829453(v=vs.103).aspx)メソッドにテストデータを含める必要はありません。 実際には、 `Seed` `Seed`メソッドが運用環境で実行されるため、移行を使用してデータベースを運用環境に配置する場合は、メソッドでテストデータを挿入しないようにする必要があります。 その場合は、運用環境で`Seed`必要なデータのみをデータベースに挿入することをお勧めします。 たとえば、アプリケーションを運用環境で使用できるようになったときに`Department` 、データベースにテーブルの実際の部署名を含めるようにすることができます。
+すべてのデータモデルの変更に対してデータベースを削除して再作成した場合は、初期化子クラスの `Seed` メソッドを使用してテストデータを挿入します。これは、すべてのモデルが変更された後、データベースが削除され、すべてのテストデータが失われるためです。 Code First Migrations を使用すると、データベースの変更後もテストデータが保持されるため、通常、 [Seed](https://msdn.microsoft.com/library/hh829453(v=vs.103).aspx)メソッドにテストデータを含める必要はありません。 実際、`Seed` 方法は運用環境で実行されるため、移行を使用してデータベースを運用環境に配置する場合は、`Seed` 方法でテストデータを挿入しないようにする必要があります。 その場合は、`Seed` メソッドを使用して、運用環境で必要なデータのみをデータベースに挿入する必要があります。 たとえば、アプリケーションを運用環境で使用できるようになったときに、データベースに実際の部署名を `Department` テーブルに含めるようにすることができます。
 
-このチュートリアルでは、配置のために移行を使用します`Seed`が、データを手動で挿入することなく、アプリケーションの機能がどのように動作するかを簡単に確認できるように、テストデータを挿入します。
+このチュートリアルでは、配置のために移行を使用しますが、`Seed` 方法では、大量のデータを手動で挿入することなく、アプリケーションの機能がどのように動作するかを簡単に確認できるように、テストデータを挿入します。
 
 1. *Configuration.cs*ファイルの内容を次のコードに置き換えます。これにより、テストデータが新しいデータベースに読み込まれます。
 
@@ -80,9 +80,9 @@ ms.locfileid: "70000764"
 
     [Seed](https://msdn.microsoft.com/library/hh829453(v=vs.103).aspx)メソッドは、データベースコンテキストオブジェクトを入力パラメーターとして受け取り、メソッドのコードはそのオブジェクトを使用して新しいエンティティをデータベースに追加します。 このコードは、エンティティ型ごとに新しいエンティティのコレクションを作成し、適切な[Dbset](https://msdn.microsoft.com/library/system.data.entity.dbset(v=vs.103).aspx)プロパティに追加して、変更をデータベースに保存します。 ここで行ったように、エンティティの各グループの後に[SaveChanges](https://msdn.microsoft.com/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx)メソッドを呼び出す必要はありませんが、コードがデータベースに書き込んでいる間に例外が発生した場合に、問題の原因を特定するのに役立ちます。
 
-    データを挿入するステートメントの中には、 [Addorupdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx)メソッドを使用して "upsert" 操作を実行するものがあります。 このメソッド`Seed`は`update-database`コマンドを実行するたびに実行されるため、通常は、各移行の後に、追加しようとしている行が、データベースを最初に作成した移行の後に既に存在するため、データを挿入するだけではかまいません。 "Upsert" 操作は、既に存在する行を挿入しようとすると発生するエラーを防ぎますが、アプリケーションのテスト中に行われたデータの変更を***上書き***します。 一部のテーブルのテストデータでは、このような処理が不要な場合があります。テスト中にデータを変更し、データベースの更新後も変更を保持する場合があります。 その場合は、条件付き挿入操作を実行します。行がまだ存在しない場合にのみ、行を挿入します。 Seed メソッドは、両方の方法を使用します。
+    データを挿入するステートメントの中には、 [Addorupdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx)メソッドを使用して "upsert" 操作を実行するものがあります。 `Seed` メソッドは、`update-database` コマンドを実行するたびに実行されるため、通常は、各移行の後に、追加しようとしている行が、データベースを最初に作成した移行の後に既に存在するため、データを挿入することはできません。 "Upsert" 操作は、既に存在する行を挿入しようとすると発生するエラーを防ぎますが、アプリケーションのテスト中に行われたデータの変更を***上書き***します。 一部のテーブルのテストデータでは、このような処理が不要な場合があります。テスト中にデータを変更し、データベースの更新後も変更を保持する場合があります。 その場合は、条件付き挿入操作を実行します。行がまだ存在しない場合にのみ、行を挿入します。 Seed メソッドは、両方の方法を使用します。
 
-    [Addorupdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx)メソッドに渡される最初のパラメーターは、行が既に存在するかどうかを確認するために使用するプロパティを指定します。 提供しているテスト学生データについては`LastName` 、リスト内の各姓が一意であるため、この目的にプロパティを使用できます。
+    [Addorupdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx)メソッドに渡される最初のパラメーターは、行が既に存在するかどうかを確認するために使用するプロパティを指定します。 指定したテスト学生データに対しては、リスト内の各姓が一意であるため、この目的には `LastName` プロパティを使用できます。
 
     [!code-csharp[Main](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample5.cs)]
 
@@ -90,15 +90,15 @@ ms.locfileid: "70000764"
 
     **シーケンスに複数の要素が含まれています**
 
-    "アレクサンドロス Carson" という名前の2人の学生などの冗長データを処理する方法については、Rick Anderson のブログの「 [Entity Framework (EF) db のシード処理とデバッグ](https://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx)」を参照してください。 メソッドの`AddOrUpdate`詳細については、「ジュリー Lerman のブログの[EF 4.3 addorupdate メソッドに](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/)対処する」を参照してください。
+    "アレクサンドロス Carson" という名前の2人の学生などの冗長データを処理する方法については、Rick Anderson のブログの「 [Entity Framework (EF) db のシード処理とデバッグ](https://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx)」を参照してください。 `AddOrUpdate` 方法の詳細については、「ジュリー Lerman のブログの[EF 4.3 AddOrUpdate メソッドに](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/)対処する」を参照してください。
 
-    エンティティを作成`Enrollment`するコードでは、コレクション`ID`のエンティティ`students`に値があることを前提としていますが、コレクションを作成するコードでそのプロパティを設定していません。
+    `Enrollment` エンティティを作成するコードは、コレクションを作成するコードでそのプロパティを設定していなくても、`students` コレクションのエンティティに `ID` 値があることを前提としています。
 
     [!code-csharp[Main](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample6.cs?highlight=2)]
 
-    コレクションに対して`ID`を呼び出す`ID` `SaveChanges`ときに値が設定されるため、ここでプロパティを使用できます。 `students` EF は、エンティティをデータベースに挿入するときに主キーの値を自動的に取得し`ID` 、メモリ内のエンティティのプロパティを更新します。
+    ここでは、`ID` プロパティを使用できます。これは、`students` コレクションに対して `SaveChanges` を呼び出すときに `ID` 値が設定されるためです。 EF は、エンティティをデータベースに挿入するときに主キーの値を自動的に取得し、メモリ内のエンティティの `ID` プロパティを更新します。
 
-    エンティティセット`Enrollment` `Enrollments`に各エンティティを追加するコードでは、メソッドは`AddOrUpdate`使用しません。 エンティティが既に存在するかどうかを確認し、エンティティが存在しない場合は挿入します。 この方法では、アプリケーション UI を使用して、登録グレードに加えた変更を保持します。 このコードでは、 `Enrollment`[一覧](https://msdn.microsoft.com/library/6sh2ey19.aspx)の各メンバーをループ処理します。登録がデータベースに見つからない場合は、登録がデータベースに追加されます。 データベースを初めて更新すると、データベースは空になるため、各登録が追加されます。
+    各 `Enrollment` エンティティを `Enrollments` エンティティセットに追加するコードでは、`AddOrUpdate` メソッドは使用しません。 エンティティが既に存在するかどうかを確認し、エンティティが存在しない場合は挿入します。 この方法では、アプリケーション UI を使用して、登録グレードに加えた変更を保持します。 このコードでは、`Enrollment`[リスト](https://msdn.microsoft.com/library/6sh2ey19.aspx)の各メンバーをループ処理します。登録がデータベースに見つからない場合は、データベースに登録が追加されます。 データベースを初めて更新すると、データベースは空になるため、各登録が追加されます。
 
     [!code-csharp[Main](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample7.cs)]
 
@@ -106,39 +106,39 @@ ms.locfileid: "70000764"
 
 ### <a name="execute-the-first-migration"></a>最初の移行を実行する
 
-`add-migration`コマンドを実行すると、データベースを最初から作成するコードが移行によって生成されます。 このコードは、  *&lt;timestamp&gt;InitialCreate.csという名前のファイル内の[移行]フォルダーにもあります。\_* クラスのメソッドに`Up`よって、データモデルの`Down`エンティティセットに対応するデータベーステーブルが作成され、メソッドによって削除されます。 `InitialCreate`
+`add-migration` コマンドを実行すると、データベースを最初から作成するコードが移行によって生成されます。 このコードは、[*移行*] フォルダー内の *&lt;timestamp&gt;\_InitialCreate.cs*という名前のファイルにもあります。 `InitialCreate` クラスの `Up` メソッドによって、データモデルのエンティティセットに対応するデータベーステーブルが作成され、`Down` メソッドによって削除されます。
 
 [!code-csharp[Main](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample8.cs)]
 
 移行は、`Up` メソッドを呼び出して、移行のためのデータ モデルの変更を実装します。 更新をロールバックするためのコマンドを入力すると、移行が `Down` メソッドを呼び出します。
 
-これは、 `add-migration InitialCreate`コマンドを入力したときに作成された最初の移行です。 パラメーター (`InitialCreate`この例では) はファイル名に使用され、任意のものを指定できます。通常は、移行中に実行される内容を要約する単語または語句を選択します。 たとえば、後の移行&quot;AddDepartmentTable&quot;に名前を指定することができます。
+これは、`add-migration InitialCreate` コマンドを入力したときに作成された最初の移行です。 パラメーター (例では`InitialCreate`) はファイル名に使用され、任意の名前を指定できます。通常は、移行中に何が行われているかをまとめた単語または語句を選択します。 たとえば、後で移行 &quot;AddDepartmentTable&quot;に名前を指定することができます。
 
-データベースが既に存在するときに、初期移行を作成した場合、データベースの作成コードが生成されますが、データベースは既にデータと一致しているため、作成コードを実行する必要はありません。 データベースがまだ存在しない別の環境にアプリを展開する場合、データベースを作成するために、このコードが実行されるため、最初にテストを行うことをお勧めします。 そのため、以前&mdash;に接続文字列内のデータベースの名前を変更して、移行で新しいデータベースを作成できるようにしました。
+データベースが既に存在するときに、初期移行を作成した場合、データベースの作成コードが生成されますが、データベースは既にデータと一致しているため、作成コードを実行する必要はありません。 データベースがまだ存在しない別の環境にアプリを展開する場合、データベースを作成するために、このコードが実行されるため、最初にテストを行うことをお勧めします。 そのため、以前に&mdash;接続文字列内のデータベースの名前を変更したので、移行時に新しいデータベースを作成できるようになりました。
 
-1. **[パッケージマネージャーコンソール]** ウィンドウで、次のコマンドを入力します。
+1. **[パッケージ マネージャー コンソール]** ウィンドウで、次のコマンドを入力します。
 
     `update-database`
 
-    この`update-database`コマンドは、 `Up`メソッドを実行してデータベースを作成し、 `Seed`メソッドを実行してデータベースを設定します。 アプリケーションを展開した後、次のセクションに示すように、同じプロセスが運用環境で自動的に実行されます。
+    `update-database` コマンドは、`Up` メソッドを実行してデータベースを作成し、`Seed` メソッドを実行してデータベースにデータを読み込みます。 アプリケーションを展開した後、次のセクションに示すように、同じプロセスが運用環境で自動的に実行されます。
 2. 最初のチュートリアルで行ったように、**サーバーエクスプローラー**を使用してデータベースを検査し、アプリケーションを実行して、すべてが以前と同じように動作することを確認します。
 
-## <a name="deploy-to-azure"></a>Azure に配置する
+## <a name="deploy-to-azure"></a>Deploy to Azure (Azure へのデプロイ)
 
 これまでは、アプリケーションは開発用コンピューターの IIS Express でローカルに実行されていました。 他のユーザーがインターネット経由で使用できるようにするには、それを web ホスティングプロバイダーに展開する必要があります。 チュートリアルのこのセクションでは、Azure にデプロイします。 このセクションは省略可能です。これをスキップして次のチュートリアルに進むことができます。また、このセクションの手順は、選択した別のホスティングプロバイダーに合わせて変更することもできます。
 
 ### <a name="use-code-first-migrations-to-deploy-the-database"></a>Code First の移行を使用してデータベースを展開する
 
-データベースを配置するには、Code First Migrations を使用します。 Visual Studio からデプロイするための設定を構成するために使用する発行プロファイルを作成するときに、 **[データベースの更新]** というチェックボックスをオンにします。 この設定により、配置プロセスでは、Code Firstが`MigrateDatabaseToLatestVersion`初期化子クラスを使用するように、移行先サーバー上のアプリケーションの web.config ファイルが自動的に構成されます。
+データベースを配置するには、Code First Migrations を使用します。 Visual Studio からデプロイするための設定を構成するために使用する発行プロファイルを作成するときに、 **[データベースの更新]** というチェックボックスをオンにします。 この設定により、配置プロセスでは、Code First が `MigrateDatabaseToLatestVersion` 初期化子クラスを使用するように、移行先サーバー上のアプリケーションの*web.config*ファイルが自動的に構成されます。
 
-プロジェクトを移行先サーバーにコピーしている間、Visual Studio は配置プロセス中にデータベースに対して何も実行しません。 配置後に配置されたアプリケーションを実行し、データベースに初めてアクセスすると、Code First データベースがデータモデルと一致するかどうかがチェックされます。 不一致がある場合、Code First によってデータベースが自動的に作成されます (まだ存在しない場合)。またはデータベーススキーマを最新バージョンに更新します (データベースが存在するがモデルに一致しない場合)。 アプリケーションが移行`Seed`方法を実装している場合、メソッドは、データベースが作成された後、またはスキーマが更新された後に実行されます。
+プロジェクトを移行先サーバーにコピーしている間、Visual Studio は配置プロセス中にデータベースに対して何も実行しません。 配置後に配置されたアプリケーションを実行し、データベースに初めてアクセスすると、Code First データベースがデータモデルと一致するかどうかがチェックされます。 不一致がある場合、Code First によってデータベースが自動的に作成されます (まだ存在しない場合)。またはデータベーススキーマを最新バージョンに更新します (データベースが存在するがモデルに一致しない場合)。 アプリケーションが移行 `Seed` 方法を実装している場合、メソッドは、データベースが作成された後、またはスキーマが更新された後に実行されます。
 
-移行`Seed`方法によって、テストデータが挿入されます。 運用環境に配置する場合は、実稼働データベースに挿入するデータ`Seed`のみが挿入されるように、メソッドを変更する必要があります。 たとえば、現在のデータモデルでは、開発用データベースに架空のコースを作成することができます。 開発時に両方`Seed`を読み込むメソッドを作成し、実稼働環境にデプロイする前に架空の学生をコメントアウトすることができます。 または、コースのみ`Seed`を読み込むメソッドを作成し、アプリケーションの UI を使用して、テストデータベースに架空の学生を手動で入力することもできます。
+移行 `Seed` 方法によって、テストデータが挿入されます。 運用環境に配置する場合は、実稼働データベースに挿入するデータのみが挿入されるように `Seed` 方法を変更する必要があります。 たとえば、現在のデータモデルでは、開発用データベースに架空のコースを作成することができます。 `Seed` メソッドを作成して、両方の開発で読み込み、架空の学生をコメントアウトしてから、運用環境にデプロイすることができます。 または、`Seed` メソッドを記述してコースのみを読み込み、アプリケーションの UI を使用して、テストデータベースに架空の学生を手動で入力することもできます。
 
 ### <a name="get-an-azure-account"></a>Azure アカウントを取得する
 
-Azure アカウントが必要です。 まだお持ちでない場合は、Visual Studio サブスクリプションをお持ちの場合は、 [サブスクリプションの特典](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/
-)を有効にすることができます。 それ以外の場合は、無料試用版アカウントを数分で作成できます。 詳細については、[Azure 無料試用版](https://azure.microsoft.com/free/)を参照してください。
+Azure アカウントが必要です。 まだお持ちでない場合は、Visual Studio サブスクリプションをお持ちの場合は、[サブスクリプションの特典を有効](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/
+)にすることができます。 それ以外の場合は、無料試用版アカウントを数分で作成できます。 詳細については、「[Azure の無料試用版サイト](https://azure.microsoft.com/free/)」を参照してください。
 
 ### <a name="create-a-web-site-and-a-sql-database-in-azure"></a>Azure で web サイトと SQL データベースを作成する
 
@@ -148,7 +148,7 @@ Azure の web アプリは共有ホスティング環境で実行されます。
 
 1. [Azure 管理ポータル](https://portal.azure.com)で、左側のタブにある **[リソースの作成]** を選択し、**新しい**ウィンドウ (または*ブレード*) で **[すべて表示]** を選択して、使用可能なすべてのリソースを表示します。 **[すべて]** ブレードの **[web]** セクションで **[web アプリ + SQL]** を選択します。 最後に、 **[作成]** を選択します。
 
-    ![Azure portal でリソースを作成する](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/create-azure-resource.png)
+    ![Azure Portal でのリソースの作成](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/create-azure-resource.png)
 
    新しい**Web アプリ + SQL**リソースを作成するためのフォームが開きます。
 
@@ -176,9 +176,9 @@ Azure の web アプリは共有ホスティング環境で実行されます。
 
     管理ポータルによって ダッシュボード ページに戻り、ページの上部にある **通知** 領域にサイトが作成されていることが示されます。 しばらくすると (通常は1分未満)、デプロイが成功したことを示す通知があります。 左側のナビゲーションバーの **[App Services]** セクションに新しい App Service が表示され、 **[sql]** データベース セクションに新しい sql データベースが表示されます。
 
-### <a name="deploy-the-app-to-azure"></a>Azure にアプリを配置する
+### <a name="deploy-the-app-to-azure"></a>Azure にアプリケーションをデプロイする
 
-1. Visual Studio で**ソリューションエクスプローラー**でプロジェクトを右クリックし、コンテキストメニューから **[発行]** を選択します。
+1. Visual Studio の**ソリューション エクスプローラー**で、プロジェクトを右クリックし、コンテキスト メニューの **[発行]** をクリックします。
 
 2. **[発行先の選択]** ページで、 **[App Service** ] を選択し、[既存] を**選択**して、 **[発行]** を選択します。
 
@@ -188,7 +188,7 @@ Azure の web アプリは共有ホスティング環境で実行されます。
 
 4. **[App Service]** ページで、App Service を追加した**サブスクリプション**を選択します。 **[表示]** で、 **[リソースグループ]** を選択します。 App Service 追加したリソースグループを展開し、App Service を選択します。 **[OK]** を選択してアプリを発行します。
 
-5. **[出力]** ウィンドウには、実行された配置アクションが表示され、デプロイが正常に完了したことがレポートされます。
+5. **出力** ウィンドウでは、実行されたデプロイ操作が表示され、デプロイが問題なく完了したことが報告されます。
 
 6. デプロイが成功すると、既定のブラウザーが自動的に開き、デプロイされた web サイトの URL が表示されます。
 
@@ -196,15 +196,15 @@ Azure の web アプリは共有ホスティング環境で実行されます。
 
     これで、アプリはクラウドで実行されています。
 
-この時点で、 **[Code First Migrations の実行 (アプリの起動時に実行)]** を選択したため、Azure SQL Database に*schoolcontext.cs*データベースが作成されました。 デプロイされた web サイトの*web.config ファイルが*変更され、コードがデータベース内のデータの読み取りまたは書き込みを初めて実行するときに ( **[Students]** タブを選択したときに[発生しまし](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx)た)、):
+この時点で、 **[Code First Migrations の実行 (アプリの起動時に実行)]** を選択したため、Azure SQL Database に*schoolcontext.cs*データベースが作成されました。 デプロイされた web サイトの*web.config ファイルが*変更され、コードがデータベース内のデータの読み取りまたは書き込みを初めて実行するとき ( **[Students]** タブを選択したときに[発生しまし](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx)た) に変わりました。
 
 ![Web.config ファイルの抜粋](https://asp.net/media/4367421/mig.png)
 
-また、配置プロセスでは、データベーススキーマの更新とデータベースのシード処理に使用する Code First Migrations 用の新しい接続文字列 *(schoolcontext.cs\_databasepublish*) も作成されました。
+また、配置プロセスでは、データベーススキーマの更新とデータベースのシード処理に使用する Code First Migrations 用の新しい接続文字列 *(schoolcontext.cs\_DatabasePublish*) も作成されています。
 
 ![Web.config ファイル内の接続文字列](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image26.png)
 
-配置された web.config ファイルのバージョンは、自分のコンピューターのユーザーのコンピューターに配置されていることがわかります。詳細については、 *「」を*参照してください。配置された*web.config*ファイル自体には、FTP を使用してアクセスできます。 手順について[は、「ASP.NET Web Deployment using Visual Studio」を参照してください。コードの更新](xref:web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update)を配置します。 「FTP ツールを使用するには」で始まる指示に従って、FTP URL、ユーザー名、およびパスワードの3つが必要になります。
+配置された web.config ファイルのバージョンは、自分のコンピューターのユーザーのコンピューターに配置されていることがわかります。詳細については、 *「」を*参照してください。配置された*web.config*ファイル自体には、FTP を使用してアクセスできます。 手順については、「 [ASP.NET Web Deployment Using Visual Studio: Code Update のデプロイ](xref:web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update)」を参照してください。 「FTP ツールを使用するには」で始まる指示に従って、FTP URL、ユーザー名、およびパスワードの3つが必要になります。
 
 > [!NOTE]
 > Web アプリはセキュリティを実装していないので、URL を見つけたすべてのユーザーがデータを変更できます。 Web サイトをセキュリティで保護する方法については、「[メンバーシップ、OAuth、SQL database を使用した secure ASP.NET MVC アプリの Azure へのデプロイ](/aspnet/core/security/authorization/secure-data)」を参照してください。 Azure 管理ポータルまたは Visual Studio で**サーバーエクスプローラー**を使用してサービスを停止することで、他のユーザーがサイトを使用できないようにすることができます。
@@ -221,31 +221,31 @@ Azure の web アプリは共有ホスティング環境で実行されます。
 
 `update-database -target MigrationName`
 
-この`update-database -target MigrationName`コマンドは、対象の移行を実行します。
+`update-database -target MigrationName` コマンドは、対象の移行を実行します。
 
 ## <a name="ignore-migration-changes-to-database"></a>データベースへの移行の変更を無視する
 
 `Add-migration MigrationName -ignoreChanges`
 
-`ignoreChanges`現在のモデルをスナップショットとして使用して、空の移行を作成します。
+`ignoreChanges` は、現在のモデルをスナップショットとして使用して、空の移行を作成します。
 
 ## <a name="code-first-initializers"></a>Code First 初期化子
 
-[デプロイ] セクションでは、Migrateに使用されている、 [migrateの](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx)ユーザー初期化子があることを確認しました。 Code First には、 [Createdatabaseifnotexists](https://msdn.microsoft.com/library/gg679221(v=vs.103).aspx) (既定)、 [Dropcreatedatabaseifmodelchanges](https://msdn.microsoft.com/library/gg679604(v=VS.103).aspx) (前に使用したもの)、 [dropcreatedatabasealways](https://msdn.microsoft.com/library/gg679506(v=VS.103).aspx)など、他の初期化子も用意されています。 初期化`DropCreateAlways`子は、単体テストの条件を設定する場合に役立ちます。 独自の初期化子を記述することもできます。また、アプリケーションがデータベースに対して読み取りまたは書き込みを行うまで待機しない場合は、初期化子を明示的に呼び出すことができます。
+[デプロイ] セクションでは、Migrateに使用されている、 [migrateの](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx)ユーザー初期化子があることを確認しました。 Code First には、 [Createdatabaseifnotexists](https://msdn.microsoft.com/library/gg679221(v=vs.103).aspx) (既定)、 [Dropcreatedatabaseifmodelchanges](https://msdn.microsoft.com/library/gg679604(v=VS.103).aspx) (前に使用したもの)、 [dropcreatedatabasealways](https://msdn.microsoft.com/library/gg679506(v=VS.103).aspx)など、他の初期化子も用意されています。 `DropCreateAlways` 初期化子は、単体テストの条件を設定する場合に役立ちます。 独自の初期化子を記述することもできます。また、アプリケーションがデータベースに対して読み取りまたは書き込みを行うまで待機しない場合は、初期化子を明示的に呼び出すことができます。
 
-初期化子の詳細については、「 [Entity Framework Code First でのデータベース初期化子](http://www.codeguru.com/csharp/article.php/c19999/Understanding-Database-Initializers-in-Entity-Framework-Code-First.htm)につい[て」および「書籍プログラミング Entity Framework」の第6章を参照してください。ジュリー](http://shop.oreilly.com/product/0636920022220.do) Lerman と rowan 明美によって Code First ます。
+初期化子の詳細については、「 [Entity Framework Code First でのデータベース初期化子](http://www.codeguru.com/csharp/article.php/c19999/Understanding-Database-Initializers-in-Entity-Framework-Code-First.htm)について」および「書籍の[プログラミング Entity Framework:](http://shop.oreilly.com/product/0636920022220.do)ジュリー Lerman と rowan 明美による Code First」を参照してください。
 
-## <a name="get-the-code"></a>コードを取得する
+## <a name="get-the-code"></a>コードの入手
 
 [完成したプロジェクトをダウンロードする](https://webpifeed.blob.core.windows.net/webpifeed/Partners/ASP.NET%20MVC%20Application%20Using%20Entity%20Framework%20Code%20First.zip)
 
-## <a name="additional-resources"></a>その他の技術情報
+## <a name="additional-resources"></a>その他のリソース
 
 その他の Entity Framework リソースへのリンクについては[、「ASP.NET Data Access-推奨リソース](xref:whitepapers/aspnet-data-access-content-map)」を参照してください。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-このチュートリアルでは、次の作業を行いました。
+このチュートリアルでは、次のことを行いました。
 
 > [!div class="checklist"]
 > * Code First 移行を有効にする

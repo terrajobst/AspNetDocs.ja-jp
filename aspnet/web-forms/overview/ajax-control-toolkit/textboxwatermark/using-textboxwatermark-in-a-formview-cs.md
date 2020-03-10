@@ -9,11 +9,11 @@ ms.assetid: e6ee90bf-32a5-4987-a384-15cc7dd30c8a
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/textboxwatermark/using-textboxwatermark-in-a-formview-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 13ac0da5ca53756aa7c660cdc47c96f0c865b006
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74611309"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78508840"
 ---
 # <a name="using-textboxwatermark-in-a-formview-c"></a>FormView で TextBoxWatermark を使用する (C#)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74611309"
 
 > AJAX コントロールツールキットの TextBoxWatermark コントロールは、テキストがボックス内に表示されるようにテキストボックスを拡張します。 ユーザーがボックスをクリックすると、そのボックスは空になります。 ユーザーがテキストを入力せずにボックスを離れると、事前テキストが再び表示されます。 これは、FormView コントロール内でも可能です。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 AJAX コントロールツールキットの `TextBoxWatermark` コントロールは、テキストがボックス内に表示されるようにテキストボックスを拡張します。 ユーザーがボックスをクリックすると、そのボックスは空になります。 ユーザーがテキストを入力せずにボックスを離れると、事前テキストが再び表示されます。 これは、`FormView` コントロール内でも可能です。
 
@@ -52,4 +52,4 @@ ASP.NET AJAX と Control Toolkit の機能をアクティブ化するには、�
 フィールドのウォーターマークは extender から取得されます ([クリックすると、フルサイズの画像が表示](using-textboxwatermark-in-a-formview-cs/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
-> [次へ](using-textboxwatermark-with-validation-controls-cs.md)
+> [Next](using-textboxwatermark-with-validation-controls-cs.md)

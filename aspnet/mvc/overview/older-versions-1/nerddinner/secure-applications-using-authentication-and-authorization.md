@@ -1,155 +1,155 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/secure-applications-using-authentication-and-authorization
-title: 認証と承認を使用してアプリケーションをセキュリティ保護 |Microsoft Docs
+title: 認証と承認を使用してアプリケーションをセキュリティで保護する |Microsoft Docs
 author: microsoft
-description: 手順 9 は、ユーザーが登録する必要が、認証と承認 NerdDinner アプリケーションでは、セキュリティで保護するを追加する方法を説明し、作成するには、サイトにログインしています.
+description: 手順 9. では、ユーザーが登録してサイトにログインして、作成する必要があるように、このアプリケーションをセキュリティで保護するための認証と承認を追加する方法を示します。
 ms.author: riande
 ms.date: 07/27/2010
 ms.assetid: 9e4d5cac-b071-440c-b044-20b6d0c964fb
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/secure-applications-using-authentication-and-authorization
 msc.type: authoredcontent
 ms.openlocfilehash: 8d509c5f15bb4d5014e53b8dc2a736454238e72c
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65122227"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78486424"
 ---
 # <a name="secure-applications-using-authentication-and-authorization"></a>認証と承認を利用した安全なアプリケーション
 
-によって[Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft)
 
-[PDF のダウンロード](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[[Download PDF]\(PDF をダウンロード\)](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
-> これは、無料の手順 9 ["NerdDinner"アプリケーションのチュートリアル](introducing-the-nerddinner-tutorial.md)をウォーク スルーの小さなをビルドしても、ASP.NET MVC 1 を使用して web アプリケーションを実行する方法。
+> これは、ASP.NET MVC 1 を使用して小規模で完成した web アプリケーションを構築する方法を説明する、無料の["" アプリケーションのチュートリアル](introducing-the-nerddinner-tutorial.md)の手順9です。
 > 
-> 手順 9 は、ユーザーが登録する必要があるように、認証と承認 NerdDinner アプリケーションでは、セキュリティで保護するを追加する方法を示します新しい dinners と、dinner をホストしているユーザーのみを作成するには、サイトへのログインが後で編集できます。
+> 手順 9. では、ユーザーが登録してサイトにログインして新しいディナーを作成する必要があり、ディナーをホストしているユーザーのみが後で編集できるようにするために、認証と承認を追加して、そのアプリケーションをセキュリティで保護する方法を示します。
 > 
-> 次のことをお勧め ASP.NET MVC 3 を使用している場合、 [MVC 3 の開始と取得](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)または[MVC Music Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)チュートリアル。
+> ASP.NET MVC 3 を使用している場合は、MVC 3 または[Mvc ミュージックストア](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)[のチュートリアルではじめに](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)に従うことをお勧めします。
 
-## <a name="nerddinner-step-9-authentication-and-authorization"></a>NerdDinner 手順 9:認証と承認
+## <a name="nerddinner-step-9-authentication-and-authorization"></a>ステップ 9: 認証と承認
 
-今すぐ、NerdDinner をアプリケーションに許可されたすべてのユーザーは、サイトを作成し、任意の dinner の詳細を編集する機能にアクセスします。 ユーザーが登録する必要がありますようにこれを変更してみましょうと新しい dinners を作成し、夕食をホストしているユーザーのみが後で編集できるように、制限を追加するサイトにログインします。
+現在、このアプリケーションでは、サイトにアクセスするすべてのユーザーに、ディナーの詳細を作成および編集する権限を付与しています。 これを変更して、新しいディナーを作成するためにユーザーがサイトに登録してログインする必要があるようにして、ディナーをホストしているユーザーのみが後で編集できるように制限を追加してみましょう。
 
-これを有効にするには、認証と承認をアプリケーションをセキュリティで保護するのにに使用します。
+これを有効にするには、アプリケーションをセキュリティで保護するために認証と承認を使用します。
 
-### <a name="understanding-authentication-and-authorization"></a>認証と承認
+### <a name="understanding-authentication-and-authorization"></a>認証と承認について
 
-*認証*は識別およびアプリケーションにアクセスするクライアントの id を検証するプロセスです。 さらに簡単に言うと、「ユーザー」、エンドユーザーが web サイトを訪問するときに識別することです。 ASP.NET では、複数のブラウザーのユーザーを認証する方法をサポートします。 インターネットの web アプリケーション、使用される最も一般的な認証方法には「フォーム認証」が呼び出されます。 フォーム認証を使用すると、開発者は自社のアプリケーションの HTML ログイン フォームを作成し、データベースやその他のパスワード資格情報ストアに対して、エンドユーザーが送信するユーザー名とパスワードを検証します。 ユーザー名/パスワードの組み合わせが正しい場合は、開発者は、今後の要求間でユーザーを識別するために暗号化された HTTP クッキーを発行するための ASP.NET を依頼できます。 NerdDinner アプリケーションでフォーム認証を使用して作成します。
+*認証*は、アプリケーションにアクセスするクライアントの id を識別および検証するプロセスです。 もっと簡単に説明すると、エンドユーザーが web サイトにアクセスしたときの "だれ" を特定することになります。 ASP.NET は、ブラウザーユーザーを認証するための複数の方法をサポートしています。 インターネット web アプリケーションの場合、使用される最も一般的な認証方法は "フォーム認証" と呼ばれます。 フォーム認証を使用すると、開発者はアプリケーション内に HTML ログインフォームを作成し、エンドユーザーがデータベースまたは他のパスワード資格情報ストアに対して送信したユーザー名とパスワードを検証できます。 ユーザー名とパスワードの組み合わせが正しい場合、開発者は、今後の要求でユーザーを識別するために、暗号化された HTTP クッキーを発行するように ASP.NET に要求できます。 フォーム認証を使用して、このアプリケーションを使用します。
 
-*承認*は、認証されたユーザーが特定の URL/リソースへのアクセスまたはアクションを実行するアクセス許可を持つかどうかを決定するプロセスです。 など、NerdDinner アプリケーション内で必要ありますでログオンしているユーザーのみがアクセスできることを承認するために、 */Dinners/作成*URL と新しい Dinners を作成します。 私たちは、夕食をホストしているユーザーのみが編集および他のすべてのユーザーに対して編集のアクセスが拒否されるように、承認ロジックを追加する必要もあります。
+*承認*とは、認証されたユーザーが特定の URL またはリソースにアクセスする権限を持っているか、何らかのアクションを実行する権限を持っているかどうかを判断するプロセスです。 たとえば、世界中のアプリケーションでは、ログインしているユーザーのみが */Dins/create* URL にアクセスでき、新しいディナーを作成できることを承認する必要があります。 また、ディナーをホストしているユーザーのみが編集できるように承認ロジックを追加し、他のすべてのユーザーへの編集アクセスを拒否します。
 
-### <a name="forms-authentication-and-the-accountcontroller"></a>フォーム認証と、AccountController
+### <a name="forms-authentication-and-the-accountcontroller"></a>フォーム認証と AccountController
 
-ASP.NET MVC の既定の Visual Studio プロジェクト テンプレートは、新しい ASP.NET MVC アプリケーションを作成すると、フォーム認証を自動的に有効にします。 – プロジェクトを使用して、サイト内のセキュリティを統合する非常に簡単に構築済みのアカウントのログイン ページの実装も自動的に追加します。
+新しい ASP.NET MVC アプリケーションが作成されると、ASP.NET MVC の既定の Visual Studio プロジェクトテンプレートによってフォーム認証が自動的に有効になります。 また、事前に構築されたアカウントログインページの実装がプロジェクトに自動的に追加されるため、サイト内でのセキュリティの統合が非常に簡単になります。
 
-既定の Site.master マスター ページでは、それにアクセスするユーザーが認証されていない場合、サイトの右上にある [ログオン] のリンクが表示されます。
+既定のサイトのマスターページでは、アクセスしているユーザーが認証されていない場合に、サイトの右上に [ログオン] リンクが表示されます。
 
 ![](secure-applications-using-authentication-and-authorization/_static/image1.png)
 
-ユーザーには、[ログオン] リンクをクリックすると、 */アカウント/ログオン*URL:
+[ログオン] リンクをクリックすると、ユーザーは */アカウントのログオン*URL に移動します。
 
 ![](secure-applications-using-authentication-and-authorization/_static/image2.png)
 
-訪問者に登録していないようにすることができる –「登録」リンクをクリックして、 */アカウント/登録*URL とアカウントの詳細を入力するようにします。
+登録されていない訪問者は、"Register" リンクをクリックすることによってこれを行うことができます。これにより、/アカウント/*レジスタ*の URL に移動し、アカウントの詳細を入力できます。
 
 ![](secure-applications-using-authentication-and-authorization/_static/image3.png)
 
-「登録」 ボタンをクリックすると、ASP.NET メンバーシップ システム内で新しいユーザーの作成し、フォーム認証を使用して、サイトにユーザーを認証します。
+[Register] \ (登録 \) ボタンをクリックすると、ASP.NET メンバーシップシステム内に新しいユーザーが作成され、フォーム認証を使用してユーザーがサイトで認証されます。
 
-Site.master 変更、「ようこそ [username]!」を出力するページの右上でユーザーがログインしている場合、 メッセージと表示を「オン」、「ログの」いずれかの代わりにリンクします。 「ログオフ」リンクをクリックすると、ユーザーをログアウトします。
+ユーザーがログインすると、ページの右上にある "Welcome [username]!" を出力するように変更されます。 メッセージを表示し、"ログオン" ではなく "ログオフ" リンクを表示します。 [ログオフ] リンクをクリックすると、ユーザーがログアウトします。
 
 ![](secure-applications-using-authentication-and-authorization/_static/image4.png)
 
-上記のログイン、ログアウト、および登録機能は、プロジェクトの作成時に Visual Studio によってプロジェクトに追加された AccountController クラス内で実装されます。 AccountController の UI は \Views\Account ディレクトリ内のビュー テンプレートを使用して実装されます。
+上記のログイン、ログアウト、および登録機能は、プロジェクトの作成時に Visual Studio によってプロジェクトに追加された AccountController クラス内に実装されます。 AccountController の UI は、\Views\Account ディレクトリ内のビューテンプレートを使用して実装されます。
 
 ![](secure-applications-using-authentication-and-authorization/_static/image5.png)
 
-AccountController クラスでは、ASP.NET フォーム認証システムを使用して、暗号化された認証 cookie、および格納し、ユーザー名/パスワードの検証に ASP.NET メンバーシップ API を発行します。 ASP.NET メンバーシップ API は、拡張により、任意のパスワード資格情報ストアの使用します。 ASP.NET は、SQL database、または Active Directory 内のユーザー名とパスワードを格納する組み込みのメンバーシップ プロバイダーの実装では出荷されます。
+AccountController クラスは、暗号化された認証 cookie を発行するために ASP.NET Forms 認証システムを使用し、ユーザー名/パスワードを格納して検証するために ASP.NET Membership API を使用します。 ASP.NET Membership API は拡張可能であり、任意のパスワード資格情報ストアを使用できます。 ASP.NET には、SQL データベース内、または Active Directory 内にユーザー名とパスワードを格納する、組み込みのメンバーシッププロバイダーの実装が付属しています。
 
-NerdDinner アプリケーションは、プロジェクトのルートに"web.config"ファイルを開き、検索で使用するメンバーシップ プロバイダーを構成することができます、&lt;メンバーシップ&gt;セクション内にします。 追加プロジェクトの作成時に既定の web.config が SQL メンバーシップ プロバイダーを登録し、"ApplicationServices"という名前の接続文字列を使用するように構成データベースの場所を指定します。
+ここでは、プロジェクトのルートにある "web.config" ファイルを開き、その中の &lt;メンバーシップ&gt; セクションを検索することで、このアプリケーションで使用する必要があるメンバーシッププロバイダーを構成できます。 プロジェクトの作成時に追加された既定の web.config は、SQL メンバーシッププロバイダーを登録し、データベースの場所を指定するために "ApplicationServices" という接続文字列を使用するように構成します。
 
-既定の"ApplicationServices"接続文字列 (内で指定される、 &lt;connectionStrings&gt; web.config ファイルのセクション) SQL Express を使用するように構成します。 "ASPNETDB をという名前の SQL Express データベースを指します。アプリケーションの下で"MDF"アプリ\_データ"のディレクトリ。 このデータベースが最初に、アプリケーション内で、メンバーシップ API を使用するときに存在しない場合 ASP.NET は自動的にデータベースを作成し、内に適切なメンバーシップ データベース スキーマをプロビジョニングします。
+Web.config ファイルの &lt;connectionStrings&gt; セクション内で指定されている既定の "ApplicationServices" 接続文字列は、SQL Express を使用するように構成されています。 "ASPNETDB.MDF" という名前の SQL Express データベースを指します。MDF "アプリケーションの" App\_Data "ディレクトリにあります。 アプリケーション内でメンバーシップ API を初めて使用するときに、このデータベースが存在しない場合、ASP.NET は自動的にデータベースを作成し、その中に適切なメンバーシップデータベーススキーマをプロビジョニングします。
 
 ![](secure-applications-using-authentication-and-authorization/_static/image6.png)
 
-SQL Express を使用して、完全な SQL Server インスタンス (またはリモート データベースへの接続) を使用せずにすべてが必要になります to do 場合は、web.config ファイル内で"ApplicationServices"接続文字列を更新し、ことを確認しますが、適切なメンバーシップ スキーマポイントのデータベースに追加されました。 実行することができます、"aspnet\_regsql.exe"、データベースにメンバーシップと、その他の ASP.NET アプリケーション サービスの適切なスキーマを追加する \Windows\Microsoft.NET\Framework\v2.0.50727\ ディレクトリ内でユーティリティ。
+SQL Express を使用する代わりに、完全な SQL Server インスタンス (またはリモートデータベースへの接続) を使用する場合は、web.config ファイル内の "ApplicationServices" 接続文字列を更新して、適切なメンバーシップスキーマを確認するだけで済みます。は、が指すデータベースに追加されています。 \Windows\Microsoft.NET\Framework\v2.0.50727\ ディレクトリ内で "aspnet\_regsql .exe" ユーティリティを実行すると、メンバーシップとその他の ASP.NET アプリケーションサービスに適したスキーマをデータベースに追加できます。
 
-### <a name="authorizing-the-dinnerscreate-url-using-the-authorize-filter"></a>[Authorize] フィルターを使用して、Dinners/作成 URL の承認
+### <a name="authorizing-the-dinnerscreate-url-using-the-authorize-filter"></a>[承認] フィルターを使用して、/Dins/create URL を承認しています
 
-NerdDinner アプリケーションのアカウント管理の実装をセキュリティで保護された認証を有効にするコードを記述することがありませんでした。 ユーザーは、当社のアプリケーション、およびサイトのログイン/ログアウトを新しいアカウントを登録できます。
+セキュリティで保護された認証とアカウント管理の実装を、このアプリケーションに対して有効にするためのコードを作成する必要はありませんでした。 ユーザーは、アプリケーションに新しいアカウントを登録し、サイトのログイン/ログアウトを行うことができます。
 
-今すぐ、アプリケーションに承認ロジックを追加して認証の状態と訪問者のユーザー名を使用できる、確認と、サイト内で実行できないことを制御します。 まず、DinnersController クラスの「作成」のアクション メソッドに承認ロジックを追加することから始めます。 具体的には、私たちがする必要がありますにアクセスするユーザー、 */Dinners/作成*に URL を記録する必要があります。 ログオンしていない場合リダイレクトにログイン ページにことがサインインできるようにします。
+これで、承認ロジックをアプリケーションに追加し、訪問者の認証状態とユーザー名を使用して、サイト内で実行できることとできないことを制御できます。 最初に、Dinのコントローラークラスの "作成" アクションメソッドに承認ロジックを追加します。 具体的には、 */dinurl*にアクセスするユーザーがログインしている必要があります。 ログインしていない場合は、ログインページにリダイレクトして、サインインできるようにします。
 
-このロジックを実装することは非常に簡単です。 To-do は、Create アクション メソッドに [Authorize] フィルター属性を追加するようになります。
+このロジックの実装は非常に簡単です。 必要なのは、次のように、Create アクションメソッドに [承認] フィルター属性を追加することだけです。
 
 [!code-csharp[Main](secure-applications-using-authentication-and-authorization/samples/sample1.cs)]
 
-ASP.NET MVC には、宣言でアクション メソッドに適用できる再利用可能なロジックを実装するために使用できる「アクション フィルター」を作成する機能がサポートしています。 [Authorize] フィルターは、ASP.NET MVC、によって提供される組み込みのアクション フィルターの 1 つでき、開発者は宣言でアクション メソッドとコント ローラー クラスに承認規則を適用できます。
+ASP.NET MVC では、アクションメソッドに宣言的に適用できる再利用可能なロジックを実装するために使用できる "アクションフィルター" を作成する機能がサポートされています。 [承認] フィルターは、ASP.NET MVC によって提供される組み込みアクションフィルターの1つであり、開発者は、アクションメソッドとコントローラークラスに承認規則を宣言によって適用できます。
 
-(上記のような) パラメーターを指定せずに適用されるときに自動的にリダイレクトする必要がブラウザーのログイン URL にこれらができない場合、アクション メソッド要求を行っているユーザーは、– でログに記録する必要があります [Authorize] フィルターを適用します。 最初に要求された URL は、クエリ文字列引数として渡されるこのリダイレクトを実行する場合 (例:/アカウント/ログオンでしょうか。ReturnUrl = % 2fDinners %2fcreate)。 ログインしたら、AccountController は最初に要求された URL にし、ユーザーをリダイレクトします。
+パラメーターを指定せずに適用した場合 (上記のように)、[承認] フィルターによって、アクションメソッド要求を行うユーザーがログインする必要があることが強制されます。そうでない場合は、ブラウザーがログイン URL に自動的にリダイレクトされます。 このリダイレクトを実行すると、最初に要求された URL が querystring 引数として渡されます (例:/Account/LogOn)。ReturnUrl =% 2fDinners% 2fCreate)。 その後、ユーザーがログインすると、AccountController は最初に要求された URL にリダイレクトします。
 
-[Authorize] フィルターには、必要に応じて、ユーザーが両方に記録する許可されたユーザーまたは許可されているセキュリティ ロールのメンバーの一覧内で要求するように使用できる「ユーザー」または「ロール」のプロパティを指定する機能がサポートしています。 たとえば、次のコードは、Dinners/作成 URL にアクセスするには、2 つの特定のユーザー、"scottgu"および「billg のことです」をのみできます。
+[承認] フィルターでは、必要に応じて、ユーザーがログインしていること、許可されているユーザーの一覧、または許可されているセキュリティロールのメンバーであることを要求するために使用できる "ユーザー" プロパティまたは "ロール" プロパティを指定する機能がサポートされています。 たとえば、次のコードでは、"scottgu" と "billg" という2つの特定のユーザーのみが、/Dins/create URL にアクセスできます。
 
 [!code-csharp[Main](secure-applications-using-authentication-and-authorization/samples/sample2.cs)]
 
-埋め込みコード内で特定のユーザー名は、ただし非常されていない intainable ある傾向があります。 優れたアプローチより高度な"roles"を定義する、コードをチェックし、データベースまたは active directory システムの (コードから外部に格納される実際のユーザー マッピングの一覧を有効にする) を使用してロールにユーザーをマップします。 ASP.NET には、組み込みのロール管理 API と組み込みの (SQL と Active Directory のものを含む)、このユーザー/ロール マッピングを実行できるロール プロバイダーのセットが含まれています。 Dinners/作成 URL にアクセスする特定の「管理者」ロール内のユーザーのみを許可するコードを更新し、でした。
+コード内に特定のユーザー名を埋め込むことは、それによって保守が容易になる傾向があります。 より適切な方法は、コードがチェックする上位レベルの "ロール" を定義し、データベースまたは active directory システムを使用してユーザーをロールにマップすることです (実際のユーザーマッピングリストをコードから外部に格納できるようにします)。 ASP.NET には、組み込みのロール管理 API だけでなく、組み込みのロールプロバイダーのセット (SQL および Active Directory 用のロールプロバイダーを含む) が含まれており、このユーザー/ロールマッピングを実行するのに役立ちます。 次に、特定の "管理者" ロール内のユーザーのみが/Dins/create URL にアクセスできるようにコードを更新できます。
 
 [!code-csharp[Main](secure-applications-using-authentication-and-authorization/samples/sample3.cs)]
 
-### <a name="using-the-useridentityname-property-when-creating-dinners"></a>作成するときに、User.Identity.Name プロパティを使用して Dinners
+### <a name="using-the-useridentityname-property-when-creating-dinners"></a>ディナーを作成するときに User.Identity.Name プロパティを使用する
 
-コント ローラーの基本クラスで公開されている User.Identity.Name プロパティを使用して、要求の現在のログイン ユーザーのユーザー名を取得できます。
+コントローラーの基本クラスで公開されている User.Identity.Name プロパティを使用して、要求の現在ログインしているユーザーのユーザー名を取得できます。
 
-以前、Create() アクション メソッドの HTTP POST のバージョンを実装したときにありましたハードコードされた静的な文字列を Dinner の"HostedBy"プロパティです。 私たちできます User.Identity.Name プロパティを使用するには、このコードを更新するようになりましただけでなく、夕食を作成するホストに、予約を自動的に追加。
+前に、Create () アクションメソッドの HTTP POST バージョンを実装したので、ディナーの "HostedBy" プロパティを静的文字列にハードコーディングしました。 次に、User.Identity.Name プロパティを使用するようにこのコードを更新できるようになりました。また、ディナーを作成したホストの RSVP を自動的に追加することもできます。
 
 [!code-csharp[Main](secure-applications-using-authentication-and-authorization/samples/sample4.cs)]
 
-Create() メソッドに [Authorize] 属性を追加したため、ASP.NET MVC は、アクション メソッドは、Dinners/作成の URL にアクセスするユーザーがサイトにログインしている場合のみが実行されるを確認します。 そのため、User.Identity.Name プロパティの値には、有効なユーザー名は常に含まれます。
+Create () メソッドに [承認] 属性を追加したので、ASP.NET MVC では、ユーザーがサイトにログインしている場合にのみ、アクションメソッドが実行されるようにしています。 そのため、User.Identity.Name プロパティの値には、常に有効なユーザー名が含まれます。
 
-### <a name="using-the-useridentityname-property-when-editing-dinners"></a>編集するときに、User.Identity.Name プロパティを使用して Dinners
+### <a name="using-the-useridentityname-property-when-editing-dinners"></a>ディナーを編集するときに User.Identity.Name プロパティを使用する
 
-今すぐ dinners ホスト自体のプロパティしか編集するためにユーザーを制限するいくつかの承認ロジックを追加してみましょう。
+ここで、ユーザー自身がホストしているディナーのプロパティのみを編集できるように、ユーザーを制限する認証ロジックを追加してみましょう。
 
-このため、最初"IsHostedBy(username)"のヘルパー メソッド (前に作成した Dinner.cs 部分クラス) 内、Dinner オブジェクトに追加します。 True または false かどうか指定されたユーザー名は、Dinner HostedBy プロパティと一致して、それらの大文字の文字列比較を実行するために必要なロジックをカプセル化によって、このヘルパー メソッドが返されます。
+この問題を解決するには、まず、先ほど作成した Dinner.cs 部分クラス内で、ディナーオブジェクトに "IsHostedBy (username)" ヘルパーメソッドを追加します。 このヘルパーメソッドは、指定されたユーザー名がディナー HostedBy プロパティに一致するかどうかに応じて true または false を返し、大文字と小文字を区別しない文字列比較を実行するために必要なロジックをカプセル化します。
 
 [!code-csharp[Main](secure-applications-using-authentication-and-authorization/samples/sample5.cs)]
 
-DinnersController クラス内で Edit() のアクション メソッドに [Authorize] 属性から追加します。 要求にユーザーに記録する必要があることにより、これを */Dinners/編集/[id]* URL。
+次に、Dinの Scontroller クラス内の Edit () アクションメソッドに [承認] 属性を追加します。 これにより、ユーザーは、// *//[id]* の URL を要求するようにログインする必要があります。
 
-コード Dinner.IsHostedBy(username) ヘルパー メソッドを使用してログインしたユーザーが Dinner ホストと一致していることを確認する、Edit メソッドを追加できます。 ユーザーが、ホストでない場合が"InvalidOwner"ビューを表示され、要求の終了します。 これを行うコードは、次のようになります。
+次に、IsHostedBy (username) ヘルパーメソッドを使用して、ログインしているユーザーがディナーホストと一致することを確認するコードを Edit メソッドに追加できます。 ユーザーがホストでない場合は、"InvalidOwner" ビューを表示し、要求を終了します。 このコードは次のようになります。
 
 [!code-csharp[Main](secure-applications-using-authentication-and-authorization/samples/sample6.cs)]
 
-私たちし \Views\Dinners ディレクトリを右クリックし、選択追加-&gt;新しい"InvalidOwner"ビューを作成するメニュー コマンドを表示します。 それを設定しますが、次のエラー メッセージ。
+次に、\Views\Dinners ディレクトリを右クリックし、[&gt;ビューの追加] メニューコマンドを選択して、新しい "InvalidOwner" ビューを作成します。 これには、次のエラーメッセージが表示されます。
 
 [!code-aspx[Main](secure-applications-using-authentication-and-authorization/samples/sample7.aspx)]
 
-ユーザーが所有していない夕食を編集しようとした場合、みましょうエラー メッセージ。
+これで、ユーザーが所有していないディナーを編集しようとすると、次のエラーメッセージが表示されます。
 
 ![](secure-applications-using-authentication-and-authorization/_static/image7.png)
 
-Delete() アクション メソッドに対して同じ手順を繰り返し Dinners を同様に、削除して、Dinner のホストのみと削除することを確認するためのアクセス許可をロックダウンするコント ローラー内で。
+コントローラー内の Delete () アクションメソッドに対しても同じ手順を繰り返して、ディナーを削除するためのアクセス許可をロックダウンし、ディナーのホストだけが削除できるようにします。
 
-### <a name="showinghiding-edit-and-delete-links"></a>表示/非表示の編集と削除のリンク
+### <a name="showinghiding-edit-and-delete-links"></a>編集と削除のリンクの表示/非表示
 
-目的の詳細 URL から、DinnersController クラスの編集、削除のアクション メソッドにリンクします。
+この記事では、次のように、[詳細 URL] から Dinの Scontroller クラスの編集および削除アクションメソッドにリンクしています。
 
 ![](secure-applications-using-authentication-and-authorization/_static/image8.png)
 
-現在の詳細 URL への訪問者が、dinner のホストであるかに関係なく、編集、削除アクション リンクを示しています。 みましょうされるように変更、リンクは、訪問したユーザーが、dinner の所有者である場合にのみ表示されます。
+現時点では、詳細 URL の訪問者がディナーのホストであるかどうかに関係なく、[編集] および [削除] アクションリンクが表示されています。 これを変更して、訪問しているユーザーがディナーの所有者である場合にのみリンクが表示されるようにしましょう。
 
-DinnersController 内 Details() アクション メソッドでは、Dinner オブジェクトを取得し、モデル オブジェクトとしてビュー テンプレートに渡します。
+Dinでの Details () アクションメソッドは、ディナーオブジェクトを取得し、それをモデルオブジェクトとしてビューテンプレートに渡します。
 
 [!code-csharp[Main](secure-applications-using-authentication-and-authorization/samples/sample8.cs)]
 
-条件付きで表示/非表示、編集、削除のリンク Dinner.IsHostedBy() の次のようなヘルパー メソッドを使用して、ビュー テンプレートを更新することができます。
+次のような IsHostedBy () ヘルパーメソッドを使用して、ビューテンプレートを更新して、条件に応じて編集と削除のリンクを表示/非表示にすることができます。
 
 [!code-aspx[Main](secure-applications-using-authentication-and-authorization/samples/sample9.aspx)]
 
 #### <a name="next-steps"></a>次の手順
 
-これで、認証されたユーザーの dinners AJAX を使用して予約を達成する方法を見てみましょう。
+ここで、AJAX を使用して、認証されたユーザーをディナーの RSVP に対して有効にする方法を見てみましょう。
 
 > [!div class="step-by-step"]
 > [前へ](implement-efficient-data-paging.md)

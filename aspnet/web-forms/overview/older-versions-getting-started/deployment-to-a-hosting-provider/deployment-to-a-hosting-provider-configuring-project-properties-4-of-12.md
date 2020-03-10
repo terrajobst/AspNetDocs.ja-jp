@@ -9,11 +9,11 @@ ms.assetid: 8b013630-842c-4d44-a6fc-c6be43e7210f
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-configuring-project-properties-4-of-12
 msc.type: authoredcontent
 ms.openlocfilehash: 6e63e75dca3d776fb9a1bd7e420ef48891daac69
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74569805"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78507736"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-configuring-project-properties---4-of-12"></a>Visual Studio または Visual Web Developer を使用した SQL Server Compact を使用した ASP.NET Web アプリケーションの配置: プロジェクトプロパティの構成-4/12
 
@@ -25,7 +25,7 @@ ms.locfileid: "74569805"
 > 
 > Visual Studio 2012 の RC リリース後に導入された配置機能を示すチュートリアルについては、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法、Azure App Service Web Apps にデプロイする方法については、「 [ASP.NET Web deployment Using Visual studio (Visual studio を使用した Web デプロイ](../../deployment/visual-studio-web-deployment/introduction.md)のデプロイ)」を参照してください。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 一部の配置オプションは、プロジェクトファイル ( *.csproj*または *.vbproj*ファイル) に格納されているプロジェクトプロパティで構成されます。 ほとんどの場合、これらの設定の既定値は必要ですが、Visual Studio に組み込まれている**プロジェクトプロパティ**の UI を使用すると、これらの設定を変更する必要がある場合に、これらの設定を操作できます。 このチュートリアルでは、 **[プロジェクトのプロパティ]** で配置設定を確認します。 また、空のフォルダーを配置するプレースホルダーファイルも作成します。
 

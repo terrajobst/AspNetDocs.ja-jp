@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/index
-title: OData では、ASP.NET Web API - ASP.NET 4.x
+title: ASP.NET Web API の OData-ASP.NET 4.x
 author: rick-anderson
-description: ASP.NET の ASP.NET Web api OData エンドポイントを作成する方法 4.x
+description: ASP.NET 4.x の ASP.NET Web API で OData エンドポイントを作成する方法
 ms.author: riande
 ms.date: 08/17/2012
 ms.custom: seoapril2019
@@ -10,20 +10,20 @@ ms.assetid: 9151c605-e911-4f24-95b5-ca310b105abf
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api
 msc.type: chapter
 ms.openlocfilehash: 6d84b458a02b63b24334b137afdb5b710d91c5ee
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133170"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78484522"
 ---
-# <a name="odata-in-aspnet-web-api"></a>ASP.NET web API OData
+# <a name="odata-in-aspnet-web-api"></a>ASP.NET Web API の OData
 
-> ASP.NET の ASP.NET Web api OData エンドポイントを作成する方法 4.x です。 OData は、web 用のデータ アクセス プロトコルです。 クエリおよびデータ セットを操作する一貫した方法を提供します。 Web API は、バージョン 3 との OData プロトコル バージョン 4 の両方をサポートします。
+> ASP.NET 4.x の ASP.NET Web API で OData エンドポイントを作成する方法について説明します。 OData は、web 用のデータアクセスプロトコルです。 データセットをクエリおよび操作するための統一された方法を提供します。 Web API は、OData プロトコルのバージョン3とバージョン4の両方をサポートしています。
 
 - [OData v4](odata-v4/index.md)
 
     - [OData v4 エンドポイントを作成する](odata-v4/create-an-odata-v4-endpoint.md)
-    - [OData v4 クライアント アプリ (C#) を作成します。](odata-v4/create-an-odata-v4-client-app.md)
+    - [OData v4 クライアント アプリを作成する (C#)](odata-v4/create-an-odata-v4-client-app.md)
     - [OData v4 のエンティティ関係](odata-v4/entity-relations-in-odata-v4.md)
     - [OData v4 のアクションと関数](odata-v4/odata-actions-and-functions.md)
     - [OData v4 のコンテインメイト](odata-v4/odata-containment-in-web-api-22.md)

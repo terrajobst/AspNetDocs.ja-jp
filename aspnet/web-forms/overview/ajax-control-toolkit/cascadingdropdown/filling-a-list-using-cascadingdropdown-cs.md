@@ -9,11 +9,11 @@ ms.assetid: f949aafa-fe57-43b0-b722-f0dd33a900be
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/filling-a-list-using-cascadingdropdown-cs
 msc.type: authoredcontent
 ms.openlocfilehash: b5e9874fb5b6d3e55c8af5b85d12bf1ffacc116b
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74574846"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78497764"
 ---
 # <a name="filling-a-list-using-cascadingdropdown-c"></a>CascadingDropDown を使用して一覧に入力する (C#)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74574846"
 
 > AJAX コントロールツールキットの CascadingDropDown コントロールは、dropdownlist コントロールを拡張して、1つの DropDownList の変更によって別の DropDownList に関連付けられた値が読み込まれるようにします。 (たとえば、1つのリストに米国の州の一覧が表示され、その州の主要都市が次の一覧に入力されます)。最初の問題は、このコントロールを使用して、ドロップダウンリストに実際に入力することです。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 AJAX コントロールツールキットの CascadingDropDown コントロールは、dropdownlist コントロールを拡張して、1つの DropDownList の変更によって別の DropDownList に関連付けられた値が読み込まれるようにします。 (たとえば、1つのリストに米国の州の一覧が表示され、その州の主要都市が次の一覧に入力されます)。最初の問題は、このコントロールを使用して、ドロップダウンリストに実際に入力することです。
 
@@ -64,4 +64,4 @@ ASP.NET AJAX と Control Toolkit の機能をアクティブ化するには、�
 リストが自動的に入力されます ([クリックすると、フルサイズの画像が表示](filling-a-list-using-cascadingdropdown-cs/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
-> [次へ](using-cascadingdropdown-with-a-database-cs.md)
+> [Next](using-cascadingdropdown-with-a-database-cs.md)

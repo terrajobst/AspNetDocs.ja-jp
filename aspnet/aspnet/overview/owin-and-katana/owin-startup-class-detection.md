@@ -1,162 +1,162 @@
 ---
 uid: aspnet/overview/owin-and-katana/owin-startup-class-detection
-title: OWIN スタートアップ クラス検出 |Microsoft Docs
+title: OWIN Startup クラスの検出 |Microsoft Docs
 author: Praburaj
-description: このチュートリアルでは、OWIN スタートアップ クラスが読み込まれるを構成する方法を示します。 OWIN の詳細については、「プロジェクト Katana 概要を参照してください。 このチュートリアルがしています.
+description: このチュートリアルでは、読み込まれる OWIN startup クラスを構成する方法について説明します。 OWIN の詳細については、「Project Katana の概要」を参照してください。 このチュートリアルは...
 ms.author: riande
 ms.date: 01/28/2019
 ms.assetid: 08257f55-36f4-4e39-9c88-2a5602838c79
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-startup-class-detection
 msc.type: authoredcontent
 ms.openlocfilehash: e1670c32049ec33dd4d1941a091a429d3929c452
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65118211"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78500182"
 ---
 # <a name="owin-startup-class-detection"></a>OWIN スタートアップ クラス検出
 
-> このチュートリアルでは、OWIN スタートアップ クラスが読み込まれるを構成する方法を示します。 OWIN の詳細については、次を参照してください。[プロジェクト Katana の概要を、](an-overview-of-project-katana.md)します。 このチュートリアルの執筆者は、Rick Anderson ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) )、Praburaj Thiagarajan と Howard Dierking ( [ @howard \_dierking](https://twitter.com/howard_dierking) )。
+> このチュートリアルでは、読み込まれる OWIN startup クラスを構成する方法について説明します。 OWIN の詳細については、「 [Project Katana の概要](an-overview-of-project-katana.md)」を参照してください。 このチュートリアルは、Rick Anderson ( [@RickAndMSFT](https://twitter.com/#!/RickAndMSFT) )、Praburaj Thiagarajan、Howard Dierking ( [@howard\_Dierking](https://twitter.com/howard_dierking) ) によって作成されました。
 >
-> ## <a name="prerequisites"></a>必須コンポーネント
+> ## <a name="prerequisites"></a>前提条件
 >
 > [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 
 ## <a name="owin-startup-class-detection"></a>OWIN スタートアップ クラス検出
 
- すべての OWIN アプリケーションには、アプリケーション パイプラインのコンポーネントを指定するスタートアップ クラスがあります。 (OwinHost、IIS、および IIS Express) を選択したホスティング モデルに応じて、startup クラスを接続するには、ランタイムでさまざまな方法は。 このチュートリアルで示すように、startup クラスは、すべてのホスト アプリケーションで使用できます。 ホスティング ランタイムを使用して、これらのいずれかのアプローチでは、startup クラスを接続します。
+ すべての OWIN アプリケーションには、アプリケーションパイプラインのコンポーネントを指定する startup クラスがあります。 スタートアップクラスは、選択したホスティングモデル (OwinHost、IIS、および IIS Express) に応じて、ランタイムに接続する方法が異なります。 このチュートリアルで示されている startup クラスは、すべてのホストアプリケーションで使用できます。 スタートアップクラスは、次のいずれかの方法を使用してホスティングランタイムに接続します。
 
-1. **名前付け規則**:Katana という名前のクラスを探します`Startup`アセンブリ名またはグローバル名前空間に一致する名前空間。
-2. **OwinStartup 属性**:これは、startup クラスを指定するほとんどの開発者が採用するアプローチです。 次の属性に startup クラスを設定、`TestStartup`クラス、`StartupDemo`名前空間。
+1. **名前付け規則**: Katana は、アセンブリ名またはグローバル名前空間に一致する名前空間内の `Startup` という名前のクラスを検索します。
+2. **Owinstartup 属性**: これは、ほとんどの開発者がスタートアップクラスを指定するために実行するアプローチです。 次の属性は、startup クラスを `StartupDemo` 名前空間の `TestStartup` クラスに設定します。
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample1.cs)]
 
-   `OwinStartup`属性は、名前付け規則を上書きします。 この属性で、フレンドリ名を指定することも、ただし、フレンドリ名を使用する必要がありますを使用しても、`appSetting`構成ファイル内の要素。
-3. **構成ファイル内の appSetting 要素**:`appSetting`要素をオーバーライド、`OwinStartup`属性と名前付け規則。 複数のスタートアップ クラスがあることができます (を使用して各、`OwinStartup`属性) と構成のスタートアップ クラスは、次のようなマークアップを使用して構成ファイルに読み込まれます。
+   `OwinStartup` 属性は、名前付け規則をオーバーライドします。 この属性を使用してフレンドリ名を指定することもできますが、フレンドリ名を使用するには、構成ファイルの `appSetting` 要素も使用する必要があります。
+3. **構成ファイルの appSetting 要素**: `appSetting` 要素は、`OwinStartup` 属性と名前付け規則をオーバーライドします。 (それぞれ `OwinStartup` 属性を使用して) 複数のスタートアップクラスを設定し、次のようなマークアップを使用して構成ファイルに読み込むスタートアップクラスを構成することができます。
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample2.xml)]
 
-   スタートアップ クラスとアセンブリを明示的に指定する次のキーも使用できます。
+   スタートアップクラスとアセンブリを明示的に指定する次のキーを使用することもできます。
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample3.xml)]
 
-   構成ファイルで次の XML のわかりやすいスタートアップ クラスの名前を指定する`ProductionConfiguration`します。
+   構成ファイルの次の XML では、`ProductionConfiguration`のわかりやすいスタートアップクラス名を指定しています。
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample4.xml)]
 
-   上記のマークアップは、次のために使用する必要があります`OwinStartup`フレンドリ名を指定し、属性、`ProductionStartup2`を実行するクラス。
+   上のマークアップは、フレンドリ名を指定し、`ProductionStartup2` クラスを実行する次の `OwinStartup` 属性と共に使用する必要があります。
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample5.cs?highlight=1,16)]
-4. OWIN スタートアップの検出の追加を無効にする、`appSetting owin:AutomaticAppStartup`の値を持つ`"false"`web.config ファイルにします。
+4. OWIN スタートアップ検出を無効にするには、web.config ファイルで `"false"` の値を使用して `appSetting owin:AutomaticAppStartup` を追加します。
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample6.xml)]
 
-## <a name="create-an-aspnet-web-app-using-owin-startup"></a>OWIN Startup を使用して ASP.NET Web アプリを作成します。
+## <a name="create-an-aspnet-web-app-using-owin-startup"></a>OWIN Startup を使用して ASP.NET Web アプリを作成する
 
-1. 空の Asp.Net web アプリケーションを作成し、名前**StartupDemo**します。 -インストール`Microsoft.Owin.Host.SystemWeb`NuGet パッケージ マネージャーを使用します。 **ツール**メニューの  **NuGet パッケージ マネージャー**、し**パッケージ マネージャー コンソール**します。 次のコマンドを入力します。
+1. 空の Asp.Net web アプリケーションを作成し、 **Startupdemo**という名前を指定します。 -NuGet パッケージマネージャーを使用して `Microsoft.Owin.Host.SystemWeb` をインストールします。 **[ツール]** メニューの **[NuGet パッケージマネージャー]** をポイントし、 **[パッケージマネージャーコンソール]** をクリックします。 次のコマンドを入力します。
 
     [!code-powershell[Main](owin-startup-class-detection/samples/sample7.ps1)]
-2. OWIN startup クラスを追加します。 Visual Studio 2017 でプロジェクトを右クリックし、選択**クラスの追加**. -、**新しい項目の追加** ダイアログ ボックスに、入力*OWIN*検索フィールドに、および、Startup.cs に名前変更選び**追加**します。
+2. OWIN startup クラスを追加します。 Visual Studio 2017 でプロジェクトを右クリックし、 **[クラスの追加]** を選択します。 **[新しい項目の追加]** ダイアログボックスで、検索フィールドに「 *OWIN* 」と入力し、名前を「Startup.cs」に変更し、 **[追加]** を選択します。
 
      ![](owin-startup-class-detection/_static/image1.png)
 
-   次回に追加する、 *Owin Startup クラス*はから利用可能な**追加**メニュー。
+   次に*Owin Startup クラス*を追加するときに、 **[追加]** メニューから使用できるようになります。
 
      ![](owin-startup-class-detection/_static/image2.png)
 
-   または、プロジェクトを右クリックし、選択**追加**を選択し、**新しい項目の**、クリックして、 **Owin Startup クラス**。
+   または、プロジェクトを右クリックし、 **[追加]** 、 **[新しい項目]** の順に選択して、 **Owin Startup クラス**を選択します。
 
      ![](owin-startup-class-detection/_static/image3.png)
 
-- 生成されたコードを置き換える、 *Startup.cs*を次のファイル。
+- *Startup.cs*ファイル内の生成されたコードを次のコードに置き換えます。
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample8.cs?highlight=5,7,15-28,31-34)]
 
-  `app.Use`ラムダ式を使用して、OWIN パイプラインにミドルウェアを指定したコンポーネントを登録します。 この場合、着信要求に応答する前に受信した要求のログ記録を設定しています。 `next`パラメーターは、デリゲート ( [Func](https://msdn.microsoft.com/library/bb534960(v=vs.100).aspx) &lt; [タスク](https://msdn.microsoft.com/library/dd321424(v=vs.100).aspx) &gt; ) パイプラインの次のコンポーネントにします。 `app.Run`ラムダ式は、パイプラインが受信要求をフックし、応答メカニズムを提供します。
+  `app.Use` のラムダ式は、指定されたミドルウェアコンポーネントを OWIN パイプラインに登録するために使用されます。 この例では、受信要求に応答する前に、受信要求のログ記録を設定しています。 `next` パラメーターは、パイプラインの次のコンポーネントに対するデリゲート ( [Func](https://msdn.microsoft.com/library/bb534960(v=vs.100).aspx) &lt;[タスク](https://msdn.microsoft.com/library/dd321424(v=vs.100).aspx)&gt;) です。 `app.Run` のラムダ式は、パイプラインを受信要求にフックし、応答機構を提供します。
      > [!NOTE]
-     > 上記のコードで私たちがコメント アウト、`OwinStartup`という名前のクラスを実行中の規則で属性としている証明書利用者`Startup`.-キーを押して***F5***アプリケーションを実行します。 更新を何回かクリックします。
+     > 上記のコードでは、`OwinStartup` 属性をコメントアウトし、`Startup` という名前のクラスを実行する規則に依存しています。- ***F5***キーを押してアプリケーションを実行します。 数回更新します。
 
-    ![](owin-startup-class-detection/_static/image4.png) 注:このチュートリアルでは、イメージ内の数字では、この数が一致しません。 ミリ秒文字列は、ページを更新するときに、新しい応答を表示する使用されます。
-  トレース情報を表示、**出力**ウィンドウ。
+    ![](owin-startup-class-detection/_static/image4.png) メモ: このチュートリアルの画像に示されている数字は、表示される数字と一致しません。 ミリ秒の文字列は、ページを更新したときに新しい応答を表示するために使用されます。
+  **[出力]** ウィンドウにトレース情報が表示されます。
 
     ![](owin-startup-class-detection/_static/image5.png)
 
-## <a name="add-more-startup-classes"></a>複数のスタートアップ クラスを追加します。
+## <a name="add-more-startup-classes"></a>スタートアップクラスをさらに追加する
 
-このセクションでは、別の Startup クラスを追加します。 アプリケーションには、複数の OWIN startup クラスを追加できます。 たとえば、開発、テスト、運用環境のスタートアップ クラスを作成する場合があります。
+このセクションでは、別のスタートアップクラスを追加します。 複数の OWIN startup クラスをアプリケーションに追加できます。 たとえば、開発、テスト、および運用のスタートアップクラスを作成することができます。
 
-1. 新しい OWIN Startup クラスを作成し、名前`ProductionStartup`します。
+1. 新しい OWIN Startup クラスを作成し、`ProductionStartup`という名前を指定します。
 2. 生成されたコードを次のコードに置き換えます。
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample9.cs?highlight=14-18)]
-3. アプリを実行するコントロールの f5 キーを押します。 `OwinStartup`属性は、運用環境の startup クラスが実行を指定します。
+3. Ctrl F5 キーを押してアプリを実行します。 `OwinStartup` 属性は、実稼働スタートアップクラスを実行することを指定します。
 
     ![](owin-startup-class-detection/_static/image6.png)
-4. もう 1 つの OWIN Startup クラスを作成し、名前`TestStartup`します。
+4. 別の OWIN Startup クラスを作成し、`TestStartup`という名前を指定します。
 5. 生成されたコードを次のコードに置き換えます。
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample10.cs?highlight=6,14-18)]
 
-   `OwinStartup`上記属性のオーバー ロードを指定します`TestingConfiguration`として、*フレンドリ*Startup クラスの名前。
-6. 開く、 *web.config*ファイルを開き、Startup クラスのフレンドリ名を指定する OWIN アプリケーションのスタートアップ キーを追加します。
+   上の `OwinStartup` 属性オーバーロードは、スタートアップクラスの*フレンドリ*名として `TestingConfiguration` を指定します。
+6. *Web.config ファイルを*開き、スタートアップクラスのフレンドリ名を指定する OWIN App スタートアップキーを追加します。
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample11.xml?highlight=3-5)]
-7. アプリを実行するコントロールの f5 キーを押します。 アプリ設定の要素が優先、され、テスト構成を実行します。
+7. Ctrl F5 キーを押してアプリを実行します。 アプリ設定要素が優先され、テスト構成が実行されます。
 
     ![](owin-startup-class-detection/_static/image7.png)
-8. 削除、*フレンドリ*名前を`OwinStartup`属性、`TestStartup`クラス。
+8. `TestStartup` クラスの `OwinStartup` 属性から*表示名を削除します*。
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample12.cs)]
-9. OWIN アプリケーションのスタートアップ キーを置き換える、 *web.config*を次のファイル。
+9. *Web.config ファイルの*OWIN App スタートアップキーを次のように置き換えます。
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample13.xml)]
-10. 元に戻す、 `OwinStartup` Visual Studio によって生成される既定の属性のコードには、各クラスの属性。
+10. 各クラスの `OwinStartup` 属性を、Visual Studio によって生成される既定の属性コードに戻します。
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample14.cs)]
 
-    OWIN アプリケーションのスタートアップ キーを次の各を実行する運用クラスとなります。
+    次に示す OWIN App スタートアップキーを使うと、実稼働クラスが実行されます。
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample15.xml)]
 
-    最後のスタートアップ キーには、スタートアップの構成方法を指定します。 次の OWIN アプリケーションのスタートアップ キーでは、configuration クラスの名前を変更できます。`MyConfiguration`します。
+    最後のスタートアップキーは、スタートアップの構成方法を指定します。 次の OWIN App スタートアップキーを使用すると、構成クラスの名前を `MyConfiguration` に変更できます。
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample16.xml)]
 
-## <a name="using-owinhostexe"></a>Owinhost.exe を使用します。
+## <a name="using-owinhostexe"></a>Owinhost .exe の使用
 
 1. Web.config ファイルを次のマークアップに置き換えます。
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample17.xml?highlight=3-6)]
 
-   最後のキーが wins この場合のようになります`TestStartup`を指定します。
+   最後のキーが優先されるため、この場合は `TestStartup` が指定されます。
 2. PMC から Owinhost をインストールします。
 
     [!code-console[Main](owin-startup-class-detection/samples/sample18.cmd)]
-3. アプリケーション フォルダーに移動します (フォルダーを含む、 *Web.config*ファイル) と入力してコマンド プロンプト。
+3. アプリケーションフォルダー ( *web.config ファイルが格納されて*いるフォルダー) に移動し、コマンドプロンプトで次のように入力します。
 
     [!code-console[Main](owin-startup-class-detection/samples/sample19.cmd)]
 
-   コマンド ウィンドウが表示されます。
+   次のコマンドウィンドウが表示されます。
 
     [!code-console[Main](owin-startup-class-detection/samples/sample20.cmd)]
-4. URL でブラウザーを起動`http://localhost:5000/`します。
+4. URL `http://localhost:5000/`でブラウザーを起動します。
 
     ![](owin-startup-class-detection/_static/image8.png)
 
-   OwinHost には、上に示したスタートアップ規則が受け入れられます。
-5. コマンド ウィンドウで enter キーを押して OwinHost を終了します。
-6. `ProductionStartup`クラスを次の OwinStartup 属性のフレンドリ名を指定する追加*ProductionConfiguration*します。
+   OwinHost は、上記のスタートアップ規約を受け入れています。
+5. コマンドウィンドウで、Enter キーを押して OwinHost を終了します。
+6. `ProductionStartup` クラスで、 *ProductionConfiguration*のフレンドリ名を指定する次の OwinStartup 属性を追加します。
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample21.cs)]
-7. コマンド プロンプト」と入力します。
+7. コマンドプロンプトで、次のように入力します。
 
     [!code-console[Main](owin-startup-class-detection/samples/sample22.cmd)]
 
-   運用環境の startup クラスが読み込まれます。
+   Production startup クラスが読み込まれます。
     ![](owin-startup-class-detection/_static/image9.png)
 
-   アプリケーションは複数のスタートアップ クラスを備え、この例では、実行時までロードするスタートアップ クラスを遅延が。
-8. 次のランタイム スタートアップ オプションをテストします。
+   このアプリケーションには複数のスタートアップクラスがあります。この例では、ランタイムまで読み込まれるスタートアップクラスを遅延しています。
+8. 次のランタイムスタートアップオプションをテストします。
 
     [!code-console[Main](owin-startup-class-detection/samples/sample23.cmd)]

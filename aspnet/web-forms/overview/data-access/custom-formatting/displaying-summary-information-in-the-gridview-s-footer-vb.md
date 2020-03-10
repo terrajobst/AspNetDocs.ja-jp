@@ -9,11 +9,11 @@ ms.assetid: 41c818b7-603a-402b-8847-890a63547b6f
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/displaying-summary-information-in-the-gridview-s-footer-vb
 msc.type: authoredcontent
 ms.openlocfilehash: c208b4a756f5700be46eec924d8cf8f49b9d2507
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74616510"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78482080"
 ---
 # <a name="displaying-summary-information-in-the-gridviews-footer-vb"></a>GridView のフッターに概要情報を表示する (VB)
 
@@ -175,7 +175,7 @@ GridView のフッターが表示されたら、次に、概要データを計�
 
 **図 13**: GridView のフッター行に Reddish の背景色が設定されている ([クリックすると、フルサイズの画像が表示](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image39.png)される)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 概要データの表示は一般的なレポートの要件であり、GridView コントロールを使用すると、そのような情報をフッター行に簡単に含めることができます。 フッター行は、GridView の `ShowFooter` プロパティが `True` に設定されている場合に表示されます。また、`RowDataBound` イベントハンドラーを使用して、セル内のテキストをプログラムによって設定することもできます。 概要データを計算するには、データベースに対してクエリを再実行するか、ASP.NET ページの分離コードクラスのコードを使用して、概要データをプログラムで計算します。
 
@@ -183,9 +183,9 @@ GridView のフッターが表示されたら、次に、概要データを計�
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
 > [!div class="step-by-step"]
-> [前へ](using-the-formview-s-templates-vb.md)
+> [[戻る]](using-the-formview-s-templates-vb.md)

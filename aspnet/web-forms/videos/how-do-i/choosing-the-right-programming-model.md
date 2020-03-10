@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/how-do-i/choosing-the-right-programming-model
-title: 正しいプログラミング モデルの選択 |Microsoft Docs
+title: 正しいプログラミングモデルを選択する |Microsoft Docs
 author: shanselman
-description: マイクロソフトの Scott Hanselman は、ASP.NET Web フォーム、ASP.NET MVC、または ASP.NET Web ページに適切なかどうかを決定する必要がある情報を提供します。
+description: Microsoft の Scott ASP.NET Selman が、Web フォーム、ASP.NET MVC、または ASP.NET Web ページが適切かどうかを判断するために必要な情報を提供します。
 ms.author: riande
 ms.date: 11/10/2011
 ms.assetid: 4f08dbcd-ab60-4ad4-8387-795d810cccb6
 msc.legacyurl: /web-forms/videos/how-do-i/choosing-the-right-programming-model
 msc.type: video
 ms.openlocfilehash: fce7f7c28dd681fc8df5e111b29d08b6000885d3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59397618"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78516250"
 ---
 # <a name="choosing-the-right-programming-model"></a>正しいプログラミング モデルを選択する
 
-[Scott Hanselman](https://github.com/shanselman)による
+[Scott マン Selman](https://github.com/shanselman)
 
-マイクロソフトの Scott Hanselman は、ASP.NET Web フォーム、ASP.NET MVC、または ASP.NET Web ページに適切なかどうかを決定する必要がある情報を提供します。
+Microsoft の Scott ASP.NET Selman が、Web フォーム、ASP.NET MVC、または ASP.NET Web ページが適切かどうかを判断するために必要な情報を提供します。
 
-[&#9654;ビデオ (5 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/choosing-the-right-programming-model)
+[&#9654;ビデオを見る (5 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/choosing-the-right-programming-model)

@@ -2,22 +2,22 @@
 uid: web-pages/overview/ui-layouts-and-themes/index
 title: UI、レイアウト、およびテーマ |Microsoft Docs
 author: rick-anderson
-description: ASP.NET Web Pages アプリケーションでサイトの UI をカスタマイズする方法。
+description: ASP.NET Web ページアプリケーションでサイト UI をカスタマイズする方法
 ms.author: riande
 ms.date: 09/08/2014
 ms.assetid: d7ec6e8a-3e05-4c0d-9207-d17a49f9a64d
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes
 msc.type: chapter
 ms.openlocfilehash: 8ae3e20f24f2d1bef39ff44ff15bdab212583310
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133944"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78518668"
 ---
 # <a name="ui-layouts-and-themes"></a>UI、レイアウト、テーマ
 
-> ASP.NET Web Pages アプリケーションでサイトの UI をカスタマイズする方法。
+> ASP.NET Web ページアプリケーションでサイト UI をカスタマイズする方法
 
 - [フォームの操作](4-working-with-forms.md)
 - [ASP.NET Web ページにおけるユーザー入力の検証](validating-user-input-in-aspnet-web-pages-sites.md)

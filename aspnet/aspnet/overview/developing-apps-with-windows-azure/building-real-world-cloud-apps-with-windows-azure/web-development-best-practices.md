@@ -9,11 +9,11 @@ ms.assetid: 52d6c941-2cd9-442f-9872-2c798d6d90cd
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices
 msc.type: authoredcontent
 ms.openlocfilehash: dfd8a3ac2328d3f17dfbe36e68b37d181177b0f4
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77457090"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78471406"
 ---
 # <a name="web-development-best-practices-building-real-world-cloud-apps-with-azure"></a>Web 開発のベストプラクティス (Azure を使用した実際のクラウドアプリの構築)
 
@@ -126,7 +126,7 @@ Entity Framework 6 では、クエリまたはコマンドをデータベース�
 
 このコードでは、クエリをデータベースに送信するメソッドであるため、`ToList` メソッドの `Async` バージョンがあります。 `Where` メソッドと `OrderByDescending` メソッドはクエリのみを構成し、`ToListAsync` メソッドはクエリを実行し、応答を `result` 変数に格納します。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 ここに記載されている web 開発のベストプラクティスは、任意の web プログラミングフレームワークと任意のクラウド環境に実装できますが、ASP.NET と Windows Azure には簡単にするためのツールが用意されています。 これらのパターンに従うと、web 層を簡単にスケールアウトできます。また、各サーバーはより多くのトラフィックを処理できるため、コストを最小限に抑えることができます。
 

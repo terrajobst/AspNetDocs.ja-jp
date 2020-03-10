@@ -9,11 +9,11 @@ ms.assetid: 48b58a18-5ea4-468c-b326-f35331b3e1e9
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/urls-in-master-pages-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 2551a5361256234883bb37e46e794037284445a4
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74640967"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78473452"
 ---
 # <a name="urls-in-master-pages-c"></a>マスター ページの URL (C#)
 
@@ -58,7 +58,7 @@ Web ページの URL は、web ページが指すリソースの場所が web �
 
 [!code-xml[Main](urls-in-master-pages-cs/samples/sample3.xml)]
 
-新しく作成された `Default.aspx` ページには、`Site.master`の4つの ContentPlaceHolders に対応する4つのコンテンツコントロールが必要です。 `MainContent` ContentPlaceHolder を参照するテキストをコンテンツコントロールに追加し、ブラウザーを使用してページにアクセスします。 図2に示すように、ブラウザーは `PoweredByASPNET.gif` イメージファイルを見つけることができません。 ここで何が起こっているんですか。
+新しく作成された `Default.aspx` ページには、`Site.master`の4つの ContentPlaceHolders に対応する4つのコンテンツコントロールが必要です。 `MainContent` ContentPlaceHolder を参照するテキストをコンテンツコントロールに追加し、ブラウザーを使用してページにアクセスします。 図2に示すように、ブラウザーは `PoweredByASPNET.gif` イメージファイルを見つけることができません。 どうなっているのでしょうか?
 
 `~/Admin/Default.aspx` コンテンツ ページには、`About.aspx` ページと同じ HTML が `footerContent` 領域に送信されます。
 
@@ -127,7 +127,7 @@ ASP.NET サーバーコントロールのみが URL 関連のプロパティで 
 
 [!code-aspx[Main](urls-in-master-pages-cs/samples/sample8.aspx)]
 
-以上で終わりです。 この時点で、マスターページ内のすべての Url は、マスターページとコンテンツページが配置されているフォルダーに関係なく、コンテンツページによってレンダリングされるときに、適切に基づいています。
+これで完了です。 この時点で、マスターページ内のすべての Url は、マスターページとコンテンツページが配置されているフォルダーに関係なく、コンテンツページによってレンダリングされるときに、適切に基づいています。
 
 ### <a name="automatic-url-resolution-in-theheadsection"></a>`<head>`セクションの URL の自動解決
 
@@ -141,7 +141,7 @@ ASP.NET サーバーコントロールのみが URL 関連のプロパティで 
 
 [!code-html[Main](urls-in-master-pages-cs/samples/sample10.html)]
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 マスターページには、多くの場合、リンク、画像、および URL を使用して指定する必要があるその他の外部リソースが含まれます。 マスターページとコンテンツページは同じフォルダー内に存在しない可能性があるため、相対 Url を使用しないように abstain することが重要です。 ハードコーディングされた絶対 Url を使用することもできますが、絶対 URL を web アプリケーションに密に結合します。 Web アプリケーションを移動またはデプロイするときのように絶対 URL が変更された場合は、絶対 url を更新してください。
 
@@ -149,7 +149,7 @@ ASP.NET サーバーコントロールのみが URL 関連のプロパティで 
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -157,7 +157,7 @@ ASP.NET サーバーコントロールのみが URL 関連のプロパティで 
 - [マスターページでの URL リベース](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/masterpages/default.aspx#urls)
 - [マークアップでの `ResolveClientUrl` の使用](https://www.pluralsight.com/blogs/fritz/archive/2006/02/06/18596.aspx)
 
-### <a name="about-the-author"></a>作成者について
+### <a name="about-the-author"></a>著者について
 
 1998以降、Microsoft の Web テクノロジを使用して、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)(複数の asp/創設者4GuysFromRolla.com の執筆者) が Microsoft の Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 3.5 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 Scott は、 [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)またはブログで[http://ScottOnWriting.NET](http://scottonwriting.net/)にアクセスできます。
 

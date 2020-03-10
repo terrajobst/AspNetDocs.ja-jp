@@ -1,45 +1,45 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-2
-title: '第 2 部: データ アクセス レイヤー |Microsoft Docs'
+title: 'パート 2: データアクセス層 |Microsoft Docs'
 author: JoeStagner
-description: このチュートリアル シリーズでは、すべての Tailspin Spyworks サンプル アプリケーションをビルドする手順について説明します。 第 2 部では、データ アクセス層を追加することについて説明します。
+description: このチュートリアルシリーズでは、Tailspin Spyworks サンプルアプリケーションを構築するために実行するすべての手順について詳しく説明します。 パート2では、データアクセス層の追加について説明します。
 ms.author: riande
 ms.date: 07/21/2010
 ms.assetid: 5a9d5429-d70b-411c-8474-f42cf7ef8a2b
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-2
 msc.type: authoredcontent
 ms.openlocfilehash: 342d2c54dfba5d052570e890f85dcf9739f9884f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130613"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78462652"
 ---
-# <a name="part-2-data-access-layer"></a>第 2 部: データ アクセス層
+# <a name="part-2-data-access-layer"></a>パート 2: データアクセス層
 
-によって[Joe Stagner](https://github.com/JoeStagner)
+[Joe Stagner](https://github.com/JoeStagner)
 
-> Tailspin Spyworks では、.NET プラットフォーム用の強力でスケーラブルなアプリケーションを作成するはどの非常に単純なを示します。 ASP.NET 4 の優れた新機能を使用して、ショッピング、チェック アウト、および管理を含む、オンライン ストアを構築する方法を示します。
+> Tailspin Spyworks は、.NET プラットフォーム用の強力でスケーラブルなアプリケーションを簡単に作成する方法を示しています。 ASP.NET 4 の優れた新機能を使用して、ショッピング、チェックアウト、管理などのオンラインストアを構築する方法を示しています。
 > 
-> このチュートリアル シリーズでは、すべての Tailspin Spyworks サンプル アプリケーションをビルドする手順について説明します。 第 2 部では、データ アクセス層を追加することについて説明します。
+> このチュートリアルシリーズでは、Tailspin Spyworks サンプルアプリケーションを構築するために実行するすべての手順について詳しく説明します。 パート2では、データアクセス層の追加について説明します。
 
-## <a id="_Toc260221668"></a>  データ アクセス層を追加します。
+## <a id="_Toc260221668"></a>データアクセス層の追加
 
-E コマース アプリケーションは、2 つのデータベースに左右されます。
+E コマースアプリケーションは、2つのデータベースに依存しています。
 
-顧客は、標準の ASP.NET メンバーシップ データベースを使用します。 ショッピング カート、製品カタログの SQL Express データベースを次のように実装します。
+顧客情報については、標準の ASP.NET メンバーシップデータベースを使用します。 ショッピングカートと製品カタログについては、次のように SQL Express データベースを実装します。
 
 ![](tailspin-spyworks-part-2/_static/image1.jpg)
 
-アプリケーションのアプリ内でのデータベース (Commerce.mdf) を作成しなくて\_データ フォルダーが、.NET Entity Framework を使用して、データ アクセス層の作成に進むことができます。
+アプリケーションの App\_Data フォルダーにデータベース (コマース) を作成した後は、.NET Entity Framework を使用したデータアクセス層の作成に進むことができます。
 
-という名前のフォルダーを作成します"データ\_アクセス"し、そのフォルダーを右クリックし、「新しい項目の追加」を選択します。
+"Data\_Access" という名前のフォルダーを作成し、そのフォルダーを右クリックして、[新しい項目の追加] を選択します。
 
-「インストールされたテンプレート」項目と選択し、"ADO.NET Entity Data Model"を入力 EDM\_Commerce.edmx 名前として、[追加] ボタンをクリックします。
+[インストールされたテンプレート] 項目で、[ADO.NET Entity Data Model] を選択し、名前として「EDM\_」と入力して、[追加] ボタンをクリックします。
 
 ![](tailspin-spyworks-part-2/_static/image2.jpg)
 
-「データベースから生成」を選択します。
+[データベースから生成] を選択します。
 
 ![](tailspin-spyworks-part-2/_static/image1.png)
 
@@ -51,7 +51,7 @@ E コマース アプリケーションは、2 つのデータベースに左右
 
 保存してビルドします。
 
-これで、最初の機能 – 製品カテゴリ メニューに追加する準備が整いました。
+これで、最初の機能 (製品カテゴリメニュー) を追加する準備ができました。
 
 > [!div class="step-by-step"]
 > [前へ](tailspin-spyworks-part-1.md)

@@ -9,11 +9,11 @@ ms.assetid: 5a2a927b-14cb-40bc-867a-f0680f9febd7
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations
 msc.type: authoredcontent
 ms.openlocfilehash: a9d39547c94a63003442ba6fe1257693dde24b05
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74621786"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78513712"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-webconfig-file-transformations"></a>Visual Studio を使用した ASP.NET Web 配置: web.config ファイル変換
 
@@ -23,7 +23,7 @@ ms.locfileid: "74621786"
 
 > このチュートリアルシリーズでは、Visual Studio 2012 または Visual Studio 2010 を使用して、Azure App Service Web Apps またはサードパーティのホスティングプロバイダーにするために、ASP.NET web アプリケーションをデプロイ (発行) する方法について説明します。 シリーズの詳細については、[シリーズの最初のチュートリアル](introduction.md)を参照してください。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 このチュートリアルでは、別の移行先環境に配置するときに web.config ファイルを変更するプロセスを自動化する方法について説明*します。* ほとんどのアプリケーションでは、アプリケーションの配置時に異なる必要がある設定が*web.config ファイルに*あります。 これらの変更を行うプロセスを自動化すると、を展開するたびに手動で行う必要がなくなります。これは面倒でエラーが発生しやすくなります。
 
@@ -134,7 +134,7 @@ Contoso 大学の web ページでは、アプリケーションが実行され�
 
 既定の変換ファイルには、接続文字列の更新方法を示す例が含まれていますが、ほとんどの場合、接続文字列の変換を設定する必要はありません。これは、発行プロファイルで接続文字列を指定できるためです。 これを行うには、[ [IIS に配置](deploying-to-iis.md)] および [[運用環境への配置](deploying-to-production.md)] チュートリアルを実行します。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 これで、発行プロファイルを作成する前に*web.config の変換を*実行できるようになりました。また、配置した web.config ファイルに含まれる内容のプレビューが表示されました。
 
@@ -142,7 +142,7 @@ Contoso 大学の web ページでは、アプリケーションが実行され�
 
 次のチュートリアルでは、プロジェクトのプロパティの設定を必要とする配置のセットアップタスクについて説明します。
 
-## <a name="more-information"></a>その他の情報
+## <a name="more-information"></a>詳細情報
 
 このチュートリアルで説明しているトピックの詳細については、「web.config の変換を使用して、[配置中に変換先の web.config ファイルまたは app.config ファイルの設定を変更する](https://go.microsoft.com/fwlink/p/?LinkId=282413#transforms)」を参照してください。
 

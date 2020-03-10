@@ -9,11 +9,11 @@ ms.assetid: 0a1917e0-884a-4576-8e93-9ed660faae51
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/nobot/fighting-bots-cs
 msc.type: authoredcontent
 ms.openlocfilehash: fef55edf12a024e4dd66e2a18ea371ab4dac861f
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74606432"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78509068"
 ---
 # <a name="fighting-bots-c"></a>ボットと戦う (C#)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74606432"
 
 > 自動ボットは、ユーザー操作なしでコメントフォームを送信して、web サイトやスパムを plaster します。 ASP.NET AJAX Control Toolkit の NoBot コントロールは、これらのボットを戦うのに役立ちます。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 自動ボットは、ユーザー操作なしでコメントフォームを送信して、web サイトやスパムを plaster します。 ASP.NET AJAX Control Toolkit の NoBot コントロールは、これらのボットを戦うのに役立ちます。
 
@@ -68,4 +68,4 @@ ms.locfileid: "74606432"
 このエラーメッセージは bot によって発生した可能性があります ([クリックすると、フルサイズの画像が表示](fighting-bots-cs/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
-> [次へ](fighting-bots-vb.md)
+> [Next](fighting-bots-vb.md)

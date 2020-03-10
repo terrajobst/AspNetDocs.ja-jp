@@ -9,11 +9,11 @@ ms.assetid: 684f0c28-a490-4e5b-b5e5-5dfb77464b49
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/using-cascadingdropdown-with-a-database-cs
 msc.type: authoredcontent
 ms.openlocfilehash: bcf453170d17807b4e3b2d2a8b545cba43139f89
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74599776"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78483748"
 ---
 # <a name="using-cascadingdropdown-with-a-database-c"></a>データベースで CascadingDropDown を使用する (C#)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74599776"
 
 > AJAX コントロールツールキットの CascadingDropDown コントロールは、dropdownlist コントロールを拡張して、1つの DropDownList の変更によって別の DropDownList に関連付けられた値が読み込まれるようにします。 これを機能させるには、特別な web サービスを作成する必要があります。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 AJAX コントロールツールキットの CascadingDropDown コントロールは、dropdownlist コントロールを拡張して、1つの DropDownList の変更によって別の DropDownList に関連付けられた値が読み込まれるようにします。 (たとえば、1つのリストに米国の州の一覧が表示され、その州の主要都市が次の一覧に入力されます)。これを機能させるには、特別な web サービスを作成する必要があります。
 

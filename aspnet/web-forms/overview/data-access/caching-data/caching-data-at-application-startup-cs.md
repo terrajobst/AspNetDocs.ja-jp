@@ -9,17 +9,17 @@ ms.assetid: 22ca8efa-7cd1-45a7-b9ce-ce6eb3b3ff95
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-at-application-startup-cs
 msc.type: authoredcontent
 ms.openlocfilehash: a0b55b0df1b7843120de284891e16178df23fabe
-ms.sourcegitcommit: fe5c7512383a9b0a05d321ff10d3cca1611556f0
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70386552"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78465790"
 ---
 # <a name="caching-data-at-application-startup-c"></a>アプリケーションの起動時にデータをキャッシュする (C#)
 
 [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[PDF のダウンロード](caching-data-at-application-startup-cs/_static/datatutorial60cs1.pdf)
+[[Download PDF]\(PDF をダウンロード\)](caching-data-at-application-startup-cs/_static/datatutorial60cs1.pdf)
 
 > どの Web アプリケーションでも、一部のデータは頻繁に使用され、一部のデータはあまり使用されません。 頻繁に使用されるデータ (キャッシュと呼ばれます) を事前に読み込むことで、ASP.NET アプリケーションのパフォーマンスを向上させることができます。 このチュートリアルでは、プロアクティブな読み込みの1つの方法を示します。この方法では、アプリケーションの起動時にデータをキャッシュに読み込みます。
 
@@ -124,7 +124,7 @@ Web アプリケーションのルートディレクトリに `Global.asax` フ�
 
 [!code-aspx[Main](caching-data-at-application-startup-cs/samples/sample6.aspx)]
 
-必要な作業は以上です。 アプリケーションの起動時には、`LoadStaticCache()` メソッドによって、BLL から供給業者の情報が取得され、静的メンバー変数 (または、`StaticCache` クラスのを使用して終了した任意のキャッシュストア) に格納されます。 この動作を確認するには、`Application_Start` メソッドにブレークポイントを設定し、アプリケーションを実行します。 アプリケーションの開始時にブレークポイントがヒットすることに注意してください。 ただし、後続の要求では、`Application_Start` メソッドは実行されません。
+これですべて完了です。 アプリケーションの起動時には、`LoadStaticCache()` メソッドによって、BLL から供給業者の情報が取得され、静的メンバー変数 (または、`StaticCache` クラスのを使用して終了した任意のキャッシュストア) に格納されます。 この動作を確認するには、`Application_Start` メソッドにブレークポイントを設定し、アプリケーションを実行します。 アプリケーションの開始時にブレークポイントがヒットすることに注意してください。 ただし、後続の要求では、`Application_Start` メソッドは実行されません。
 
 [ブレークポイントを使用して Application_Start イベントハンドラーが実行されていることを確認 ![](caching-data-at-application-startup-cs/_static/image7.png)](caching-data-at-application-startup-cs/_static/image6.png)
 
@@ -157,7 +157,7 @@ Web アプリケーションのルートディレクトリに `Global.asax` フ�
 
 **図 7**: キャッシュされた仕入先データが GridView に表示される ([クリックしてフルサイズのイメージを表示する](caching-data-at-application-startup-cs/_static/image17.png))
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 ほとんどのデータモデルには、通常、参照テーブルの形式で実装される、静的なデータが大量に含まれています。 この情報は静的であるため、この情報を表示する必要があるたびにデータベースに継続的にアクセスする理由はありません。 さらに、静的な性質上、データをキャッシュする場合、有効期限は不要です。 このチュートリアルでは、このようなデータを取得し、データキャッシュ、アプリケーションの状態、および静的メンバー変数にキャッシュする方法を説明しました。 この情報はアプリケーションの起動時にキャッシュされ、アプリケーションの有効期間中はキャッシュに残ります。
 
@@ -165,7 +165,7 @@ Web アプリケーションのルートディレクトリに `Global.asax` フ�
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

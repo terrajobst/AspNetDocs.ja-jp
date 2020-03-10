@@ -1,427 +1,427 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/provide-crud-create-read-update-delete-data-form-entry-support
-title: 提供の CRUD (作成、読み取り、更新、削除) データ フォーム エントリ サポート |Microsoft Docs
+title: CRUD (作成、読み取り、更新、削除) データフォームエントリのサポートを提供します。Microsoft Docs
 author: microsoft
-description: 手順 5 では、編集、作成、およびられて Dinners を削除すると、同様のサポートを有効にして、DinnersController クラスをさらにする方法を示します。
+description: 手順 5. では、ディナーでの編集、作成、および削除のサポートを有効にすることで、さらに Dinのコントローラークラスをさらに活用する方法を示します。
 ms.author: riande
 ms.date: 07/27/2010
 ms.assetid: bbb976e5-6150-4283-a374-c22fbafe29f5
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/provide-crud-create-read-update-delete-data-form-entry-support
 msc.type: authoredcontent
 ms.openlocfilehash: b3123af9a1477bc496a0d229d628510fc202b6d2
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128337"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78468916"
 ---
 # <a name="provide-crud-create-read-update-delete-data-form-entry-support"></a>CRUD (作成、読み取り、更新、削除) データ フォーム エントリ サポートを提供する
 
-によって[Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft)
 
-[PDF のダウンロード](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[[Download PDF]\(PDF をダウンロード\)](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
-> これは、無料の手順 5 ["NerdDinner"アプリケーションのチュートリアル](introducing-the-nerddinner-tutorial.md)をウォーク スルーの小さなをビルドしても、ASP.NET MVC 1 を使用して web アプリケーションを実行する方法。
+> これは、ASP.NET MVC 1 を使用して小規模で完成した web アプリケーションを構築する方法について説明する無料の["" アプリケーションチュートリアル](introducing-the-nerddinner-tutorial.md)の手順5です。
 > 
-> 手順 5 では、編集、作成、およびられて Dinners を削除すると、同様のサポートを有効にして、DinnersController クラスをさらにする方法を示します。
+> 手順 5. では、ディナーでの編集、作成、および削除のサポートを有効にすることで、さらに Dinのコントローラークラスをさらに活用する方法を示します。
 > 
-> 次のことをお勧め ASP.NET MVC 3 を使用している場合、 [MVC 3 の開始と取得](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)または[MVC Music Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)チュートリアル。
+> ASP.NET MVC 3 を使用している場合は、MVC 3 または[Mvc ミュージックストア](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)[のチュートリアルではじめに](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)に従うことをお勧めします。
 
-## <a name="nerddinner-step-5-create-update-delete-form-scenarios"></a>NerdDinner 手順 5:作成、更新、削除のフォームのシナリオ
+## <a name="nerddinner-step-5-create-update-delete-form-scenarios"></a>ステップ 5: フォームの作成、更新、削除のシナリオ
 
-コント ローラーとビューを導入し、それらを使用してサイトの Dinners のリスティング/詳細エクスペリエンスを実装する方法について説明しました。 次の手順をさらに、DinnersController クラスを取得して編集、作成、およびられて Dinners を削除すると、同様のサポートを有効になります。
+ここでは、コントローラーとビューについて説明しました。また、これらの機能を使用して、サイトでディナーのリスト/詳細エクスペリエンスを実装する方法についても説明しました。 次の手順として、Dinのコントローラークラスをさらに追加し、ディナーでの編集、作成、および削除のサポートを有効にします。
 
-### <a name="urls-handled-by-dinnerscontroller"></a>DinnersController によって処理される Url
+### <a name="urls-handled-by-dinnerscontroller"></a>Din. Controller によって処理される Url
 
-以前に 2 つの Url のサポートを実装した DinnersController アクション メソッドを追加しました: */Dinners*と */Dinners 詳細/[id]* します。
+以前*は、2*つの url のサポートを実装した*Din/Dinners* scontroller にアクションメソッドを追加しました。
 
-| **URL** | **動詞** | **目的** |
+| **[URL]** | **助動詞** | **目的** |
 | --- | --- | --- |
-| */Dinners/* | GET | 今後の dinners の HTML リストを表示します。 |
-| */Dinners 詳細/[id]* | GET | 特定の dinner に関する詳細を表示します。 |
+| *ディナー* | GET | 今後のディナーの HTML リストを表示します。 |
+| *///[Id]* | GET | 特定のディナーに関する詳細を表示します。 |
 
-これで 3 つの追加の Url を実装するアクション メソッドを追加します: */Dinners/編集/[id]*、 */Dinners/作成*、および */Dinners/削除/[id]* します。 これらの Url は、新しい Dinners を作成および Dinners を削除する編集の既存 Dinners のサポートを有効になります。
+ここでは、*次の 3*つの追加 url を実装するアクションメソッドを追加します。/ *Din/edit/[id]* 、 */Dinners/Delete/[id]* 。 これらの Url を使用して、既存のディナーの編集、新しいディナーの作成、ディナーの削除をサポートできます。
 
-私たちは、これらの新しい Url に HTTP GET と HTTP POST の両方の動詞相互作用をサポートします。 これらの Url に HTTP GET 要求 ("edit"の場合、Dinner データ設定フォーム、「作成」の場合、空のフォームおよび「削除」の場合、削除の確認画面) のデータの初期の HTML ビューが表示されます。 これらの Url に HTTP POST 要求は、Dinner のデータのときは必ず DinnerRepository (および、データベースにそこから) を保存/更新/削除になります。
+これらの新しい Url では、HTTP GET と HTTP POST の両方の動詞をサポートします。 これらの Url への HTTP GET 要求によって、データの初期 HTML ビュー ("edit" の場合はディナーデータが入力されたフォーム)、"create" の場合は空のフォーム、"削除" の場合は削除の確認画面が表示されます。 これらの Url への HTTP POST 要求により、Dinのリポジトリ (およびデータベースから) のディナーデータが保存/更新/削除されます。
 
-| **URL** | **動詞** | **目的** |
+| **[URL]** | **助動詞** | **目的** |
 | --- | --- | --- |
-| */Dinners/Edit/[id]* | GET | Dinner データが設定の編集可能な HTML フォームを表示します。 |
-| POST | 特定の夕食をデータベースには、フォームの変更を保存します。 |
-| */Dinners/Create* | GET | ユーザーが新しい Dinners を定義できる空の HTML フォームを表示します。 |
-| POST | 新しい夕食を作成し、データベースに保存します。 |
+| *//編集/[id]* | GET | ディナーデータを設定した編集可能な HTML フォームを表示します。 |
+| POST | 特定のディナーのフォームの変更をデータベースに保存します。 |
+| */Din* | GET | ユーザーが新しいディナーを定義できる空の HTML フォームを表示します。 |
+| POST | 新しいディナーを作成し、データベースに保存します。 |
 | */Dinners/Delete/[id]* | GET | 削除の確認画面を表示します。 |
-| POST | データベースから指定の夕食を削除します。 |
+| POST | 指定されたディナーをデータベースから削除します。 |
 
-### <a name="edit-support"></a>編集のサポート
+### <a name="edit-support"></a>サポートの編集
 
-"Edit"シナリオの実装を見てみましょう。
+まず、"編集" シナリオを実装しましょう。
 
-#### <a name="the-http-get-edit-action-method"></a>HTTP GET の Edit アクション メソッド
+#### <a name="the-http-get-edit-action-method"></a>HTTP GET Edit アクションメソッド
 
-Edit アクション メソッドの HTTP"GET"動作を実装することから始めます。 このメソッドになりますされると呼び出されます、 */Dinners/編集/[id]* URL を要求します。 今回の実装は、ようになります。
+まず、edit アクションメソッドの HTTP "GET" 動作を実装します。 このメソッドは、/ *Dins/Edit/[id]* URL が要求されたときに呼び出されます。 実装は次のようになります。
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample1.cs)]
 
-上記のコードでは、Dinner オブジェクトを取得するのにときは、必ず DinnerRepository を使用します。 Dinner オブジェクトを使用してビュー テンプレートをレンダリングします。 テンプレート名を明示的に渡されたしていないため、 *View()* ヘルパー メソッドをテンプレートの表示を解決するのには規約ベースの既定パスを使用には:/Views/Dinners/Edit.aspx します。
+上記のコードでは、Dinのリポジトリを使用してディナーオブジェクトを取得しています。 次に、ディナーオブジェクトを使用して、ビューテンプレートをレンダリングします。 テンプレート名は明示的に*view ()* ヘルパーメソッドに渡されていないので、規則ベースの既定のパスを使用してビューテンプレートを解決します。
 
-このテンプレートの表示を今すぐ作成しましょう。 Edit メソッド内で右クリックし、「ビューの追加」コンテキスト メニュー コマンドを選択して行います。
+ここで、このビューテンプレートを作成しましょう。 これを行うには、Edit メソッド内で右クリックし、[ビューの追加] コンテキストメニューコマンドを選択します。
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image1.png)
 
-"ビューの追加 ダイアログ ボックスで指定する Dinner オブジェクトとしてのモデル、ビュー テンプレートに渡すし、自動スキャフォールディングを「編集」テンプレートを選択します。
+[ビューの追加] ダイアログボックスで、そのモデルとしてディナーオブジェクトをビューテンプレートに渡し、"Edit" テンプレートの自動スキャフォールディングを選択することを示します。
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image2.png)
 
-[追加] ボタンをクリックすると、ときに Visual Studio は新しい"Edit.aspx"ビュー テンプレート ファイルを"\Views\Dinners"ディレクトリ内を追加します。 初期「編集」スキャフォールディング実装すると、以下を含むコードのエディター – 内に、新しい"Edit.aspx"ビュー テンプレートも開きます。
+[追加] ボタンをクリックすると、Visual Studio によって "\Views\Dinners" ディレクトリ内に新しい "Edit .aspx" ビューテンプレートファイルが追加されます。 また、コードエディター内で新しい "Edit .aspx" ビューテンプレートが開き、次のような初期の "Edit" スキャフォールディングの実装が設定されます。
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image3.png)
 
-生成されると、既定値"edit"スキャフォールディングにいくつかの変更を加えるし、(いくつかのプロパティを公開する必要はありませんが削除されます) をコンテンツの編集ビュー テンプレートを更新しましょう。
+既定の "edit" スキャフォールディングに対していくつかの変更を行い、次のコンテンツを含むように編集ビューテンプレートを更新します (公開したくないプロパティがいくつか削除されます)。
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample2.aspx)]
 
-アプリケーションと要求を実行したときに、 *「/1/Dinners/編集」* URL は、次のページが表示されます。
+アプリケーションを実行して *"/Dinners/Edit/1"* URL を要求すると、次のページが表示されます。
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image4.png)
 
-このビューによって生成される HTML マークアップは、以下のようになります。 – 標準の HTML では、&lt;フォーム&gt;要素への HTTP POST を実行する、 */Dinners/Edit/1* URL と [保存]&lt;入力の種類 =「送信」/&gt;ボタンが押されました。 HTML&lt;入力の種類 ="text"/&gt;要素には、編集可能な各プロパティの出力がされています。
+ビューによって生成される HTML マークアップは、次のようになります。 これは標準の HTML です。 &lt;フォーム&gt; 要素を使用して、"Save" &lt;input type = "submit"/&gt; ボタンがプッシュされたときに */Dinners/Edit/1* URL への HTTP POST を実行します。 編集可能な各プロパティに対して、HTML &lt;input type = "text"/&gt; 要素が出力されています。
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image5.png)
 
-#### <a name="htmlbeginform-and-htmltextbox-html-helper-methods"></a>Html.BeginForm() と Html.TextBox() Html ヘルパー メソッド
+#### <a name="htmlbeginform-and-htmltextbox-html-helper-methods"></a>Html. BeginForm () および Html テキストボックス () Html ヘルパーメソッド
 
-"Edit.aspx"ビュー テンプレートは、いくつかの「Html ヘルパー」メソッドを使用してください。Html.ValidationSummary()、Html.BeginForm()、Html.TextBox()、および Html.ValidationMessage() します。 組み込みのエラー処理と検証の HTML マークアップを生成する、に加えてこれらのヘルパー メソッドを提供をサポートします。
+"Edit .aspx" ビューテンプレートでは、html、ValidationSummary ()、Html. BeginForm ()、.Html ()、および Html の Validationsummary () の複数の "Html ヘルパー" メソッドが使用されています。 これらのヘルパーメソッドは、HTML マークアップを生成するだけでなく、組み込みのエラー処理と検証のサポートを提供します。
 
-##### <a name="htmlbeginform-helper-method"></a>Html.BeginForm() ヘルパー メソッド
+##### <a name="htmlbeginform-helper-method"></a>Html. BeginForm () ヘルパーメソッド
 
-Html.BeginForm() のヘルパー メソッドは、どのような出力 HTML&lt;フォーム&gt;マークアップ要素。 Edit.aspx ビュー テンプレートに適用する"using"ステートメントと、このメソッドを使用して C# でわかります。 中かっこの先頭を示します、&lt;フォーム&gt;コンテンツ、および右中かっこがの末尾を示す内容、 &lt;/form&gt;要素。
+Html. BeginForm () ヘルパーメソッドは、マークアップの HTML &lt;フォーム&gt; 要素を出力します。 編集 .aspx ビューテンプレートでは、このメソッドを使用するときに " C# using" ステートメントを適用していることがわかります。 左中かっこは、コンテンツ&gt; &lt;フォームの先頭を示します。右中かっこは、&lt;///&gt; 要素の末尾を示します。
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample3.cs)]
 
-また、"using"ステートメントを検索する場合は、このようなシナリオの不自然なアプローチ、Html.BeginForm() と Html.EndForm() を組み合わせて (これは、同じ動作が) を使用することができます。
+または、このようなシナリオに対して "using" ステートメントの不自然な方法が見つかった場合は、次のように Html の BeginForm () と Html の EndForm () の組み合わせを使用できます。
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample4.aspx)]
 
-パラメーターを指定せず Html.BeginForm() を呼び出すことは現在の要求の URL への HTTP POST をフォーム要素を出力することになります。 つまり、編集ビューを生成理由、 *&lt;フォーム アクション =「/1/Dinners/編集」メソッド ="post"&gt;* 要素。 でしたがまたは明示的なパラメーターに渡した Html.BeginForm() 別の URL に投稿する場合。
+パラメーターを指定せずに Html. BeginForm () を呼び出すと、現在の要求の URL に HTTP POST を実行する form 要素が出力されます。 このため、Edit ビューでは *&lt;form action = "/Dinners/Edit/1" method = "post"&gt;* 要素が生成されます。 別の URL に投稿する場合は、別の方法で、明示的なパラメーターを Html に渡すこともできます。
 
-##### <a name="htmltextbox-helper-method"></a>Html.TextBox() ヘルパー メソッド
+##### <a name="htmltextbox-helper-method"></a>Html. TextBox () ヘルパーメソッド
 
-この Edit.aspx ビュー Html.TextBox() のヘルパー メソッドを使用して出力する&lt;入力の種類 ="text"/&gt;要素。
+編集 .aspx ビューでは、Html の TextBox () ヘルパーメソッドを使用して &lt;input type = "text"/&gt; 要素を出力します。
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample5.aspx)]
 
-上記 Html.TextBox() メソッドには、1 つのパラメーター – の id/名前属性を指定するために使用される、&lt;入力の種類 ="text"/&gt;からテキスト ボックスに値を設定するモデルのプロパティと同様に、出力する要素。 たとえば、編集ビューに渡された Dinner オブジェクトが".NET Future"の"Title"プロパティの値と、Html.TextBox("Title") メソッドが出力を呼び出すため: *&lt;入力 id ="Title"名前 =「タイトル」の種類 ="text"の値 =".NET Future"/&gt;*.
+上記の .Html () メソッドは、1つのパラメーターを受け取ります。これは、出力する &lt;入力型 = "text"/&gt; 要素の id/name 属性と、テキストボックスの値を設定するモデルプロパティの両方を指定するために使用されます。 たとえば、編集ビューに渡されたディナーオブジェクトの "Title" プロパティ値が ".NET フューチャ" になっているため、Html テキストボックス ("Title") メソッドの呼び出し出力: *&lt;入力 id = "title" name = "title" type = "text" value = ". NET フューチャ"/&gt;* です。
 
-または、要素の id/名前を指定し、2 番目のパラメーターとして使用する値で明示的に渡す Html.TextBox() の最初のパラメーターを使用できます。
+または、最初の .Html () パラメーターを使用して要素の id と名前を指定し、次に2番目のパラメーターとして使用する値を明示的に渡すことができます。
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample6.aspx)]
 
-多くの場合、出力される値のカスタム書式設定を実行するします。 .NET に組み込まれて指定する静的メソッドは、これらのシナリオに適しています。 Edit.aspx ビュー テンプレートを使用してこの書式、EventDate 値 (DateTime 型の) 時間の秒を表示しないように。
+多くの場合、出力される値に対してカスタム書式設定を実行します。 .NET に組み込まれている String. Format () 静的メソッドは、これらのシナリオに役立ちます。 編集 .aspx ビューテンプレートでは、このメソッドを使用して EventDate 値 (DateTime 型) を書式設定し、その時間に秒が表示されないようにしています。
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample7.aspx)]
 
-Html.TextBox() の 3 番目のパラメーターは、追加の HTML 属性を出力するオプションで使用できます。 次のコードのスニペットは、その他のサイズを表示する方法を示します「30」属性とクラスを = = on"mycssclass"属性、&lt;入力の種類 ="text"/&gt;要素。 使用して、クラス属性の名前をエスケープする方法に注意してください、"@" character because "クラス"予約済みキーワード (C#)。
+Html. TextBox () の3番目のパラメーターは、追加の HTML 属性を出力するために必要に応じて使用できます。 次のコードスニペットは、追加の size = "30" 属性と、class = "mycssclass" 属性を &lt;input type = "text"/&gt; 要素に表示する方法を示しています。 ここでは、"@" character because "クラス" を使用してクラス属性の名前をエスケープする方法にC#ついて説明します。
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample8.aspx)]
 
-#### <a name="implementing-the-http-post-edit-action-method"></a>HTTP POST の Edit アクション メソッドを実装します。
+#### <a name="implementing-the-http-post-edit-action-method"></a>HTTP ポスト編集アクションメソッドの実装
 
-HTTP GET バージョン、Edit アクション メソッドの実装のようになりましたがあります。 ユーザーが要求したとき、 */Dinners/Edit/1*次のような HTML ページを受信した URL:
+これで、編集アクションメソッドの HTTP GET バージョンが実装されました。 ユーザーが */Dinners/Edit/1* URL を要求すると、次のような HTML ページが表示されます。
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image6.png)
 
-フォーム post を「保存」ボタンを押すと、 */Dinners/Edit/1* URL、HTML を送信して&lt;入力&gt;HTTP POST 動詞を使用して値を形成します。 今すぐ – Dinner の保存を処理する、edit アクション メソッドの HTTP POST の動作を実装してみましょう。
+[Save] \ (保存 \) ボタンを押すと、 */Dinners/Edit/1* URL へのフォームポストが行われ、HTTP post 動詞を使用して HTML &lt;入力&gt; フォーム値が送信されます。 ここで、編集アクションメソッドの HTTP POST 動作を実装します。これにより、ディナーの保存が処理されます。
 
-まず、DinnersController を"AcceptVerbs"属性を持つ HTTP POST のシナリオを扱うことを示すを「編集」アクション オーバー ロードされたメソッドを追加します。
+まず、オーバーロードされた "Edit" アクションメソッドを Dinのコントローラーに追加します。このメソッドには、HTTP POST シナリオを処理することを示す "AcceptVerbs" 属性が含まれています。
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample9.cs)]
 
-[AcceptVerbs] 属性は、オーバー ロードされたアクション メソッドに適用するときに ASP.NET MVC は自動的に入力方向の HTTP 動詞に応じて適切なアクション メソッドにディスパッチ要求を処理します。 HTTP POST 要求を */Dinners/編集/[id]* Url への他のすべての HTTP 動詞要求中に、上記の Edit メソッドに移動します */Dinners/編集/[id]* Url が変わります (これが最初の編集メソッドを実装しましたされませんが、`[AcceptVerbs]`属性)。
+オーバーロードされたアクションメソッドに [AcceptVerbs] 属性が適用されると、ASP.NET MVC は、受信 HTTP 動詞に応じて、適切なアクションメソッドへのディスパッチ要求を自動的に処理します。 HTTP POST 要求が */Dins/edit/[id]* の*url にアクセス*すると、上記の編集メソッドが使用されますが、その他のすべての http 動詞要求 (& n) は、実装した (`[AcceptVerbs]` 属性を持たない) 最初の編集メソッドに送られます。
 
-| **側のトピック:HTTP 動詞を使用して区別なぜでしょうか。** |
+| **サイドトピック: HTTP 動詞を使用して区別する理由** |
 | --- |
-| 思うかもしれません – はなぜ 1 つの URL を使用して、HTTP 動詞を使用してその動作を区別しますか。 なぜの読み込みと編集の変更の保存を処理するために 2 つの個別の Url があるだけですか。 例:/Dinners/編集/[id] の初期フォームと/Dinners/保存/[id] を保存してフォーム ポストを処理するために表示するか。 発行の 2 つの独立した Url に欠点最終的には、/Dinners/Save/2 に投稿し、入力エラーのための HTML フォームを再表示する必要があります場所の場合、エンドユーザーが (だったために、ブラウザーのアドレス バーに Dinners/保存/2 の URL を持つURL にポストされたフォーム)。 場合は、エンド ユーザー ブラウザーのお気に入りの一覧にこの redisplayed ページをブックマークまたは URL のコピー/貼り付け、友人にメールで送信 (ため、その URL は、投稿の値によって異なります) は、後で動作しない URL を保存になります。 1 つの URL を公開することで (のような:/Dinners/Edit/[id]) および HTTP 動詞でその処理を区別するの編集ページをブックマークや他のユーザーに、URL を送信するエンドユーザーのも安全です。 |
+| 1つの URL を使用し、HTTP 動詞でその動作を区別するのはなぜですか。 編集変更の読み込みと保存を処理するために2つの異なる Url を用意する必要があるのはなぜですか。 たとえば、フォームを保存するためのフォームの post を処理する場合、最初のフォームと/Din/[id] を表示するには、次のように入力します。 2つの異なる Url を公開する場合の欠点は、1/3 に投稿した後、入力エラーのために HTML フォームを再表示する必要がある場合、エンドユーザーはブラウザーのアドレスバーに (フォームがポストされた URL であるため)、その URL が使用されるようになることです。 エンドユーザーがこの再表示されたページをブラウザーのお気に入りの一覧にブックマークしたり、URL をコピーして友人に送信したりすると、後では機能しない URL が保存されます (その URL は post 値に依存しているため)。 1 つの URL を公開することで (のような:/Dinners/Edit/[id]) および HTTP 動詞でその処理を区別するの編集ページをブックマークや他のユーザーに、URL を送信するエンドユーザーのも安全です。 |
 
-#### <a name="retrieving-form-post-values"></a>フォーム ポスト値を取得します。
+#### <a name="retrieving-form-post-values"></a>フォームポスト値の取得
 
-さまざまなフォーム パラメーター、HTTP POST の「編集」メソッド内での投稿にアクセスする方法があります。 単純なアプローチの 1 つだけコント ローラーの基本クラスで要求のプロパティを使用して、フォームのコレクションへのアクセスを直接ポストされた値を取得することです。
+HTTP POST の "Edit" メソッドでは、ポストされたフォームパラメーターにさまざまな方法でアクセスできます。 単純な方法の1つとして、Controller 基本クラスの Request プロパティを使用してフォームコレクションにアクセスし、ポストされた値を直接取得するだけです。
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample10.cs)]
 
-上記の方法は特に、エラー処理ロジックを追加した、少し冗長です。
+ただし、上記の方法は、特にエラー処理ロジックを追加した後は少し詳細になります。
 
-このシナリオでは、組み込みの活用のより優れた方法*UpdateModel()* コント ローラーの基本クラスのヘルパー メソッド。 渡します受信フォーム パラメーターを使用してオブジェクトのプロパティの更新をサポートします。 リフレクションを使用して、オブジェクトのプロパティ名を決定して自動的に変換し、クライアントから送信された入力値に基づいて値を割り当てます。
+このシナリオでは、コントローラーの基本クラスで組み込みの*UpdateModel ()* ヘルパーメソッドを利用することをお勧めします。 オブジェクトのプロパティの更新は、受信フォームパラメーターを使用して渡すことができます。 このメソッドは、リフレクションを使用してオブジェクトのプロパティ名を決定し、クライアントによって送信された入力値に基づいて、値を自動的に変換して値を割り当てます。
 
-UpdateModel() メソッドを使用して、HTTP POST アクションの編集このコードを使用して簡素化でした。
+UpdateModel () メソッドを使用して、次のコードを使用して HTTP POST 編集アクションを簡略化できます。
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample11.cs)]
 
-アクセスできるようになりました、 */Dinners/Edit/1* URL、および、Dinner のタイトルを変更します。
+これで、 */Dinners/Edit/1* URL にアクセスし、ディナーのタイトルを変更できます。
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image7.png)
 
-[保存] ボタンをクリックしてとポストされたフォームの編集の操作を実行します、更新された値は、データベースに保存されます。 私たちは、夕食 (これは、新しく保存された値が表示されます) の詳細 URL にリダイレクトされます。
+[保存] ボタンをクリックすると、編集アクションへのフォームの投稿が実行され、更新された値はデータベースに保存されます。 次に、ディナーの詳細 URL にリダイレクトされます (新たに保存された値が表示されます)。
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image8.png)
 
 #### <a name="handling-edit-errors"></a>編集エラーの処理
 
-場合を除き、現在の HTTP POST 実装の動作を細かく – エラーが発生します。
+現在の HTTP ポストの実装は、エラーがある場合を除き、正常に動作します。
 
-ユーザーが間違いを犯したフォームを編集すると、フォームが問題の修正をガイドするわかりやすいエラー メッセージと共に再表示するかどうかを確認する必要があります。 エンドユーザーが正しくない入力を投稿するケースが含まれます (例: 形式が正しくない日付の文字列)、あるケースも入力形式は有効ですが、ビジネス ルール違反があります。 エラーが発生した場合、フォームにその変更を手動で再読み込みするがあるないように最初に入力したユーザーの入力データを保持する必要があります。 フォームが正常に完了するまで、このプロセスが必要な回数だけ繰り返されます。
+ユーザーがフォームを編集するときに、フォームが再表示され、問題を修正するための情報を示すエラーメッセージが表示されていることを確認する必要があります。 これには、エンドユーザーが間違った入力 (たとえば、形式が正しくない日付文字列) を投稿する場合や、入力形式が有効であってもビジネスルール違反がある場合などがあります。 エラーが発生すると、フォームはユーザーが最初に入力した入力データを保持する必要があるため、手動で変更を補充する必要がありません。 このプロセスは、フォームが正常に完了するまで、必要な回数だけ繰り返す必要があります。
 
-ASP.NET MVC には、エラー処理とフォームの再表示を簡単に構成するいくつかの便利な組み込み機能が含まれています。 みましょうアクションでこれらの機能を表示する次のコードで、Edit アクション メソッドを更新します。
+ASP.NET MVC には、エラー処理とフォーム再表示を容易にする便利な組み込み機能がいくつか用意されています。 これらの機能を実際に確認するには、編集アクションメソッドを次のコードで更新してみましょう。
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample12.cs)]
 
-上記のコードは、前の実装に似ていますが、作業を try/catch エラー処理のブロックをラップするようになりました。 UpdateModel() を呼び出すときに、またはしようとして、ときは必ず DinnerRepository (これが、私たちのモデル内のルール違反のため、Dinner オブジェクトを保存しようとしましたが無効な場合、例外が発生)、保存時に、ブロックの catch エラー処理、例外が発生した場合は実行します。 内にループに Dinner オブジェクト内に存在する任意の規則違反の上を (すぐ説明します) する ModelState オブジェクトに追加します。 ここには、ビュー、再表示します。
+上記のコードは、前の実装に似ています。ただし、ここでは、作業の前後に try/catch エラー処理ブロックをラップしている点が異なります。 UpdateModel () の呼び出し中に例外が発生した場合、または Dinを保存しようとしたときに (保存しようとしているディナーオブジェクトがモデル内のルール違反のために無効である場合に例外が発生する)、キャッチエラー処理ブロックは、おい. その中で、ディナーオブジェクトに存在する規則違反をループし、ModelState オブジェクトに追加します (これについては後で説明します)。 次に、ビューを再表示します。
 
-早速アプリケーションを再実行動作しているこのかの夕食を編集し、EventDate"BOGUS"の空のタイトルがあり、米国の国の値で英国の電話番号を使用するように変更します。 キーを押すと [保存] ボタンと HTTP POST の編集方法では、ことはできません (エラーがある) ため、Dinner を保存して、フォームを再表示されます。
+この作業を確認するには、アプリケーションを再実行し、ディナーを編集して、空のタイトル、EventDate が "BOGUS" になるように変更して、国の値が USA である英国の電話番号を使用します。 [保存] ボタンを押すと、HTTP POST Edit メソッドは、(エラーがあるために) ディナーを保存できなくなり、フォームが再表示されます。
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image9.png)
 
-このアプリケーションでは、適切なエラー エクスペリエンスがあります。 入力に無効なテキスト要素が赤で強調表示し、それらについてエンドユーザーに検証エラー メッセージが表示されます。 フォームも保持しているユーザーの元の入力: 入力データを何も再設定があるないようにします。
+アプリケーションのエラーエクスペリエンスが向上しています。 無効な入力を持つテキスト要素が赤色で強調表示され、エンドユーザーに対して検証エラーメッセージが表示されます。 このフォームには、ユーザーが最初に入力した入力データも保持されるため、何も入力する必要がありません。
 
-方法については、疑問に思うかもしれませんがこれが発生するでしょうか。 方法でした、タイトル、EventDate、および ContactPhone のテキスト ボックス自体を赤で強調表示し、最初に入力したユーザーの値を出力するでしょうか。 方法がエラー メッセージを取得一覧に表示、上部にあるでしょうか。 良い知らせは、あるマジックでこれが発生しなかったがいくつかの組み込みの ASP.NET MVC 機能を簡単にする入力の検証とエラー処理シナリオを使用しているためではなくです。
+どうすればよいでしょうか。 [タイトル]、[EventDate]、および [ContactPhone] の各テキストボックス自体が赤で強調表示され、最初に入力したユーザー値が出力されます。 エラーメッセージが上部の一覧に表示されるのはどのようなものですか。 これはマジックではありませんでした。これは、入力の検証とエラー処理のシナリオを簡単に行う組み込みの ASP.NET MVC 機能の一部を使用したためです。
 
-#### <a name="understanding-modelstate-and-the-validation-html-helper-methods"></a>ModelState の理解と検証の HTML ヘルパー メソッド
+#### <a name="understanding-modelstate-and-the-validation-html-helper-methods"></a>ModelState と検証 HTML ヘルパーメソッドについて
 
-コント ローラー クラスでは、エラーがビューに渡されるモデル オブジェクトに存在することを示す方法を提供する"ModelState"プロパティ コレクションがあります。 ModelState コレクション内のエラーのエントリでは、モデル プロパティの名前を識別して問題 (例。"Title"、"EventDate"または"ContactPhone") を指定するわかりやすいエラー メッセージを許可して (例。「タイトルが必要です」)。
+コントローラークラスには、ビューに渡されるモデルオブジェクトのエラーが存在することを示すための "ModelState" プロパティコレクションがあります。 ModelState コレクション内のエラーエントリは、問題のあるモデルプロパティの名前 ("Title"、"EventDate"、"ContactPhone" など) を識別し、わかりやすいエラーメッセージを指定できるようにします (例: "タイトルが必要")。
 
-*UpdateModel()* モデル オブジェクトのプロパティにフォームの値を代入しようとしています。 中にエラーが発生したときにヘルパー メソッドが ModelState コレクションに自動的に設定します。 たとえば、Dinner オブジェクトの EventDate プロパティは DateTime 型です。 UpdateModel() メソッドは、上記のシナリオで"BOGUS"の文字列値を割り当てることができませんが、そのプロパティに割り当てエラーを示す ModelState コレクションにエントリが発生しました UpdateModel() メソッドが追加されます。
+*UpdateModel ()* ヘルパーメソッドは、モデルオブジェクトのプロパティにフォーム値を割り当てようとしているときに、エラーが発生したときに modelstate コレクションを自動的に設定します。 たとえば、ディナーオブジェクトの EventDate プロパティは DateTime 型です。 上記のシナリオで、UpdateModel () メソッドが文字列値 "BOGUS" をこのメソッドに割り当てることができなかった場合、UpdateModel () メソッドは、そのプロパティで割り当てエラーが発生したことを示すエントリを ModelState コレクションに追加します。
 
-開発者は、以下、"catch"エラーの処理ブロック内でエントリで、アクティブなルール違反に基づく ModelState コレクションが読み込みを実行しているように明示的に ModelState コレクションへのエラー エントリを追加するコードを記述できますも、Dinner オブジェクト:
+開発者は、"catch" エラー処理ブロック内で次に示すように、エラーエントリを ModelState コレクションに明示的に追加するコードを記述することもできます。これは、ディナーオブジェクト:
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample13.cs)]
 
-#### <a name="html-helper-integration-with-modelstate"></a>ModelState と html ヘルパーの統合
+#### <a name="html-helper-integration-with-modelstate"></a>Html ヘルパーと ModelState の統合
 
-Html.TextBox() - などの HTML ヘルパー メソッドは、出力を表示するときに、ModelState のコレクションを確認します。 項目のエラーが存在する場合、ユーザーが入力した値と CSS エラー クラス レンダリングします。
+Html ヘルパーメソッド (Html. TextBox () など)-出力をレンダリングするときに ModelState コレクションを確認します。 項目のエラーが存在する場合は、ユーザーが入力した値と CSS エラークラスを表示します。
 
-たとえばで、[編集] ビューは使用 Html.TextBox() ヘルパー メソッドは、Dinner オブジェクトの EventDate を表示するために。
+たとえば、"Edit" ビューでは、Html. TextBox () ヘルパーメソッドを使用して、ディナーオブジェクトの EventDate をレンダリングしています。
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample14.aspx)]
 
-エラー シナリオでは、ビューがレンダリングされた、Html.TextBox() メソッドで ModelState コレクションは、Dinner オブジェクトの"EventDate"プロパティに関連付けられたすべてのエラーがないかどうがチェックされます。 値として送信されたユーザー入力 ("BOGUS") を表示し、css エラー クラスを追加エラーがあったことが確認された場合、&lt;入力の種類 ="textbox"/&gt;が生成されたマークアップ。
+エラーシナリオでビューがレンダリングされると、.Html () メソッドは ModelState コレクションを確認して、ディナーオブジェクトの "EventDate" プロパティに関連付けられたエラーがあるかどうかを確認します。 エラーが発生したと判断した場合、送信されたユーザー入力 ("偽") を値としてレンダリングし、css error クラスを &lt;input type = "textbox"/&gt; 生成したマークアップに追加します。
 
 [!code-html[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample15.html)]
 
-ただしすることを確認する css エラー クラスの外観をカスタマイズすることができます。 既定の CSS エラー クラス –「入力の検証エラー」-がで定義されている、 *\content\site.css*スタイル シートとは次のような。
+必要に応じて、css error クラスの外観をカスタマイズできます。 既定の CSS エラークラス– "入力-検証-エラー" –は、次のように、 *\ content\ sitestylesheet*スタイルシートで定義されています。
 
 [!code-css[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample16.css)]
 
-この CSS ルールでは、以下のように強調表示する、無効な入力要素の原因を示します。
+この CSS 規則は、次のように、無効な入力要素が強調表示される原因となっています。
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image10.png)
 
-##### <a name="htmlvalidationmessage-helper-method"></a>Html.ValidationMessage() ヘルパー メソッド
+##### <a name="htmlvalidationmessage-helper-method"></a>Html. ValidationMessage () ヘルパーメソッド
 
-特定のモデル プロパティに関連付けられた ModelState エラー メッセージを出力する Html.ValidationMessage() ヘルパー メソッドを使用できます。
+Html の ValidationMessage () ヘルパーメソッドを使用すると、特定のモデルプロパティに関連付けられている ModelState エラーメッセージを出力できます。
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample17.aspx)]
 
-上記のコードを出力: *&lt;クラスにまたがる =「フィールドの検証エラー」&gt; 'BOGUS' 値が有効でない&lt;/span&gt;*
+上記のコードでは、 *&lt;span class = "/span"&gt; になります。値 ' BOGUS ' は無効&lt;&gt;*
 
-Html.ValidationMessage() のヘルパー メソッドには、表示されるエラー テキスト メッセージを上書きできるようにする 2 番目のパラメーターもサポートしています。
+Html の ValidationMessage () ヘルパーメソッドでは、表示されているエラーテキストメッセージを開発者がオーバーライドできる2番目のパラメーターもサポートしています。
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample18.aspx)]
 
-上記のコードを出力: *&lt;クラスにまたがる =「フィールドの検証エラー」&gt;\*&lt;/span&gt;* エラーの場合、既定のエラー テキストではなく、EventDate のプロパティです。
+上記のコードでは、EventDate プロパティにエラーが存在する場合に、既定のエラーテキストではなく、 *span class = "/span"&gt;\*&lt;&gt;* を出力しています&lt;。
 
-##### <a name="htmlvalidationsummary-helper-method"></a>Html.ValidationSummary() ヘルパー メソッド
+##### <a name="htmlvalidationsummary-helper-method"></a>Html. ValidationSummary () ヘルパーメソッド
 
-Html.ValidationSummary() のヘルパー メソッドを伴う概要エラー メッセージを表示するために使用できます、 &lt;ul&gt;&lt;li/&gt;&lt;/ul&gt;でメッセージをすべて詳細なエラーの一覧、ModelState コレクション:
+Html. ValidationSummary () ヘルパーメソッドを使用すると、集計エラーメッセージを表示できます。これには、&lt;ul&gt;&lt;li/&gt;&lt;/ul&gt; ModelState コレクション内のすべての詳細エラーメッセージの一覧が表示されます。
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image11.png)
 
-Html.ValidationSummary() のヘルパー メソッドでは、詳細なエラーの一覧の上に表示される概要エラー メッセージを定義する、省略可能な文字列パラメーターを受け取ります。
+Html の ValidationSummary () ヘルパーメソッドは、省略可能な文字列パラメーターを受け取ります。これは、詳細なエラーの一覧の上に表示する概要エラーメッセージを定義します。
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample19.aspx)]
 
-必要に応じて CSS を使用して、エラー一覧のようにオーバーライドすることができます。
+必要に応じて CSS を使用して、エラー一覧の外観をオーバーライドできます。
 
-#### <a name="using-a-addruleviolations-helper-method"></a>AddRuleViolations ヘルパー メソッドを使用してください。
+#### <a name="using-a-addruleviolations-helper-method"></a>AddRuleViolations ヘルパーメソッドの使用
 
-最初の HTTP POST 編集実装では、Dinner オブジェクトの規則違反をループし、コント ローラーの ModelState のコレクションに追加するその catch ブロック内での foreach ステートメントを使用しました。
+最初の HTTP POST 編集の実装では、catch ブロック内で foreach ステートメントを使用して、ディナーオブジェクトの規則違反をループし、コントローラーの ModelState コレクションに追加します。
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample20.cs)]
 
-"ControllerHelpers"を追加することによってほとんど明確になり NerdDinner プロジェクトにクラスし、メソッドを実装して"AddRuleViolations"拡張機能内に ASP.NET MVC ModelStateDictionary クラスにヘルパー メソッドを追加する、このコードを実行できます。 この拡張メソッドは、ModelStateDictionary RuleViolation エラーの一覧を設定するために必要なロジックをカプセル化できます。
+このコードは、"コントローラーヘルパー" クラスを "コントローラー" プロジェクトに追加し、ASP.NET MVC ModelStateDictionary クラスにヘルパーメソッドを追加する "AddRuleViolations" 拡張メソッドを実装することによって、少しすっきりしたものにすることができます。 この拡張メソッドは、ModelStateDictionary に RuleViolation エラーの一覧を設定するために必要なロジックをカプセル化できます。
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample21.cs)]
 
-HTTP POST アクション メソッドの編集、Dinner 規則違反で ModelState のコレクションを設定するこの拡張メソッドを使用することを更新できます。
+次に、HTTP POST 編集アクションメソッドを更新して、この拡張メソッドを使用して、ディナールール違反を ModelState コレクションに設定できます。
 
-#### <a name="complete-edit-action-method-implementations"></a>Edit アクション メソッドの実装を完了します。
+#### <a name="complete-edit-action-method-implementations"></a>アクションメソッドの実装の完了
 
-次のコードは、編集シナリオに必要なコント ローラー ロジックのすべてを実装します。
+以下のコードは、編集シナリオに必要なすべてのコントローラーロジックを実装しています。
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample22.cs)]
 
-編集実装の便利な点は、コント ローラー クラスでも、テンプレートの表示が、特定の検証や、Dinner モデルに設定されているビジネス ルールについての知識が。 追加ルールを追加できます、モデル、今後おに、コント ローラーまたはビューをサポートするためにコード変更を加える必要はありません。 これにより、アプリケーションの要件、将来を最小限のコードの変更を簡単に進化する柔軟性を活用できます。
+編集実装に関するすばらしい点は、コントローラークラスもビューテンプレートも、ディナーモデルによって適用されている特定の検証またはビジネスルールに関する情報を知る必要がないということです。 将来、モデルに追加のルールを追加することができます。また、サポートされるように、コントローラーやビューにコード変更を加える必要はありません。 これにより、コードの変更を最小限に抑えて、将来的にアプリケーションの要件を簡単に拡張できる柔軟性が提供されます。
 
-### <a name="create-support"></a>サポートを作成します。
+### <a name="create-support"></a>サポートを作成する
 
-DinnersController クラスの"Edit"の動作を実装するは終了しました。 今すぐに進みましょうが – 新しい Dinners を追加するユーザーを有効にする「作成」のサポートを実装します。
+Dinのコントローラークラスの "編集" 動作の実装が完了しました。 ここで、ユーザーが新しいディナーを追加できるようにするための "Create" サポートを実装する方法について説明します。
 
-#### <a name="the-http-get-create-action-method"></a>HTTP GET アクション メソッドを作成します。
+#### <a name="the-http-get-create-action-method"></a>HTTP-GET Create Action メソッド
 
-まずの HTTP"GET"動作を実装することによって、アクション メソッドを作成します。 アクセスと、このメソッドが呼び出される、 */Dinners/作成*URL。 今回の実装は、ようになります。
+まず、create action メソッドの HTTP "GET" 動作を実装します。 このメソッドは、他のユーザーが */Dins/create* URL にアクセスしたときに呼び出されます。 実装は次のようになります。
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample23.cs)]
 
-上記のコードでは、新しい Dinner オブジェクトを作成し、今後 1 週間に、EventDate のプロパティを割り当てます。 新しい Dinner オブジェクトに基づいているビューをレンダリングします。 名を明示的に渡されたしていないため、 *View()* ヘルパー メソッドをテンプレートの表示を解決するのには規約ベースの既定パスを使用には:/Views/Dinners/Create.aspx します。
+上記のコードでは、新しいディナーオブジェクトを作成し、その EventDate プロパティを1週間後に割り当てます。 次に、新しいディナーオブジェクトに基づくビューをレンダリングします。 明示的に名前を*view ()* ヘルパーメソッドに渡していないので、規則ベースの既定のパスを使用してビューテンプレートを解決します。
 
-このテンプレートの表示を今すぐ作成しましょう。 これは、Create アクション メソッド内で右クリックし、「ビューの追加」コンテキスト メニュー コマンドを選択して実行できます。 "ビューの追加 ダイアログ ボックスで指定する Dinner オブジェクト、ビュー テンプレートに渡すし、自動スキャフォールディングの「作成」テンプレートを選択します。
+ここで、このビューテンプレートを作成しましょう。 これを行うには、Create action メソッド内で右クリックし、[ビューの追加] コンテキストメニューコマンドを選択します。 [ビューの追加] ダイアログボックスで、ディナーオブジェクトをビューテンプレートに渡し、"Create" テンプレートの自動スキャフォールディングを選択することを指定します。
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image12.png)
 
-[追加] ボタンをクリックすると、ときに、Visual Studio は新しいスキャフォールディング ベース"Create.aspx"ビューを"\Views\Dinners"ディレクトリに保存し、ide の起動。
+[追加] ボタンをクリックすると、Visual Studio によって新しいスキャフォールディングベースの "\Views\Dinners" ビューが "" ディレクトリに保存され、IDE 内で開かれます。
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image13.png)
 
-既定値「作成」スキャフォールディングの生成されたファイルに、いくつかの変更を加えるし、以下のように変更をしましょう。
+既定の "create" スキャフォールディングファイルに対して生成された変更をいくつか行い、次のように変更してみましょう。
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample24.aspx)]
 
-今すぐ実行するとき、アプリケーションとアクセスと、 *「Dinners/作成」* 作成アクションの実装から次のような UI を表示するブラウザー内の URL:
+ここで、アプリケーションを実行し、ブラウザー内で *"/dinの S/create"* URL にアクセスすると、次のような UI が作成アクションの実装から表示されます。
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image14.png)
 
-#### <a name="implementing-the-http-post-create-action-method"></a>アクション メソッドを作成する HTTP POST を実装します。
+#### <a name="implementing-the-http-post-create-action-method"></a>HTTP ポスト作成アクションメソッドの実装
 
-私たちには、実装、Create アクション メソッドの HTTP GET バージョンがインストールされています。 フォーム post を実行、ユーザーが [保存] ボタンをクリックすると、 */Dinners/作成*URL、HTML を送信して&lt;入力&gt;HTTP POST 動詞を使用して値を形成します。
+Create action メソッドの HTTP GET バージョンが実装されています。 ユーザーが [保存] ボタンをクリックする*と、その URL へ*のフォームポストが実行され、HTTP post 動詞を使用して HTML &lt;入力&gt; フォーム値が送信されます。
 
-ここでの HTTP POST の動作を実装してみましょう、アクション メソッドを作成します。 まず、DinnersController を"AcceptVerbs"属性を持つ HTTP POST のシナリオを扱うことを示すをオーバー ロードされたの"Create"のアクション メソッドを追加します。
+ここで、create action メソッドの HTTP POST 動作を実装しましょう。 まず、オーバーロードされた "Create" アクションメソッドを、HTTP POST シナリオを処理することを示す "AcceptVerbs" 属性を持つ Din: コントローラーに追加します。
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample25.cs)]
 
-これは、さまざまな方法は、HTTP POST が有効になっている"Create"メソッド内で、ポストされたフォーム パラメーターにアクセスできます。
+HTTP ポストが有効な "Create" メソッドでは、ポストされたフォームパラメーターにさまざまな方法でアクセスできます。
 
-1 つのアプローチは、新しい Dinner オブジェクトを作成し、使用する、 *UpdateModel()* (編集の操作を使用したとき) などのヘルパー メソッドにポストされたフォーム値を設定します。 私たちのときは必ず DinnerRepository に追加、データベースに保存し、次のコードを使用して、新しく作成された Dinner を表示するには、当社の詳細アクションにユーザーをリダイレクトします。、
+1つの方法として、新しいディナーオブジェクトを作成し、 *UpdateModel ()* ヘルパーメソッド (Edit アクションの場合と同様) を使用して、ポストされたフォーム値を設定する方法があります。 次に、これを Dinレポジトリに追加し、データベースに保存します。次のコードを使用して、新しく作成したディナーを表示するように、ユーザーを [詳細] アクションにリダイレクトします。
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample26.cs)]
 
-または、アプローチを使用しました、メソッド パラメーターとして Dinner オブジェクト Create() アクション メソッドは、あります。 ASP.NET MVC は自動的に私たちにとって新しい Dinner オブジェクトをインスタンス化、フォームの入力を使用してそのプロパティを設定し、アクション メソッドに渡します。
+または、Create () アクションメソッドが、メソッドパラメーターとしてディナーオブジェクトを受け取る方法を使用することもできます。 ASP.NET MVC は、自動的に新しいディナーオブジェクトをインスタンス化し、フォーム入力を使用してプロパティを設定し、それをアクションメソッドに渡します。
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample27.cs)]
 
-ある Dinner オブジェクトが正常に値が設定されて、フォーム post ModelState.IsValid プロパティをチェックして、上記のアクション メソッドを確認します。 変換の問題の入力がある場合は false が返されます (例: EventDate のプロパティの"BOGUS"の文字列)、し、問題がある場合、アクション メソッドはフォームを再表示します。
+上記のアクションメソッドは、"ModelState. IsValid" プロパティをチェックして、ディナーオブジェクトにフォームポスト値が正常に設定されたことを確認します。 これは、入力変換の問題 (たとえば、EventDate プロパティに "偽" の文字列) がある場合に false を返します。問題がある場合は、アクションメソッドによってフォームが再表示されます。
 
-入力値が有効な場合、アクション メソッドは、追加し、新しい夕食をときは必ず DinnerRepository に保存を試みます。 Try/catch ブロック内でこの作業をラップし、(例外を発生させる dinnerRepository.Save() メソッドになる) ため、ビジネス ルール違反がある場合は、フォームを再表示します。
+入力値が有効な場合、アクションメソッドは、新しいディナーを Dinare リポジトリに追加して保存しようとします。 この作業は try/catch ブロック内にラップされ、ビジネスルール違反がある場合はフォームを再実行します (これにより、例外が発生する可能性があります)。
 
-このエラーの処理の動作の動作を確認することを要求できます、 */Dinners/作成*URL と新しい夕食について詳細に記入します。 不適切な入力または値には、次のように強調表示されたエラーと共に再表示するフォームを作成するが発生します。
+このエラー処理の動作を確認するには、 */Dins/create* URL を要求し、新しいディナーに関する詳細を入力します。 入力または値が正しくないと、次のように強調表示されたエラーと共に作成フォームが再表示されます。
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image15.png)
 
-フォームを作成するによって、編集フォームとして正確な同じ検証規則とビジネス規則が受け入れることに注意してください。 これは、検証とビジネス ルールがモデルでは、定義された、UI またはアプリケーションのコント ローラー内で埋め込まれていないためです。 これは後で変更/進化させる、検証、または 1 つのビジネス ルールに置き、アプリケーション全体で適用することがあることを意味します。 私たちは、内いずれかのコードは、編集を変更したり、新しいルールまたは既存の変更を自動的に優先するアクション メソッドを作成する必要はありません。
+Create フォームには、編集フォームとまったく同じ検証とビジネスルールが適用されていることに注意してください。 これは、検証とビジネスルールがモデルで定義されており、アプリケーションの UI またはコントローラー内に埋め込まれていないためです。 つまり、後で検証やビジネスルールを1か所で変更/進化させ、アプリケーション全体に適用することができます。 Edit または Create アクションメソッド内のコードを変更しなくても、新しいルールや既存のルールに対する変更を自動的に受け入れることができます。
 
-入力の値を修正し、[保存] ボタンをクリックします。 もう一度、追加するときは、必ず DinnerRepository は成功しますと新しい夕食をデータベースに追加されます。 ここにリダイレクトされますが、 */Dinners 詳細/[id]* URL – の詳細については、新しく作成された Dinner が、その場所表示されます。
+入力値を修正して [保存] ボタンをもう一度クリックすると、Dinのリポジトリへの追加が成功し、新しいディナーがデータベースに追加されます。 その後、次の URL にリダイレクトされます。ここに*は、新しく*作成したディナーの詳細が表示されます。
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image16.png)
 
-### <a name="delete-support"></a>Delete のサポート
+### <a name="delete-support"></a>サポートの削除
 
-DinnersController を「削除」のサポートを今すぐ追加してみましょう。
+次に、"削除" のサポートを Dincontroller に追加しましょう。
 
-#### <a name="the-http-get-delete-action-method"></a>Delete アクション メソッドを HTTP GET
+#### <a name="the-http-get-delete-action-method"></a>HTTP-GET Delete アクションメソッド
 
-まず、HTTP GET、delete アクション メソッドの動作を実装します。 このメソッドへのアクセス時に呼び出される、 */Dinners/削除/[id]* URL。 実装を次に示します。
+まず、delete アクションメソッドの HTTP GET 動作を実装します。 このメソッドは、他のユーザーが */Dinners/Delete/[id]* URL にアクセスしたときに呼び出されます。 実装は次のとおりです。
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample28.cs)]
 
-アクション メソッドは、削除する Dinner の取得を試みます。 Dinner が存在する場合、レンダリング Dinner オブジェクトにビューを基づいています。 オブジェクトが存在しない (または既に削除されている) 場合、"NotFound"をレンダリングするビューを返しますが、"Details"アクション メソッドの前に作成したテンプレートを表示します。
+アクションメソッドは、削除するディナーを取得しようとします。 ディナーが存在する場合は、ディナーオブジェクトに基づいてビューが表示されます。 オブジェクトが存在しない (または既に削除されている) 場合は、"Details" アクションメソッド用に以前に作成した "NotFound" ビューテンプレートを表示するビューを返します。
 
-Delete アクション メソッド内で右クリックし、「ビューの追加」コンテキスト メニュー コマンドを選択して、「削除」ビュー テンプレートを作成できます。 "ビューの追加 ダイアログ ボックスで Dinner オブジェクトとしてのモデル、ビュー テンプレートに渡すと、空のテンプレートを作成することを指定します。
+"削除" ビューテンプレートを作成するには、Delete アクションメソッド内で右クリックし、[ビューの追加] コンテキストメニューコマンドを選択します。 [ビューの追加] ダイアログボックスで、そのモデルとしてディナーオブジェクトをビューテンプレートに渡し、空のテンプレートを作成することを選択します。
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image17.png)
 
-[追加] ボタンをクリックするとと、Visual Studio は新しい"Delete.aspx"ビュー テンプレート ファイルを"\Views\Dinners"ディレクトリ内の追加します。 削除の確認 画面を実装するためにテンプレートをいくつかの HTML とコードを追加します次のような。
+[追加] ボタンをクリックすると、Visual Studio によって "\Views\Dinners" ディレクトリ内に新しい "Delete .aspx" ビューテンプレートファイルが追加されます。 次のように、テンプレートに HTML とコードを追加して、削除の確認画面を実装します。
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample29.aspx)]
 
-上記のコードは、削除するには、Dinner と出力のタイトルを表示、&lt;フォーム&gt;要素を/Dinners/削除/[id] URL に投稿を行う場合は、エンドユーザーがその中の [削除] ボタンをクリックします。
+上のコードは、削除するディナーのタイトルを表示し、エンドユーザーがその中の [Delete] ボタンをクリックした場合に/Dinners/Delete/[id] URL への投稿を行う &lt;フォーム&gt; 要素を出力します。
 
-当社のアプリケーションとアクセスを実行したときに、 *"/Dinners/削除/[id]"* オブジェクトの有効な夕食 URL 次のような UI をレンダリングします。
+アプリケーションを実行し、有効なディナーオブジェクトの *"/Dinners/Delete/[id]"* URL にアクセスすると、次のような UI が表示されます。
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image18.png)
 
-| **側のトピック:投稿を行っている理由** |
+| **サイドトピック: 投稿を実行する理由** |
 | --- |
-| 作成する作業を通じて移動でした理由: 依頼可能性があります、&lt;フォーム&gt;削除の確認画面内か? なぜ実際の削除操作を実行するアクション メソッドにリンクするだけの標準のハイパーリンクを使用しますか。 Web クローラーからの保護し、検索エンジン、Url を探索し、リンクに従っている場合に削除されるデータを誤って原因に注意する必要があるためにです。 HTTP GET ベースの Url アクセス/クロールにするには「安全」と見なされに、HTTP POST ものに従っていません。 HTTP POST 要求の背後にあるデータ変更操作または破壊を常に配置することを確認することをお勧めします。 |
+| [削除の確認] 画面で&gt; &lt;フォームを作成する必要があるのはなぜですか。 標準ハイパーリンクを使用して、実際の削除操作を実行するアクションメソッドにリンクしているのはなぜですか。 これは、web クローラーと検索エンジンに対して Url を検出し、誤ってリンクをたどるとデータが削除されることを防ぐために注意する必要があるためです。 HTTP-GET ベースの Url は、アクセス/クロールのために "安全" と見なされ、HTTP ポストに従わないことが想定されています。 適切なルールとして、常に破棄またはデータの変更操作を HTTP ポスト要求の背後に配置することをお勧めします。 |
 
-#### <a name="implementing-the-http-post-delete-action-method"></a>Delete アクション メソッドを HTTP POST を実装します。
+#### <a name="implementing-the-http-post-delete-action-method"></a>HTTP ポスト削除アクションメソッドの実装
 
-HTTP GET、Delete アクション メソッドの実装のバージョンが削除の確認 画面を表示しますがあるようになりました。 フォーム post が実行されます、エンドユーザーが [削除] ボタンをクリックすると、 */Dinners Dinner/[id]* URL。
+これで、削除の確認画面を表示する、HTTP GET バージョンの Delete アクションメソッドが実装されました。 エンドユーザーが [削除] ボタンをクリックすると、 *[id]* URL へのフォームの投稿が実行されます。
 
-みましょう delete アクション メソッドを次のコードを使用して HTTP"POST"動作を実装するようになりました。
+次のコードを使用して、delete アクションメソッドの HTTP "POST" 動作を実装してみましょう。
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample30.cs)]
 
-Delete アクション メソッドを当社の HTTP POST のバージョンは、削除する dinner オブジェクトを取得しようとします。 (既に削除されている) ために検出できない場合、"NotFound"テンプレートを表示します。 Dinner を検出した場合、ときは必ず DinnerRepository から削除します。 「削除済み」テンプレートをレンダリングします。
+削除アクションメソッドの HTTP POST バージョンは、削除するディナーオブジェクトを取得しようとします。 (既に削除されているため) 見つからない場合は、"NotFound" テンプレートをレンダリングします。 夕食が見つかった場合は、Dinレポジトリから削除されます。 その後、"Deleted" テンプレートがレンダリングされます。
 
-「削除済み」テンプレートを実装するには、アクション メソッドで右クリックし、「ビューの追加」コンテキスト メニューを選択してします。 このビューの「削除済み」という名前がされ空のテンプレート (および厳密に型指定されたモデル オブジェクトにならない) ことがあります。 いくつかの HTML コンテンツを追加します。
+"Deleted" テンプレートを実装するには、アクションメソッドを右クリックし、[ビューの追加] コンテキストメニューを選択します。 ビューに "Deleted" という名前を付けると、空のテンプレートになります (厳密に型指定されたモデルオブジェクトを使用することはできません)。 次に、HTML コンテンツをいくつか追加します。
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample31.aspx)]
 
-今すぐ実行するとき、アプリケーションとアクセスと、 *"/Dinners/削除/[id]"* 夕食を表示するオブジェクトの削除の確認、有効な Dinner の URL は以下のような画面します。
+ここで、アプリケーションを実行し、有効なディナーオブジェクトの *"/Dinners/Delete/[id]"* URL にアクセスすると、次のようなディナー削除確認画面が表示されます。
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image19.png)
 
-[削除] ボタンをクリックしたときに HTTP POST が実行されます、 */Dinners/削除/[id]* Dinner をデータベースから削除され、表示、「削除済み」のビュー テンプレートの URL:
+[Delete] \ (削除 \) ボタンをクリックすると、 */Dinners/Delete/[id]* URL への HTTP POST が実行されます。これにより、データベースからディナーが削除され、"Deleted" ビューテンプレートが表示されます。
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image20.png)
 
-### <a name="model-binding-security"></a>モデル バインディングのセキュリティ
+### <a name="model-binding-security"></a>モデルバインディングのセキュリティ
 
-ASP.NET MVC の組み込みのモデル バインド機能を使用する 2 つの方法を説明しました。 最初 UpdateModel() メソッドを使用して、既存のモデル オブジェクトのプロパティを更新して、2 つ目を使用してアクション メソッドのパラメーターとしてのモデル オブジェクトを渡すための ASP.NET MVC のサポート。 これらのテクニックは、非常に強力で非常に便利です。
+ASP.NET MVC の組み込みのモデルバインド機能を使用する2つの異なる方法について説明しました。 最初の方法では、UpdateModel () メソッドを使用して既存のモデルオブジェクトのプロパティを更新し、2つ目のメソッドでモデルオブジェクトをアクションメソッドパラメーターとして渡すための ASP.NET MVC のサポートを使用します。 これらの方法はどちらも非常に強力で、非常に便利です。
 
-この power も伴います。 この責任です。 すべてのユーザー入力を受け入れるときにセキュリティに関する妄想常にすることが重要とフォームの入力にオブジェクトをバインドする場合は true。 これはもします。 ように注意する必要があります常に、HTML エンコードを HTML および JavaScript インジェクション攻撃を回避し、SQL インジェクション攻撃注意が必要なユーザーが入力した値 (注: このアプリケーションでは、これらを防ぐためにパラメーターを自動的にエンコード LINQ to SQL を使用しています種類の攻撃)。 偽の値を送信しようとするハッカーから保護するためのサーバー側の検証を常に採用できるにクライアント側の検証だけで、依存する必要があることはありません。
+また、it 部門の責任もあります。 ユーザー入力を受け入れるときは常にセキュリティについて paranoid することが重要です。これは、オブジェクトを入力にバインドする場合にも当てはまります。 HTML および JavaScript インジェクション攻撃を防ぐために、ユーザーが入力した値は常に HTML エンコードする必要があります。また、SQL インジェクション攻撃にも注意してください (注: アプリケーションには LINQ to SQL を使用します。これにより、パラメーターが自動的にエンコードされ、これらを防ぐことができます。攻撃の種類。 クライアント側の検証だけでなく、偽の値を送信しようとしているハッカーからの防御を常にサーバー側で検証する必要があります。
 
-ASP.NET MVC のバインド機能を使用する場合について検討するかどうかを確認する 1 つの追加のセキュリティ項目は、バインドしているオブジェクトのスコープです。 具体的には、バインド、および更新するには、エンドユーザーが更新可能な実際にする必要があるこれらのプロパティのみを許可するかどうかを確認することが許可されているプロパティのセキュリティの影響を理解することを確認します。
+ASP.NET MVC のバインド機能を使用するときに考慮する必要がある追加のセキュリティ項目の1つは、バインドするオブジェクトのスコープであることです。 具体的には、バインドを許可するプロパティのセキュリティへの影響を確実に理解し、エンドユーザーが更新できるようにする必要があるプロパティのみを許可するようにします。
 
-既定では、UpdateModel() メソッドは受信フォーム パラメーターの値に一致するモデル オブジェクトのすべてのプロパティの更新を試みます。 同様に、または既定では、アクション メソッドのパラメーターとして渡されたオブジェクトすべてのプロパティはフォーム パラメーターを使用して設定のことができます。
+既定では、UpdateModel () メソッドは、入力された形式のパラメーター値に一致するモデルオブジェクトのすべてのプロパティを更新しようとします。 同様に、アクションメソッドのパラメーターとして渡されるオブジェクトでも、既定では、すべてのプロパティをフォームパラメーターを使用して設定できます。
 
-#### <a name="locking-down-binding-on-a-per-usage-basis"></a>あたり使用量ベースのバインディングのロックダウン
+#### <a name="locking-down-binding-on-a-per-usage-basis"></a>使用単位でバインドをロックダウンする
 
-提供する、明示的な「インクルード リスト」を更新できるプロパティのあたり使用量ベースのバインディング ポリシーをロックダウンすることができます。 これは、次のような UpdateModel() メソッドに余分な文字列の配列パラメーターを渡すことによって実行できます。
+更新可能なプロパティの明示的な "インクルードリスト" を指定することで、使用単位でバインドポリシーをロックダウンできます。 これを行うには、次のように、余分な文字列配列パラメーターを UpdateModel () メソッドに渡します。
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample32.cs)]
 
-「インクルード リスト」のプロパティを次のように指定できるを許可できるようにする [バインド] 属性をサポートしても、アクション メソッドのパラメーターとして渡されるオブジェクト。
+アクションメソッドのパラメーターとして渡されるオブジェクトは、次のように、許可されたプロパティの "include list" を有効にする [Bind] 属性もサポートします。
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample33.cs)]
 
-#### <a name="locking-down-binding-on-a-type-basis"></a>バインドの種類ごとにロックダウン
+#### <a name="locking-down-binding-on-a-type-basis"></a>型に基づいてバインディングをロックダウンする
 
-型ごとにバインディング規則をロックダウンすることもできます。 これにより、1 回、バインディング規則を指定し、それらすべてのコント ローラーとアクション メソッド間で (UpdateModel とアクションの両方のメソッド パラメーターのシナリオを含む) すべてのシナリオで適用できます。
+また、型ごとにバインド規則をロックダウンすることもできます。 これにより、バインド規則を1回指定することができ、すべてのコントローラーとアクションメソッドで、すべてのシナリオ (UpdateModel とアクションメソッドの両方のシナリオを含む) に適用することができます。
 
-型の場合に、[バインド] 属性を追加することで、または (種類を所有していない場合に便利です)、アプリケーションの Global.asax ファイル内で登録することによって、型のバインディング規則をカスタマイズできます。 プロパティを制御するプロパティを除外するは、特定のクラスまたはインターフェイスのバインド可能なとをバインド属性のインクルードを使用できます。
+型に対して [Bind] 属性を追加するか、アプリケーションの global.asax ファイル内に登録することによって、型ごとのバインド規則をカスタマイズできます (型を所有していない場合に便利です)。 その後、バインド属性の Include プロパティと Exclude プロパティを使用して、特定のクラスまたはインターフェイスに対してバインドできるプロパティを制御できます。
 
-NerdDinner アプリケーションでは、Dinner クラスのこの手法を使用して、され、次のバインド可能なプロパティの一覧を制限することを [Bind] 属性を追加します。
+ここでは、次のように、このアプリケーションのディナークラスにこの手法を使用し、バインド可能なプロパティの一覧を次のように制限する [Bind] 属性を追加します。
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample34.cs)]
 
-バインディング、によって操作される予約したコレクションが許可されていないことも、DinnerID または HostedBy プロパティのバインドを使用して設定が許可されていることに注意してください。 セキュリティ上の理由からを代わりにのみ操作、アクション メソッド内で明示的なコードを使用してこれらの特定のプロパティ。
+バインドを使用した RSVPs コレクションの操作は許可されていません。また、バインドによって Dinare Id または HostedBy プロパティを設定することもできません。 セキュリティ上の理由から、代わりに、アクションメソッド内の明示的なコードを使用して、これらの特定のプロパティのみを操作します。
 
-### <a name="crud-wrap-up"></a>CRUD のまとめ
+### <a name="crud-wrap-up"></a>CRUD のラップアップ
 
-ASP.NET MVC には、さまざまなフォーム ポスト シナリオの実装に役立つ組み込みの機能が含まれています。 このときは必ず DinnerRepository 上に CRUD UI サポートを提供するさまざまなこれらの機能を使いました。
+ASP.NET MVC には、フォームポストのシナリオを実装するのに役立つさまざまな機能が組み込まれています。 私たちは、このようなさまざまな機能を使用して、Dinのリポジトリに対して CRUD UI のサポートを提供していました。
 
-モデルに重点を置いたアプローチは、アプリケーションを実装するために使用します。 つまり、すべての検証とビジネス ルールのロジック、および、コント ローラーまたはビュー内ではなく、モデル レイヤー内で定義されます。 コント ローラー クラスでも、テンプレートの表示、Dinner モデル クラスに設定されている特定のビジネス ルールに関する知識します。
+ここでは、モデルに重点を置いたアプローチを使用して、アプリケーションを実装しています。 これは、すべての検証とビジネスルールのロジックが、コントローラーやビュー内ではなく、モデルレイヤー内で定義されることを意味します。 コントローラークラスもビューテンプレートにも、ディナーモデルクラスによって適用される特定のビジネスルールについての情報はありません。
 
-アプリケーション アーキテクチャをクリーンに維持を容易にテストします。 他のビジネス ルールを将来、モデル レイヤーに追加しましたできますと*コード変更を加える必要がなく*をサポートするのには、コント ローラーまたはビューでそれらの順番にします。 これで、大きな進化し、アプリケーションに将来の変更に機敏性を提供します。
+これにより、アプリケーションアーキテクチャのクリーンアップが維持され、テストが容易になります。 将来、モデルレイヤーにビジネスルールを追加することができます。また、サポートされるように、コントローラーやビューに*コード変更を加える必要もありません*。 これにより、将来のアプリケーションの進化と変更に多大な機敏性をもたらすことができます。
 
-DinnersController ようになりましたにより、Dinner 番組/詳細、だけでなくを作成、編集および削除のサポート。 クラスの完全なコードは、以下をあります。
+Dinは、ディナーリスト/詳細のほか、作成、編集、削除のサポートを有効にするようになりました。 クラスの完全なコードについては、以下を参照してください。
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample35.cs)]
 
 ### <a name="next-step"></a>次の手順
 
-基本的な CRUD (作成、読み取り、更新、削除) サポートが、DinnersController クラス内で実装があるようになりました。
+これで、お客様の Dinのコントローラークラス内で、基本的な CRUD (作成、読み取り、更新、削除) のサポートを実装できるようになりました。
 
-これで、ViewData とビューモデル クラスを使用できます、フォームでより豊富な UI を有効にする方法を見てみましょう。
+次に、ViewData クラスとビューモデルクラスを使用して、フォームでさらに充実した UI を有効にする方法を見てみましょう。
 
 > [!div class="step-by-step"]
 > [前へ](use-controllers-and-views-to-implement-a-listingdetails-ui.md)

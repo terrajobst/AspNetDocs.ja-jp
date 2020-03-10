@@ -9,11 +9,11 @@ ms.assetid: dbb024a6-f043-4fc5-ad66-56556711875b
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 3cb8dec47040bc65f1a024325c91590729ffbdb7
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74586686"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78519238"
 ---
 # <a name="control-id-naming-in-content-pages-vb"></a>コンテンツ ページのコントロール ID の名前付け (VB)
 
@@ -205,7 +205,7 @@ ASP.NET エンジンによってサーバーコントロールの表示 `id` 値
 > [!NOTE]
 > この JavaScript の例では、サーバーコントロールによってレンダリングされる HTML 要素を正しく参照する JavaScript 関数を追加する方法を示しています。 この関数を使用するには、ドキュメントの読み込み時または特定のユーザーアクションの発生時に関数を呼び出すために、追加の JavaScript を作成する必要があります。 これらのトピックと関連トピックの詳細については、「[クライアント側スクリプトの使用](https://msdn.microsoft.com/library/aa479302.aspx)」を参照してください。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 特定の ASP.NET サーバーコントロールは、名前付けコンテナーとして機能します。これは、子孫コントロールの表示される `id` 属性値と、`FindControl` メソッドによって canvassed されるコントロールのスコープに影響します。 マスターページに関しては、マスターページ自体とその ContentPlaceHolder コントロールの両方がコンテナーに名前を付けています。 そのため、`FindControl`を使用してコンテンツページ内のコントロールをプログラムで参照するには、もう少し作業を行う必要があります。 このチュートリアルでは、ContentPlaceHolder コントロールへのドリルダウンと `FindControl` メソッドの呼び出しという2つの手法について説明します。また、すべての名前付けコンテナーを再帰的に検索する、独自の `FindControl` 実装をロールします。
 
@@ -213,7 +213,7 @@ ASP.NET エンジンによってサーバーコントロールの表示 `id` 値
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -224,7 +224,7 @@ ASP.NET エンジンによってサーバーコントロールの表示 `id` 値
 - [マスターページ: ヒント、テクニック、およびトラップ](http://www.odetocode.com/articles/450.aspx)
 - [クライアント側スクリプトの操作](https://msdn.microsoft.com/library/aa479302.aspx)
 
-### <a name="about-the-author"></a>作成者について
+### <a name="about-the-author"></a>著者について
 
 1998以降、Microsoft の Web テクノロジを使用して、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)(複数の asp/創設者4GuysFromRolla.com の執筆者) が Microsoft の Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 3.5 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 Scott は、 [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)またはブログで[http://ScottOnWriting.NET](http://scottonwriting.net/)にアクセスできます。
 

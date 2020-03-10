@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/iis/iis7-playlists
-title: IIS7 プレイリスト |Microsoft Docs
+title: IIS7 再生リスト |Microsoft Docs
 author: JoeStagner
-description: Web サイト上のメディア ファイルをホストしている場合、再生リストは、メディアの順序を定義し、t の部分をスキップしていますから必要に応じてユーザーをできないようにすることがしています.
+description: Web サイトでメディアファイルをホストしている場合は、再生リストを使用してメディアのシーケンスを定義し、必要に応じてユーザーが t の一部をスキップできないようにすることができます...
 ms.author: riande
 ms.date: 03/10/2009
 ms.assetid: b61968ac-6d9b-4b75-ab2a-934b609acba4
 msc.legacyurl: /web-forms/videos/iis/iis7-playlists
 msc.type: video
 ms.openlocfilehash: 41b7c5daa3638eaab25379cdb9bd13fa807823ca
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398424"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78519748"
 ---
 # <a name="iis7-playlists"></a>IIS7 プレイリスト
 
-によって[Joe Stagner](https://github.com/JoeStagner)
+[Joe Stagner](https://github.com/JoeStagner)
 
-Web サイト上のメディア ファイルをホストしている場合、メディアの順序を定義してから (広告や免責事項) などのコンテンツの部分をスキップしています。 必要に応じてユーザーを防ぐためを再生リストに、します。
+Web サイトでメディアファイルをホストしている場合は、再生リストを使用してメディアのシーケンスを定義し、必要に応じて、ユーザーがコンテンツの一部 (広告や免責など) をスキップできないようにすることができます。
 
-[&#9654;ビデオ (8 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/iis7-playlists)
+[&#9654;ビデオを見る (8 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/iis7-playlists)
 
 > [!div class="step-by-step"]
-> [前へ](bit-rate-throttling.md)
+> [[戻る]](bit-rate-throttling.md)

@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-mutuallyexclusive-checkbox-extender
-title: '[How Do i:]ASP.NET AJAX MutuallyExclusive チェック ボックス エクステンダーを使用しますか。 | Microsoft Docs'
+title: '[操作方法:]ASP.NET AJAX Mutuexclusive Checkbox エクステンダーを使用しますか? | Microsoft Docs'
 author: JoeStagner
-description: ASP.NET AJAX Control toolkit MutuallyExclusive コントロールを使用すると、開発者は、複数のチェック ボックスとして相互に排他的で e を構成しています.
+description: ASP.NET AJAX Control Toolkit の相互排他的な制御により、開発者は複数のチェックボックスを相互に排他的に構成することができます。
 ms.author: riande
 ms.date: 04/04/2007
 ms.assetid: 808a89d3-4a98-4abe-83b5-0aa01f749048
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-mutuallyexclusive-checkbox-extender
 msc.type: video
 ms.openlocfilehash: d99bfee63a2747f9f414fa950698d1c57b215658
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59400361"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78510262"
 ---
-# <a name="how-do-i-use-the-aspnet-ajax-mutuallyexclusive-checkbox-extender"></a>[How Do i:]ASP.NET AJAX MutuallyExclusive チェック ボックス エクステンダーを使用しますか。
+# <a name="how-do-i-use-the-aspnet-ajax-mutuallyexclusive-checkbox-extender"></a>[操作方法:]ASP.NET AJAX Mutuexclusive Checkbox エクステンダーを使用しますか?
 
-によって[Joe Stagner](https://github.com/JoeStagner)
+[Joe Stagner](https://github.com/JoeStagner)
 
-ASP.NET AJAX Control toolkit MutuallyExclusive コントロールを使用すると、相互に排他的として、いくつかのチェック ボックスを構成する開発者を実行できるように、ユーザーは、1 つのオプションを確認のみ可能性があります。 ラジオ ボタン リストでは、同様の動作を提供、ユーザーがクリックする チェック ボックスを必要により MutuallyExclusive コントロールを受け入れるかまたは使用条件を受け付けていませんなど、ユーザーからの確認を受信するために最適です。
+ASP.NET AJAX Control Toolkit の相互排他的な制御により、開発者は複数のチェックボックスを相互に排他的に構成できます。これにより、ユーザーが1つのオプションのみをチェックできるようになります。 ラジオボタンの一覧には同様の動作がありますが、ユーザーがチェックボックスをオンにする必要があるので、ユーザーが使用条件を受け入れたり拒否したりするなど、ユーザーからの確認を受け取ることができるようになります。
 
-[&#9654;ビデオでは (10 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-mutuallyexclusive-checkbox-extender)
+[&#9654;ビデオを見る (10 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-mutuallyexclusive-checkbox-extender)
 
 > [!div class="step-by-step"]
 > [前へ](how-do-i-use-the-aspnet-ajax-maskededit-controls.md)

@@ -7,12 +7,12 @@ ms.date: 10/04/2018
 ms.assetid: f3d8adbe-55e7-4fd4-84a8-7155bc45c676
 msc.legacyurl: /mvc/overview/getting-started/introduction/getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: c74daa37f68dda641cae97d3b0c19718f62d474d
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.openlocfilehash: ca39bc37c757c0452cf56624c8e37c04df4b41f2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77456388"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78487954"
 ---
 # <a name="getting-started-with-aspnet-mvc-5"></a>ASP.NET MVC 5 の概要
 
@@ -20,7 +20,7 @@ ms.locfileid: "77456388"
 
 [!INCLUDE [consider RP](../../../../includes/razor.md)]
 
-このチュートリアルでは、 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)を使用して ASP.NET MVC 5 web アプリを構築するための基本について説明します。 チュートリアルの最終的なソースコードは、 [GitHub](https://github.com/aspnet/AspNetDocs/tree/master/aspnet/mvc/overview/getting-started/introduction/sample/MvcMovie/MvcMovie)にあります。
+このチュートリアルでは、 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)を使用して ASP.NET MVC 5 web アプリを構築するための基本について説明します。 チュートリアルの最終的なソースコードは、 [GitHub](https://github.com/dotnet/AspNetDocs/tree/master/aspnet/mvc/overview/getting-started/introduction/sample/MvcMovie/MvcMovie)にあります。
 
 このチュートリアルは、 [Scott Guthrie](https://weblogs.asp.net/scottgu/) (twitter[@scottgu](https://twitter.com/scottgu) )、 [scott マン selman](http://www.hanselman.com/blog/) (Twitter: [@shanselman](https://twitter.com/shanselman) )、および[Rick Anderson](https://twitter.com/RickAndMSFT) ( [@RickAndMSFT](https://twitter.com/#!/RickAndMSFT) ) によって作成されました。
 
@@ -29,7 +29,7 @@ ms.locfileid: "77456388"
 - 無料で[azure アカウントを開く](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604)ことができます。有料の azure サービスを試用するために使用できるクレジットが得られます。また、使用した後でも、アカウントを保持し、無料の azure サービスを使用することができます。
 - [MSDN サブスクライバーの特典を有効にする](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) こともできます - MSDN サブスクリプションにより、有料の Azure のサービスを使用できるクレジットが毎月与えられます。
 
-## <a name="get-started"></a>作業開始
+## <a name="get-started"></a>はじめに
 
 まず、 [Visual Studio 2017 をインストール](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)します。 次に、Visual Studio を開きます。
 
@@ -67,7 +67,7 @@ Visual Studio では、先ほど作成した ASP.NET MVC プロジェクトの�
 
 完成したサイトがライブ web アプリとして実行されていることを確認しますか? 次のボタンをクリックするだけで、アプリの完全なバージョンを Azure アカウントにデプロイできます。
 
-[![](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/?repository=https://github.com/aspnet/AspNetDocs/tree/master/aspnet/mvc/overview/getting-started/introduction/sample/MvcMovie&amp;WT.mc_id=deploy_azure_aspnet)
+[![](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/?repository=https://github.com/dotnet/AspNetDocs/tree/master/aspnet/mvc/overview/getting-started/introduction/sample/MvcMovie&amp;WT.mc_id=deploy_azure_aspnet)
 
 このソリューションを Azure にデプロイするには、Azure アカウントが必要です。 まだアカウントを持っていない場合は、次のいずれかのオプションを使用して作成します。
 

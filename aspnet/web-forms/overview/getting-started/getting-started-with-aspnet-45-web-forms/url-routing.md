@@ -9,11 +9,11 @@ ms.assetid: 4f4bf092-c400-471f-a876-78fda0417890
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing
 msc.type: authoredcontent
 ms.openlocfilehash: 66b727b69ca4f9a3d35b67f492f9a554146e09ef
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74590708"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78474814"
 ---
 # <a name="url-routing"></a>URL ルーティング
 
@@ -25,7 +25,7 @@ ms.locfileid: "74590708"
 
 このチュートリアルでは、Wingtip Toys サンプルアプリケーションを変更して、URL ルーティングをサポートします。 ルーティングを使用すると、web アプリケーションは、検索エンジンによって、わかりやすく、覚えやすく、より優れた Url を使用できます。 このチュートリアルは、前の「メンバーシップと管理」チュートリアルに基づいており、Wingtip Toys チュートリアルシリーズの一部です。
 
-## <a name="what-youll-learn"></a>学習内容:
+## <a name="what-youll-learn"></a>ここでは、次の内容について学習します。
 
 - ASP.NET Web フォームアプリケーションのルートを登録する方法。
 - Web ページにルートを追加する方法。
@@ -78,7 +78,7 @@ Wingtip Toys サンプルアプリケーションが起動すると、`Applicati
 
 > [!NOTE] 
 > 
-> **Optional**
+> **省略可能**
 > 
 > `RegisterCustomRoutes` メソッドを別のクラスに移動することで、コードの管理が容易になる場合があります。 *Logic*フォルダーで、別個の `RouteActions` クラスを作成します。 上の `RegisterCustomRoutes` メソッドを*Global.asax.cs*ファイルから新しい `RoutesActions` クラスに移動します。 *Global.asax.cs*ファイルから `RegisterCustomRoutes` メソッドを呼び出す方法の例として、`RoleActions` クラスと `createAdmin` メソッドを使用します。
 
@@ -138,11 +138,11 @@ Wingtip Toys サンプルアプリケーションが起動すると、`Applicati
     `https://localhost:44300/ProductDetails.aspx?productID=2`  
  このコードは、ユーザーがリンクをブックマークした場合に、クエリ文字列を含む URL を引き続き認識します。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、カテゴリと製品のルートを追加しました。 ここでは、モデルバインドを使用するデータコントロールとルートを統合する方法について学習しました。 次のチュートリアルでは、グローバルエラー処理を実装します。
 
-## <a name="additional-resources"></a>その他の資料
+## <a name="additional-resources"></a>その他のリソース
 
 [ASP.NET のフレンドリな Url](http://www.nuget.org/packages/Microsoft.AspNet.FriendlyUrls/)  
 [メンバーシップ、OAuth、SQL Database を持つ Secure ASP.NET Web フォームアプリを Azure App Service にデプロイする](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)  

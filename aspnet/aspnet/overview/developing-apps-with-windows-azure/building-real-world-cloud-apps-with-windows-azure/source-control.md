@@ -9,11 +9,11 @@ ms.assetid: 2a0370d3-c2fb-4bf3-88b8-aad5a736c793
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
 msc.type: authoredcontent
 ms.openlocfilehash: 5a1e0d7cd3c396d4be79c8958422602055eb3db1
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77457103"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78500530"
 ---
 # <a name="source-control-building-real-world-cloud-apps-with-azure"></a>ソース管理 (Azure を使用した実際のクラウドアプリの構築)
 
@@ -187,7 +187,7 @@ Master ブランチに戻ると、 *\_Layout*ファイルの内容が、master �
 
 もちろん、これはアジャイル分岐戦略を実装する唯一の方法ではありません。 一元化されたソース管理リポジトリを使用して、同じアジャイルワークフローを有効にすることができます。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 変更を加えて、安全で予測可能な方法で利用できるようになるまでの時間に基づいて、ソース管理システムの成功を測定します。 1日または2回の手動テストを行う必要があるために変更を行う必要がある場合は、その変更を分単位または最低でも1時間以内に行う必要があるかどうかを自分で確認してください。 そのための1つの方法は、継続的インテグレーションと継続的デリバリーを実装することです。これについては、[次の章](continuous-integration-and-continuous-delivery.md)で説明します。
 

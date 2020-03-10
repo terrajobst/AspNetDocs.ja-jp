@@ -9,11 +9,11 @@ ms.assetid: 778b9009-76f2-4665-940e-afc0e35bc917
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/using-dynamicpopulate-with-a-user-control-and-javascript-vb
 msc.type: authoredcontent
 ms.openlocfilehash: ee5923ad6d8b101f689a0564aef8b1e0e00a7639
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74599146"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78497302"
 ---
 # <a name="using-dynamicpopulate-with-a-user-control-and-javascript-vb"></a>ユーザー コントロールと JavaScript で DynamicPopulate を使用する (VB)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74599146"
 
 > ASP.NET AJAX Control Toolkit の DynamicPopulate コントロールは、web サービス (またはページメソッド) を呼び出し、結果の値をページのターゲットコントロールに入力します。ページの更新は行われません。 また、カスタムクライアント側の JavaScript コードを使用して、作成をトリガーすることもできます。 ただし、extender がユーザーコントロールに存在する場合は、特別な注意が必要です。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 ASP.NET AJAX Control Toolkit の `DynamicPopulate` コントロールは、web サービス (またはページメソッド) を呼び出し、結果の値をページのターゲットコントロールに入力します。ページの更新は行われません。 また、カスタムクライアント側の JavaScript コードを使用して、作成をトリガーすることもできます。 ただし、extender がユーザーコントロールに存在する場合は、特別な注意が必要です。
 
@@ -63,11 +63,11 @@ ASP.NET AJAX Control Toolkit の `DynamicPopulate` コントロールは、web �
 
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-vb/samples/sample8.aspx)]
 
-以上です。 ページは想定どおりに動作します。ユーザーがいずれかのオプションボタンをクリックすると、ツールキットのコントロールが web サービスを呼び出し、現在の日付を目的の形式で表示します。
+これで終了です。 ページは想定どおりに動作します。ユーザーがいずれかのオプションボタンをクリックすると、ツールキットのコントロールが web サービスを呼び出し、現在の日付を目的の形式で表示します。
 
 [オプションボタンがユーザーコントロールに存在する ![](using-dynamicpopulate-with-a-user-control-and-javascript-vb/_static/image2.png)](using-dynamicpopulate-with-a-user-control-and-javascript-vb/_static/image1.png)
 
 オプションボタンはユーザーコントロールに存在します ([クリックすると、フルサイズの画像が表示](using-dynamicpopulate-with-a-user-control-and-javascript-vb/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
-> [前へ](dynamically-populating-a-control-using-javascript-code-vb.md)
+> [[戻る]](dynamically-populating-a-control-using-javascript-code-vb.md)

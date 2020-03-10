@@ -10,11 +10,11 @@ ms.assetid: 08834147-77ec-454a-bb7a-d931d2a40dab
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
 ms.openlocfilehash: 73a01ed47b0935a1a9734c197377470defb1fe36
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519389"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78471064"
 ---
 # <a name="tutorial-implement-inheritance-with-ef-in-an-aspnet-mvc-5-app"></a>チュートリアル: ASP.NET MVC 5 アプリで EF を使用して継承を実装する
 
@@ -22,7 +22,7 @@ ms.locfileid: "76519389"
 
 オブジェクト指向プログラミングでは、[継承](http://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming))を使用して[コードの再利用](http://en.wikipedia.org/wiki/Code_reuse)を容易にすることができます。 このチュートリアルでは、`Instructor` と `Student` クラスを `Person` 基底クラスから派生するように変更します。この基底クラスはインストラクターと受講者の両方に共通な `LastName` などのプロパティを含んでいます。 どの Web ページも追加または変更しませんが、コードの一部を変更し、それらの変更はデータベースに自動的に反映されます。
 
-このチュートリアルでは、次の作業を行います。
+このチュートリアルでは、次のことを行いました。
 
 > [!div class="checklist"]
 > * 継承をデータベースにマップする方法について説明します。
@@ -31,9 +31,9 @@ ms.locfileid: "76519389"
 > * Person をモデルに追加する
 > * 移行の作成と更新
 > * 実装をテストする
-> * Azure に配置する
+> * Deploy to Azure (Azure へのデプロイ)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>前提条件
 
 * [コンカレンシーの処理](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)
 
@@ -143,7 +143,7 @@ Person テーブルを右クリックし、 **[テーブル データの表示]*
 
 ![School_database_diagram](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image7.png)
 
-## <a name="deploy-to-azure"></a>Azure に配置する
+## <a name="deploy-to-azure"></a>Deploy to Azure (Azure へのデプロイ)
 
 このセクションでは、このチュートリアルシリーズの[パート3、並べ替え、フィルター処理、およびページング](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)に関するページの「 **Azure へのアプリのデプロイ**」セクションを完了している必要があります。 ローカルプロジェクトでデータベースを削除することによって解決した移行エラーが発生した場合は、この手順をスキップします。または、新しいサイトとデータベースを作成し、新しい環境にデプロイします。
 
@@ -157,19 +157,19 @@ Person テーブルを右クリックし、 **[テーブル データの表示]*
 
     データベースにアクセスするページを初めて実行する場合、Entity Framework は、現在のデータモデルを使用してデータベースを最新の状態にするために必要なすべての移行 `Up` 方法を実行します。
 
-## <a name="get-the-code"></a>コードを取得する
+## <a name="get-the-code"></a>コードの入手
 
 [完成したプロジェクトのダウンロード](https://webpifeed.blob.core.windows.net/webpifeed/Partners/ASP.NET%20MVC%20Application%20Using%20Entity%20Framework%20Code%20First.zip)
 
-## <a name="additional-resources"></a>その他の技術情報
+## <a name="additional-resources"></a>その他のリソース
 
 その他の Entity Framework リソースへのリンクについては、 [ASP.NET Data Access の推奨リソース](../../../../whitepapers/aspnet-data-access-content-map.md)を参照してください。
 
 このとその他の継承構造の詳細については、MSDN の「 [TPT 継承パターン](https://msdn.microsoft.com/data/jj618293)と[TPH 継承パターン](https://msdn.microsoft.com/data/jj618292)」を参照してください。 次のチュートリアルでは、比較的高度なさまざまな Entity Framework のシナリオを処理する方法を説明します。
 
-## <a name="next-steps"></a>次のステップ:
+## <a name="next-steps"></a>次のステップ
 
-このチュートリアルでは、次の作業を行います。
+このチュートリアルでは、次のことを行いました。
 
 > [!div class="checklist"]
 > * 継承をデータベースにマップする方法について学習しました

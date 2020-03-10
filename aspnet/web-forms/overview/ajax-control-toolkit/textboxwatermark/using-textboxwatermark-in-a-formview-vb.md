@@ -9,11 +9,11 @@ ms.assetid: 41497361-7fba-4825-b36c-f58d79522a88
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/textboxwatermark/using-textboxwatermark-in-a-formview-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 1dd17ed57383680122c4ca613ca71f6682dec40e
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74598342"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78508804"
 ---
 # <a name="using-textboxwatermark-in-a-formview-vb"></a>FormView で TextBoxWatermark を使用する (VB)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74598342"
 
 > AJAX コントロールツールキットの TextBoxWatermark コントロールは、テキストがボックス内に表示されるようにテキストボックスを拡張します。 ユーザーがボックスをクリックすると、そのボックスは空になります。 ユーザーがテキストを入力せずにボックスを離れると、事前テキストが再び表示されます。 これは、FormView コントロール内でも可能です。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 AJAX コントロールツールキットの `TextBoxWatermark` コントロールは、テキストがボックス内に表示されるようにテキストボックスを拡張します。 ユーザーがボックスをクリックすると、そのボックスは空になります。 ユーザーがテキストを入力せずにボックスを離れると、事前テキストが再び表示されます。 これは、`FormView` コントロール内でも可能です。
 

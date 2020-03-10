@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-updatepanelanimation-extender
-title: '[How Do i:]ASP.NET AJAX UpdatePanelAnimation エクステンダーを使用しますか。 | Microsoft Docs'
+title: '[操作方法:]ASP.NET AJAX Updateパネルアニメーションエクステンダーを使用しますか? | Microsoft Docs'
 author: JoeStagner
-description: 更新プログラムが発生していると、ユーザーに通知部分ページ更新するアニメーションを追加することによってこれが完了しました。 UpdatePanelAnimation エクステンダーをしています.
+description: 部分ページ更新にアニメーションを追加することで、更新が発生したときと完了したときに、ユーザーに通知することができます。 Updateパネルアニメーションエクステンダー...
 ms.author: riande
 ms.date: 07/16/2007
 ms.assetid: 56f5ec0f-38f7-4ebc-90d9-9baf0c693bd4
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-updatepanelanimation-extender
 msc.type: video
 ms.openlocfilehash: 8e17b21c40df5f8f687059e0daa9028a3a823148
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59396500"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78518980"
 ---
-# <a name="how-do-i-use-the-aspnet-ajax-updatepanelanimation-extender"></a>[How Do i:]ASP.NET AJAX UpdatePanelAnimation エクステンダーを使用しますか。
+# <a name="how-do-i-use-the-aspnet-ajax-updatepanelanimation-extender"></a>[操作方法:]ASP.NET AJAX Updateパネルアニメーションエクステンダーを使用しますか?
 
-によって[Joe Stagner](https://github.com/JoeStagner)
+[Joe Stagner](https://github.com/JoeStagner)
 
-更新プログラムが発生していると、ユーザーに通知部分ページ更新するアニメーションを追加することによってこれが完了しました。 UpdatePanelAnimation エクステンダーは、core の ASP.NET AJAX Extensions のリッチなアニメーション フレームワークを利用して、ASP.NET AJAX UpdatePanel コントロールにアニメーション効果を追加します。 このビデオでは、UpdatePanelAnimation の効果のシーケンスを定義する方法と ScriptAction 定義を使用して、アニメーションを細かく調整する方法を示します。
+部分ページ更新にアニメーションを追加することで、更新が発生したときと完了したときに、ユーザーに通知することができます。 Updateパネルアニメーションエクステンダーは、ASP.NET AJAX UpdatePanel コントロールにアニメーション効果を追加し、コア ASP.NET AJAX 拡張機能のリッチなアニメーションフレームワークを利用します。 このビデオでは、Update3-d アニメーションの一連の効果を定義する方法と、ScriptAction 定義を使用してアニメーションを微調整する方法について説明します。
 
-[&#9654;ビデオ (20 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-updatepanelanimation-extender)
+[&#9654;ビデオを見る (20 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-updatepanelanimation-extender)
 
 > [!div class="step-by-step"]
 > [前へ](how-do-i-use-the-aspnet-ajax-slideshow-extender.md)

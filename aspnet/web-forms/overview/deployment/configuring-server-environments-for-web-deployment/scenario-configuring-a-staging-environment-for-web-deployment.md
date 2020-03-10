@@ -1,61 +1,61 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment
-title: シナリオ:Web デプロイのステージング環境の構成 |Microsoft Docs
+title: 'シナリオ: Web デプロイのステージング環境を構成する |Microsoft Docs'
 author: jrjlee
-description: このトピックでは、ステージング環境の一般的な web 展開シナリオと同様の環境変数を設定するには完了する必要があるタスクについて説明します.
+description: このトピックでは、ステージング環境の一般的な web 配置シナリオについて説明し、同様の env を設定するために完了する必要があるタスクについて説明します。
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 5a8e49b7-5317-4125-b107-7e2466b47bb3
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: eaa61ca850817f8dd98955b59e94be93389bf256
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65106845"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78518008"
 ---
-# <a name="scenario-configuring-a-staging-environment-for-web-deployment"></a>シナリオ:Web 配置のステージング環境を構成する
+# <a name="scenario-configuring-a-staging-environment-for-web-deployment"></a>シナリオ: Web 配置用のステージング環境の構成
 
-によって[Jason Lee](https://github.com/jrjlee)
+[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[[Download PDF]\(PDF をダウンロード\)](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> このトピックでは、ステージング環境の一般的な web 展開シナリオと同様の環境をセットアップするには完了する必要があるタスクについて説明します。
+> このトピックでは、ステージング環境の一般的な web 配置シナリオについて説明し、同様の環境をセットアップするために完了する必要があるタスクについて説明します。
 
-多くの組織では、web アプリケーションまたは web サイトの更新をプレビューするのにステージング環境を使用します。 これは、方法により、組織内のユーザーを探索し、サイトの「挿入、ライブ」またはつまりは運用環境にデプロイする前に、新しい機能やコンテンツを確認してください。 現実的なプレビューを提供するために、可能な限り、運用環境をレプリケートするは、ステージング環境は設計されています。 この種のステージング環境には、通常、これらの特徴があります。
+多くの組織では、ステージング環境を使用して、web アプリケーションまたは web サイトの更新をプレビューしています。 これにより、組織内のメンバーは、サイトが "運用" される前に新しい機能やコンテンツを探索して確認できるようになります。また、その他の場合は、運用環境に展開されます。 ステージング環境は、実稼働環境を可能な限り忠実にレプリケートするように設計されており、現実的なプレビューを提供します。 通常、この種類のステージング環境には次の特性があります。
 
-- 環境は、複数の負荷分散された web サーバーおよびフェールオーバー クラスタ リングとデータベース ミラーリングで多くの場合、1 つまたは複数のデータベース サーバーで構成されます。
-- アプリケーションは、開発チームによってまたは自動的にチームのビルド サーバーで手動でデプロイできます。
-- ユーザーまたはアプリケーションの展開プロセスのアカウントでは、ステージング サーバーで管理者特権を持っているほとんどありません。
-- アプリケーションへの変更、環境がシングル ステップをサポートする必要があるため、頻繁に展開または展開を自動化します。
+- この環境は、負荷分散された複数の web サーバーと1つ以上のデータベースサーバーで構成されます。多くの場合、フェールオーバークラスタリングとデータベースミラーリングがあります。
+- アプリケーションは、開発チームによって手動で配置することも、チームビルドサーバーによって自動的に配置することもできます。
+- アプリケーションを展開するユーザーまたはプロセスアカウントは、ステージングサーバーに対する管理者特権を持っていない可能性があります。
+- アプリケーションに対する変更は頻繁に配置されるため、環境は単一ステップまたは自動のデプロイをサポートする必要があります。
 
 > [!NOTE]
-> 複数のサーバーをスケール アウト データベースの配置はこのチュートリアルの範囲外です。 この領域の詳細についてを参照してください[SQL Server オンライン ブックの「](https://technet.microsoft.com/library/ms130214.aspx)します。
+> 複数のサーバーにまたがるデータベースの配置をスケールアウトする方法については、このチュートリアルでは扱いません。 この領域の詳細については、 [SQL Server オンラインブック](https://technet.microsoft.com/library/ms130214.aspx)を参照してください。
 
-たとえば、当社[チュートリアルのシナリオ](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)、Team Foundation Server (TFS) は、連絡先マネージャー ソリューションを管理します。 TFS 管理者は、Rob Walters がにより、開発者は必要に応じて、ステージング環境へ配置をトリガーするビルド定義を作成します。
+たとえば、このチュートリアルの[シナリオ](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)では、TEAM FOUNDATION SERVER (TFS) が Contact Manager ソリューションを管理します。 TFS 管理者である渡 Walters は、開発者が必要に応じてステージング環境へのデプロイをトリガーできるビルド定義を作成しました。
 
 ![](scenario-configuring-a-staging-environment-for-web-deployment/_static/image1.png)
 
-ほとんどの場合、しません必ずしもするステージング環境に、最新のビルドをデプロイに注意してください。 代わりに、検証とテスト環境での検証では既に行われている特定のビルドをデプロイする可能性の高い多くできました。
+ほとんどの場合、必ずしも最新のビルドをステージング環境に配置する必要はありません。 代わりに、テスト環境で検証と検証を行っている特定のビルドを配置する方がはるかに多くなります。
 
 ## <a name="solution-overview"></a>ソリューションの概要
 
-このシナリオでは、展開の要件の分析からこれらのファクトを推測できます。
+このシナリオでは、次のような展開要件を分析して、これらの事実を推測できます。
 
-- 展開を実行するユーザーまたはプロセスのアカウントは、ステージング web サーバーは、管理者以外の展開をサポートする必要がありますので、ステージング サーバーで管理者特権を必要はありません。 そのため、リモート エージェントではなく、Web 配置ハンドラーを使用してステージング web サーバーを構成する必要があります。
-- ステージング環境に複数の web サーバーが含まれていますが、ため Web Farm Framework (WFF) を使用して、サーバー ファームを作成する必要がありますに 1 回のクリック、または自動の展開をサポートする必要があります。 このアプローチを使用して、1 つの web サーバー (プライマリ サーバー) にアプリケーションを展開して、WFF はステージング環境でその他のすべての web サーバー上でデプロイをレプリケートします。
-- ユーザーまたはプロセス アカウントの展開を実行するには、データベースを作成するアクセス許可がある場合があります。 そのため、アカウントを追加する必要があります、 **dbcreator**リモート アクセス展開をサポートするデータベース サーバーを構成するだけでなく、データベース サーバーでサーバーの役割。
+- デプロイを実行するユーザーまたはプロセスアカウントには、ステージングサーバーに対する管理者特権がないため、ステージング web サーバーは管理者以外の展開をサポートする必要があります。 そのため、リモートエージェントではなく、Web 配置ハンドラーを使用するようにステージング web サーバーを構成する必要があります。
+- ステージング環境には複数の web サーバーが含まれていますが、1回のクリックまたは自動配置をサポートする必要があるため、サーバーファームを作成するには Web Farm Framework (WFF) を使用する必要があります。 この方法を使用すると、アプリケーションを1つの web サーバー (プライマリサーバー) に配置できます。 WFF は、ステージング環境内の他のすべての web サーバー上でデプロイをレプリケートします。
+- 配置を実行するユーザーまたはプロセスアカウントには、データベースを作成するためのアクセス許可が必要です。 そのため、リモートアクセスと配置をサポートするようにデータベースサーバーを構成するだけでなく、データベースサーバーの**dbcreator**サーバーロールにアカウントを追加する必要があります。
 
 これらのトピックでは、これらのタスクを完了するために必要なすべての情報を提供します。
 
-- [Web Farm Framework でサーバー ファームを作成する](creating-a-server-farm-with-the-web-farm-framework.md)します。 このトピックでは、作成して、web platform 製品とコンポーネント、構成設定、および web サイトおよびアプリケーションが複数の負荷分散された web サーバー間でレプリケートされるように、WFF を使用してサーバー ファームを構成する方法について説明します。
-- [Web 配置発行の Web サーバーの構成 (Web 配置ハンドラー)](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)します。 このトピックでは、Web Deploy の発行、リモート エージェントのアプローチを使用してから、クリーン ビルドを Windows Server 2008 R2 以降をサポートする web サーバーを構築する方法について説明します。
-- [Web 配置発行は、データベース サーバーを構成する](configuring-a-database-server-for-web-deploy-publishing.md)します。 このトピックでは、リモート アクセスと SQL Server 2008 R2 の既定のインストールから展開をサポートするデータベース サーバーを構成する方法について説明します。
+- [Web ファームフレームワークを使用してサーバーファームを作成](creating-a-server-farm-with-the-web-farm-framework.md)します。 このトピックでは、WFF を使用してサーバーファームを作成および構成する方法について説明します。これにより、web platform 製品とコンポーネント、構成設定、および web サイトとアプリケーションが、負荷分散された複数の web サーバー間でレプリケートされます。
+- [Web 配置公開用に Web サーバーを構成します (Web 配置ハンドラー)](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)。 このトピックでは、Windows Server 2008 R2 のクリーンビルドから開始するリモートエージェントアプローチを使用した Web 配置の発行をサポートする web サーバーを構築する方法について説明します。
+- [Web 配置パブリッシング用にデータベースサーバーを構成](configuring-a-database-server-for-web-deploy-publishing.md)します。 このトピックでは、SQL Server 2008 R2 の既定のインストールから開始して、リモートアクセスと配置をサポートするようにデータベースサーバーを構成する方法について説明します。
 
-## <a name="further-reading"></a>関連項目
+## <a name="further-reading"></a>参考資料
 
-一般的な開発テスト環境を構成する方法の詳細については、次を参照してください。[シナリオ。Web 配置のテスト環境を構成する](scenario-configuring-a-test-environment-for-web-deployment.md)します。 通常、実稼働環境の構成方法の詳細については、次を参照してください。[シナリオ。Web 配置を運用環境を構成する](scenario-configuring-a-production-environment-for-web-deployment.md)します。
+一般的な開発者テスト環境の構成に関するガイダンスについては、「[シナリオ: Web 配置用のテスト環境の構成](scenario-configuring-a-test-environment-for-web-deployment.md)」を参照してください。 一般的な運用環境の構成に関するガイダンスについては、「[シナリオ: Web 配置用の運用環境の構成](scenario-configuring-a-production-environment-for-web-deployment.md)」を参照してください。
 
 > [!div class="step-by-step"]
 > [前へ](scenario-configuring-a-test-environment-for-web-deployment.md)

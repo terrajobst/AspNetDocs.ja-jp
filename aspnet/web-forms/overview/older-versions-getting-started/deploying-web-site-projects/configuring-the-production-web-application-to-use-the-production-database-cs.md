@@ -9,11 +9,11 @@ ms.assetid: 0177dabd-d888-449f-91b2-24190cf5e842
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 89941bb6db52316a259ad5f5577721e36f19bd84
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74635891"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78512596"
 ---
 # <a name="configuring-the-production-web-application-to-use-the-production-database-c"></a>実稼働データベースを使用するように Web アプリケーションを構成する (C#)
 
@@ -121,13 +121,13 @@ DatabaseConnectionStrings. dev. .config ファイルのコピーを作成し、�
 > [!NOTE]
 > `Web.config` 要素の情報を別のファイルに指定し、`configSource` 属性を使用して `Web.config`内からそのファイルを参照することができます。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 通常、データドリブンアプリケーションでは、開発環境と運用環境で異なるデータベースを使用します。 そのため、web アプリケーションの構成に格納されているデータベース接続文字列は、環境ごとに一意である必要があります。 このチュートリアルでは、運用データベースの接続文字列を決定する方法と、2つの環境で一意の接続文字列情報を維持する方法について説明しました。
 
 プログラミングを楽しんでください。
 
-#### <a name="further-reading"></a>関連項目
+#### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 

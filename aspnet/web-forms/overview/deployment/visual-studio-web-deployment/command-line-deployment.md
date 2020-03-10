@@ -9,11 +9,11 @@ ms.assetid: 82b8dea0-f062-4ee4-8784-3ffa30fbb1ca
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/command-line-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: 13cfe4492398b59f2c80394689cc113ccb218c60
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74634199"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78512074"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-command-line-deployment"></a>Visual Studio を使用した ASP.NET Web デプロイ: コマンドライン展開
 
@@ -23,7 +23,7 @@ ms.locfileid: "74634199"
 
 > このチュートリアルシリーズでは、Visual Studio 2012 または Visual Studio 2010 を使用して、Azure App Service Web Apps またはサードパーティのホスティングプロバイダーにするために、ASP.NET web アプリケーションをデプロイ (発行) する方法について説明します。 シリーズの詳細については、[シリーズの最初のチュートリアル](introduction.md)を参照してください。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 このチュートリアルでは、コマンドラインから Visual Studio web 発行パイプラインを呼び出す方法について説明します。 これは、Visual Studio で手動ではなく、[ソースコードのバージョン管理システム](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control.md)を使用して、[配置プロセスを自動化](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md)する場合に便利です。
 
@@ -102,7 +102,7 @@ Visual Studio 2010 のバージョン番号は10.0 です。 詳細について�
 
 ビルド構成とプラットフォームは、Visual Studio またはコマンドラインで設定する必要があります。 発行プロファイルには `LastUsedBuildConfiguration` と `LastUsedPlatform`という名前のプロパティが含まれますが、プロジェクトのビルド方法を決定するためにこれらのプロパティを設定することはできません。 詳細については、「MSBuild: 作成者 Hashimi のブログで[構成プロパティを設定する方法](http://sedodream.com/2012/10/27/MSBuildHowToSetTheConfigurationProperty.aspx)」を参照してください。
 
-## <a name="deploy-to-staging"></a>ステージング環境へのデプロイ
+## <a name="deploy-to-staging"></a>ステージングへのデプロイ
 
 Azure にデプロイするには、コマンドラインにパスワードを追加する必要があります。 Visual Studio の発行プロファイルにパスワードを保存した場合、パスワードは暗号化された形式で*pubxml. user*ファイルに格納されていました。 このファイルは、コマンドラインの展開を行うときに MSBuild によってアクセスされることはないため、コマンドラインパラメーターでパスワードを渡す必要があります。
 
@@ -119,7 +119,7 @@ Azure にデプロイするには、コマンドラインにパスワードを�
 
     テスト環境で既に説明したように、 **[バージョン情報]** ページで統計を表示するには、いくつかの学生を作成する必要がある場合があります。
 
-## <a name="deploy-to-production"></a>運用環境へのデプロイ
+## <a name="deploy-to-production"></a>運用環境への配置
 
 運用環境にデプロイするプロセスは、ステージングのプロセスに似ています。
 
@@ -132,7 +132,7 @@ Azure にデプロイするには、コマンドラインにパスワードを�
     実際の運用サイトでも、データベースの変更があった場合は、通常、展開の前に*アプリ\_offline .htm*ファイルをサイトにコピーし、展開が正常に完了した後に削除します。
 4. ブラウザーを開き、ステージングサイトの URL にアクセスし、 **[バージョン情報]** ページをクリックして、デプロイが成功したことを確認します。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 これで、コマンドラインを使用してアプリケーションの更新プログラムが展開されました。
 

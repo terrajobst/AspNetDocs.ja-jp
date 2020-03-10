@@ -9,11 +9,11 @@ ms.assetid: f8d78a88-cc91-40d8-bce3-3d7954f6033b
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 1dd4a1179d32f776626c08a07205dc9aabed588d
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74596379"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78516580"
 ---
 # <a name="determining-what-files-need-to-be-deployed-c"></a>配置が必要なファイルを決定する (C#)
 
@@ -47,8 +47,8 @@ ASP.NET エンジンがこのページの要求を処理するためには、ペ
 
 | **コンパイルモデル** | **マークアップ部分ファイルを配置しますか?** | **ソースコードファイルをデプロイしますか?** | **アセンブリを `Bin` ディレクトリにデプロイしますか?** |
 | --- | --- | --- | --- |
-| 明示的なコンパイル | ○ | いいえ | ○ |
-| 自動コンパイル | ○ | ○ | はい (存在する場合) |
+| 明示的なコンパイル | はい | いいえ | はい |
+| 自動コンパイル | はい | はい | はい (存在する場合) |
 
 **表 1:** 配置するファイルは、使用するコンパイルモデルによって異なります。
 
@@ -145,7 +145,7 @@ ASP.NET マークアップとソースコードファイルをコピーするだ
 > [!NOTE]
 > Web サイトプロジェクトでは、明示的なコンパイルを使用することもできます。 今後のチュートリアルでは、Web サイトプロジェクトを明示的にコンパイルする方法について説明します。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 ASP.NET アプリケーションを配置するには、開発環境から運用環境に必要なファイルをコピーする必要があります。 同期する必要があるファイルの正確なセットは、ASP.NET アプリケーションのコードが明示的にまたは自動的にコンパイルされているかどうかによって異なります。 使用されるコンパイル方法は、Web アプリケーションプロジェクトモデルまたは Web サイトプロジェクトモデルを使用して、ASP.NET アプリケーションを管理するように Visual Studio が構成されているかどうかによって決まります。
 
@@ -157,7 +157,7 @@ Web サイトプロジェクトモデルでは、既定で自動コンパイル�
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 

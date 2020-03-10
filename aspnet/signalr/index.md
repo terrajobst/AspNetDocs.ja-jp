@@ -1,25 +1,25 @@
 ---
 uid: signalr/index
-title: SignalR | Microsoft Docs
+title: SignalR |Microsoft Docs
 author: bradygaster
-description: Microsoft ASP.NET SignalR は、アプリケーションにリアルタイム web 機能を追加するプロセスを簡素化する ASP.NET 開発者向けのライブラリです。
+description: Microsoft ASP.NET SignalR は、リアルタイム web 機能をアプリケーションに追加するプロセスを簡略化する ASP.NET 開発者向けのライブラリです。
 ms.author: bradyg
 ms.date: 10/24/2012
 ms.assetid: 282a521f-2b86-4fac-bcf6-b6d5e0fe969c
 msc.legacyurl: /signalr
 msc.type: categoryindex
 ms.openlocfilehash: fa489c79e175753635d89913aaaa15a832aa16f7
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59407589"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78450298"
 ---
 # <a name="signalr"></a>SignalR
 
 - [ガイダンス](overview/index.md)
 
-    - [はじめに](overview/getting-started/index.md)
+    - [作業の開始](overview/getting-started/index.md)
 
         - [SignalR 入門](overview/getting-started/introduction-to-signalr.md)
         - [サポートされているプラットフォーム](overview/getting-started/supported-platforms.md)
@@ -27,7 +27,7 @@ ms.locfileid: "59407589"
         - [チュートリアル: SignalR 2 と MVC 5 の概要](overview/getting-started/tutorial-getting-started-with-signalr-and-mvc.md)
         - [チュートリアル: SignalR 2 による高頻度リアルタイム メッセージング](overview/getting-started/tutorial-high-frequency-realtime-with-signalr.md)
         - [チュートリアル: SignalR 2 によるサーバー ブロードキャスト](overview/getting-started/tutorial-server-broadcast-with-signalr.md)
-        - [ハンズ オン ラボ:SignalR によるリアルタイムの Web アプリケーション](overview/getting-started/real-time-web-applications-with-signalr.md)
+        - [ハンズ オン ラボ: SignalR によるリアルタイム Web アプリケーション](overview/getting-started/real-time-web-applications-with-signalr.md)
     - [API ガイド](overview/guide-to-the-api/index.md)
 
         - [ハブ API ガイド - サーバー (C#)](overview/guide-to-the-api/hubs-api-guide-server.md)
@@ -59,7 +59,7 @@ ms.locfileid: "59407589"
 
         - [チュートリアル: SignalR セルフホスト](overview/deployment/tutorial-signalr-self-host.md)
         - [Azure App Service の Web アプリで SignalR を使用する](overview/deployment/using-signalr-with-azure-web-sites.md)
-    - [詳細設定](overview/advanced/index.md)
+    - [詳細](overview/advanced/index.md)
 
         - [SignalR の依存関係挿入](overview/advanced/dependency-injection.md)
     - [リリース](overview/releases/index.md)
@@ -67,10 +67,10 @@ ms.locfileid: "59407589"
         - [SignalR 1.x プロジェクトをバージョン 2 にアップグレードする](overview/releases/upgrading-signalr-1x-projects-to-20.md)
     - [旧バージョン](overview/older-versions/index.md)
 
-        - [チュートリアル: SignalR の概要 1.x](overview/older-versions/tutorial-getting-started-with-signalr.md)
-        - [チュートリアル: SignalR の概要 1.x と MVC 4](overview/older-versions/tutorial-getting-started-with-signalr-and-mvc-4.md)
+        - [チュートリアル: SignalR 1.x の概要](overview/older-versions/tutorial-getting-started-with-signalr.md)
+        - [チュートリアル: SignalR 1.x と MVC 4 の概要](overview/older-versions/tutorial-getting-started-with-signalr-and-mvc-4.md)
         - [SignalR 1.x による高頻度リアルタイム メッセージング](overview/older-versions/tutorial-high-frequency-realtime-with-signalr.md)
-        - [チュートリアル: ASP.NET SignalR によるサーバー ブロードキャスト 1.x](overview/older-versions/tutorial-server-broadcast-with-aspnet-signalr.md)
+        - [チュートリアル: ASP.NET SignalR 1.x によるサーバー ブロードキャスト](overview/older-versions/tutorial-server-broadcast-with-aspnet-signalr.md)
         - [ハブ API ガイド - サーバー](overview/older-versions/signalr-1x-hubs-api-guide-server.md)
         - [SignalR 1.x ハブ API ガイド - JavaScript クライアント](overview/older-versions/signalr-1x-hubs-api-guide-javascript-client.md)
         - [ハブ API ガイド - .NET クライアント](overview/older-versions/signalr-1x-hubs-api-guide-net-client.md)

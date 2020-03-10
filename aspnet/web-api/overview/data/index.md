@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/data/index
-title: ASP.NET Web API - ASP.NET でデータを扱う 4.x
+title: ASP.NET Web API でのデータの操作-ASP.NET 4.x
 author: rick-anderson
-description: CRUD をプログラムする方法 (作成、読み取り、更新、削除) の ASP.NET Web API の処理を 4.x です。
+description: ASP.NET 4.x 用の Web API で CRUD (作成、読み取り、更新、削除) 操作をプログラミングする方法について説明します。
 ms.author: riande
 ms.date: 10/23/2014
 ms.custom: seoapril2019
@@ -10,15 +10,15 @@ ms.assetid: 995cbe38-7dbd-4c36-a5d0-a761944c7636
 msc.legacyurl: /web-api/overview/data
 msc.type: chapter
 ms.openlocfilehash: 210d6c1b207bbba0e9b809c9bba3a3d567015013
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65126213"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78504868"
 ---
-# <a name="working-with-data-in-aspnet-web-api"></a>ASP.NET Web API でデータを扱う
+# <a name="working-with-data-in-aspnet-web-api"></a>ASP.NET Web API でのデータの操作
 
-> CRUD をプログラムする方法 (作成、読み取り、更新、削除) Web API の操作。
+> Web API で CRUD (作成、読み取り、更新、削除) 操作をプログラミングする方法。
 
 - [Web API 2 と Entity Framework 6 を使用する](using-web-api-with-entity-framework/index.md)
 

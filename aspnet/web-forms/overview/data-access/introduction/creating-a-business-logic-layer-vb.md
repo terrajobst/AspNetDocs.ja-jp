@@ -9,11 +9,11 @@ ms.assetid: 142e5181-29ce-4bb9-907b-2a0becf7928b
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-business-logic-layer-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 2ee4789ea9567b7bcd70eb63695e0b1d73076dc2
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74572617"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78490198"
 ---
 # <a name="creating-a-business-logic-layer-vb"></a>ビジネス ロジック層を作成する (VB)
 
@@ -62,7 +62,7 @@ DAL および BLL に関連するクラスをより明確に分離するには�
 - `UpdateProduct(productName, supplierID, categoryID, quantityPerUnit, unitPrice, unitsInStock, unitsOnOrder, reorderLevel, discontinued, productID)` は、渡された値を使用してデータベース内の既存の製品を更新します。1行だけ更新された場合は `True` を返します。それ以外の場合は `False`
 - 指定された製品をデータベースから削除 `DeleteProduct(productID)`
 
-製品 Bll
+ProductsBLL.vb
 
 [!code-vb[Main](creating-a-business-logic-layer-vb/samples/sample1.vb)]
 
@@ -145,9 +145,9 @@ BLL クラスは、ObjectDataSource を使用して (型指定されたデータ
 
 **図 5**: `App_Code` フォルダーに新しいクラスを追加する ([クリックすると、フルサイズの画像が表示](creating-a-business-logic-layer-vb/_static/image11.png)されます)
 
-次に、`UnitPrice`、`UnitsInStock`、`UnitsOnOrder`、および `ReorderLevel` 列の値が0以上であることを確認する `ColumnChanging` イベントのイベントハンドラーを作成します。 このような列が範囲外の場合は、`ArgumentException`をスローします。
+次に、`UnitPrice`、`UnitsInStock`、`UnitsOnOrder`、および `ReorderLevel` 列の値が0以上であることを確認する `ColumnChanging` イベントのイベントハンドラーを作成します。`NULL` このような列が範囲外の場合は、`ArgumentException`をスローします。
 
-製品 Datatable. ColumnChanging .vb
+ProductsDataTable.ColumnChanging.vb
 
 [!code-vb[Main](creating-a-business-logic-layer-vb/samples/sample5.vb)]
 
@@ -175,7 +175,7 @@ BLL クラスには、アプリケーションのビジネスルールに準拠�
 
 今後のチュートリアルで説明するように、データ Web コントロールを使用してデータを挿入、更新、または削除するときに、BLL からバブルアップする例外の処理は、`Try...Catch` ブロックでコードをラップする必要があるのではなく、イベントハンドラーで直接処理できます。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 適切に設計されたアプリケーションは、それぞれが特定のロールをカプセル化する別個の層に作られています。 この記事シリーズの最初のチュートリアルでは、型指定されたデータセットを使用してデータアクセス層を作成しました。このチュートリアルでは、アプリケーションの `App_Code` フォルダーにある一連のクラスとしてビジネスロジック層を構築し、DAL を呼び出します。 BLL は、アプリケーションのフィールドレベルおよびビジネスレベルのロジックを実装しています。 このチュートリアルで行ったように、別の BLL を作成するだけでなく、部分クラスを使用して Tableadapter のメソッドを拡張することもできます。 ただし、この方法を使用しても、既存のメソッドをオーバーライドすることはできません。また、この記事で説明した方法と同様に、DAL と BLL を分離することもできません。
 
@@ -183,7 +183,7 @@ DAL と BLL が完成したら、プレゼンテーション層から始める�
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

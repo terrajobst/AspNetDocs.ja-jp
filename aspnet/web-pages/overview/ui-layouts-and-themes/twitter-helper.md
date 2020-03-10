@@ -1,89 +1,89 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/twitter-helper
-title: Twitter ヘルパーと ASP.NET Web Pages |Microsoft Docs
+title: ASP.NET Web ページ | を含む Twitter ヘルパーMicrosoft Docs
 author: Rick-Anderson
-description: このトピックで、アプリケーションは、Twitter ヘルパーを WebMatrix 3 プロジェクトに追加する方法を示します。 Twitter ヘルパー コードが含まれ、ヘルパーを呼び出す方法を示しています.
+description: このトピックとアプリケーションでは、Twitter ヘルパーを WebMatrix 3 プロジェクトに追加する方法について説明します。 これには Twitter ヘルパーコードが含まれており、ヘルパーを呼び出す方法を示しています...
 ms.author: riande
 ms.date: 11/26/2018
 ms.assetid: c1a1244e-b9c8-42e6-a00b-8456a4ec027c
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/twitter-helper
 msc.type: authoredcontent
 ms.openlocfilehash: 76e32b7c808467a9a87c70017dac02bdb895e1df
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132772"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78518620"
 ---
 # <a name="twitter-helper-with-aspnet-web-pages"></a>Twitter ヘルパーと ASP.NET Web ページ
 
-によって[Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac)
 
 > [!IMPORTANT]
-> Twitter ヘルパーは廃止されました。 最新 engagement ツールの web サイト、Twitter を参照してください。 [web サイトの概要の Twitter](https://developer.twitter.com/en/docs/twitter-for-websites/overview)します。
+> Twitter ヘルパーは互換性のために残されています。 Twitter の web サイト用エンゲージメントツールについては、「 [Web サイトの twitter の概要](https://developer.twitter.com/en/docs/twitter-for-websites/overview)」を参照してください。
 
-> このトピックで、アプリケーションは、Twitter ヘルパーを WebMatrix 3 プロジェクトに追加する方法を示します。 Twitter ヘルパー コードが含まれ、ヘルパー メソッドを呼び出す方法を示しています。
+> このトピックとアプリケーションでは、Twitter ヘルパーを WebMatrix 3 プロジェクトに追加する方法について説明します。 これには Twitter ヘルパーコードが含まれており、ヘルパーメソッドを呼び出す方法を示しています。
 > 
-> Twitter.cshtml ファイル用のこのコードは、開発された**Tian Pan**Microsoft の。
+> Twitter ファイル用のこのコード**は、Microsoft によって開発**されました。
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
+> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されているソフトウェアのバージョン
 > 
 > 
-> - ASP.NET Web Pages (Razor) 3
+> - ASP.NET Web ページ (Razor) 3
 >   
 > 
-> このチュートリアルは、ASP.NET Web Pages 2 でも機能します。
+> このチュートリアルは ASP.NET Web ページ2でも動作します。
 
 ## <a name="introduction"></a>はじめに
 
-このトピックでは、アプリケーションに Twitter ヘルパーを追加して、ヘルパー メソッドを呼び出す Razor 構文を使用する方法を示します。 Twitter ヘルパーでは、簡単に Twitter ボタンと、アプリケーションでウィジェットを組み込めます。 ユーザーのタイムラインや、ハッシュタグの検索結果などの Twitter ウィジェットを使用する必要があります最初に作成する、 [twitter ウィジェット](https://twitter.com/settings/widgets)します。 ウィジェットを作成した後は、ウィジェット id を受け取ります。ウィジェットを表示するヘルパー メソッドを呼び出すときに、このウィジェット id をパラメーターとして渡します。
+このトピックでは、アプリケーションに Twitter ヘルパーを追加し、Razor 構文を使用してヘルパーメソッドを呼び出す方法について説明します。 Twitter ヘルパーを使用すると、Twitter のボタンやウィジェットをアプリケーションに簡単に組み込むことができます。 ユーザーのタイムラインやハッシュタグの検索結果など、Twitter ウィジェットを使用するには、最初[に twitter でウィジェット](https://twitter.com/settings/widgets)を作成する必要があります。 ウィジェットを作成すると、ウィジェット id が表示されます。ウィジェットを表示するヘルパーメソッドを呼び出すときに、このウィジェット id をパラメーターとして渡します。
 
-このトピックでは、Twitter API のバージョン 1.1 用に記述されています。 直接 Twitter ヘルパー コードを追加すると、プロジェクトに、Twitter API が変更された場合、ヘルパー コードを更新できます。
+このトピックは、バージョン1.1 の Twitter API 向けに作成されました。 Twitter のヘルパーコードをプロジェクトに直接追加することで、Twitter API が変更された場合にヘルパーコードを更新できます。
 
-WebMatrix のインストール方法の詳細については、次を参照してください。 [Introducing ASP.NET Web Pages 2 - Getting Started](../getting-started/introducing-aspnet-web-pages-2/getting-started.md)します。
+WebMatrix のインストールの詳細については、「 [ASP.NET Web ページ2はじめにの概要](../getting-started/introducing-aspnet-web-pages-2/getting-started.md)」を参照してください。
 
-## <a name="add-twitter-helper-to-your-project"></a>Twitter ヘルパーをプロジェクトに追加します。
+## <a name="add-twitter-helper-to-your-project"></a>Twitter ヘルパーをプロジェクトに追加する
 
-Twitter ヘルパーを追加するには、最初に、という名前のフォルダーを追加**App\_Code**をプロジェクトにします。 という名前のファイルを作成し、 **Twitter.cshtml**します。
+Twitter ヘルパーを追加するには、まず、 **App\_Code**という名前のフォルダーをプロジェクトに追加します。 次に、 **Twitter**という名前のファイルを作成します。
 
 ![App_Code フォルダー](twitter-helper/_static/image1.png)
 
-Twitter.cshtml の既定のコードを次のコードに置き換えます。
+Twitter の既定のコードを次のコードに置き換えます。
 
 [!code-cshtml[Main](twitter-helper/samples/sample1.cshtml)]
 
-## <a name="call-twitter-methods-from-your-web-pages"></a>Web ページから Twitter メソッドの呼び出し
+## <a name="call-twitter-methods-from-your-web-pages"></a>Web ページから Twitter メソッドを呼び出す
 
-次の例では、プロジェクトで、ページから Twitter ヘルパー メソッドを使用する方法を示します。 プロジェクトのニーズに関連する値を持つパラメーターの値を置換するは。 指定されたウィジェット id を使用するには、メソッドの動作を探索するが、プロジェクトの独自のウィジェットを生成します。
+次の例は、プロジェクトのページから Twitter ヘルパーメソッドを使用する方法を示しています。 プロジェクトでは、パラメーター値をニーズに関連する値に置き換える必要があります。 提供されたウィジェット id を使用して、メソッドの動作を調べることができますが、プロジェクト用に独自のウィジェットを生成する必要があります。
 
-すべての以下のパラメーターが必要です。 省略可能なパラメーターは、ボタンまたはウィジェットの表示方法をカスタマイズに使用されます。 たとえば、次のボタンにするには、ユーザー名のみが必要ですが、フォロワー数を含めるし、ボタンと言語のサイズを指定する方法する方法を示します。
+以下に示すパラメーターのすべてが必要であるとは限りません。 オプションのパラメーターは、ボタンまたはウィジェットの表示方法をカスタマイズするために使用されます。 たとえば、[フォロー] ボタンをクリックする必要があるのはユーザー名のみですが、この例ではフォロワーの数を含める方法と、ボタンのサイズと言語を指定する方法を示しています。
 
 [!code-html[Main](twitter-helper/samples/sample2.html)]
 
-## <a name="see-the-results"></a>結果を参照してください。
+## <a name="see-the-results"></a>結果を確認する
 
-上記のコードには、次のボタンとウィジェットが生成されます。 これらのボタンとウィジェットは完全に機能、スクリーン ショットではありません。 言語パラメーター設定されているために、スペイン語で以下のボタンが表示されます**es**します。
+上記のコードでは、次のボタンとウィジェットが生成されます。 これらのボタンとウィジェットは、スクリーンショットではなく、完全に機能します。 Language パラメーターが**es**に設定されているため、[次へ] ボタンがスペイン語で表示されます。
 
-### <a name="follow-button"></a>次のボタン
+### <a name="follow-button"></a>[フォロー] ボタン
 
-[次の@aspnet)](https://twitter.com/aspnet)`<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>`
+[@aspnetに従う)](https://twitter.com/aspnet)`<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>`
 
-### <a name="tweet-button"></a>ツイート ボタン
+### <a name="tweet-button"></a>ツイートボタン
 
 [ツイート](https://twitter.com/share)`<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>`
 
-### <a name="user-timeline-profile"></a>ユーザー タイムライン (プロファイル)
+### <a name="user-timeline-profile"></a>ユーザーのタイムライン (プロファイル)
 
-[別のツイート @aspnet](https://twitter.com/aspnet)`<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>`
+[ツイート by @aspnet](https://twitter.com/aspnet)`<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>`
 
 ### <a name="favorites"></a>お気に入り
 
-[ツイートのお気に入り @Microsoft](https://twitter.com/Microsoft/favorites)`<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>`
+[お気に入りのツイート by @Microsoft](https://twitter.com/Microsoft/favorites)`<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>`
 
-### <a name="list"></a>リスト
+### <a name="list"></a>List
 
-[ツイート@Microsoft/MS\_コンシューマー\_バンド](https://twitter.com/microsoft/ms-consumer-brands/)`<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>`
+[@Microsoft/MS\_コンシューマー\_バンドからのツイート](https://twitter.com/microsoft/ms-consumer-brands/)`<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>`
 
 ### <a name="search"></a>検索
 
-[についてツイート&quot;#asp.net&quot;](https://twitter.com/search?q=%23asp.net)`<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>`
+[.Net&quot;#asp &quot;に関するツイート](https://twitter.com/search?q=%23asp.net)`<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>`

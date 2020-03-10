@@ -1,77 +1,77 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3
-title: 第 3 部:レイアウトとカテゴリ メニュー |Microsoft Docs
+title: 'パート 3: レイアウトとカテゴリのメニュー |Microsoft Docs'
 author: JoeStagner
-description: このチュートリアル シリーズでは、すべての Tailspin Spyworks サンプル アプリケーションをビルドする手順について説明します。 第 3 部では、追加のレイアウトとカテゴリ メニューについて説明します。
+description: このチュートリアルシリーズでは、Tailspin Spyworks サンプルアプリケーションを構築するために実行するすべての手順について詳しく説明します。 パート3では、レイアウトとカテゴリメニューの追加について説明します。
 ms.author: riande
 ms.date: 07/21/2010
 ms.assetid: 94ea1a70-a9bc-4241-8f36-08366d64bab9
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3
 msc.type: authoredcontent
 ms.openlocfilehash: a223b97fd362ecf73ecde431e141021c1dcc6a6d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131027"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78519100"
 ---
-# <a name="part-3-layout-and-category-menu"></a>第 3 部:レイアウトとカテゴリ メニュー
+# <a name="part-3-layout-and-category-menu"></a>パート 3: レイアウトとカテゴリメニュー
 
-によって[Joe Stagner](https://github.com/JoeStagner)
+[Joe Stagner](https://github.com/JoeStagner)
 
-> Tailspin Spyworks では、.NET プラットフォーム用の強力でスケーラブルなアプリケーションを作成するはどの非常に単純なを示します。 ASP.NET 4 の優れた新機能を使用して、ショッピング、チェック アウト、および管理を含む、オンライン ストアを構築する方法を示します。
+> Tailspin Spyworks は、.NET プラットフォーム用の強力でスケーラブルなアプリケーションを簡単に作成する方法を示しています。 ASP.NET 4 の優れた新機能を使用して、ショッピング、チェックアウト、管理などのオンラインストアを構築する方法を示しています。
 > 
-> このチュートリアル シリーズでは、すべての Tailspin Spyworks サンプル アプリケーションをビルドする手順について説明します。 第 3 部では、追加のレイアウトとカテゴリ メニューについて説明します。
+> このチュートリアルシリーズでは、Tailspin Spyworks サンプルアプリケーションを構築するために実行するすべての手順について詳しく説明します。 パート3では、レイアウトとカテゴリメニューの追加について説明します。
 
-## <a id="_Toc260221669"></a>  一部のレイアウトとカテゴリ メニューに追加します。
+## <a id="_Toc260221669"></a>レイアウトとカテゴリメニューを追加する
 
-このサイトのマスター ページで、製品カテゴリ メニューを格納するための左側にある列の div を追加します。
+サイトマスターページで、左側の列に、製品カテゴリメニューを含む div を追加します。
 
 [!code-aspx[Main](tailspin-spyworks-part-3/samples/sample1.aspx)]
 
-目的のアラインメントとその他の書式を Style.css ファイルに追加した CSS クラスによって提供されることに注意してください。
+必要な配置とその他の書式設定は、スタイルの .css ファイルに追加した CSS クラスによって提供されることに注意してください。
 
 [!code-css[Main](tailspin-spyworks-part-3/samples/sample2.css)]
 
-製品カテゴリ メニューは、実行時で動的に既存の製品カテゴリとメニュー項目を作成、および対応するリンクの Commerce データベースのクエリを実行して作成されます。
+製品カテゴリのメニューは実行時に動的に作成されます。そのためには、既存の製品カテゴリを Commerce データベースに照会し、メニュー項目と対応するリンクを作成します。
 
-これを実現するには、2 つの ASP を使用します。NET の強力なデータを制御します。 「エンティティのデータ ソース」コントロールは、"ListView"コントロール。
+これを実現するには、2つの ASP を使用します。NET の強力なデータコントロール。 "Entity Data Source" コントロールと "ListView" コントロール。
 
 ![](tailspin-spyworks-part-3/_static/image1.jpg)
 
-「デザイン ビュー」に、ヘルパーを使用して、コントロールを構成してしましょう。
+[デザインビュー] に切り替えて、ヘルパーを使用してコントロールを構成します。
 
 ![](tailspin-spyworks-part-3/_static/image2.jpg)
 
-Eds EntityDataSource ID プロパティを設定しましょう\_カテゴリ\_メニューと"データ ソースの構成 をクリックします。
+EntityDataSource ID プロパティを EDS\_Category\_ に設定し、データソースの構成 をクリックしてみましょう。
 
 ![](tailspin-spyworks-part-3/_static/image3.jpg)
 
-Commerce データベースのエンティティのデータ ソースのモデルを作成したときに、私たちに対して作成された CommerceEntities 接続を選択し、[次へ] をクリックします。
+コマースデータベースのエンティティデータソースモデルを作成したときに作成された CommerceEntities 接続を選択し、[次へ] をクリックします。
 
 ![](tailspin-spyworks-part-3/_static/image4.jpg)
 
-「カテゴリ」のエンティティ セットの名前を選択し、オプションの残りを既定値のままにします。 [完了] をクリックします。
+[カテゴリ] エンティティセット名を選択し、残りのオプションは既定値のままにします。 [完了] をクリックします。
 
-これで、ページ ListView を掲載する ListView コントロールのインスタンスの ID プロパティを設定しましょう\_ProductsMenu とそのヘルパーをアクティブ化します。
+次に、ページに配置した ListView コントロールインスタンスの ID プロパティを ListView\_[製品] メニューに設定し、ヘルパーをアクティブ化します。
 
 ![](tailspin-spyworks-part-3/_static/image5.jpg)
 
-ただしデータ項目の表示形式を設定するコントロールのオプションを使用できます、書式設定、メニューの作成のみが必要し、なりますのシンプルなマークアップこれにより、ソース ビューで、コードが入力されます。
+コントロールオプションを使用してデータ項目の表示と書式設定を書式設定することもできますが、メニューの作成では、ソースビューにコードを入力するだけで、単純なマークアップが必要になります。
 
 [!code-aspx[Main](tailspin-spyworks-part-3/samples/sample3.aspx)]
 
-"Eval"ステートメントに注意してください: &lt;%# Eval("CategoryName") %&gt;
+"Eval" ステートメントに注意してください: &lt;% # Eval ("区分番号")%&gt;
 
-ASP.NET 構文&lt;%# %&gt;内に含まれるものと、"行"の結果を出力の実行に、ランタイムに指示する短縮形規則。
+ASP.NET 構文 &lt;% #%&gt; は、その中に含まれるものを実行するようにランタイムに指示し、結果を "行" で出力するための短縮規約です。
 
-エンティティ モデル アイテムの名前の値は"CategoryName"フェッチ Eval("CategoryName") ステートメントは、バインドされたデータ項目のコレクションの現在のエントリのように指示します。 これは、非常に強力な機能の簡潔な構文です。
+ステートメント Eval ("区分名") は、バインドされたデータ項目のコレクション内の現在のエントリについて、エンティティモデル項目名 "の値" "区分名" の値をフェッチするように指示します。 これは、非常に強力な機能を使用するための簡潔な構文です。
 
-これでアプリケーションを実行することができます。
+アプリケーションをすぐに実行できるようにします。
 
 ![](tailspin-spyworks-part-3/_static/image6.jpg)
 
-製品カテゴリ メニューが表示されるようになりましたしと ProductsList.aspx ときにメニュー項目のリンク先を実装するには、まだ私たちがページに表示するカテゴリ メニュー項目の 1 つ以上ポイントという名前を格納する場合は組み込み、動的なクエリ文字列引数を カテゴリの id。
+[Product category] メニューが表示されるようになり、カテゴリメニュー項目のいずれかにマウスポインターを合わせると、ページへのメニュー項目のリンクポイントが表示されます。ここでは、名前付きの製品リストを実装し、動的なクエリ文字列引数を カテゴリ id。
 
 > [!div class="step-by-step"]
 > [前へ](tailspin-spyworks-part-2.md)

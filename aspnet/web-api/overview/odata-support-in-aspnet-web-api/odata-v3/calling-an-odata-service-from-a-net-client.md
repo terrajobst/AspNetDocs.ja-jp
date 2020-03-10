@@ -9,11 +9,11 @@ ms.assetid: 6f448917-ad23-4dcc-9789-897fad74051b
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/calling-an-odata-service-from-a-net-client
 msc.type: authoredcontent
 ms.openlocfilehash: 6a289fcb843634eeeefef1e0767e04e0be8b6973
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74600382"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78498166"
 ---
 # <a name="calling-an-odata-service-from-a-net-client-c"></a>.NET クライアントから OData サービスを呼び出す (C#)
 
@@ -28,7 +28,7 @@ ms.locfileid: "74600382"
 >
 > - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013) (Visual Studio 2012 で動作)
 > - [WCF Data Services クライアント ライブラリ](https://msdn.microsoft.com/library/cc668772.aspx)
-> - Web API 2。 (例の OData サービスは Web API 2 を使用して構築されていますが、クライアントアプリケーションは Web API に依存していません)。
+> - Web API 2. (この OData サービスの例は Web API 2 を使用して構築していますが、クライアント アプリケーションは Web API に依存しません)。
 
 このチュートリアルでは、OData サービスを呼び出すクライアントアプリケーションを作成する手順について説明します。 OData サービスは、次のエンティティを公開します。
 
@@ -44,7 +44,7 @@ ms.locfileid: "74600382"
 - [Web API 2 での OData エンティティの関係](working-with-entity-relations.md)
 - [Web API 2 の OData アクション](odata-actions.md)
 
-## <a name="generate-the-service-proxy"></a>サービスプロキシの生成
+## <a name="generate-the-service-proxy"></a>サービス プロキシを生成する
 
 最初の手順では、サービスプロキシを生成します。 サービスプロキシは、OData サービスにアクセスするためのメソッドを定義する .NET クラスです。 プロキシは、メソッドの呼び出しを HTTP 要求に変換します。
 
@@ -71,7 +71,7 @@ ms.locfileid: "74600382"
 
 **[名前空間]** に「productservice」と入力します。 このオプションでは、プロキシクラスの名前空間を定義します。
 
-**[検索]** をクリックします。 Visual Studio は、サービス内のエンティティを検出するために OData メタデータドキュメントを読み取ります。
+**[Go]** をクリックします。 Visual Studio は、サービス内のエンティティを検出するために OData メタデータドキュメントを読み取ります。
 
 [![](calling-an-odata-service-from-a-net-client/_static/image7.png)](calling-an-odata-service-from-a-net-client/_static/image6.png)
 
@@ -204,7 +204,7 @@ $Select と $expand の詳細については、「 [WEB API 2 での $select、$
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample22.cs)]
 
-## <a name="delete-an-entity"></a>エンティティの削除
+## <a name="delete-an-entity"></a>エンティティを削除する
 
 エンティティを削除するには、 **DeleteObject**を呼び出します。
 

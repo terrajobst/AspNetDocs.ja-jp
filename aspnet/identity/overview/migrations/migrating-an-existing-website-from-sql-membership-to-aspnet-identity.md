@@ -10,11 +10,11 @@ ms.assetid: 220d3d75-16b2-4240-beae-a5b534f06419
 msc.legacyurl: /identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
 msc.type: authoredcontent
 ms.openlocfilehash: 633229cc4311d151121bf6a91b9fa8aeecca1197
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77456154"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78471634"
 ---
 # <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>既存 Web サイトを SQL メンバーシップから ASP.NET Identity に移行する
 
@@ -90,12 +90,12 @@ ms.locfileid: "77456154"
 | PasswordHash | string |  |  | LoginProvider | ClaimValue |
 | セキュリティー | string |  |  |  | ユーザー\_Id |
 | Email | string |  |  |  |  |
-| 電子メールの確認 | bool |  |  |  |  |
+| 電子メールの確認 | [bool] |  |  |  |  |
 | PhoneNumber | string |  |  |  |  |
-| PhoneNumberConfirmed | bool |  |  |  |  |
-| LockoutEnabled | bool |  |  |  |  |
+| PhoneNumberConfirmed | [bool] |  |  |  |  |
+| LockoutEnabled | [bool] |  |  |  |  |
 | LockoutEndDate | DateTime |  |  |  |  |
-| AccessFailedCount | int |  |  |  |  |
+| AccessFailedCount | INT |  |  |  |  |
 
 これらの各モデルのテーブルには、プロパティに対応する列を用意する必要があります。 クラスとテーブル間のマッピングは、`IdentityDBContext`の `OnModelCreating` メソッドで定義されます。 これは、構成の fluent API 方法として知られています。詳細については、[こちら](https://msdn.microsoft.com/data/jj591617.aspx)を参照してください。 クラスの構成は次のとおりです。
 
@@ -129,7 +129,7 @@ SQL メンバーシップのユーザー情報には、Identity user model ク�
 
 このスクリプトファイルは、このサンプルに固有のものです。 追加のテーブルを持つアプリケーションでは、開発者は同様のアプローチに従って、ユーザーモデルクラスにプロパティを追加し、AspnetUsers テーブルの列にマップすることができます。 スクリプトを実行するには、
 
-1. サーバー エクスプローラーを開きます。 "ApplicationServices" 接続を展開してテーブルを表示します。 [テーブル] ノードを右クリックし、[新しいクエリ] オプションを選択します。
+1. [サーバー エクスプローラー] を開きます。 "ApplicationServices" 接続を展開してテーブルを表示します。 [テーブル] ノードを右クリックし、[新しいクエリ] オプションを選択します。
 
     ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image7.png)
 2. クエリウィンドウで、SQL スクリプト全体をコピーして、移行 .sql ファイルから貼り付けます。 [実行] 矢印ボタンを押してスクリプトファイルを実行します。

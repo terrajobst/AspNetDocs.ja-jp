@@ -9,11 +9,11 @@ ms.assetid: 32377145-ec25-4715-8370-a1c590a331d5
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-radio-buttons-cs
 msc.type: authoredcontent
 ms.openlocfilehash: b59cc64b14c6414e6558fdb8a281644db8386701
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74593675"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78477952"
 ---
 # <a name="adding-a-gridview-column-of-radio-buttons-c"></a>ラジオ ボタンの GridView 列を追加する (C#)
 
@@ -134,7 +134,7 @@ RadioButton s [`GroupName` プロパティ](https://msdn.microsoft.com/library/s
 
 [!code-html[Main](adding-a-gridview-column-of-radio-buttons-cs/samples/sample4.html)]
 
-`name` 属性と `id` 属性の両方が、プロパティウィンドウで指定されている正確な値ではなく、他の `ID` 値の前に付加されていることに注意してください。 表示される `id` と `name` 属性の前に追加の `ID` 値 `ID` が追加されています。親は、`GridViewRow` s、GridView の `ID`、コンテンツコントロール s `ID`、および Web フォーム s `ID`を制御します。 これらの `ID` は、GridView でレンダリングされる各 Web コントロールに一意の `id` と `name` 値があるように追加されます。
+`name` 属性と `id` 属性の両方が、プロパティウィンドウで指定されている正確な値ではなく、他の `ID` 値の前に付加されていることに注意してください。 表示される `id` と `name` 属性の前に追加の `ID` 値 `ID` が追加されています。親は、`GridViewRow` s、GridView の `ID`、コンテンツコントロール s `ID`、および Web フォーム s `ID`を制御します。`ID` これらの `ID` は、GridView でレンダリングされる各 Web コントロールに一意の `id` と `name` 値があるように追加されます。
 
 レンダリングされた各コントロールは、クライアント側の各コントロールを一意に識別する方法と、ポストバック時にどのように動作または変更が発生したかを web サーバーに識別する方法に応じて、異なる `name` と `id` を必要とします。 たとえば、RadioButton s checked 状態が変更されたときに、一部のサーバー側コードを実行したいとします。 これを実現するには、RadioButton s `AutoPostBack` プロパティを `true` に設定し、`CheckChanged` イベントのイベントハンドラーを作成します。 ただし、すべてのオプションボタンの表示された `name` と `id` の値が同じである場合、ポストバック時に、どの特定の RadioButton がクリックされたかを判断できませんでした。
 
@@ -268,7 +268,7 @@ GridView からサプライヤーが選択されていない場合は、`ChooseS
 
 **図 20**: Bigfoot Breweries によって提供される製品は同じページに一覧表示されます ([クリックすると、フルサイズの画像が表示](adding-a-gridview-column-of-radio-buttons-cs/_static/image36.png)されます)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 [詳細詳細ビューのチュートリアルで選択可能なマスター GridView を使用してマスター/詳細](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md)に説明したように、`ShowSelectButton` プロパティが `true`に設定されている commandfield を使用して GridView からレコードを選択できます。 ただし、CommandField には、通常のプッシュボタン、リンク、または画像としてボタンが表示されます。 その他の行選択ユーザーインターフェイスは、各 GridView 行にオプションボタンまたはチェックボックスを提供することです。 このチュートリアルでは、ラジオボタンの列を追加する方法について説明します。
 
@@ -278,7 +278,7 @@ GridView からサプライヤーが選択されていない場合は、`ChooseS
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
@@ -287,4 +287,4 @@ GridView からサプライヤーが選択されていない場合は、`ChooseS
 このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は David, u です。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [次へ](adding-a-gridview-column-of-checkboxes-cs.md)
+> [Next](adding-a-gridview-column-of-checkboxes-cs.md)

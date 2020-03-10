@@ -9,11 +9,11 @@ ms.assetid: ca665073-b379-4239-9404-f597663ca65e
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/handling-bll-and-dal-level-exceptions-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 319ab44f2e65afc77f6f89ca8aa58c529f40d05c
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74624265"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78480154"
 ---
 # <a name="handling-bll--and-dal-level-exceptions-vb"></a>BLL レベルと DAL レベルの例外を処理する (VB)
 
@@ -107,7 +107,7 @@ ObjectDataSource ウィザードを完了すると、Visual Studio によって 
 
 **図 5**: 負の価格を入力したときにエラーメッセージが表示される ([クリックすると、フルサイズの画像が表示](handling-bll-and-dal-level-exceptions-vb/_static/image13.png)されます)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 GridView および ObjectDataSource は、ワークフローの更新中や削除中に発生した例外に関する情報を含むポストレベルのイベントハンドラーを提供します。また、例外が発生したかどうかを示すために設定できるプロパティについても説明します。対応. ただし、DataList を使用して BLL を直接使用する場合、これらの機能は使用できません。 代わりに、例外処理を実装する責任があります。
 
@@ -117,7 +117,7 @@ GridView および ObjectDataSource は、ワークフローの更新中や削�
 
 プログラミングを楽しんでください。
 
-## <a name="further-reading"></a>関連項目
+## <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -125,7 +125,7 @@ GridView および ObjectDataSource は、ワークフローの更新中や削�
 - [エラーログモジュールとハンドラー (ELMAH)](http://workspaces.gotdotnet.com/elmah) (エラーをログに記録するためのオープンソースライブラリ)
 - [.NET Framework 2.0 のエンタープライズライブラリ](https://www.microsoft.com/downloads/details.aspx?familyid=5A14E870-406B-4F2A-B723-97BA84AE80B5&amp;displaylang=en)(例外管理アプリケーションブロックを含む)
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

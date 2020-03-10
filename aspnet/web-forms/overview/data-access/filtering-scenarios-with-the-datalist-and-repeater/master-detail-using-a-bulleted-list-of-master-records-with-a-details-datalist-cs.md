@@ -9,11 +9,11 @@ ms.assetid: c727bb73-7b59-41a1-8dc3-623c6d69e7c2
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 4549ab8e64599b09c300c158bedfd5d85efafc4d
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74591870"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78490966"
 ---
 # <a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-c"></a>マスター レコードの箇条書きと詳細 DataList を使用してマスター/詳細を表示する (C#)
 
@@ -228,7 +228,7 @@ DataList s スマートタグから、`CategoryProductsDataSource` という名�
 
 **図 15**: [生成] カテゴリをクリックすると、一致する製品が右側に表示されます ([クリックすると、フルサイズの画像が表示](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image43.png)されます)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルと前に説明したように、マスター/詳細レポートは、2つのページ間で分散することも、1つに統合することもできます。 ただし、マスター/詳細レポートを1ページに表示する場合は、ページ上のマスターレコードと詳細レコードのレイアウトを最適化するためのいくつかの課題が生じます。 詳細な DetailsView チュートリアルがある*選択可能なマスター GridView を使用したマスター/詳細*では、マスターレコードの上に詳細レコードが表示されていました。このチュートリアルでは、CSS の手法を使用して、マスターレコードを詳細の左側にフローティングしました。
 
@@ -238,7 +238,7 @@ DataList s スマートタグから、`CategoryProductsDataSource` という名�
 
 プログラミングを楽しんでください。
 
-## <a name="further-reading"></a>関連項目
+## <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -246,7 +246,7 @@ DataList s スマートタグから、`CategoryProductsDataSource` という名�
 - [Css で](http://www.brainjar.com/css/positioning/)の要素の配置の詳細については、「css」を参照してください。
 - `<table>` s とその他の HTML 要素を使用して配置するための[html を使用したコンテンツのレイアウト](http://www.w3schools.com/html/html_layout.asp)
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

@@ -1,125 +1,125 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/18-customizing-site-wide-behavior
-title: ASP.NET Web Pages (Razor) サイトのサイト全体の動作のカスタマイズ |Microsoft Docs
+title: ASP.NET Web ページ (Razor) サイトのサイト全体の動作をカスタマイズする |Microsoft Docs
 author: Rick-Anderson
-description: この章では、ページだけではなく、web サイト全体または、フォルダー全体を設定する方法について説明します。
+description: この章では、ページだけではなく、web サイト全体またはフォルダー全体に対して設定を行う方法について説明します。
 ms.author: riande
 ms.date: 02/17/2014
 ms.assetid: e158bed7-226f-4275-b02e-7553bd58c669
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/18-customizing-site-wide-behavior
 msc.type: authoredcontent
 ms.openlocfilehash: f05e05f725d9209bce283ce18659ae5efe4de2ee
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131855"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78515248"
 ---
-# <a name="customizing-site-wide-behavior-for-aspnet-web-pages-razor-sites"></a>ASP.NET Web Pages (Razor) サイトのサイト全体の動作をカスタマイズします。
+# <a name="customizing-site-wide-behavior-for-aspnet-web-pages-razor-sites"></a>ASP.NET Web ページ (Razor) サイトのサイト全体の動作のカスタマイズ
 
-によって[Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac)
 
-> この記事では、ASP.NET Web Pages (Razor) の web サイトでページのサイト側設定する方法について説明します。
+> この記事では、ASP.NET Web ページ (Razor) web サイトのページに対してサイト側の設定を行う方法について説明します。
 > 
-> 学習内容。
+> ここでは、次の内容について学習します。
 > 
-> - コードを実行できるようにする方法は、サイト内のすべてのページの (グローバル値またはヘルパーの設定) が値セット。
-> - コード フォルダー内のすべてのページの値を設定することができますを実行する方法。
-> - ページの前後にコードを実行する方法を読み込みます。
-> - サーバーの全体のエラー ページにエラーを送信する方法。
-> - フォルダー内のすべてのページに認証を追加する方法。
+> - サイト内のすべてのページに対して値 (グローバル値またはヘルパー設定) を設定できるコードを実行する方法。
+> - フォルダー内のすべてのページの値を設定できるコードを実行する方法。
+> - ページが読み込まれる前と後にコードを実行する方法について説明します。
+> - 中央のエラーページにエラーを送信する方法。
+> - フォルダー内のすべてのページに認証を追加する方法
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
+> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されているソフトウェアのバージョン
 > 
 > 
-> - ASP.NET Web Pages (Razor) 2
+> - ASP.NET Web ページ (Razor) 2
 > - WebMatrix 3
-> - ASP.NET Web Helpers Library (NuGet パッケージ)
+> - ASP.NET Web ヘルパーライブラリ (NuGet パッケージ)
 >   
 > 
-> また、このチュートリアルは ASP.NET Web ページ 3 と連携し、Visual Studio 2013 (または Visual Studio Express 2013 for Web)、こと以外は、ASP.NET Web Helpers Library を使用できません。
+> このチュートリアルでは、ASP.NET Web ヘルパーライブラリを使用できない点を除いて、ASP.NET Web ページ3と Visual Studio 2013 (または Web 用の Visual Studio Express 2013) でも動作します。
 
 <a id="Adding_Website_Startup_Code"></a>
-## <a name="adding-website-startup-code-for-aspnet-web-pages"></a>ASP.NET Web ページの web サイトのスタートアップ コードを追加します。
+## <a name="adding-website-startup-code-for-aspnet-web-pages"></a>ASP.NET Web ページの Web サイトのスタートアップコードを追加する
 
-ASP.NET Web ページを記述するコードの大部分には、個々 のページは、そのページに必要なすべてのコードを含めることができます。 たとえば、ページは、電子メール メッセージを送信する場合、1 つのページにその操作のすべてのコードを配置することは。 これは、電子メールを送信するための設定を初期化するためにコードを含めることができます (つまり、SMTP サーバーの) と、電子メール メッセージを送信するためです。
+ASP.NET Web ページに記述するコードの大部分では、そのページに必要なすべてのコードを個別のページに含めることができます。 たとえば、ページが電子メールメッセージを送信する場合、その操作のすべてのコードを1ページにまとめることができます。 これには、電子メールの送信 (SMTP サーバーの場合) および電子メールメッセージの送信の設定を初期化するコードを含めることができます。
 
-ただし、状況によっては、任意のページで実行する前に、いくつかのコードを実行する必要があります。 これは、サイト内の任意の場所で使用できる値を設定するために役立ちます (と呼ばれる*グローバル値*)。たとえば、いくつかのヘルパーには、電子メールの設定またはアカウント キーのような値を指定することが必要です。 グローバル値にこれらの設定を保持する便利なことができます。
+ただし、状況によっては、サイトのページが実行される前にコードを実行することが必要になる場合があります。 これは、サイト内の任意の場所 (*グローバル値*と呼ばれます) で使用できる値を設定する場合に便利です。たとえば、一部のヘルパーでは、電子メールの設定やアカウントキーなどの値を指定する必要があります。 これらの設定をグローバル値に保持すると便利な場合があります。
 
-という名前のページを作成してこれを行う *\_AppStart.cshtml*サイトのルートにします。 このページが存在する場合は、初めてサイト内の任意のページが要求を実行します。 そのため、これはグローバル値を設定するコードを実行することをお勧めします。 (ため *\_AppStart.cshtml*アンダー スコア プレフィックスでは、ASP.NET は、ユーザーは、それを直接要求した場合でもに、ブラウザーのページを送信しません)。
+これを行うには、サイトのルートに *\_該当*という名前のページを作成します。 このページが存在する場合は、サイトのページが最初に要求されたときに実行されます。 そのため、グローバル値を設定するコードを実行することをお勧めします。 ( *\_該当*にはアンダースコアプレフィックスが付いているため、ユーザーが直接要求した場合でも、ASP.NET はページをブラウザーに送信しません。)
 
-次の図は、どのように *\_AppStart.cshtml* works ページします。 ページの要求を受信し、場合、これは、いずれかの最初の要求 ページ、サイトでは、ASP.NET で最初に確認かどうかを *\_AppStart.cshtml*ページが存在します。 内の場合は、コード、  *\_AppStart.cshtml*ページを実行し、要求されたページを実行します。
+次の図は、 *\_該当*ページの動作を示しています。 ページに対して要求が送信され、それがサイト内のいずれかのページの最初の要求である場合、ASP.NET は最初に、 *\_該当*ページが存在するかどうかを確認します。 その場合は、 *\_該当*ページ内のすべてのコードが実行され、要求されたページが実行されます。
 
-![[イメージ]](18-customizing-site-wide-behavior/_static/image1.jpg)
+![[画像]](18-customizing-site-wide-behavior/_static/image1.jpg)
 
-## <a name="setting-global-values-for-your-website"></a>Web サイトのグローバル値の設定
+## <a name="setting-global-values-for-your-website"></a>Web サイトのグローバル値を設定する
 
-1. WebMatrix web サイトのルート フォルダー、という名前のファイルを作成 *\_AppStart.cshtml*します。 ファイルは、サイトのルートでなければなりません。
-2. 次のように、既存のコンテンツを置き換えます。 
+1. WebMatrix web サイトのルートフォルダーに、 *\_該当*という名前のファイルを作成します。 ファイルは、サイトのルートにある必要があります。
+2. 既存のコンテンツを次の内容に置き換えます。 
 
     [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample1.cshtml)]
 
-    このコードで値を格納する、`AppState`サイト内のすべてのページに自動的に設定されているディクショナリ。 なお、  *\_AppStart.cshtml*ファイルでは、これでは、すべてのマークアップはありません。 ページはコードを実行し、最初に要求されたページにリダイレクトします。
+    このコードは `AppState` ディクショナリに値を格納します。このディクショナリは、サイト内のすべてのページで自動的に使用できます。 *\_該当*ファイルにマークアップがないことに注意してください。 このページでコードが実行され、最初に要求されたページにリダイレクトされます。
 
     > [!NOTE]
-    > コードを配置すると、注意、  *\_AppStart.cshtml*ファイル。 コード内でエラーが発生した場合、  *\_AppStart.cshtml*ファイル、web サイトを開始しません。
-3. ルート フォルダーに作成するという名前の新しいページ*AppName.cshtml*します。
-4. 次のように、既定のマークアップとコードに置き換えます。 
+    > *\_該当*ファイルにコードを配置する場合は注意してください。 *\_該当*ファイルのコードでエラーが発生した場合、web サイトは開始されません。
+3. ルートフォルダーに、 *AppName. cshtml*という名前の新しいページを作成します。
+4. 既定のマークアップとコードを次のコードに置き換えます。 
 
     [!code-html[Main](18-customizing-site-wide-behavior/samples/sample2.html)]
 
-    このコードから値を抽出し、`AppState`で設定するオブジェクト、  *\_AppStart.cshtml*ページ。
-5. 実行、 *AppName.cshtml*ブラウザーでページ。 (内でページが選択されていることを確認、**ファイル**ワークスペースを実行する前にします)。ページには、グローバルな値が表示されます。 
+    このコードは、 *\_該当*ページで設定した `AppState` オブジェクトから値を抽出します。
+5. ブラウザーで*AppName*ページを実行します。 (実行する前に、 **[ファイル]** ワークスペースでページが選択されていることを確認してください)。ページにグローバル値が表示されます。 
 
-    ![[イメージ]](18-customizing-site-wide-behavior/_static/image2.jpg)
+    ![[画像]](18-customizing-site-wide-behavior/_static/image2.jpg)
 
 <a id="Setting_Values_For_Helpers"></a>
 ## <a name="setting-values-for-helpers"></a>ヘルパーの値の設定
 
-適切な使い方、  *\_AppStart.cshtml*ファイルは、サイトで使用して、初期化する必要があるヘルパーの値を設定します。 一般的な例としては、の電子メール設定、`WebMail`ヘルパーとのプライベートおよびパブリック キー、`ReCaptcha`ヘルパー。 上記のような場合で 1 回の値を設定することができます、  *\_AppStart.cshtml*し、いる既にすべてのページで設定、サイト。
+*\_該当*ファイルは、サイトで使用するヘルパーの値を設定し、初期化することをお勧めします。 一般的な例としては、`WebMail` ヘルパーの電子メール設定と、`ReCaptcha` ヘルパーの秘密キーと公開キーがあります。 このような場合は、 *\_該当*で値を1回設定すると、サイト内のすべてのページに対して既に設定されています。
 
-この手順は、設定する方法を示します`WebMail`設定グローバルにします。 (使用の詳細については、`WebMail`ヘルパーを参照してください[ASP.NET Web ページ サイトを追加する電子メール](../getting-started/11-adding-email-to-your-web-site.md))。
+この手順では、`WebMail` 設定をグローバルに設定する方法について説明します。 (`WebMail` ヘルパーの使用方法の詳細については、「 [ASP.NET Web ページサイトへの電子メールの追加](../getting-started/11-adding-email-to-your-web-site.md)」を参照してください)。
 
-1. 」の説明に従って、web サイトに、ASP.NET Web Helpers Library を追加[ASP.NET Web ページ サイトでインストールするヘルパー](https://go.microsoft.com/fwlink/?LinkId=252372)、既に追加していない場合。
-2. まだ持っていない場合、  *\_AppStart.cshtml*という名前のファイルを作成、web サイトのルート フォルダーにファイルを *\_AppStart.cshtml*します。
-3. 次の追加`WebMail`設定を *\_AppStart.cshtml*ファイル。 
+1. 「 [ASP.NET Web ページサイトにヘルパーをインストール](https://go.microsoft.com/fwlink/?LinkId=252372)する」の説明に従って、ASP.NET Web ヘルパーライブラリを web サイトに追加します (まだ追加していない場合)。
+2. *\_該当*ファイルをまだ持っていない場合は、web サイトのルートフォルダーに *\_該当*という名前のファイルを作成します。
+3. 次の `WebMail` 設定を *\_該当*ファイルに追加します。 
 
     [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample3.cshtml?highlight=2-7)]
 
-    変更、次のコードに関連する設定を電子メールで送信します。
+    コード内の次の電子メール関連の設定を変更します。
 
-   - 設定`your-SMTP-host`へのアクセスが SMTP サーバーの名前にします。
-   - 設定`your-user-name-here`SMTP サーバー アカウントのユーザー名にします。
-   - 設定`your-account-password`SMTP サーバー アカウントのパスワードにします。
-   - 設定`your-email-address-here`を自分の電子メール アドレス。 これは、メッセージの送信元電子メール アドレスです。 (一部の電子メール プロバイダーから、別の指定は、`From`アドレスし、としてユーザー名を使用、`From`アドレスです)。
+   - `your-SMTP-host` に、アクセス権のある SMTP サーバーの名前を設定します。
+   - `your-user-name-here` を、SMTP サーバーアカウントのユーザー名に設定します。
+   - `your-account-password` を SMTP サーバーアカウントのパスワードに設定します。
+   - `your-email-address-here` を独自の電子メールアドレスに設定します。 これは、メッセージの送信元の電子メールアドレスです。 (一部の電子メールプロバイダーでは、別の `From` アドレスを指定することはできず、`From` アドレスとしてユーザー名が使用されます)。
 
-     SMTP 設定の詳細については、次を参照してください[電子メール設定を構成する](https://go.microsoft.com/fwlink/?LinkID=202899#configuring_email_settings)記事[ASP.NET Web Pages (Razor) サイトから電子メールを送信する](https://go.microsoft.com/fwlink/?LinkID=202899)と[メールの送信問題](https://go.microsoft.com/fwlink/?LinkId=253001#email)。で、 [ASP.NET Web Pages (Razor) トラブルシューティング ガイド](https://go.microsoft.com/fwlink/?LinkId=253001)します。
-4. 保存、  *\_AppStart.cshtml*ファイルして閉じます。
-5. Web サイトのルート フォルダーに作成するという名前の新しいページ*TestEmail.cshtml*します。
-6. 次のように、既存のコンテンツを置き換えます。 
+     SMTP 設定の詳細については、「 [ASP.NET Web ページ (razor) トラブルシューティングガイド](https://go.microsoft.com/fwlink/?LinkId=253001)」の「 [ASP.NET Web ページ (razor) サイトから](https://go.microsoft.com/fwlink/?LinkID=202899)電子メールを送信する」と「電子[メールの送信に関する問題](https://go.microsoft.com/fwlink/?LinkId=253001#email)」の「電子メール[設定の構成](https://go.microsoft.com/fwlink/?LinkID=202899#configuring_email_settings)」を参照してください。
+4. *\_該当*ファイルを保存して閉じます。
+5. Web サイトのルートフォルダーに、 *Testemail. cshtml*という名前の新しいページを作成します。
+6. 既存のコンテンツを次の内容に置き換えます。 
 
      [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample4.cshtml)]
-7. 実行、 *TestEmail.cshtml*ブラウザーでページ。
-8. 自分宛てに電子メール メッセージを送信し、フィールドに入力**送信**します。
-9. メッセージを取得したかどうかを確認する電子メールを確認します。
+7. ブラウザーで*Testemail. cshtml*ページを実行します。
+8. フィールドに電子メールメッセージを送信するように入力し、 **[送信]** をクリックします。
+9. メールを確認して、メッセージが表示されていることを確認してください。
 
-この例の重要な部分は通常は変更しない設定 — などの SMTP サーバーと電子メールの資格情報の名前: で設定されて、  *\_AppStart.cshtml*ファイル。 これにより、再度設定する各ページで電子メールを送信する必要はありません。 (が何らかの理由は、これらの設定を変更する必要が場合を設定できますに個別にページにします。)ページで、通常は毎回、受信者、電子メール メッセージの本文などを変更する値を設定するだけです。
+この例の重要な部分は、通常は変更しない設定 (SMTP サーバーの名前や電子メールの資格情報など) が *\_該当*ファイルに設定されていることです。 このようにして、電子メールを送信する各ページで再度設定する必要はありません。 (何らかの理由で、これらの設定を変更する必要がある場合は、ページで個別に設定できます)。このページでは、通常、電子メールメッセージの受信者や本文など、毎回変更される値のみを設定します。
 
 <a id="Running_Code_Before_and_After"></a>
-## <a name="running-code-before-and-after-files-in-a-folder"></a>フォルダー内のファイルの前後にコードを実行します。
+## <a name="running-code-before-and-after-files-in-a-folder"></a>フォルダー内のファイルの前後にコードを実行する
 
-同様に使用できること *\_AppStart.cshtml*前に、(と後) で実行されるコードを記述するコードを記述する、サイト内のページの実行前に、実行の特定のフォルダー内の任意のページ。 これは、同じレイアウト ページ、フォルダー内のすべてのページまたは確認するための中、フォルダー内のページを実行する前に、ユーザーがログインする設定などに便利です。
+*\_該当*を使用して、サイト内のページの前にコードを記述するのと同様に、特定のフォルダー内の任意のページが実行される前 (および後) に実行されるコードを記述することができます。 これは、フォルダー内のすべてのページに対して同じレイアウトページを設定する場合や、フォルダー内のページを実行する前にユーザーがログインしていることを確認する場合などに便利です。
 
-ページの具体的にはフォルダー、コードを作成できますという名前のファイルで *\_PageStart.cshtml*します。 次の図は、どのように *\_PageStart.cshtml* works ページします。 ASP.NET が最初のチェック、ページの要求を受信すると、  *\_AppStart.cshtml*ページしを実行します。 ASP.NET があるかどうかをチェックし、  *\_PageStart.cshtml*ページ、および場合を実行します。 これは、後、要求されたページを実行します。
+特定のフォルダーのページでは、 *\_PageStart. cshtml*という名前のファイルにコードを作成できます。 次の図は、 *\_PageStart. cshtml*ページがどのように動作するかを示しています。 ページに対して要求が送信されると、ASP.NET は最初に、 *\_該当*ページを確認し、それを実行します。 次に、ASP.NET ページがあるか *\_* どうかを確認し、存在する場合はそれを実行します。 次に、要求されたページを実行します。
 
-内で、  *\_PageStart.cshtml*  ページで、場所を指定するなどして実行する、要求されたページの処理中に、`RunPage`メソッド。 これにより、要求されたページの実行前に、コードを実行できますし、その後にもう一度です。 含めない場合`RunPage`、すべてのコードで *\_PageStart.cshtml*実行してから、要求されたページが自動的に実行されます。
+*\_PageStart. cshtml*ページ内で、`RunPage` メソッドを含めることで、要求されたページの実行を処理する場所を指定できます。 これにより、要求されたページが実行される前にコードを実行してから、後で再度実行できます。 `RunPage`を指定しない場合は、 *\_pagestart*すべてのコードが実行され、要求されたページが自動的に実行されます。
 
-![[イメージ]](18-customizing-site-wide-behavior/_static/image3.jpg)
+![[画像]](18-customizing-site-wide-behavior/_static/image3.jpg)
 
-ASP.NET では、階層を作成できます。  *\_PageStart.cshtml*ファイル。 配置することができます、  *\_PageStart.cshtml*ファイルとサブフォルダー、サイトのルートにします。 ページが要求されたときに、  *\_PageStart.cshtml*に続けて、最上位レベル (サイトのルート) に最も近い実行ファイル、  *\_PageStart.cshtml*次のファイルサブフォルダー、サブフォルダーの構造を要求されたページを含むフォルダーに到達するまでの下位にあります。 すべての適用後 *\_PageStart.cshtml*ファイルを実行、要求されたページが実行されます。
+ASP.NET を使用すると *\_PageStart. cshtml*ファイルの階層を作成できます。 サイトのルートと任意のサブフォルダーに、 *\_PageStart. cshtml*ファイルを配置できます。 ページが要求されると、最上位レベル (サイトルートに最も近い) の *\_PageStart. cshtml*ファイルが実行され、その後、次のサブフォルダーにある *\_pagestart. cshtml*ファイルが実行されます。その後、要求されたページを含むフォルダーに要求が到達するまで、サブフォルダーの構造が下になります。 適用可能なすべての *\_PageStart. cshtml*ファイルが実行されると、要求されたページが実行されます。
 
-たとえばの次の組み合わせがある *\_PageStart.cshtml*ファイルと*Default.cshtml*ファイル。
+たとえば、次のような *\_PageStart. cshtml*ファイルと*既定の cshtml*ファイルの組み合わせがあるとします。
 
 [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample5.cshtml)]
 
@@ -127,86 +127,86 @@ ASP.NET では、階層を作成できます。  *\_PageStart.cshtml*ファイ�
 
 [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample7.cshtml)]
 
-実行すると */myfolder/default.cshtml*次を確認します。
+*/Myfolderを*実行すると、次のように表示されます。
 
 [!code-console[Main](18-customizing-site-wide-behavior/samples/sample8.cmd)]
 
-## <a name="running-initialization-code-for-all-pages-in-a-folder"></a>フォルダー内のすべてのページの初期化コードを実行しています。
+## <a name="running-initialization-code-for-all-pages-in-a-folder"></a>フォルダー内のすべてのページに対して初期化コードを実行する
 
-良い使用 *\_PageStart.cshtml*ファイルは、1 つのフォルダーですべてのファイルと同じレイアウト ページを初期化します。
+*PageStart. cshtml*ファイルを\_には、1つのフォルダー内のすべてのファイルに対して同じレイアウトページを初期化することをお勧めします。
 
-1. という名前の新しいフォルダーを作成、ルート フォルダーで*InitPages*します。
-2. *InitPages*という名前のファイルを作成、web サイトのフォルダー  *\_PageStart.cshtml*次の既定のマークアップとコードを置き換えます。 
+1. ルートフォルダーに、 *Initpages*という名前の新しいフォルダーを作成します。
+2. Web サイトの*Initpages*フォルダーで、 *\_pagestart. cshtml*という名前のファイルを作成し、既定のマークアップとコードを次のコードに置き換えます。 
 
     [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample9.cshtml)]
-3. という名前のフォルダーを作成、web サイトのルートに*Shared*します。
-4. *Shared*フォルダー、という名前のファイルを作成する *\_Layout1.cshtml*次の既定のマークアップとコードを置き換えます。 
+3. Web サイトのルートで、 *Shared*という名前のフォルダーを作成します。
+4. *共有*フォルダーで *\_Layout1*という名前のファイルを作成し、既定のマークアップとコードを次のコードに置き換えます。 
 
     [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample10.cshtml)]
-5. *InitPages*フォルダー、という名前のファイルを作成する*Content1.cshtml*次の既存のコンテンツを置き換えます。 
+5. *Initpages*フォルダーで、 *Content1*という名前のファイルを作成し、既存のコンテンツを次の内容に置き換えます。 
 
     [!code-html[Main](18-customizing-site-wide-behavior/samples/sample11.html)]
-6. *InitPages*フォルダー、という別のファイルを作成する*Content2.cshtml*次の既定のマークアップを置き換えます。 
+6. *Initpages*フォルダーで、 *Content2*という名前の別のファイルを作成し、既定のマークアップを次のように置き換えます。 
 
     [!code-html[Main](18-customizing-site-wide-behavior/samples/sample12.html)]
-7. 実行*Content1.cshtml*ブラウザーでします。 
+7. ブラウザーで*Content1*を実行します。 
 
-    ![[イメージ]](18-customizing-site-wide-behavior/_static/image4.jpg)
+    ![[画像]](18-customizing-site-wide-behavior/_static/image4.jpg)
 
-    ときに、 *Content1.cshtml*ページの実行、  *\_PageStart.cshtml*ファイルのセット`Layout`され、また`PageData["MyBackground"]`色にします。 *Content1.cshtml*レイアウトと色が適用されます。
-8. 表示*Content2.cshtml*ブラウザーでします。 
+    *Content1*ページを実行すると、 *\_pagestart. cshtml*ファイルが `Layout` 設定され、`PageData["MyBackground"]` も色に設定されます。 *Content1*では、レイアウトと色が適用されます。
+8. ブラウザーで*Content2*を表示します。 
 
-    レイアウトは同じですが、両方のページを使用して、同じページのレイアウトと色で初期化するため *\_PageStart.cshtml*します。
+    レイアウトは同じです。どちらのページも、 *\_PageStart. cshtml*で初期化されたのと同じレイアウトページと色を使用するためです。
 
-## <a name="using-pagestartcshtml-to-handle-errors"></a>使用して\_PageStart.cshtml エラーを処理するには
+## <a name="using-_pagestartcshtml-to-handle-errors"></a>\_PageStart. cshtml を使用してエラーを処理する
 
-別なを使用して、  *\_PageStart.cshtml*ファイルは、いずれかで発生するプログラミング エラー (例外) を処理する方法を作成する *.cshtml*フォルダー内のページ。 この例では、これを行う 1 つの方法を示します。
+*\_PageStart. cshtml*ファイルのもう1つの使用方法は、フォルダー内の任意の*cshtml*ページで発生する可能性があるプログラミングエラー (例外) を処理する方法を作成することです。 この例では、これを行う1つの方法を示します。
 
-1. という名前のフォルダーを作成、ルート フォルダーで*InitCatch*します。
-2. *InitCatch*という名前のファイルを作成、web サイトのフォルダー  *\_PageStart.cshtml*次の既存のマークアップとコードを置き換えます。 
+1. ルートフォルダーに、 *Initcatch*という名前のフォルダーを作成します。
+2. Web サイトの*Initcatch*フォルダーで、 *\_pagestart. cshtml*という名前のファイルを作成し、既存のマークアップとコードを次のコードに置き換えます。 
 
     [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample13.cshtml)]
 
-    このコードで指定して実行する、要求されたページに明示的に呼び出すことによって、`RunPage`メソッド内で、`try`ブロックします。 要求された任意のプログラミング エラーが発生した場合のページの内部のコード、`catch`ブロックが実行されます。 コードをページにリダイレクトするこの例では、(*Error.cshtml*) し、URL の一部として、エラーが発生したファイルの名前を渡します。 (ページを作成します、間もなく。)
-3. *InitCatch*という名前のファイルを作成、web サイトのフォルダー *Exception.cshtml*次の既存のマークアップとコードを置き換えます。 
+    このコードでは、`try` ブロック内で `RunPage` メソッドを呼び出すことによって、要求されたページを明示的に実行しようとしています。 要求されたページで何らかのプログラミングエラーが発生した場合は、`catch` ブロック内のコードが実行されます。 この場合、コードはページ (*エラー cshtml*) にリダイレクトし、URL の一部としてエラーが発生したファイルの名前を渡します。 (ページはすぐに作成します)。
+3. Web サイトの*Initcatch*フォルダーで、 *Exception. cshtml*という名前のファイルを作成し、既存のマークアップとコードを次のコードに置き換えます。 
 
     [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample14.cshtml)]
 
-    この例のために、このページで何をしているが意図的に作成エラーが存在しないデータベース ファイルを開こうとしました。
-4. という名前のファイルを作成、ルート フォルダーで*Error.cshtml*次の既存のマークアップとコードを置き換えます。 
+    この例では、このページで行っていることは、存在しないデータベースファイルを開こうとすると意図的にエラーになります。
+4. ルートフォルダーで、「 *Error. cshtml* 」という名前のファイルを作成し、既存のマークアップとコードを次のコードに置き換えます。 
 
     [!code-html[Main](18-customizing-site-wide-behavior/samples/sample15.html)]
 
-    このページでは、式で`@Request["source"]`URL から値を取得し、それを表示します。
-5. ツールバーで、次のようにクリックします。**保存**します。
-6. 実行*Exception.cshtml*ブラウザーでします。 
+    このページでは、式 `@Request["source"]` が URL から値を取得して表示します。
+5. ツールバーの **[保存]** をクリックします。
+6. ブラウザーで*例外を*実行します。 
 
-    ![[イメージ]](18-customizing-site-wide-behavior/_static/image5.jpg)
+    ![[画像]](18-customizing-site-wide-behavior/_static/image5.jpg)
 
-    エラーが発生したため、 *Exception.cshtml*、  *\_PageStart.cshtml*ページにリダイレクト、 *Error.cshtml*ファイルで、メッセージが表示されます。
+    *例外*が発生したため、 *\_pagestart. Cshtml*ページが*エラーの cshtml*ファイルにリダイレクトされ、メッセージが表示されます。
 
-    例外の詳細については、次を参照してください。 [ASP.NET Web ページは、Razor 構文を使用プログラミングの概要について](https://go.microsoft.com/fwlink/?LinkID=251587)します。
+    例外の詳細については、「 [Razor 構文を使用した ASP.NET Web ページプログラミングの概要](https://go.microsoft.com/fwlink/?LinkID=251587)」を参照してください。
 
 <a id="Using__PageStart.cshtml_to_Restrict_Folder_Access"></a>
-## <a name="using-pagestartcshtml-to-restrict-folder-access"></a>使用して\_PageStart.cshtml フォルダーへのアクセスを制限するには
+## <a name="using-_pagestartcshtml-to-restrict-folder-access"></a>\_PageStart. cshtml を使用してフォルダーアクセスを制限する
 
-使用することも、  *\_PageStart.cshtml*フォルダー内のすべてのファイルへのアクセスを制限するファイル。
+また、 *\_PageStart. cshtml*ファイルを使用して、フォルダー内のすべてのファイルへのアクセスを制限することもできます。
 
-1. WebMatrix で、使用して新しい web サイトを作成、**テンプレートからサイト**オプション。
-2. 使用可能なテンプレートから次のように選択します。**スターター サイト**します。
-3. という名前のフォルダーを作成、ルート フォルダーで*AuthenticatedContent*します。
-4. *AuthenticatedContent*フォルダー、という名前のファイルを作成する *\_PageStart.cshtml*次の既存のマークアップとコードを置き換えます。 
+1. WebMatrix で、 **[テンプレートからのサイト]** オプションを使用して新しい web サイトを作成します。
+2. 使用可能なテンプレートから、 **[スターターサイト]** を選択します。
+3. ルートフォルダーに、認証*Atedcontent*という名前のフォルダーを作成します。
+4. [認証*Atedcontent* ] フォルダーで、 *\_pagestart. cshtml*という名前のファイルを作成し、既存のマークアップとコードを次のコードに置き換えます。 
 
     [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample16.cshtml)]
 
-    コードは、フォルダー内のすべてのファイルがキャッシュされないようにすることで開始します。 (これは、次のユーザーが利用できる 1 つのユーザーのキャッシュされたページをたくない公共のコンピューターのようなシナリオに必要)。次に、コードでは、ユーザーがサイトにサインイン済みで、フォルダー内の各ページを表示するかどうかを判断します。 ユーザーがサインインされていない場合、コードは、ログイン ページにリダイレクトします。 ログイン ページにユーザーという名前のクエリ文字列値を含める場合は最初に要求されたページを返すことができます`ReturnUrl`します。
-5. 新しいページを作成、 *AuthenticatedContent*という名前のフォルダー *Page.cshtml*します。
-6. 次のように、既定のマークアップに置き換えます。  
+    このコードは、フォルダー内のすべてのファイルがキャッシュされるのを防ぐことから始まります。 (これは、パブリックコンピューターのようなシナリオで、1人のユーザーのキャッシュされたページを次のユーザーが使用できないようにする場合に必要です)。次に、ユーザーがフォルダー内のページを表示する前に、サイトにサインインしているかどうかを確認します。 ユーザーがサインインしていない場合、コードはログインページにリダイレクトされます。 ログインページでは、`ReturnUrl`という名前のクエリ文字列値を指定した場合に、最初に要求されたページにユーザーを返すことができます。
+5. "/" という名前の認証の*コンテンツ*フォルダーに新しいページを作成*します。*
+6. 既定のマークアップを次のように置き換えます。  
 
     [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample17.cshtml)]
-7. 実行*Page.cshtml*ブラウザーでします。 コードでは、ログイン ページにリダイレクトします。 ログインする前に登録する必要があります。 登録し、ログインして後、は、ページに移動し、その内容を表示します。
+7. ブラウザーで、[ *Cshtml]* を実行します。 このコードにより、ログインページにリダイレクトされます。 ログインする前に登録する必要があります。 登録してログインすると、ページに移動してその内容を表示できます。
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>その他のリソース
 
-[ASP.NET Web ページの Razor 構文を使用したプログラミングの概要](https://go.microsoft.com/fwlink/?LinkID=251587)
+[Razor 構文を使用した ASP.NET Web ページプログラミングの概要](https://go.microsoft.com/fwlink/?LinkID=251587)

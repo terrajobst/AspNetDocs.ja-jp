@@ -1,125 +1,125 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/performing-a-what-if-deployment
-title: 場合、何を実行する展開 |Microsoft Docs
+title: What If デプロイを実行する |Microsoft Docs
 author: jrjlee
-description: このトピックの「' what-if ' を実行する方法について説明します (またはシミュレートされた) (Web 配置) インターネット インフォメーション サービス (IIS) Web 配置ツールと V を使用してデプロイいます.
+description: このトピックでは、インターネットインフォメーションサービス (IIS) Web 配置ツール (Web 配置) と v2.0 を使用して、"what-if" (またはシミュレートされた) 展開を実行する方法について説明します。
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: c711b453-01ac-4e65-a48c-93d99bf22e58
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/performing-a-what-if-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: 73a0e038cc0d4ebae0ffc8ed3fd2de4c9dad673c
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65127076"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78510334"
 ---
 # <a name="performing-a-what-if-deployment"></a>"What If" 配置を実行する
 
-によって[Jason Lee](https://github.com/jrjlee)
+[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[[Download PDF]\(PDF をダウンロード\)](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> このトピックで"what-if"を実行する方法について説明します (またはシミュレートされた) (Web 配置) インターネット インフォメーション サービス (IIS) Web 配置ツール、VSDBCMD を使用してデプロイします。 これにより、アプリケーションを実際に展開する前に、デプロイ ロジックの特定のターゲット環境に与える影響を判断できます。
+> このトピックでは、インターネットインフォメーションサービス (IIS) Web 配置ツール (Web 配置) と VSDBCMD を使用して、"what-if" (またはシミュレートされた) 展開を実行する方法について説明します。 これにより、アプリケーションを実際に配置する前に、特定のターゲット環境に対する配置ロジックの効果を判断できます。
 
-このトピックでは、一連の Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に基づいているチュートリアルの一部を形成します。このチュートリアル シリーズは、サンプル ソリューションを使用して&#x2014;、[連絡先マネージャー ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;現実的なレベルの ASP.NET MVC 3 アプリケーション、Windows の通信など、複雑な web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
+このトピックでは、Fabrikam, Inc. という架空の企業のエンタープライズ展開要件に基づいて、一連のチュートリアルの一部を説明します。このチュートリアルシリーズでは、&#x2014; [Contact Manager ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;のサンプルソリューションを使用して、ASP.NET MVC 3 アプリケーション、Windows Communication Foundation (WCF) サービス、データベースプロジェクトなど、現実的なレベルの複雑さを持つ web アプリケーションを表します。
 
-これらのチュートリアルの中核の展開方法が分割のプロジェクト ファイルの方法で説明されているに基づいて[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)、によって制御されるビルドおよび配置プロセスでは、2 つのプロジェクト ファイル&#x2014;いずれかすべての変換先の環境と環境固有のビルドと配置の設定を含む 1 つに適用されるビルドの手順を含むです。 ビルド時に、環境固有のプロジェクト ファイルは、ビルド手順の完全なセットを形成する環境に依存しないプロジェクト ファイルにマージされます。
+これらのチュートリアルの中核となる配置方法は、「プロジェクト[ファイルについ](../web-deployment-in-the-enterprise/understanding-the-project-file.md)て」で説明されている分割プロジェクトファイルアプローチに基づいています。この方法で&#x2014;は、ビルドおよび配置プロセスは、すべての変換先環境に適用されるビルド命令を含む2つのプロジェクトファイルと、環境固有のビルドと配置の設定を含んでいます。 ビルド時に、環境固有のプロジェクトファイルが環境に依存しないプロジェクトファイルにマージされ、ビルド命令の完全なセットが形成されます。
 
-## <a name="performing-a-what-if-deployment-for-web-packages"></a>Web パッケージを"What If"展開を実行します。
+## <a name="performing-a-what-if-deployment-for-web-packages"></a>Web パッケージの "What If" 配置の実行
 
-Web Deploy には、"what-if"でのデプロイを実行する機能 (または試用版) が含まれます。 モード。 展開が実行される必要があるが、移行先サーバーでは何も変更が実際には、Web Deploy"what-if"モードでの成果物を配置するときにログ ファイルを生成します。 ログ ファイルを確認することは、デプロイは具体的には、移行先サーバーでがどのような影響を理解するのに役立ちます。
+Web 配置には、"what-if" (または試用版) モードで展開を実行できる機能が含まれています。 アイテムを "what-if" モードで展開すると、Web 配置は、展開を実行した場合と同じようにログファイルを生成しますが、実際には移行先サーバーで何も変更しません。 ログファイルを確認すると、配置が移行先サーバーに与える影響を理解するのに役立ちます。具体的には次のとおりです。
 
-- どのような追加されます。
-- 何が更新されます。
-- 取得とは、削除します。
+- 追加される内容。
+- 更新される内容。
+- 削除される内容。
 
-"What if"展開で実際に変更できません常に何が、移行先サーバーでは何もしないため、展開が成功するかどうかを予測します。
+"What-if" の展開では、移行先サーバーで実際には何も変更されないため、展開が成功するかどうかを予測することはできません。
 
-」の説明に従って[Web パッケージを展開する](../web-deployment-in-the-enterprise/deploying-web-packages.md)、2 つの方法で Web Deploy を使用して web パッケージを展開する&#x2014;直接、またはを実行して MSDeploy.exe コマンド ライン ユーティリティを使用して、 *. deploy.cmd*ファイルビルド プロセスを生成します。
+「 [Web パッケージの配置](../web-deployment-in-the-enterprise/deploying-web-packages.md)」で説明したように、msdeploy.exe コマンドラインユーティリティ&#x2014;を直接使用するか、ビルドプロセスによって生成される *.deploy*ファイルを実行することで、Web 配置を使用して web パッケージを配置できます。
 
-MSDeploy.exe を直接使用している場合は、追加することで、"what if"展開を行うことができます、 **– whatif**コマンドにフラグ。 たとえば、ContactManager.Mvc.zip パッケージをステージング環境にデプロイした場合、何が起こるかを評価するため、MSDeploy コマンドのようになりますこの。
+Msdeploy.exe を直接使用している場合は、コマンドに **– whatif**フラグを追加することで、"what-if" 配置を実行できます。 たとえば、ContactManager. Mvc パッケージをステージング環境に配置した場合に何が起こるかを評価するために、Msdeploy.exe コマンドは次のようになります。
 
 [!code-console[Main](performing-a-what-if-deployment/samples/sample1.cmd)]
 
-削除することができます、"what if"展開の結果に満足したら、 **– whatif**ライブの展開を実行するフラグ。
+"What-if" デプロイの結果に問題がなければ、 **– whatif**フラグを削除してライブデプロイを実行できます。
 
 > [!NOTE]
-> MSDeploy.exe のコマンド ライン オプションの詳細については、次を参照してください。 [Web 配置操作の設定](https://technet.microsoft.com/library/dd569089(WS.10).aspx)します。
+> Msdeploy.exe のコマンドラインオプションの詳細については、「 [Web 配置操作の設定](https://technet.microsoft.com/library/dd569089(WS.10).aspx)」を参照してください。
 
-使用している場合、 *. deploy.cmd*ファイルを含めることで、"what if"展開を実行することができます、 **/t**フラグ (試用版モード) のフラグの代わりに、 **/y**のフラグ ("yes"、または更新モード)コマンド。 たとえばを実行して ContactManager.Mvc.zip パッケージを展開する場合に何が起こるかを評価するため、 *. deploy.cmd*ファイルでは、このコマンドのようになります。
+*.Deploy*ファイルを使用している場合は、コマンドに **/y**フラグ ("yes" または update mode) ではなく **/t**フラグ (試用モード) フラグを含めることで、"what-if" 展開を実行できます。 たとえば、 *.deploy*ファイルを実行して Contactmanager の Mvc パッケージを配置した場合の動作を評価するには、コマンドは次のようになります。
 
 [!code-console[Main](performing-a-what-if-deployment/samples/sample2.cmd)]
 
-「試用版モード」配置の結果に満足したら、置き換えることができます、 **/t**フラグを **/y**ライブの展開を実行するフラグ。
+"試用モード" 展開の結果に問題がなければ、 **/t**フラグを **/y**フラグに置き換えてライブデプロイを実行できます。
 
 [!code-console[Main](performing-a-what-if-deployment/samples/sample3.cmd)]
 
 > [!NOTE]
-> コマンド ライン オプションの詳細については *. deploy.cmd*ファイルを参照してください[方法。Deploy.cmd ファイルを使用して配置パッケージをインストール](https://msdn.microsoft.com/library/ff356104.aspx)します。 実行する場合、 *. deploy.cmd*ファイル フラグのいずれかを指定せず、コマンド プロンプトが使用可能なフラグの一覧を表示します。
+> *. .Deploy*ファイルのコマンドラインオプションの詳細については、「[方法: .Deploy ファイルを使用して展開パッケージをインストール](https://msdn.microsoft.com/library/ff356104.aspx)する」を参照してください。 フラグを指定せずに *.deploy*ファイルを実行すると、使用可能なフラグの一覧がコマンドプロンプトに表示されます。
 
-## <a name="performing-a-what-if-deployment-for-databases"></a>データベースの"What If"展開を実行します。
+## <a name="performing-a-what-if-deployment-for-databases"></a>データベースの "What If" 配置の実行
 
-このセクションでは、VSDBCMD ユーティリティを使用して、増分"、"スキーマ ベースのデータベースの配置を実行していることを前提としています。 このアプローチがで詳しく説明されている[データベース プロジェクトの配置](../web-deployment-in-the-enterprise/deploying-database-projects.md)します。 理解するおくとこのトピックにここで説明した概念を適用する前にすることをお勧めします。
+このセクションでは、VSDBCMD ユーティリティを使用して、スキーマベースの増分データベース配置を実行していることを前提としています。 この方法の詳細については、「[データベースプロジェクトの配置](../web-deployment-in-the-enterprise/deploying-database-projects.md)」を参照してください。 ここで説明する概念を適用する前に、このトピックについて理解しておくことをお勧めします。
 
-VSDBCMD を使用すると**デプロイ**モードを使用できます、 **/dd** (または **/DeployToDatabase**) VSDBCMD が実際にデータベースを配置またはだけを生成するかどうかを制御するフラグをデプロイ スクリプト。 .Dbschema ファイルを配置する場合、これは動作します。
+**配置**モードで VSDBCMD を使用する場合は、 **/dd** (または **/deploytodatabase**) フラグを使用して、VSDBCMD が実際にデータベースを配置するか、配置スクリプトを生成するかを制御できます。 .Dbschema ファイルを配置している場合は、次のような動作になります。
 
-- 指定した場合 **/dd+** または **/dd**VSDBCMD は配置スクリプトを生成し、データベースを展開します。
-- 指定した場合 **/dd-** またはスイッチは省略、VSDBCMD 配置スクリプトのみが生成されます。
+- **/Dd +** または **/dd**を指定すると、VSDBCMD によって配置スクリプトが生成され、データベースが配置されます。
+- **/Ddを**指定した場合、またはスイッチを省略した場合、VSDBCMD では配置スクリプトのみが生成されます。
 
 > [!NOTE]
-> .Dbschema ファイルの動作ではなく、.deploymanifest ファイルをデプロイする場合、 **/dd**スイッチはもっと複雑になります。 VSDBCMD は基本的には、値は無視、 **/dd** .deploymanifest ファイルが含まれている場合に切り替え、 **DeployToDatabase**の値を持つ要素**True**します。 [データベース プロジェクトの配置](../web-deployment-in-the-enterprise/deploying-database-projects.md)を完全には、この動作について説明します。
+> .Dbschema ファイルではなく、deploymanifest ファイルを配置している場合、 **/dd**スイッチの動作ははるかに複雑になります。 基本的に、VSDBCMD では、deploymanifest ファイルに値**True**の**deploytodatabase**要素が含まれている場合、 **/dd**スイッチの値は無視されます。 [データベースプロジェクトを配置](../web-deployment-in-the-enterprise/deploying-database-projects.md)すると、この動作が完全に記述されます。
 
-たとえば、配置スクリプトを生成、 **ContactManager**この実際には、VSDBCMD コマンドは、データベースを展開することがなくデータベースのようになります。
+たとえば、実際にデータベースを配置せずに**Contactmanager**データベースの配置スクリプトを生成する場合、VSDBCMD コマンドは次のようになります。
 
 [!code-console[Main](performing-a-what-if-deployment/samples/sample4.cmd)]
 
-VSDBCMD は、データベースの差分の展開ツールと、指定したスキーマに存在する場合は、現在のデータベースを更新するために必要なすべての SQL コマンドを格納する配置スクリプトが動的に生成されるようします。 配置スクリプトを確認するは、配置に影響を与えるものを決定する便利な方法が、現在のデータベースとデータが含まれている必要があります。 たとえばを確認します。
+VSDBCMD はデータベースの差分配置ツールであるため、配置スクリプトは、現在のデータベース (存在する場合) を指定したスキーマに更新するために必要なすべての SQL コマンドを含むように動的に生成されます。 配置スクリプトを確認することは、配置が現在のデータベースとそれに含まれるデータに与える影響を決定するのに便利な方法です。 たとえば、次のような判断が必要になる場合があります。
 
-- 任意の既存のテーブルを削除するかどうかと、データが失われるしまうかどうか。
-- 操作の順序はたとえば、データ損失のリスクを実行するかどうか、分割またはテーブルをマージしている場合は。
+- 既存のテーブルが削除されるかどうか、およびそれによってデータが失われるかどうかを示します。
+- テーブルを分割またはマージする場合など、操作の順序によってデータ損失のリスクが生じるかどうか。
 
-配置スクリプトに満足したら場合に、VSDBCMD を繰り返すことができます、 **/dd+** を変更するフラグ。 または、要件を満たすし、データベース サーバーに手動で実行するには、配置スクリプトを編集できます。
+デプロイスクリプトに問題がなければ、VSDBCMD **+** フラグを使用して、変更を加えることができます。 または、必要に応じて配置スクリプトを編集し、データベースサーバーで手動で実行することもできます。
 
-## <a name="integrating-what-if-functionality-into-custom-project-files"></a>カスタムのプロジェクト ファイルに"What If"機能を統合します。
+## <a name="integrating-what-if-functionality-into-custom-project-files"></a>"What If" 機能のカスタムプロジェクトファイルへの統合
 
-複雑な展開シナリオでは、」の説明に従って、カスタム Microsoft Build Engine (MSBuild) プロジェクト ファイルを使用して、ビルドと配置ロジックをカプセル化する必要あります[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)します。 たとえば、 [Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)サンプル ソリューションを*Publish.proj*ファイル。
+より複雑な配置シナリオでは、「[プロジェクトファイルについ](../web-deployment-in-the-enterprise/understanding-the-project-file.md)て」で説明されているように、カスタム Microsoft Build Engine (MSBuild) プロジェクトファイルを使用してビルドおよび配置ロジックをカプセル化することをお勧めします。 たとえば、 [Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)サンプルソリューションでは、次のように*発行します。*
 
 - ソリューションをビルドします。
-- パッケージ化し、ContactManager.Mvc アプリケーションをデプロイするには、Web Deploy を使用します。
-- パッケージ化し、ContactManager.Service アプリケーションをデプロイするには、Web Deploy を使用します。
-- 配置、 **ContactManager**データベース。
+- Web 配置を使用して、ContactManager の Mvc アプリケーションをパッケージ化して配置します。
+- Web 配置を使用して、ContactManager. サービスアプリケーションをパッケージ化して配置します。
+- **Contactmanager**データベースをデプロイします。
 
-この方法でのシングル ステップのプロセスに複数の web のパッケージやデータベースの配置を統合するときは、"what-if"モードで展開全体を実行するオプションを必要もあります。
+この方法で、複数の web パッケージまたはデータベースの配置を1つの手順のプロセスに統合する場合は、"what-if" モードで配置全体を実行するオプションを使用することもできます。
 
-*Publish.proj*ファイルでは、これを実行する方法を示します。 最初に、"what-if"の値を格納するプロパティを作成する必要があります。
+この方法を説明するには、 *Publish*ファイルを使用します。 まず、"what-if" 値を格納するプロパティを作成する必要があります。
 
 [!code-xml[Main](performing-a-what-if-deployment/samples/sample5.xml)]
 
-この場合、という名前のプロパティを作成した**WhatIf**の既定値を持つ**false**します。 ユーザーは、プロパティを設定してこの値を上書きできます**true** 、コマンド ライン パラメーターでも後ほど説明します。
+この例では、 **WhatIf**という名前のプロパティを作成しました。既定値は**false**です。 この値をオーバーライドするには、後で説明するように、コマンドラインパラメーターでプロパティを**true**に設定します。
 
-次に、任意の Web Deploy をパラメーター化して、VSDBCMD フラグを反映するためのコマンド、 **WhatIf**プロパティの値。 たとえば、次のターゲット (から取得した、 *Publish.proj*ファイルし、簡略化) を実行、 *. deploy.cmd* web パッケージを配置するファイル。 既定で、コマンドが含まれて、 **/Y**スイッチ ("yes"、または更新モード)。 場合**WhatIf**に設定されている**true**で置き換えられます、 **/T**スイッチ (試用版、または"what-if"モード)。
+次の段階では、VSDBCMD コマンドを Web 配置パラメーター化し、フラグに**WhatIf**プロパティ値が反映されるようにします。 たとえば、次のターゲット ( *Publish. proj*ファイルと簡略化された) は、 *.deploy*ファイルを実行して web パッケージを配置します。 既定では、コマンドには、 **/y**スイッチ ("yes" または update mode) が含まれています。 **WhatIf**が**true**に設定されている場合、これは **/t**スイッチ (試用版または "what-if" モード) に置き換えられます。
 
 [!code-xml[Main](performing-a-what-if-deployment/samples/sample6.xml)]
 
-同様に、次のターゲットは、VSDBCMD ユーティリティを使用して、データベースを配置します。 既定で、 **/dd**スイッチは含まれません。 つまり、VSDBCMD は配置スクリプトが生成されますが、データベースに展開できなくなります&#x2014;つまり、"what-if"シナリオ。 場合、 **WhatIf**プロパティに設定されていない**true**、 **/dd**スイッチが追加され、VSDBCMD はデータベースを配置します。
+同様に、次のターゲットは、VSDBCMD ユーティリティを使用してデータベースを配置します。 既定では、 **/dd**スイッチは含まれていません。 つまり、VSDBCMD は配置スクリプトを生成しますが、"what-if"&#x2014;シナリオではなく、データベースを展開しません。 **WhatIf**プロパティが**true**に設定されていない場合は、 **/dd**スイッチが追加され、VSDBCMD によってデータベースが配置されます。
 
 [!code-xml[Main](performing-a-what-if-deployment/samples/sample7.xml)]
 
-同じアプローチを使用すると、プロジェクト ファイル内のすべての関連するコマンドをパラメーター化します。 "What if"展開を実行するときに行うことができますし、単に、 **WhatIf**コマンドラインからプロパティ値。
+同じ方法を使用して、プロジェクトファイル内の関連するすべてのコマンドをパラメーター化することができます。 "What-if" 配置を実行する場合は、コマンドラインから**WhatIf**プロパティ値を指定するだけです。
 
 [!code-console[Main](performing-a-what-if-deployment/samples/sample8.cmd)]
 
-これにより、1 つのステップですべてのプロジェクト コンポーネント、"what if"展開を実行できます。
+このようにして、すべてのプロジェクトコンポーネントの "what-if" 配置を1回の手順で実行できます。
 
 ## <a name="conclusion"></a>まとめ
 
-このトピックでは、Web Deploy、VSDBCMD、MSBuild を使用してデプロイ"what-if"を実行する方法について説明します。 "What if"展開では、移行先の環境に実際には、変更を加える前に、提案された展開の影響を評価することができます。
+このトピックでは、Web 配置、VSDBCMD、および MSBuild を使用して "what-if" 配置を実行する方法について説明します。 "What-if" 展開を使用すると、移行先の環境に実際に変更を加える前に、提案された展開の影響を評価できます。
 
-## <a name="further-reading"></a>関連項目
+## <a name="further-reading"></a>参考資料
 
-Web デプロイ コマンドライン構文の詳細については、次を参照してください。 [Web 配置操作の設定](https://technet.microsoft.com/library/dd569089(WS.10).aspx)します。 コマンド ライン オプションを使用する場合のガイダンスについては、 *. deploy.cmd*ファイルを参照してください[方法。Deploy.cmd ファイルを使用して配置パッケージをインストール](https://msdn.microsoft.com/library/ff356104.aspx)します。 VSDBCMD コマンドライン構文については、次を参照してください。 [VSDBCMD のコマンド ライン リファレンス。EXE (展開およびスキーマのインポート)](https://msdn.microsoft.com/library/dd193283.aspx)します。
+Web 配置のコマンドライン構文の詳細については、「 [Web 配置操作の設定](https://technet.microsoft.com/library/dd569089(WS.10).aspx)」を参照してください。 *.Deploy*ファイルを使用する場合のコマンドラインオプションのガイダンスについては、「[方法: .Deploy ファイルを使用して展開パッケージをインストール](https://msdn.microsoft.com/library/ff356104.aspx)する」を参照してください。 VSDBCMD コマンドライン構文のガイダンスについては、「 [VSDBCMD のコマンドラインリファレンス」を参照してください。EXE (デプロイとスキーマのインポート)](https://msdn.microsoft.com/library/dd193283.aspx)。
 
 > [!div class="step-by-step"]
 > [前へ](advanced-enterprise-web-deployment.md)

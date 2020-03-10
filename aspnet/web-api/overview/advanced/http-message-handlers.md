@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/advanced/http-message-handlers
-title: ASP.NET Web API - ASP.NET の HTTP メッセージ ハンドラー 4.x
+title: ASP.NET Web API の HTTP メッセージハンドラー-ASP.NET 4.x
 author: MikeWasson
-description: ASP.NET 用の ASP.NET Web API の HTTP メッセージ ハンドラーの概要 4.x
+description: ASP.NET 4.x の ASP.NET Web API での HTTP メッセージハンドラーの概要
 ms.author: riande
 ms.date: 02/13/2012
 ms.custom: seoapril2019
@@ -10,144 +10,144 @@ ms.assetid: 9002018b-3aa3-4358-bb1c-fbb5bc751d01
 msc.legacyurl: /web-api/overview/advanced/http-message-handlers
 msc.type: authoredcontent
 ms.openlocfilehash: a8e6f1da8df4802e1acf7779a2fc75bfe8ab876f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65115542"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78504928"
 ---
-# <a name="http-message-handlers-in-aspnet-web-api"></a>ASP.NET Web API の HTTP メッセージ ハンドラー
+# <a name="http-message-handlers-in-aspnet-web-api"></a>ASP.NET Web API の HTTP メッセージハンドラー
 
-作成者[Mike Wasson](https://github.com/MikeWasson)
+[Mike Wasson](https://github.com/MikeWasson)
 
-A*メッセージ ハンドラー*は HTTP 要求を受信し、HTTP 応答を返すクラスです。 メッセージ ハンドラーは、抽象型から派生**HttpMessageHandler**クラス。
+*メッセージハンドラー*は、http 要求を受け取り、http 応答を返すクラスです。 メッセージハンドラーは、抽象**Httpmessagehandler**クラスから派生します。
 
-通常、一連のメッセージ ハンドラーが連結されます。 最初のハンドラー HTTP 要求を受信するには、いくつかの処理およびの次のハンドラーへの要求を提供します。 いくつかの時点では、応答が作成され、チェーンの上位に戻ります。 このパターンと呼ばれます、*委任*ハンドラー。
+通常、一連のメッセージハンドラーが連結されます。 最初のハンドラーは HTTP 要求を受け取り、何らかの処理を行い、次のハンドラーに要求を渡します。 ある時点で、応答が作成され、チェーンがバックアップされます。 このパターンは、*デリゲート*ハンドラーと呼ばれます。
 
 ![](http-message-handlers/_static/image1.png)
 
-## <a name="server-side-message-handlers"></a>サーバー側のメッセージ ハンドラー
+## <a name="server-side-message-handlers"></a>サーバー側のメッセージハンドラー
 
-サーバー側では、Web API パイプラインは、いくつか組み込まれているメッセージのハンドラーを使用します。
+サーバー側では、Web API パイプラインはいくつかの組み込みメッセージハンドラーを使用します。
 
-- **HttpServer**ホストから要求を取得します。
-- **HttpRoutingDispatcher**ルートに基づいて、要求をディスパッチします。
-- **HttpControllerDispatcher** Web API コント ローラーに要求を送信します。
+- **HttpServer**は、ホストから要求を取得します。
+- **HttpRoutingDispatcher**は、ルートに基づいて要求をディスパッチします。
+- **Httpcontroller ディスパッチャー**は、要求を Web API コントローラーに送信します。
 
-パイプラインにカスタム ハンドラーを追加できます。 メッセージ ハンドラーは HTTP メッセージ (なくコント ローラー アクション) のレベルで操作するには、横断的関心事に適しています。 たとえば、メッセージ ハンドラーでは次の場合があります。
+パイプラインにカスタムハンドラーを追加できます。 メッセージハンドラーは、(コントローラーアクションではなく) HTTP メッセージレベルで動作する横断的な懸念に適しています。 たとえば、次のようなメッセージハンドラーがあるとします。
 
-- 読み取りまたは要求ヘッダーを変更します。
+- 要求ヘッダーを読み取りまたは変更します。
 - 応答ヘッダーを応答に追加します。
-- コント ローラーに到達する前に、要求を検証します。
+- コントローラーに到着する前に、要求を検証します。
 
-この図は、パイプラインに挿入された 2 つのカスタム ハンドラーを示しています。
+次の図は、パイプラインに挿入された2つのカスタムハンドラーを示しています。
 
 ![](http-message-handlers/_static/image2.png)
 
 > [!NOTE]
-> HttpClient は、クライアント側で、メッセージのハンドラーも使用します。 詳細については、次を参照してください。 [HttpClient メッセージ ハンドラー](httpclient-message-handlers.md)します。
+> クライアント側では、HttpClient はメッセージハンドラーも使用します。 詳細については、「 [Httpclient メッセージハンドラー](httpclient-message-handlers.md)」を参照してください。
 
-## <a name="custom-message-handlers"></a>カスタム メッセージ ハンドラー
+## <a name="custom-message-handlers"></a>カスタムメッセージハンドラー
 
-派生するカスタム メッセージ ハンドラーを書き込む**System.Net.Http.DelegatingHandler**をオーバーライドし、 **SendAsync**メソッド。 このメソッドのシグネチャは次のとおりです。
+カスタムメッセージハンドラーを作成するには、 **DelegatingHandler**から派生させ、 **sendasync**メソッドをオーバーライドします。 このメソッドのシグネチャは次のとおりです。
 
 [!code-csharp[Main](http-message-handlers/samples/sample1.cs)]
 
-メソッドには、 **HttpRequestMessage**として入力し、非同期的に返します、 **HttpResponseMessage**します。 一般的な実装は、次を行います。
+このメソッドは、 **HttpRequestMessage**を入力として受け取り、非同期的に**HttpResponseMessage**を返します。 一般的な実装では、次のことを行います。
 
 1. 要求メッセージを処理します。
-2. 呼び出す`base.SendAsync`内部ハンドラーに要求を送信します。
-3. 内部ハンドラーは、応答メッセージを返します。 (この手順は、非同期です)。
-4. 応答を処理し、呼び出し元に戻すこと。
+2. `base.SendAsync` を呼び出して、要求を内部ハンドラーに送信します。
+3. 内部ハンドラーは、応答メッセージを返します。 (この手順は非同期です)。
+4. 応答を処理し、呼び出し元に返します。
 
-簡単な例を次に示します。
+単純な例を次に示します。
 
 [!code-csharp[Main](http-message-handlers/samples/sample2.cs)]
 
 > [!NOTE]
-> 呼び出し`base.SendAsync`は非同期です。 存在する場合、ハンドラーはこの呼び出しの後の作業を使用して、 **await**キーワードを示すようにします。
+> `base.SendAsync` の呼び出しは非同期です。 この呼び出しの後でハンドラーが何らかの処理を実行する場合は、次に示すように**await**キーワードを使用します。
 
-デリゲート ハンドラーは、内部ハンドラーをスキップすることもおよび応答を直接作成できます。
+デリゲートハンドラーは、内部ハンドラーをスキップし、直接応答を作成することもできます。
 
 [!code-csharp[Main](http-message-handlers/samples/sample3.cs)]
 
-ハンドラーが呼び出さずに応答を作成する場合は、委任`base.SendAsync`、要求パイプラインの残りの部分をスキップします。 (エラー応答の作成) 要求を検証するハンドラーの便利なことができます。
+デリゲートハンドラーが `base.SendAsync`を呼び出さずに応答を作成した場合、要求はパイプラインの残りの部分をスキップします。 これは、要求を検証するハンドラー (エラー応答の作成) に役立ちます。
 
 ![](http-message-handlers/_static/image3.png)
 
-## <a name="adding-a-handler-to-the-pipeline"></a>パイプラインにハンドラーを追加します。
+## <a name="adding-a-handler-to-the-pipeline"></a>パイプラインへのハンドラーの追加
 
-サーバー側でメッセージのハンドラーを追加するハンドラーを追加、 **HttpConfiguration.MessageHandlers**コレクション。 プロジェクトを作成する、「ASP.NET MVC 4 Web アプリケーション」テンプレートを使用した場合は、この内部を行うことができます、 **WebApiConfig**クラス。
+サーバー側にメッセージハンドラーを追加するには、ハンドラーを**Httpconfiguration. messagehandlers**コレクションに追加します。 "ASP.NET MVC 4 Web アプリケーション" テンプレートを使用してプロジェクトを作成した場合は、 **webapiconfig.cs**クラス内でこれを行うことができます。
 
 [!code-csharp[Main](http-message-handlers/samples/sample4.cs)]
 
-メッセージ ハンドラーは内で出現する順序で呼び出されます**MessageHandlers**コレクション。 ネストされているため、応答メッセージは他の方向に移動します。 これは最後のハンドラーでは、応答メッセージを取得する 1 つ目があります。
+メッセージハンドラーは、 **messagehandlers**コレクションに表示される順序と同じ順序で呼び出されます。 入れ子になっているため、応答メッセージは別の方向に移動します。 つまり、最後のハンドラーは、応答メッセージを取得するための最初のハンドラーです。
 
-内部のハンドラーを設定する必要があることに注意してください。Web API フレームワークは、メッセージ ハンドラーを自動的に接続します。
+内部ハンドラーを設定する必要がないことに注意してください。Web API フレームワークは、メッセージハンドラーを自動的に接続します。
 
-場合[自己ホスト](../older-versions/self-host-a-web-api.md)のインスタンスを作成、 **HttpSelfHostConfiguration**クラスし、ハンドラーを追加、 **MessageHandlers**コレクション。
+[自己ホスト](../older-versions/self-host-a-web-api.md)している場合は、 **Httpselfhostconfiguration**クラスのインスタンスを作成し、そのハンドラーを**messagehandlers**コレクションに追加します。
 
 [!code-csharp[Main](http-message-handlers/samples/sample5.cs)]
 
-これでカスタム メッセージ ハンドラーの例をいくつか見てみましょう。
+次に、カスタムメッセージハンドラーの例をいくつか見てみましょう。
 
-## <a name="example-x-http-method-override"></a>例:X HTTP メソッド オーバーライド
+## <a name="example-x-http-method-override"></a>例: X-y-Override
 
-X HTTP メソッド オーバーライドは、非標準の HTTP ヘッダーです。 PUT や DELETE など、特定種類の HTTP 要求を送信できないクライアントに設計されています。 代わりに、クライアントは POST 要求を送信し、必要なメソッドに X HTTP メソッド オーバーライドのヘッダーを設定します。 例えば:
+-HTTP メソッドオーバーライドは、非標準の HTTP ヘッダーです。 これは、PUT や DELETE など、特定の種類の HTTP 要求を送信できないクライアント向けに設計されています。 代わりに、クライアントは POST 要求を送信し、X-y-Override ヘッダーを目的のメソッドに設定します。 次に例を示します。
 
 [!code-console[Main](http-message-handlers/samples/sample6.cmd)]
 
-X HTTP メソッド オーバーライドのサポートを追加するメッセージ ハンドラーを次に示します。
+次に示すのは、X-HTTP メソッドオーバーライドのサポートを追加するメッセージハンドラーです。
 
 [!code-csharp[Main](http-message-handlers/samples/sample7.cs)]
 
-**SendAsync**メソッドかどうか、POST 要求は、要求メッセージと X HTTP メソッド オーバーライド ヘッダーが含まれているかどうか、ハンドラーを確認します。 そうである場合、ヘッダーの値を検証し、要求メソッドを次に変更します。 最後に、ハンドラーが呼び出す`base.SendAsync`にメッセージを次のハンドラーに渡します。
+**Sendasync**メソッドでは、ハンドラーは、要求メッセージが POST 要求であるかどうか、およびそのメッセージに HTTP メソッドオーバーライドヘッダーが含まれているかどうかを確認します。 その場合は、ヘッダー値を検証してから、要求メソッドを変更します。 最後に、ハンドラーは `base.SendAsync` を呼び出して、メッセージを次のハンドラーに渡します。
 
-要求が達したとき、 **HttpControllerDispatcher**クラス、 **HttpControllerDispatcher**は更新された要求のメソッドに基づく要求をルーティングします。
+要求が**Httpコントローラーディスパッチャー**クラスに到達すると、 **httpコントローラーディスパッチャー**は、更新された要求メソッドに基づいて要求をルーティングします。
 
-## <a name="example-adding-a-custom-response-header"></a>例:カスタムの応答ヘッダーを追加します。
+## <a name="example-adding-a-custom-response-header"></a>例: カスタム応答ヘッダーの追加
 
-すべての応答メッセージにカスタム ヘッダーを追加するメッセージ ハンドラーを次に示します。
+次に示すのは、すべての応答メッセージにカスタムヘッダーを追加するメッセージハンドラーです。
 
 [!code-csharp[Main](http-message-handlers/samples/sample8.cs)]
 
-最初に、ハンドラーが呼び出す`base.SendAsync`内部メッセージ ハンドラーに要求を渡す。 内部ハンドラーが応答メッセージを返しますを使用して非同期には、**タスク&lt;T&gt;** オブジェクト。 応答メッセージがまでご利用いただけません`base.SendAsync`が非同期的に完了するとします。
+まず、ハンドラーは `base.SendAsync` を呼び出して、要求を内部メッセージハンドラーに渡します。 内部ハンドラーは応答メッセージを返しますが、**タスク&lt;t&gt;** オブジェクトを使用して非同期的に処理します。 応答メッセージは、`base.SendAsync` が非同期に完了するまで使用できません。
 
-この例では、 **await**キーワードを作業を実行後に非同期的に`SendAsync`が完了するとします。 .NET Framework 4.0 を対象とする場合は、使用、**タスク**&lt;T&gt;**します。ContinueWith**メソッド。
+この例では、 **await**キーワードを使用して `SendAsync` の完了後に非同期に作業を実行します。 .NET Framework 4.0 を対象としている場合は、&lt;T&gt;**タスク**を使用し**ます。System.threading.tasks.task.continuewith**メソッド:
 
 [!code-csharp[Main](http-message-handlers/samples/sample9.cs)]
 
-## <a name="example-checking-for-an-api-key"></a>例:API キーの確認
+## <a name="example-checking-for-an-api-key"></a>例: API キーの確認
 
-一部の web サービスでは、クライアントの要求に API キーを含める必要があります。 次の例では、メッセージ ハンドラーが有効な API キーの要求を確認する方法を示します。
+一部の web サービスでは、クライアントが要求に API キーを含める必要があります。 次の例は、メッセージハンドラーが有効な API キーの要求を確認する方法を示しています。
 
 [!code-csharp[Main](http-message-handlers/samples/sample10.cs)]
 
-このハンドラーは、URI クエリ文字列内の API キーを検索します。 (この例では、想定キーが静的な文字列であります。 実際の実装はおそらく使用より複雑な検証します。)クエリ文字列にキーが含まれている場合、ハンドラーは、内部ハンドラーに要求を渡します。
+このハンドラーは、URI クエリ文字列内の API キーを検索します。 (この例では、キーが静的な文字列であると想定しています。 実際の実装では、より複雑な検証を使用する可能性があります)。クエリ文字列にキーが含まれている場合、ハンドラーは内部ハンドラーに要求を渡します。
 
-ハンドラーが状態 403、応答メッセージを作成する要求が有効なキーを持たない場合は許可されていません。 この場合、ハンドラーは呼び出されません`base.SendAsync`、内部ハンドラーが、要求を受け取るようにも、コント ローラーには。 そのため、コント ローラーでは、すべての着信要求が有効な API キーを持っていることを想定できます。
+要求に有効なキーがない場合、ハンドラーは状態が403である応答メッセージを作成します。 この場合、ハンドラーは `base.SendAsync`を呼び出さないため、内部ハンドラーは要求を受信せず、コントローラーも受け入れません。 したがって、コントローラーは、すべての受信要求に有効な API キーがあると見なすことができます。
 
 > [!NOTE]
-> API キーは、特定のコント ローラー アクションにのみ適用する場合は、メッセージ ハンドラーの代わりにアクション フィルターの使用を検討してください。 アクション フィルターは、URI のルーティングが実行された後に実行します。
+> API キーが特定のコントローラーアクションにのみ適用される場合は、メッセージハンドラーの代わりにアクションフィルターを使用することを検討してください。 アクションフィルターは、URI ルーティングが実行された後に実行されます。
 
-## <a name="per-route-message-handlers"></a>ルート メッセージ ハンドラー
+## <a name="per-route-message-handlers"></a>ルートごとのメッセージハンドラー
 
-ハンドラーで、 **HttpConfiguration.MessageHandlers**コレクションはグローバルに適用されます。
+**Httpconfiguration. MessageHandlers**コレクション内のハンドラーはグローバルに適用されます。
 
-または、ルートを定義するときに、特定のルートにメッセージ ハンドラーを追加できます。
+または、ルートを定義するときに、特定のルートにメッセージハンドラーを追加することもできます。
 
 [!code-csharp[Main](http-message-handlers/samples/sample11.cs?highlight=16)]
 
-この例では、要求 URI が"Route2"と一致する場合、要求にディスパッチされます`MessageHandler2`します。 次の図は、これら 2 つのルートのパイプラインを示しています。
+この例では、要求 URI が "Route2" に一致する場合、要求は `MessageHandler2`にディスパッチされます。 次の図は、これらの2つのルートのパイプラインを示しています。
 
 ![](http-message-handlers/_static/image4.png)
 
-注意`MessageHandler2`、既定値の代わり**HttpControllerDispatcher**します。 この例で`MessageHandler2`応答を作成し、コント ローラーで作業しない"Route2"一致する要求。 これにより、全体の Web API コント ローラーのメカニズムを独自のカスタム エンドポイントに置き換えます。
+既定の**Httpコントローラーディスパッチャー**が `MessageHandler2` に置き換わることに注意してください。 この例では、`MessageHandler2` によって応答が作成され、"Route2" に一致する要求はコントローラーに送られません。 これにより、Web API コントローラーのメカニズム全体を独自のカスタムエンドポイントに置き換えることができます。
 
-または、ルート別のメッセージ ハンドラーに委任できます**HttpControllerDispatcher**、コント ローラーをそこにディスパッチします。
+もう1つの方法として、ルートごとのメッセージハンドラーは**httpcontroller ディスパッチャー**に委任できます。これにより、コントローラーにディスパッチされます。
 
 ![](http-message-handlers/_static/image5.png)
 
-次のコードでは、このルートを構成する方法を示します。
+次のコードは、このルートを構成する方法を示しています。
 
 [!code-csharp[Main](http-message-handlers/samples/sample12.cs)]

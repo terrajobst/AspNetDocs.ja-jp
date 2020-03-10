@@ -9,11 +9,11 @@ ms.assetid: bc937e9d-5c14-4fc4-aec7-440da924dd18
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/user-based-authorization-vb
 msc.type: authoredcontent
 ms.openlocfilehash: dfac0c6fa955e59c6ea996533f2447e89ec8d468
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74587903"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78516376"
 ---
 # <a name="user-based-authorization-vb"></a>ユーザー ベースの承認 (VB)
 
@@ -29,7 +29,7 @@ ms.locfileid: "74587903"
 
 ASP.NET を使用すると、ユーザーベースの承認規則を簡単に定義できます。 `Web.config`の単なるマークアップでは、特定の web ページまたはディレクトリ全体をロックダウンして、指定したユーザーのサブセットだけにアクセスできるようにすることができます。 ページレベルの機能は、現在ログインしているユーザーに基づいて、プログラムおよび宣言的な方法で有効または無効にすることができます。
 
-このチュートリアルでは、ページへのアクセスを制限し、さまざまな手法によってページレベルの機能を制限する方法について説明します。 では、始めましょう。
+このチュートリアルでは、ページへのアクセスを制限し、さまざまな手法によってページレベルの機能を制限する方法について説明します。 作業開始
 
 ## <a name="a-look-at-the-url-authorization-workflow"></a>URL 承認ワークフローの概要
 
@@ -121,7 +121,7 @@ ASP.NET を使用すると、サイト内のさまざまなファイルやフォ
 
 [!code-xml[Main](user-based-authorization-vb/samples/sample4.xml)]
 
-必要な作業は以上です。
+これですべて完了です。
 
 この変更をテストするには、ブラウザーでホームページにアクセスし、ログアウトしていることを確認してください。ASP.NET アプリケーションの既定の動作ではすべての訪問者が許可されるため、ルートディレクトリの `Web.config` ファイルに対して承認を変更しなかったため、ルートディレクトリ内のファイルに匿名ビジターとしてアクセスできるようになります。
 
@@ -279,7 +279,7 @@ TextBox を LoginView の `LoggedInTemplate` に移動し、`FindControl("contro
 
 [!code-aspx[Main](user-based-authorization-vb/samples/sample18.aspx)]
 
- 宛先: 
+ 変更後: 
 
 [!code-aspx[Main](user-based-authorization-vb/samples/sample19.aspx)]
 
@@ -348,7 +348,7 @@ ASP.NET ページに加えて、多くのアプリケーションには、ビジ
 
 `PrincipalPermission` 属性を使用してクラスとメソッドの承認規則を定義する方法の詳細については、 [Scott Guthrie](https://weblogs.asp.net/scottgu/)のブログ記事「 [`PrincipalPermissionAttributes`を使用したビジネス層およびデータ層への承認規則の追加](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx)」を参照してください。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、ユーザーベースの承認規則を適用する方法を説明しました。 ASP の概要について説明しました。NET の URL 承認フレームワーク。 各要求で、ASP.NET エンジンの `UrlAuthorizationModule` は、アプリケーションの構成で定義されている URL 承認規則を検査して、要求されたリソースへのアクセスが id に許可されているかどうかを判断します。 つまり、URL 承認を使用すると、特定のページまたは特定のディレクトリ内のすべてのページに対して承認規則を簡単に指定できます。
 
@@ -356,7 +356,7 @@ URL 承認フレームワークは、ページ単位で承認規則を適用し�
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -370,7 +370,7 @@ URL 承認フレームワークは、ページ単位で承認規則を適用し�
 - [`UrlAuthorizationModule` 技術ドキュメント](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx)
 - [ASP.NET 2.0 でのデータの操作](../../data-access/index.md)
 
-### <a name="about-the-author"></a>作成者について
+### <a name="about-the-author"></a>著者について
 
 1998以降、Microsoft の Web テクノロジを使用して、Scott Mitchell (複数の ASP/創設者4GuysFromRolla.com の執筆者) が Microsoft の Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は *[、ASP.NET 2.0 を24時間以内に教え](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* ています。 Scott は、 [mitchell@4guysfromrolla.com](mailto:mitchell@4guysfromrolla.com)またはブログで[http://ScottOnWriting.NET](http://scottonwriting.net/)にアクセスできます。
 

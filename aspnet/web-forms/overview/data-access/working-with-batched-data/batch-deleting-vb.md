@@ -9,11 +9,11 @@ ms.assetid: 4fb72f75-32ab-4bf7-a764-be20367be726
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-deleting-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 0974a16764eee2ef03cf36b4b15f9ef41f99982b
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74621780"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78476458"
 ---
 # <a name="batch-deleting-vb"></a>一括削除 (VB)
 
@@ -41,7 +41,7 @@ ms.locfileid: "74621780"
 
 **図 2**: `CheckBoxField.aspx` の宣言型マークアップをクリップボードにコピーする ([クリックすると、フルサイズのイメージが表示](batch-deleting-vb/_static/image4.png)されます)
 
-次に、`BatchDelete.aspx` のソースビューにアクセスし、`<asp:Content>` タグ内にクリップボードの内容を貼り付けます。 また、`CheckBoxField.aspx.vb` の分離コードクラス内のコードをコピーして、`BatchDelete.aspx.vb` の分離コードクラス (`DeleteSelectedProducts` ボタン s `Click` イベントハンドラー、`ToggleCheckState` メソッド、および `Click` ボタンと `CheckAll` ボタンのイベントハンドラー) の内部に貼り付けることもできます。 このコンテンツをコピーした後、`BatchDelete.aspx` ページの分離コードクラスに次のコードが含まれている必要があります。
+次に、`BatchDelete.aspx` のソースビューにアクセスし、`<asp:Content>` タグ内にクリップボードの内容を貼り付けます。 また、`CheckBoxField.aspx.vb` の分離コードクラス内のコードをコピーして、`BatchDelete.aspx.vb` の分離コードクラス (`DeleteSelectedProducts` ボタン s `Click` イベントハンドラー、`ToggleCheckState` メソッド、および `Click` ボタンと `CheckAll` ボタンのイベントハンドラー) の内部に貼り付けることもできます。`UncheckAll` このコンテンツをコピーした後、`BatchDelete.aspx` ページの分離コードクラスに次のコードが含まれている必要があります。
 
 [!code-vb[Main](batch-deleting-vb/samples/sample1.vb)]
 
@@ -82,7 +82,7 @@ ms.locfileid: "74621780"
 > [!NOTE]
 > `DeleteProductsWithTransaction` メソッドの原子性をテストするには、`Order Details` テーブルに製品のエントリを手動で追加し、その製品を削除します (他のユーザーと一緒に)。 関連付けられた注文で製品を削除しようとすると、外部キー制約違反が発生しますが、選択した他の製品の削除がロールバックされる方法に注意してください。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 バッチを削除するためのインターフェイスを作成するには、チェックボックスの列を含む GridView を追加します。ボタン Web コントロールは、クリックすると、選択したすべての行を1つのアトミック操作として削除します。 このチュートリアルでは、前の2つのチュートリアルで説明したように、このようなインターフェイスを構築し、[チェックボックスの GridView 列を追加](../enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-vb.md)して、[データベースの変更をトランザクション内にラップ](wrapping-database-modifications-within-a-transaction-vb.md)します。 最初のチュートリアルでは、チェックボックスの列を含む GridView を作成しました。後者では、`ProductID` 値の `List(Of T)` が渡されたときに、そのすべてをトランザクションのスコープ内で削除したメソッドを BLL に実装しました。
 
@@ -90,7 +90,7 @@ ms.locfileid: "74621780"
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

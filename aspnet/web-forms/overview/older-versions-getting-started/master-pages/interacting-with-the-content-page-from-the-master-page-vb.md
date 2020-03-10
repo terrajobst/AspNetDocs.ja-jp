@@ -9,11 +9,11 @@ ms.assetid: a6e2e1a0-c925-43e9-b711-1f178fdd72d7
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 5367ad1b7f2fa11c635ad95754c9bcc1edcb6c1d
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74615544"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78464536"
 ---
 # <a name="interacting-with-the-content-page-from-the-master-page-vb"></a>マスター ページからコンテンツ ページと対話する (VB)
 
@@ -79,7 +79,7 @@ Northwind データベースを使用するようにウィザードを構成し�
 
 **図 04**: `Products` テーブルから `ProductName` フィールドと `UnitPrice` フィールドを返す ([クリックすると、フルサイズの画像が表示](interacting-with-the-content-page-from-the-master-page-vb/_static/image12.png)されます)
 
-必要な作業は以上です。 ウィザードを完了すると、Visual Studio によって2つの BoundFields が GridView に追加され、SqlDataSource コントロールによって返される2つのフィールドがミラー化されます。 GridView および SqlDataSource コントロールのマークアップは次のようになります。 図5は、ブラウザーを使用して表示した場合の結果を示しています。
+これですべて完了です。 ウィザードを完了すると、Visual Studio によって2つの BoundFields が GridView に追加され、SqlDataSource コントロールによって返される2つのフィールドがミラー化されます。 GridView および SqlDataSource コントロールのマークアップは次のようになります。 図5は、ブラウザーを使用して表示した場合の結果を示しています。
 
 [!code-aspx[Main](interacting-with-the-content-page-from-the-master-page-vb/samples/sample2.aspx)]
 
@@ -201,7 +201,7 @@ Northwind データベースを使用するようにウィザードを構成し�
 
 **図 09**: 単純な価格がグリッドビューに表示される ([クリックすると、フルサイズの画像が表示](interacting-with-the-content-page-from-the-master-page-vb/_static/image27.png)されます)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 マスターページとそのコンテンツページが相互に完全に分離されていることが理想的であり、操作のレベルは必要ありません。 ただし、マスターページまたはコンテンツページから変更できるデータを表示するマスターページまたはコンテンツページがある場合は、表示を更新できるようにデータが変更されたときに、マスターページに対してコンテンツページの警告 (またはその逆) の通知が必要になることがあります。 前のチュートリアルでは、プログラムによってマスターページと対話するコンテンツページを作成する方法を説明しました。このチュートリアルでは、マスターページで相互作用を開始する方法を見てきました。
 
@@ -209,7 +209,7 @@ Northwind データベースを使用するようにウィザードを構成し�
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -218,7 +218,7 @@ Northwind データベースを使用するようにウィザードを構成し�
 - [コンテンツとマスターページの間で情報を渡す](http://aspnet.4guysfromrolla.com/articles/013107-1.aspx)
 - [ASP.NET チュートリアルでのデータの操作](../../data-access/index.md)
 
-### <a name="about-the-author"></a>作成者について
+### <a name="about-the-author"></a>著者について
 
 1998以降、Microsoft の Web テクノロジを使用して、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)(複数の asp/創設者4GuysFromRolla.com の執筆者) が Microsoft の Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 3.5 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco)ています。 Scott は、 [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)またはブログで[http://ScottOnWriting.NET](http://scottonwriting.net/)にアクセスできます。
 

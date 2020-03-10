@@ -1,158 +1,158 @@
 ---
 uid: web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide
-title: ASP.NET Web Pages (Razor) トラブルシューティング ガイド |Microsoft Docs
+title: ASP.NET Web ページ (Razor) トラブルシューティングガイド |Microsoft Docs
 author: Rick-Anderson
-description: この記事では、ASP.NET Web Pages (Razor) と一部の推奨されるソリューションを使用する場合がある問題について説明します。 ASP.NET Web ページのソフトウェア バージョン.
+description: この記事では、ASP.NET Web ページ (Razor) といくつかの提案された解決策を使用する場合に発生する可能性がある問題について説明します。 ソフトウェアバージョン ASP.NET Web Pag...
 ms.author: riande
 ms.date: 02/10/2014
 ms.assetid: 2a2c1833-0bfe-4e2e-9cc0-341b52c7b121
 msc.legacyurl: /web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide
 msc.type: authoredcontent
 ms.openlocfilehash: fc03767c16f46c1e282d24ee3a7df2409a7c38bb
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128570"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78473380"
 ---
-# <a name="aspnet-web-pages-razor-troubleshooting-guide"></a>ASP.NET Web ページ (Razor) トラブルシューティング ガイド
+# <a name="aspnet-web-pages-razor-troubleshooting-guide"></a>ASP.NET Web Pages (Razor) トラブルシューティング ガイド (英語)
 
-によって[Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac)
 
-> この記事では、ASP.NET Web Pages (Razor) と一部の推奨されるソリューションを使用する場合がある問題について説明します。
+> この記事では、ASP.NET Web ページ (Razor) といくつかの提案された解決策を使用する場合に発生する可能性がある問題について説明します。
 > 
 > ## <a name="software-versions"></a>ソフトウェアのバージョン
 > 
 > 
-> - ASP.NET Web Pages (Razor) 3
+> - ASP.NET Web ページ (Razor) 3
 >   
 > 
-> このチュートリアルは、ASP.NET Web Pages 2 および ASP.NET Web Pages 1.0 により連携します。
+> このチュートリアルは ASP.NET Web ページ2および ASP.NET Web ページ1.0 でも動作します。
 
-このトピックは、次のセクションで構成されています。
+このトピックには、次のセクションが含まれます。
 
-- [ページの実行に関する問題](#Issues_Running_.cshtml_Pages)
-- [Razor コードの問題](#IssuesWithRazorCode)
+- [実行中のページに関する問題](#Issues_Running_.cshtml_Pages)
+- [Razor コードに関する問題](#IssuesWithRazorCode)
 - [セキュリティとメンバーシップに関する問題](#membership)
 - [電子メールの送信に関する問題](#email)
 - [その他のリソース](#AdditionalResources)
 
-一般的な質問については、次を参照してください。 [ASP.NET Web Pages (Razor) FAQ](https://go.microsoft.com/fwlink/?LinkId=253000)します。
+一般的な質問については、「 [ASP.NET Web ページ (Razor)](https://go.microsoft.com/fwlink/?LinkId=253000)に関する FAQ」を参照してください。
 
 <a id="Issues_Running_.cshtml_Pages"></a>
-## <a name="issues-with-running-pages"></a>ページの実行に関する問題
+## <a name="issues-with-running-pages"></a>実行中のページに関する問題
 
-さまざまな問題を防ぐことができます *.cshtml*と *.vbhtml*ページを正しく実行されているからです。 このセクションでは、一般的なエラー メッセージを一覧表示し、考えられる原因します。
+さまざまな問題により、 *cshtml*および*vbhtml*ページが正常に実行されない可能性があります。 ここでは、一般的なエラーメッセージと考えられる原因を示します。
 
-### <a name="http-error-403---forbidden-access-is-denied"></a>HTTP エラー 403 - アクセス不可:アクセスが拒否されました
+### <a name="http-error-403---forbidden-access-is-denied"></a>HTTP エラー 403-許可されていません: アクセスが拒否されました
 
-*このディレクトリまたは指定した資格情報を使用してページを表示するアクセス許可がありません。*
+*指定した資格情報を使用して、このディレクトリまたはページを表示するアクセス許可がありません。*
 
-このエラーは、サーバーに .NET Framework の正しいバージョンが実行されていない場合に発生することができます。 (ローカルまたはリモート) に、サーバーを実行しているコンピューターが以上もインストールされている .NET Framework 4 を持っていることを確認します。 また、適切なバージョンを実行する、アプリケーション自体が構成されていることを確認します。
+このエラーは、サーバーで正しいバージョンの .NET Framework が実行されていない場合に発生する可能性があります。 サーバー (ローカルまたはリモート) を実行しているコンピューターに、少なくとも .NET Framework 4 がインストールされていることを確認します。 また、アプリケーション自体が適切なバージョンを実行するように構成されていることを確認します。
 
-WebMatrix での作業中にこの問題をローカルで発生する場合にクリックして、**サイト** ワークスペースをクリックしますクリックし、ツリー ビューで**設定**します。 **.NET Framework のバージョンの選択**一覧で、選択 **.NET 4 (Integrated)** します。 このバージョンは既に設定されている場合は、WebMatrix を管理者として実行してみてください。
+WebMatrix での作業中にこの問題がローカルに表示される場合は、**サイト**ワークスペースをクリックし、treeview で **[設定]** をクリックします。 **[.NET Framework バージョンの選択**] ボックスの一覧で、 **[.Net 4 (統合)]** を選択します。 このバージョンが既に設定されている場合は、管理者として WebMatrix を実行してみてください。
 
-Web サイトのルートが少なくとも 1 つであること確認 *.cshtml*ファイル。
+Web サイトのルートに少なくとも1つの*cshtml*ファイルがあることを確認します。
 
-Web サーバーがリモート サーバー上のときにこのエラーが発生した場合は、サーバーの管理者に問い合わせてください。 サーバーに .NET Framework 4 があることを確認または以降がインストールされていること。 また、アプリケーションがそのバージョンの.net Framework を使用するように構成されるアプリケーション プールで実行されていることを確認します。
+Web サーバーがリモートサーバー上にあるときにこのエラーが表示される場合は、サーバー管理者に問い合わせてください。 サーバーに .NET Framework 4 以降がインストールされていることを確認します。 また、そのバージョンの the.NET Framework を使用するように構成されたアプリケーションプールでアプリケーションが実行されていることを確認します。
 
-サーバーを制御する場合は、.NET Framework の正しいバージョンが実行されていることを確認します。 インストールの修復を実行しても試すことがあります、`aspnet_regiis -iru`コマンド。 (たとえば、.NET Framework をインストールした後に IIS をインストールする場合 IIS がない正しく構成する ASP.NET ページを実行する。)詳細については、次を参照してください。 [ASP.NET IIS 登録ツール (Aspnet\_regiis.exe)](https://msdn.microsoft.com/library/k6h9cz8h(v=vs.100).aspx)します。
+サーバーを制御している場合は、正しいバージョンの .NET Framework が実行されていることを確認してください。 `aspnet_regiis -iru` のコマンドを実行して、インストールの修復を試みることもできます。 (たとえば、.NET Framework をインストールした後に IIS をインストールした場合、IIS は ASP.NET ページを実行するように正しく構成されません)。詳細については、「 [ASP.NET IIS Registration Tool (Aspnet\_iis 登録ツール)](https://msdn.microsoft.com/library/k6h9cz8h(v=vs.100).aspx)」を参照してください。
 
-### <a name="http-error-40314---forbidden"></a>HTTP エラー 403.14 - 許可されていません
+### <a name="http-error-40314---forbidden"></a>HTTP エラー 403.14-許可されていません
 
-*Web サーバーは、このディレクトリの内容が表示されないに構成されます。*
+*Web サーバーは、このディレクトリの内容を一覧表示しないように構成されています。*
 
-このエラーは、保護されているリソースを要求する場合に発生することができます (のように、 *Web.config*ファイル) または保護されているフォルダーには (*App\_Data* や *App\_Code* など)。
+このエラー*は、保護*されているリソース (web.config ファイルなど) を要求した場合、または保護されているフォルダー ( *app\_データ*や*アプリ\_コード*など) にある場合に発生する可能性があります。
 
-### <a name="http-error-40417---not-found"></a>HTTP Error 404.17 - が見つかりませんでした。
+### <a name="http-error-40417---not-found"></a>HTTP エラー 404.17-見つかりません
 
-*要求されたコンテンツにはスクリプトが表示され、静的ファイル ハンドラーは発生しません。*
+*要求されたコンテンツはスクリプトであり、静的ファイルハンドラーによって処理されません。*
 
-サーバーは、.NET Framework 4 を使用して正しく構成されていないか、後で、そのためにコードを認識しません、このエラーが発生する可能性が`@{ }`ブロックします。 前の説明を参照して*HTTP エラー 403 - アクセス不可します。アクセスが拒否された*します。
+このエラーは、サーバーが .NET Framework 4 以降を使用するように正しく構成されていないために、`@{ }` ブロックのコードを認識しない場合に発生する可能性があります。 前の「 *HTTP エラー 403-許可されていません: アクセスが拒否されまし*た」の説明を参照してください。
 
-### <a name="http-error-4047---not-found"></a>HTTP エラー 404.7 - 見つかりません
+### <a name="http-error-4047---not-found"></a>HTTP エラー 404.7-見つかりません
 
-*ファイル拡張子の拒否するように構成要求のフィルタ リング モジュール*
+*要求フィルターモジュールは、ファイル拡張子を拒否するように構成されています*
 
-場合、このエラーが発生する可能性が *.cshtml*または *.vbhtml*拡張機能は、サーバーで明示的にブロックされています。 拡張機能が追加した Url が含まれないときに、この問題の現象がその Url 作業 *.cshtml*または *.vbhtml*機能しません。 解決策は、サイトの拡張機能を再度有効にする*Web.config*ファイル。 次の例では、有効にする方法を示しています、 *.cshtml*拡張機能。
+このエラーは、サーバーで*cshtml*または*vbhtml*拡張子が明示的にブロックされている場合に発生する可能性があります。 この問題が発生するのは、拡張子が含まれていない Url は機能しますが、拡張子が*cshtml*または*vbhtml*の url は機能しないということです。 解決策として、サイトの*web.config*ファイルにある拡張機能を再度有効にすることが考えられます。 次の例は、拡張子を有効にする方法を示し*ています*。
 
 [!code-xml[Main](aspnet-web-pages-razor-troubleshooting-guide/samples/sample1.xml?highlight=5-6)]
 
-### <a name="http-error-4048---not-found"></a>HTTP エラー 404.8 - 見つかりません
+### <a name="http-error-4048---not-found"></a>HTTP エラー 404.8-見つかりません
 
-*要求のフィルタ リング モジュールを構成するには hiddenSegment セクションを含む URL にパスを拒否します。*
+*要求フィルターモジュールは、hiddenSegment セクションを含む URL 内のパスを拒否するように構成されています。*
 
-このエラーは、保護されているリソースを要求する場合に発生することができます (のように、 *Web.config*ファイル) または保護されているフォルダーには (*App\_Data* や *App\_Code* など)。
+このエラー*は、保護*されているリソース (web.config ファイルなど) を要求した場合、または保護されているフォルダー ( *app\_データ*や*アプリ\_コード*など) にある場合に発生する可能性があります。
 
-### <a name="this-type-of-page-is-not-served-server-error-in--application"></a>この種類のページ (サーバー エラーは '/' アプリケーションで) は処理できません。
+### <a name="this-type-of-page-is-not-served-server-error-in--application"></a>この種類のページは提供されていません ('/' アプリケーションのサーバーエラー)
 
-HTTP エラー 404.17 については、前の説明を参照してください。
+HTTP エラー404.17 については、前述の説明を参照してください。
 
 <a id="IssuesWithRazorCode"></a>
-## <a name="issues-with-razor-code"></a>Razor コードの問題
+## <a name="issues-with-razor-code"></a>Razor コードに関する問題
 
-### <a name="the-name-class-does-not-exist-in-the-current-context"></a>名前 '*クラス*'、現在のコンテキストに存在しません
+### <a name="the-name-class-does-not-exist-in-the-current-context"></a>名前 '*class*' は現在のコンテキストに存在しません
 
-多くの場合、このエラーが発生する理由は`class`参照、ヘルパーは、ヘルパーがインストールされていません。 たとえば、ヘルパーを使用しようとする場合、NuGet からパッケージをインストールしていない場合は、このエラーが表示されます。 WebMatrix でギャラリーを使用して、検索し、ヘルパーをインストールします。
+多くの場合、このエラーが表示される理由は、`class` がヘルパーを参照するが、ヘルパーがインストールされていないことです。 たとえば、ヘルパーを使用しようとしても、NuGet からパッケージをインストールしていない場合は、このエラーが表示されます。 WebMatrix のギャラリーを使用して、ヘルパーを検索してインストールします。
 
-かどうかは、ヘルパーがインストールされているが、ページが認識しないことを追加してみてくださいの追加、`using`ステートメントのコードにします。 `using`ステートメントでは、ヘルパーを含む名前空間の参照。 たとえば、ASP.NET Web Helpers パッケージに含まれる基本的なヘルパーはでは、`System.Web.Helpers`名前空間。 ヘルパーを使用するページの上部にあるこの行を追加します。
+ヘルパーがインストールされていても、ページがそれを認識しない場合は、`using` ステートメントをコードに追加してみてください。 `using` ステートメントで、ヘルパーを含む名前空間を参照します。 たとえば、ASP.NET Web ヘルパーパッケージに含まれる基本的なヘルパーは、`System.Web.Helpers` 名前空間にあります。 ヘルパーを使用するページの先頭に、次の行を追加します。
 
 `@using Microsoft.Web.Helpers;`
 
 <a id="membership"></a>
 ## <a name="issues-with-security-and-membership"></a>セキュリティとメンバーシップに関する問題
 
-ASP.NET Web Pages (Razor) で、組み込みのセキュリティ (メンバーシップ) システムを使用している場合、は、次の問題が発生する可能性があります。
+ASP.NET Web ページ (Razor) で組み込みのセキュリティ (メンバーシップ) システムを使用している場合は、次の問題が発生する可能性があります。
 
-### <a name="to-call-this-method-the-membershipprovider-property-must-be-an-instance-of-extendedmembershipprovider"></a>このメソッドを呼び出すには、"Membership.Provider"プロパティが"ExtendedMembershipProvider"のインスタンスをある必要があります。
+### <a name="to-call-this-method-the-membershipprovider-property-must-be-an-instance-of-extendedmembershipprovider"></a>このメソッドを呼び出すには、"ExtendedMembershipProvider" プロパティが "" のインスタンスである必要があります。
 
-このエラーはことを示すことがない`AspNetSqlMembershipProvider`クラスが構成されています。 (症状は、サイトがローカルで正常に動作が、ホスティング プロバイダーのサーバーに公開するときに、このエラーをスローします)。この問題の 1 つの修正をサイトの次を追加することで、簡易なメンバーシップを明示的に有効にするには*Web.config*ファイル。
+このエラーは、`AspNetSqlMembershipProvider` クラスが構成されていないことを示している可能性があります。 (症状として、サイトはローカルで正常に動作しますが、ホスティングプロバイダーのサーバーに公開すると、このエラーがスローされます)。この問題の解決策の1つは、サイトの*web.config*ファイルに次の内容を追加して単純なメンバーシップを明示的に有効にすることです。
 
 [!code-xml[Main](aspnet-web-pages-razor-troubleshooting-guide/samples/sample2.xml?highlight=6)]
 
 <a id="email"></a>
 ## <a name="issues-with-sending-email"></a>電子メールの送信に関する問題
 
-電子メールの送信に関する問題は、デバッグする困難になります。 最初の問題は、SMTP サーバーに接続できないことができます。 接続が成功した場合、ASP.NET では、オフがメッセージを SMTP サーバーに渡します。 ただし、SMTP サーバーが送信するを防ぐメッセージ自体に問題があります。
+電子メールの送信に問題があると、デバッグが困難になることがあります。 最初の問題は、SMTP サーバーに接続できないことです。 接続に成功した場合、ASP.NET はメッセージを SMTP サーバーに渡します。 ただし、メッセージ自体には、SMTP サーバーから送信されないという問題があります。
 
-アプリケーションが正常に電子メールを送信しない場合は、次の操作を再試行してください。
+アプリケーションが電子メールを正常に送信できない場合は、次のことを試してください。
 
-- SMTP サーバー名はのような多くの場合、`smtp.provider.com`または`smtp.provider.net`します。 ただし、サイトをホスティング プロバイダーにパブリッシュする場合、SMTP サーバー名その時点であります`localhost`します。 このような状況では、公開した後、プロバイダーのサーバーで、サイトが実行されている場合でも、SMTP サーバーは、アプリケーションの観点からローカル可能性があるために発生します。 サーバー名には、この変更は、発行のプロセスの一部として、SMTP サーバーの名前を変更する必要がある可能性があります。
-- ポート番号は、通常は 25 です。 ただし、一部のプロバイダー使用する必要がポート 587 またはいくつかその他のポート。 ポート番号と期待を使用する SMTP サーバーの所有者を確認します。
-- 適切な資格情報を使用することを確認します。 ホスティング プロバイダーには、サイトを公開した場合は、プロバイダーは、電子メールが個別に指定された資格情報を使用します。 これらの資格情報は、パブリッシュに使用する資格情報とは異なる場合があります。
-- 場合によって資格情報をまったく必要はありません。 個人の ISP を使用して電子メールを送信する場合は、メール プロバイダーには、資格情報既にわかっているかもしれません。 パブリッシュした後は、ローカル コンピューターにテストするときに異なる資格情報を使用する必要があります。
-- メール プロバイダーには、暗号化を使用している場合は、設定`WebMail.EnableSsl`に`true`します。
+- SMTP サーバー名は、多くの場合 `smtp.provider.com` や `smtp.provider.net`のようなものです。 ただし、サイトをホスティングプロバイダーに発行する場合、その時点での SMTP サーバー名が `localhost`可能性があります。 この状況は、発行後にサイトがプロバイダーのサーバーで実行されている場合に発生します。そのため、SMTP サーバーは、アプリケーションの観点からローカルに配置されている可能性があります。 このようにサーバー名を変更すると、発行プロセスの一部として SMTP サーバー名を変更する必要があるということが考えられます。
+- ポート番号は通常25です。 ただし、一部のプロバイダーでは、ポート587またはその他のポートを使用する必要があります。 使用するポート番号を SMTP サーバーの所有者に確認してください。
+- 適切な資格情報を使用していることを確認します。 サイトをホスティングプロバイダーに発行した場合は、プロバイダーが特別に指定した資格情報を電子メール用に使用します。 これらの資格情報は、発行に使用する資格情報とは異なる場合があります。
+- 場合によっては、資格情報をまったく必要としません。 個人用 ISP を使用して電子メールを送信している場合は、電子メールプロバイダーによって既に資格情報が知られている可能性があります。 発行後、ローカルコンピューターでテストする場合とは異なる資格情報を使用することが必要になる場合があります。
+- 電子メールプロバイダーが暗号化を使用する場合は、`WebMail.EnableSsl` を `true`に設定します。
 
-電子メールの送信中にエラーがある場合は、次のような標準の ASP.NET エラー メッセージを参照してください可能性があります。
+電子メールの送信中にエラーが発生した場合は、標準の ASP.NET エラーメッセージが表示されることがあります。これは次のようになります。
 
-![電子メールの問題がある場合に、ASP.NET エラー メッセージ](aspnet-web-pages-razor-troubleshooting-guide/_static/image1.png)
+![電子メールに問題があるときに ASP.NET エラーメッセージを表示する](aspnet-web-pages-razor-troubleshooting-guide/_static/image1.png)
 
-使用して電子メールの送信に関する問題をデバッグすることも、`try-catch`次の例のように、ブロックします。 使用すると、`try-catch`ブロック、ASP.NET では、標準的なエラー メッセージを表示しません。 代わりに、エラーをキャプチャすることができます、`catch`ブロックの部分。
+次の例に示すように、`try-catch` ブロックを使用して、電子メールの送信に関する問題をデバッグすることもできます。 `try-catch` ブロックを使用する場合、ASP.NET では標準エラーメッセージは表示されません。 代わりに、ブロックの `catch` 部分でエラーをキャプチャできます。
 
 [!code-cshtml[Main](aspnet-web-pages-razor-troubleshooting-guide/samples/sample3.cshtml)]
 
-適切な値に置き換えてください`your-SMTP-server-name`など。 この方法が表示されるエラー メッセージの一部を以下に示します。
+`your-SMTP-server-name`の適切な値に置き換えます。 このように表示されるエラーメッセージには、次のようなものがあります。
 
-- *電子メールを送信できません。*
+- *メールの送信に失敗します。*
 
-    \- または -
+    または
 
-    *接続されているパーティが一定の時間、または確立された接続は接続されているホストが応答しなかったために失敗しました正しく応答しなかったために、接続試行が失敗しました*
+    *接続されたパーティが一定期間内に適切に応答しなかったか、接続されたホストが応答に失敗したために確立された接続に失敗したため、接続に失敗しました*
 
-    このエラーは通常、アプリケーションが SMTP サーバーに接続できなかったことを意味します。 サーバー名を確認して、ポート番号。
-- *メールボックスが使用できません。サーバーの応答は次のとおりでした。5.1.0 &lt; someuser@invaliddomain &gt;拒否送信者: 無効な送信者のドメイン*
+    このエラーは通常、アプリケーションが SMTP サーバーに接続できなかったことを示します。 サーバー名とポート番号を確認します。
+- *メールボックスを使用できません。サーバーの応答: 5.1.0 &lt;someuser@invaliddomain&gt; 送信者が拒否しました: 送信者ドメインが無効です*
 
-    このメッセージは、ことを示すことができます、`From`アドレスが間違っているかがありません。
-- *指定の文字列は、電子メール アドレスに必要な形式ではありません。*
+    このメッセージは、`From` アドレスが正しくないか、または存在しないことを示している可能性があります。
+- *指定された文字列は、電子メールアドレスに必要な形式ではありません。*
 
-    このエラーになっているための値、`To`または`From`プロパティは、電子メール アドレスとして認識されていません。 (電子メール アドレスが有効などの形式が正しくことのみである ASP.NET をチェックできません *name@domain.com* )。
+    このエラーは、`To` または `From` プロパティの値が電子メールアドレスとして認識されないことを示している可能性があります。 (ASP.NET のように、電子メールアドレスが有効であることを確認することはできません。 *name@domain.com* のように、正しい形式である必要があります)。
 
 > [!NOTE]
-> エラーが表示されるマークアップを削除 (`@errorMessage`) ページからライブ サイトに発行する前にします。 いないユーザーがサーバーから取得するエラー メッセージが表示できるようにすることをお勧めします。
+> ページをライブサイトに発行する前に、エラー (`@errorMessage`) を表示するマークアップを削除します。 サーバーから取得したエラーメッセージをユーザーに表示させることはお勧めしません。
 
 <a id="AdditionalResources"></a>
 ## <a name="additional-resources"></a>その他のリソース
 
 [ASP.NET Web ページ (Razor) のよくあるご質問](https://go.microsoft.com/fwlink/?LinkId=253000)
 
-[WebMatrix と ASP.NET Web Pages](https://forums.asp.net/1224.aspx/1?WebMatrix) ASP.NET web サイトのフォーラム
+ASP.NET web サイトの[WebMatrix と ASP.NET Web ページ](https://forums.asp.net/1224.aspx/1?WebMatrix)フォーラム

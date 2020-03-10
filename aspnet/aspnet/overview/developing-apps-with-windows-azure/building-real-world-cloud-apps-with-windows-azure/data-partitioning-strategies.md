@@ -9,11 +9,11 @@ ms.assetid: 513837a7-cfea-4568-a4e9-1f5901245d24
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-partitioning-strategies
 msc.type: authoredcontent
 ms.openlocfilehash: efc3fa0255aa765e515412c5fa4098303a9d9234
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77457025"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78500836"
 ---
 # <a name="data-partitioning-strategies-building-real-world-cloud-apps-with-azure"></a>データのパーティション分割戦略 (Azure を使用した実際のクラウドアプリの構築)
 
@@ -85,7 +85,7 @@ Vertical portioning は、列によってテーブルを分割するのと似て
 
 このような複雑さは、運用環境に移行する前に計画している限り、管理しやすくなっています。 そのような作業を行っていなかった多くの人は、後で必要としていました。 平均では、お客様のアドバイザリチーム (CAT) チームは、アプリが非常に大きな形で終了している顧客から毎月 panicked の電話を受けることができ、この計画は行われませんでした。 次のようなものがあります。 "Help! すべてを1つのデータストアに配置します。また、45日では、空き領域が不足します。 また、データストアへのアクセス方法に多数のビジネスロジックが組み込まれていて、アプリを使用している顧客がいる場合は、移行中に1日にダウンするのは得策ではありません。 最終的には、ダウンタイムなしでお客様のデータをすぐにパーティション分割できるように、herculean の取り組みを進めていきます。 非常に魅力的で、非常に恐ろしいものであり、避けることができる場合には何もする必要はありません。 これを事前に検討してアプリに統合することで、アプリが後で拡大した場合に、より簡単に生活できるようになります。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 効果的なパーティション構成を使用すると、クラウドアプリでボトルネックを発生させることなく、クラウド内のペタバイト単位のデータに拡張できます。 また、アプリケーションをオンプレミスのデータセンターで実行していた場合と同じように、大規模なコンピューターや広範なインフラストラクチャについては、事前に支払う必要がありません。 クラウドでは、必要に応じて容量を段階的に追加することができ、使用した分だけ料金がかかります。
 
@@ -95,7 +95,7 @@ Vertical portioning は、列によってテーブルを分割するのと似て
 
 パーティション分割の方法の詳細については、次のリソースを参照してください。
 
-ドキュメント:
+ドキュメント
 
 - [Windows Azure Cloud Services で大規模なサービスを設計するためのベストプラクティス](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx)。 マーク Simm と Michael Thomassy によるホワイトペーパー。
 - [Microsoft のパターンとプラクティス-クラウド設計パターン](https://msdn.microsoft.com/library/dn568099.aspx)。 「データのパーティション分割のガイダンス、シャーディングパターン」を参照してください。

@@ -9,11 +9,11 @@ ms.assetid: 4f3ba53f-d166-422d-b29c-403348057836
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/slider/databinding-the-slider-control-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 9c14373bdfdead9916950b8a1cf61f427f7ba50b
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74598305"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78508900"
 ---
 # <a name="databinding-the-slider-control-vb"></a>スライダー コントロールをデータバインドする (VB)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74598305"
 
 > AJAX コントロールツールキットのスライダーコントロールには、マウスを使用して制御できるグラフィカルスライダーが用意されています。 スライダーの現在位置を別の ASP.NET コントロールにバインドすることができます。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 AJAX コントロールツールキットのスライダーコントロールには、マウスを使用して制御できるグラフィカルスライダーが用意されています。 スライダーの現在位置を別の ASP.NET コントロールにバインドすることができます。
 
@@ -48,4 +48,4 @@ ASP.NET AJAX と Control Toolkit の機能をアクティブ化するには、�
 スライダーとテキストボックスが同期されています ([クリックすると、フルサイズの画像が表示](databinding-the-slider-control-vb/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
-> [前へ](using-the-slider-control-with-auto-postback-vb.md)
+> [[戻る]](using-the-slider-control-with-auto-postback-vb.md)

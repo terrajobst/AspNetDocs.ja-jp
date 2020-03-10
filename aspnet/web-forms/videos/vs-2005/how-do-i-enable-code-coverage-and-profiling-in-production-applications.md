@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/vs-2005/how-do-i-enable-code-coverage-and-profiling-in-production-applications
-title: '[How Do i:]コード カバレッジとプロファイリング実稼働アプリケーションで有効にしますか。 | Microsoft Docs'
+title: '[操作方法:]実稼働アプリケーションでコードカバレッジとプロファイリングを有効にしますか? | Microsoft Docs'
 author: rick-anderson
-description: コード カバレッジとプロファイリング Vi 内から実行中のアプリケーションではなく、デプロイされた ASP.NET アプリケーションでインストルメンテーションを設定する方法について説明してください.
+description: Vi 内から実行されるアプリケーションではなく、デプロイされた ASP.NET アプリケーションでコードカバレッジとプロファイリングの両方のインストルメンテーションを設定する方法について説明します。
 ms.author: riande
 ms.date: 08/22/2007
 ms.assetid: a0437314-e310-425a-b67b-0dc06878dbe2
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-enable-code-coverage-and-profiling-in-production-applications
 msc.type: video
 ms.openlocfilehash: eb886aac6c0a5d9e65719a0dc359acbad3b85659
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59408785"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78506698"
 ---
-# <a name="how-do-i-enable-code-coverage-and-profiling-in-production-applications"></a>[How Do i:]コード カバレッジとプロファイリング実稼働アプリケーションで有効にしますか。
+# <a name="how-do-i-enable-code-coverage-and-profiling-in-production-applications"></a>[操作方法:]実稼働アプリケーションでコードカバレッジとプロファイリングを有効にしますか?
 
-によって[Chris Menegay](https://twitter.com/CMenegay)
+[Chris](https://twitter.com/CMenegay)
 
-コード カバレッジとプロファイリングでは、Visual Studio 内から実行中のアプリケーションではなく、デプロイされた ASP.NET アプリケーションでは、インストルメンテーションを設定する方法について説明します。 このビデオでまとめられている手順を実行する、[コマンドラインからインストルメンテーション モードでの ASP.NET のプロファイル](https://msdn.microsoft.com/teamsystem/aa718860.aspx)Microsoft MSDN Web サイトのテクニカル ノート。
+Visual Studio 内から実行されるアプリケーションではなく、デプロイされた ASP.NET アプリケーションでコードカバレッジとプロファイリングの両方のインストルメンテーションを設定する方法について説明します。 このビデオは、Microsoft MSDN Web サイトの[コマンドラインテクニカルノートからインストルメンテーションモードのプロファイリング ASP.NET](https://msdn.microsoft.com/teamsystem/aa718860.aspx)で設定されている手順に従っています。
 
-[&#9654;ビデオ (9 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-enable-code-coverage-and-profiling-in-production-applications)
+[&#9654;ビデオを見る (9 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-enable-code-coverage-and-profiling-in-production-applications)
 
 > [!div class="step-by-step"]
 > [前へ](how-do-i-run-unit-tests-against-a-deployed-database.md)

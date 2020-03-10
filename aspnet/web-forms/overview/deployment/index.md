@@ -1,23 +1,23 @@
 ---
 uid: web-forms/overview/deployment/index
-title: 展開 |Microsoft Docs
+title: 配置 |Microsoft Docs
 author: rick-anderson
-description: サーバーに ASP.NET Web フォーム プロジェクトをデプロイする方法。
+description: ASP.NET Web フォームプロジェクトをサーバーに配置する方法。
 ms.author: riande
 ms.date: 08/18/2011
 ms.assetid: 05e4c88f-5101-4277-a323-b6774d98f69e
 msc.legacyurl: /web-forms/overview/deployment
 msc.type: chapter
 ms.openlocfilehash: 1483abc212b5f122ad3e2b88474c42b208bb748e
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134290"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78520378"
 ---
-# <a name="deployment"></a>配置
+# <a name="deployment"></a>デプロイ
 
-> サーバーに ASP.NET Web フォーム プロジェクトをデプロイする方法。
+> ASP.NET Web フォームプロジェクトをサーバーに配置する方法。
 
 - [Visual Studio を利用する ASP.NET Web 展開](visual-studio-web-deployment/index.md)
 
@@ -36,8 +36,8 @@ ms.locfileid: "65134290"
 - [ASP.NET 4 - エンタープライズ展開の概要](deploying-web-applications-in-enterprise-scenarios/index.md)
 
     - [Visual Studio 2010 を利用し、エンタープライズ シナリオで Web アプリケーションを展開する](deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md)
-    - [エンタープライズ Web 展開:シナリオの概要](deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)
-    - [アプリケーション ライフ サイクル管理:開発運用環境から](deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production.md)
+    - [エンタープライズ Web 展開シナリオ概要](deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)
+    - [アプリケーション ライフサイクル管理: 開発から本稼働まで](deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production.md)
 - [ASP.NET 4 - エンタープライズ展開シリーズ 1](web-deployment-in-the-enterprise/index.md)
 
     - [エンタープライズの Web 展開](web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md)
@@ -55,9 +55,9 @@ ms.locfileid: "65134290"
 
     - [Web 展開のサーバー環境を構成する](configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md)
     - [適切な Web 展開手法を選択する](configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment.md)
-    - [シナリオ: Web 配置のテスト環境を構成します。](configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment.md)
-    - [シナリオ: Web デプロイのステージング環境を構成します。](configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment.md)
-    - [シナリオ: Web デプロイ用の運用環境の構成](configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment.md)
+    - [シナリオ: Web 展開のテスト環境を構成する](configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment.md)
+    - [シナリオ: Web 展開のステージング環境を構成する](configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment.md)
+    - [シナリオ: Web 展開の運用環境を構成する](configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment.md)
     - [Web 配置発行の Web サーバーを構成する (リモート エージェント)](configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)
     - [Web 配置発行の Web サーバーを構成する (Web 配置ハンドラー)](configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
     - [Web 配置発行の Web サーバーを構成する (オフライン展開)](configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)

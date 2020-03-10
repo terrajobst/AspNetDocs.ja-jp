@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/visual-studio-2010/visual-studio-2010-quick-hit-snippets-intellisense
-title: Visual Studio 2010 クイック ヒット-スニペットの IntelliSense |Microsoft Docs
+title: Visual Studio 2010 クイックヒットスニペット IntelliSense |Microsoft Docs
 author: JoeStagner
-description: HTML の Visual Studio のスニペットのサポートについて学習するこのビデオでは ASP.NET マークアップおよび JavaScript。
+description: このビデオでは、Visual Studio の HTML、ASP.NET マークアップ、JavaScript のスニペットのサポートについて説明します。
 ms.author: riande
 ms.date: 11/11/2009
 ms.assetid: 142b51ae-0f6a-4433-8b92-f827ce9c209c
 msc.legacyurl: /web-forms/videos/visual-studio-2010/visual-studio-2010-quick-hit-snippets-intellisense
 msc.type: video
 ms.openlocfilehash: b048413b03c9f0b915dc5d64fcf85e2425a890fc
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59380965"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78515338"
 ---
-# <a name="visual-studio-2010-quick-hit---snippets-intellisense"></a>ビジュアルの Studio 2010「クイック ヒット」- スニペット IntelliSense
+# <a name="visual-studio-2010-quick-hit---snippets-intellisense"></a>Visual Studio 2010 "クイックヒット"-スニペットの IntelliSense
 
-によって[Joe Stagner](https://github.com/JoeStagner)
+[Joe Stagner](https://github.com/JoeStagner)
 
-HTML の Visual Studio のスニペットのサポートについて学習するこのビデオでは ASP.NET マークアップおよび JavaScript。
+このビデオでは、Visual Studio の HTML、ASP.NET マークアップ、JavaScript のスニペットのサポートについて説明します。
 
-[&#9654;ビデオ (4 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-2010-quick-hit-snippets-intellisense)
+[&#9654;ビデオを見る (4 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-2010-quick-hit-snippets-intellisense)
 
 > [!div class="step-by-step"]
-> [前へ](visual-studio-2010-quick-hit-websites-instead-of-web-projects.md)
+> [[戻る]](visual-studio-2010-quick-hit-websites-instead-of-web-projects.md)

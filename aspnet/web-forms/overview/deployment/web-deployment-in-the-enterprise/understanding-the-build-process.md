@@ -1,216 +1,216 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-build-process
-title: ビルド プロセスの理解 |Microsoft Docs
+title: ビルドプロセスについてMicrosoft Docs
 author: jrjlee
-description: このトピックでは、エンタープライズ規模のビルドと展開プロセスのチュートリアルを示します。 このトピックで説明したアプローチでは、Microsoft のカスタム ビルド エンジニアを使用しています.
+description: このトピックでは、エンタープライズ規模のビルドおよび配置プロセスのチュートリアルを提供します。 このトピックで説明する方法では、カスタムの Microsoft Build Engin を使用します。
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 5b982451-547b-4a2f-a5dc-79bc64d84d40
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-build-process
 msc.type: authoredcontent
 ms.openlocfilehash: 802d93f7ca987d018967275bae68b8c56d883a25
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130931"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78520834"
 ---
 # <a name="understanding-the-build-process"></a>ビルド処理について理解する
 
-によって[Jason Lee](https://github.com/jrjlee)
+[Jason Lee](https://github.com/jrjlee)
 
-[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[[Download PDF]\(PDF をダウンロード\)](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> このトピックでは、エンタープライズ規模のビルドと展開プロセスのチュートリアルを示します。 このトピックで説明した方法では、プロセスのすべての側面の詳細に制御を提供するのにカスタムの Microsoft Build Engine (MSBuild) プロジェクト ファイルを使用します。 プロジェクト ファイル内では、カスタム MSBuild のターゲットは、インターネット インフォメーション サービス (IIS) Web 配置ツール (MSDeploy.exe) などの展開ユーティリティと VSDBCMD.exe データベース配置ユーティリティの実行に使用されます。
+> このトピックでは、エンタープライズ規模のビルドおよび配置プロセスのチュートリアルを提供します。 このトピックで説明する方法では、カスタム Microsoft Build Engine (MSBuild) プロジェクトファイルを使用して、プロセスのすべての側面をきめ細かく制御します。 プロジェクトファイル内では、カスタム MSBuild ターゲットを使用して、インターネットインフォメーションサービス (IIS) Web 配置ツール (Msdeploy.exe) やデータベース配置ユーティリティ VSDBCMD などの配置ユーティリティを実行します。
 > 
 > > [!NOTE]
-> > 前のトピックでは、[プロジェクト ファイルを理解する](understanding-the-project-file.md)、MSBuild プロジェクト ファイルの主要なコンポーネントを説明し、複数のターゲット環境に展開をサポートするプロジェクト ファイルの分割の概念が導入されました。 確認する必要がありますなら既にこれらの概念について、[プロジェクト ファイルを理解する](understanding-the-project-file.md)前に、このトピックで作業します。
+> > 前のトピック「[プロジェクトファイルについ](understanding-the-project-file.md)て」では、MSBuild プロジェクトファイルの主要なコンポーネントについて説明し、複数のターゲット環境への配置をサポートするために分割されたプロジェクトファイルの概念を紹介しました。 これらの概念を理解していない場合は、このトピックを使用する前に、「[プロジェクトファイルについて理解](understanding-the-project-file.md)する必要があります」を参照してください。
 
-このトピックでは、一連の Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に基づいているチュートリアルの一部を形成します。このチュートリアル シリーズは、サンプル ソリューションを使用して&#x2014;、[連絡先マネージャー ソリューション](the-contact-manager-solution.md)&#x2014;現実的なレベルの ASP.NET MVC 3 アプリケーション、Windows の通信など、複雑な web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
+このトピックでは、Fabrikam, Inc. という架空の企業のエンタープライズ展開要件に基づいて、一連のチュートリアルの一部を説明します。このチュートリアルシリーズでは、&#x2014; [Contact Manager ソリューション](the-contact-manager-solution.md)&#x2014;のサンプルソリューションを使用して、ASP.NET MVC 3 アプリケーション、Windows Communication Foundation (WCF) サービス、データベースプロジェクトなど、現実的なレベルの複雑さを持つ web アプリケーションを表します。
 
-これらのチュートリアルの中核の展開方法が分割のプロジェクト ファイルの方法で説明されているに基づいて[プロジェクト ファイルを理解する](understanding-the-project-file.md)、によって制御されるビルド プロセスでは、2 つのプロジェクト ファイル&#x2014;1 つを格納しています。すべての変換先の環境と環境固有のビルドと配置の設定を含む 1 つに適用される手順をビルドします。 ビルド時に、環境固有のプロジェクト ファイルは、ビルド手順の完全なセットを形成する環境に依存しないプロジェクト ファイルにマージされます。
+これらのチュートリアルの中核となる配置方法は、「[プロジェクトファイルについ](understanding-the-project-file.md)て」で説明されている分割プロジェクトファイルアプローチに基づいています。この&#x2014;プロジェクトファイルには、ビルドプロセスは、すべての変換先環境に適用されるビルド命令を含む2つのプロジェクトファイルと、環境固有のビルドおよび配置設定を含んでいます。 ビルド時に、環境固有のプロジェクトファイルが環境に依存しないプロジェクトファイルにマージされ、ビルド命令の完全なセットが形成されます。
 
-## <a name="build-and-deployment-overview"></a>ビルドと展開の概要
+## <a name="build-and-deployment-overview"></a>ビルド & デプロイの概要
 
-[連絡先マネージャー ソリューション](the-contact-manager-solution.md)、3 つのファイルがビルドおよび配置プロセスを制御します。
+[Contact Manager ソリューション](the-contact-manager-solution.md)では、3つのファイルによってビルドとデプロイのプロセスが制御されます。
 
-- A*ユニバーサル プロジェクト ファイル*(*Publish.proj*)。 これには、移行先の環境間で変更されないビルドおよび展開の説明が含まれています。
-- *環境固有のプロジェクト ファイル*(*Env Dev.proj*)。 これには、特定の送信先の環境に固有のビルドと配置の設定が含まれています。 たとえば、使用する、 *Env Dev.proj*開発者またはテスト環境の設定を行い、という名前の別のファイルを作成するファイル*Env Stage.proj*ステージングの設定を指定環境。
-- A*コマンド ファイル*(*発行 Dev.cmd*)。 これには、プロジェクト ファイルを指定するコマンドを実行する場合、MSBuild.exe が含まれています。 各ファイルが別の環境に固有のプロジェクト ファイルを指定する MSBuild.exe のコマンドが含まれているすべての変換先の環境のコマンド ファイルを作成できます。 これにより、開発者が適切なコマンド ファイルを実行するだけでさまざまな環境にデプロイできます。
+- *ユニバーサルプロジェクトファイル*(*Publish. proj*)。 これには、対象となる環境間で変更されないビルドおよび配置の手順が含まれます。
+- *環境固有のプロジェクトファイル*(*Env Dev. proj*)。 これには、特定の対象環境に固有のビルドおよび配置の設定が含まれます。 たとえば、 *env-Dev. proj*ファイルを使用して、開発者またはテスト環境の設定を指定し、環境のステージング環境の設定を提供するために、 *env*という名前の別のファイルを作成することができます。
+- *コマンドファイル*(*Publish-Dev*)。 これには、実行するプロジェクトファイルを指定する Msbuild.exe コマンドが含まれています。 すべての変換先環境に対してコマンドファイルを作成できます。各ファイルには、別の環境固有のプロジェクトファイルを指定する Msbuild.exe コマンドが含まれています。 これにより、開発者は、適切なコマンドファイルを実行するだけで、さまざまな環境に配置できます。
 
-サンプルのソリューションでは、これら 3 つの発行フォルダーにソリューション ファイルが見つかります。
+サンプルソリューションでは、[ソリューションの発行] フォルダーにこれら3つのファイルがあります。
 
 ![](understanding-the-build-process/_static/image1.png)
 
-これらのファイルをさらに詳しく見ると、前にこのアプローチを使用する場合の全体的なビルド プロセスのしくみを見てをみましょう。 大まかに言えば、ビルドおよび配置プロセスはようになります。
+これらのファイルについてさらに詳しく説明する前に、この方法を使用した場合のビルドプロセス全体のしくみを見てみましょう。 大まかに言えば、ビルドと配置のプロセスは次のようになります。
 
 ![](understanding-the-build-process/_static/image2.png)
 
-最初に行われるは、2 つのプロジェクト ファイル&#x2014;ユニバーサルのビルドと配置の手順を含む 1 つ、1 つの環境に固有の設定を含む&#x2014;1 つのプロジェクト ファイルにマージされます。 MSBuild はプロジェクト ファイル内の命令を動作します。 各プロジェクトごとに、プロジェクト ファイルを使用して、ソリューションでプロジェクトを構築します。 これは、後に、Web Deploy (MSDeploy.exe) などの他のツールと、web コンテンツおよびデータベースを対象となる環境にデプロイする VSDBCMD ユーティリティ呼び出します。
+最初に実行されるのは、2つの&#x2014;プロジェクトファイル (ユニバーサルビルドと配置の手順を含む) と、環境&#x2014;固有の設定を含むファイルが1つのプロジェクトファイルにマージされることです。 MSBuild は、プロジェクトファイルの指示に従って動作します。 各プロジェクトのプロジェクトファイルを使用して、ソリューション内の各プロジェクトをビルドします。 次に、Web 配置 (Msdeploy.exe) などの他のツールを呼び出し、Web コンテンツとデータベースをターゲット環境に配置するための VSDBCMD ユーティリティを呼び出します。
 
-[完了] を [スタート] からは、ビルドおよび配置プロセスは、これらのタスクを実行します。
+最初から最後まで、ビルドと展開のプロセスで次のタスクが実行されます。
 
 1. 新しいビルドの準備として、出力ディレクトリの内容を削除します。
 2. ソリューション内の各プロジェクトをビルドします。
 
-    1. Web プロジェクトの&#x2014;ここでは、ASP.NET MVC web アプリケーションと WCF web サービス&#x2014;ビルド プロセスは、各プロジェクトの web 展開パッケージを作成します。
-    2. データベース プロジェクトの場合は、ビルド プロセスは、各プロジェクトの配置マニフェスト (.deploymanifest ファイル) を作成します。
-3. VSDBCMD.exe ユーティリティを使用して、プロジェクト ファイルからさまざまなプロパティを使用して、ソリューション内の各データベース プロジェクトのデプロイを&#x2014;ターゲット接続文字列とデータベース名を&#x2014;.deploymanifest ファイルと共にします。
-4. MSDeploy.exe ユーティリティを使用して、プロジェクト ファイルから展開プロセスを制御するさまざまなプロパティを使用して、ソリューション内の各 web プロジェクトをデプロイします。
+    1. この場合の&#x2014;web プロジェクトでは、ASP.NET MVC web アプリケーションと WCF web サービス&#x2014;のビルドプロセスによって、各プロジェクトの web 配置パッケージが作成されます。
+    2. データベースプロジェクトの場合、ビルドプロセスによって、各プロジェクトの配置マニフェスト (deploymanifest ファイル) が作成されます。
+3. VSDBCMD ユーティリティを使用して、ソリューション内の各データベースプロジェクトを配置します。これには、プロジェクト&#x2014;ファイルのさまざまなプロパティ、ターゲット接続&#x2014;文字列、データベース名、および deploymanifest ファイルを使用します。
+4. Msdeploy.exe ユーティリティを使用してソリューション内の各 web プロジェクトを配置し、プロジェクトファイルのさまざまなプロパティを使用して配置プロセスを制御します。
 
-サンプル ソリューションを使用して、このプロセスの詳細をトレースすることができます。
+サンプルソリューションを使用して、このプロセスをより詳細にトレースできます。
 
 > [!NOTE]
-> 独自のサーバー環境の環境に固有のプロジェクト ファイルをカスタマイズする方法のガイダンスについては、次を参照してください。[ターゲット環境の配置プロパティを構成する](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md)します。
+> 独自のサーバー環境用に環境固有のプロジェクトファイルをカスタマイズする方法については、「[ターゲット環境の配置プロパティを構成](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md)する」を参照してください。
 
-## <a name="invoking-the-build-and-deployment-process"></a>ビルドと展開プロセスを呼び出す
+## <a name="invoking-the-build-and-deployment-process"></a>ビルド & デプロイプロセスの呼び出し
 
-開発者が実行連絡先マネージャー ソリューションを開発者のテスト環境をデプロイするのには、*発行 Dev.cmd*コマンド ファイルです。 MSBuild.exe を起動を指定する*Publish.proj*として実行するプロジェクト ファイルと*Env Dev.proj*パラメーター値として。
+開発者テスト環境に Contact Manager ソリューションを配置するには、 *Publish-Dev*コマンドファイルを実行します。 これにより Msbuild.exe が呼び出され、実行するプロジェクトファイルとして*Publish*が指定され、パラメーター値として*proj が*指定されます。
 
 [!code-console[Main](understanding-the-build-process/samples/sample1.cmd)]
 
 > [!NOTE]
-> **/Fl**スイッチ (短縮形 **/fileLogger**) という名前のファイルのビルド出力をログに記録*msbuild.log になります*現在のディレクトリで。 詳細については、次を参照してください。、 [MSBuild コマンド ライン リファレンス](https://msdn.microsoft.com/library/ms164311.aspx)します。
+> **/Fl**スイッチ ( **/fileLogger**の short) は、ビルド出力を現在のディレクトリの*msbuild.exe*という名前のファイルに記録します。 詳細については、「 [MSBuild コマンドラインリファレンス](https://msdn.microsoft.com/library/ms164311.aspx)」を参照してください。
 
-この時点では、MSBuild の実行を開始、読み込み、 *Publish.proj*ファイル、およびその中の手順の処理を開始します。 最初の命令が MSBuild プロジェクトをインポートするように指示するファイル、 **TargetEnvPropsFile**パラメーターを指定します。
+この時点で、MSBuild は実行を開始し、*発行の proj*ファイルを読み込み、そこに含まれる命令の処理を開始します。 最初の命令は、 **TargetEnvPropsFile**パラメーターによって指定されたプロジェクトファイルをインポートするよう MSBuild に指示します。
 
 [!code-xml[Main](understanding-the-build-process/samples/sample2.xml)]
 
-**TargetEnvPropsFile**パラメーターを指定します、 *Env Dev.proj*ファイル、MSBuild の内容をマージするため、 *Env Dev.proj*ファイルを*Publish.proj*ファイル。
+**TargetEnvPropsFile**パラメーターによって*env*ファイルが指定されるため、MSBuild では、 *Env*ファイルの内容が*Publish*ファイルにマージされます。
 
-MSBuild は、マージされたプロジェクト ファイル内で検出された次の要素は、プロパティ グループです。 プロパティは、ファイルに出現する順序で処理されます。 MSBuild は、指定した条件を満たしていることを提供する、各プロパティのキー/値ペアを作成します。 後で定義されているファイルのプロパティと同じ名前のファイルで既に定義済みプロパティが上書きされます。 たとえば、 **OutputRoot**プロパティ。
+マージされたプロジェクトファイルで MSBuild が検出する次の要素は、プロパティグループです。 プロパティは、ファイルに出現する順序で処理されます。 MSBuild は、各プロパティのキーと値のペアを作成し、指定された条件が満たされていることを示します。 ファイルの後半で定義されているプロパティは、ファイルで定義されている名前と同じ名前のプロパティを上書きします。 たとえば、 **Outputroot**プロパティについて考えてみます。
 
 [!code-xml[Main](understanding-the-build-process/samples/sample3.xml)]
 
-MSBuild が最初に処理と**OutputRoot**要素、同様に名前付きパラメーターを提供することが指定されていませんの値を設定、 **OutputRoot**プロパティを **.\Publish\Out**します。2 番目に到達したときに**OutputRoot**要素に、条件が評価される場合は、 **true**の値が上書きされます、 **OutputRoot**プロパティの値と、**OutDir**パラメーター。
+MSBuild が最初の**outputroot**要素を処理するときに、同様の名前付きパラメーターが指定されていない場合、 **outputroot**プロパティの値が. に設定されます。 **\** 発行します。2番目の**outputroot**要素が検出されると、条件が**true**と評価されると、 **Outputroot**プロパティの値が**OutDir**パラメーターの値で上書きされます。
 
-MSBuild が発生する次の要素がという名前の項目を含む、1 つの項目グループ**ProjectsToBuild**します。
+MSBuild が検出する次の要素は、 **Projectstobuild**という名前の項目を含む単一の項目グループです。
 
 [!code-xml[Main](understanding-the-build-process/samples/sample4.xml)]
 
-MSBuild では、この命令を処理という名前の項目リストを作成することにより**ProjectsToBuild**します。 ここでは、項目リストが 1 つの値が含まれます&#x2014;ソリューション ファイルのファイル名とパス。
+MSBuild は、 **Projectstobuild**という名前の項目リストを構築することによって、この命令を処理します。 この場合、項目の一覧には、ソリューションファイル&#x2014;のパスとファイル名の1つの値が含まれます。
 
-この時点で、残りの要素は、ターゲットです。 プロパティと項目からターゲットを異なる方法で処理が&#x2014;は明示的に、ユーザーが指定したか、プロジェクト ファイル内で別のコンス トラクターによって呼び出される場合を除き、基本的には、ターゲットは処理されません。 いることを思い出してください開始**プロジェクト**タグが含まれています、 **DefaultTargets**属性。
+この時点で、残りの要素はターゲットです。 ターゲットは、プロパティと項目&#x2014;とは異なる方法で処理されます。つまり、ターゲットは、ユーザーが明示的に指定した場合、またはプロジェクトファイル内の別の構造体によって呼び出された場合を除き、処理されません。 開いている**プロジェクト**タグに**defaulttargets**属性が含まれていることを思い出してください。
 
 [!code-xml[Main](understanding-the-build-process/samples/sample5.xml)]
 
-これにより、MSBuild を呼び出す、 **FullPublish** MSBuild.exe が呼び出されるときにターゲットがない場合は、ターゲットが指定されています。 **FullPublish**ターゲットにはすべてのタスクが含まれていません。 代わりに依存関係の一覧を単純に指定します。
+これにより、msbuild.exe が呼び出されたときにターゲットが指定されていない場合、 **Fullpublish**ターゲットを呼び出すように msbuild に指示します。 **Fullpublish**ターゲットにタスクが含まれていません。代わりに、単に依存関係の一覧を指定します。
 
 [!code-xml[Main](understanding-the-build-process/samples/sample6.xml)]
 
-この依存関係は MSBuild を実行する順序で、 **FullPublish**をこの一覧の表示順序でターゲットを呼び出す必要が、ターゲット。
+この依存関係は、 **Fullpublish**ターゲットを実行するために、指定された順序でこのターゲットの一覧を呼び出す必要があることを MSBuild に指示します。
 
-1. 呼び出す必要がありますが、**クリーン**ターゲット。
-2. 呼び出す必要がありますが、 **BuildProjects**ターゲット。
-3. 呼び出す必要がありますが、 **GatherPackagesForPublishing**ターゲット。
-4. 呼び出す必要がありますが、 **PublishDbPackages**ターゲット。
-5. 呼び出す必要がありますが、 **PublishWebPackages**ターゲット。
+1. **クリーン**ターゲットを呼び出す必要があります。
+2. **Buildprojects**ターゲットを呼び出す必要があります。
+3. **GatherPackagesForPublishing**ターゲットを呼び出す必要があります。
+4. **Publishdbpackages**ターゲットを呼び出す必要があります。
+5. **Publishwebpackages**ターゲットを呼び出す必要があります。
 
-### <a name="the-clean-target"></a>Clean ターゲット
+### <a name="the-clean-target"></a>クリーンターゲット
 
-**クリーン**ターゲットは、出力ディレクトリとそのすべての内容を基本的に削除すると、新しいビルドの準備として。
+**クリーン**ターゲットは、基本的に、新しいビルドの準備として、出力ディレクトリとそのすべての内容を削除します。
 
 [!code-xml[Main](understanding-the-build-process/samples/sample7.xml)]
 
-ターゲットが含まれていますが、 **ItemGroup**要素。 プロパティまたは内の項目を定義するとき、**ターゲット**要素を作成している*動的*プロパティと項目。 つまり、プロパティまたは項目はターゲットが実行されるまでに処理されません。 出力ディレクトリが存在しないか、ビルドするには、ビルド プロセスが開始されるまですべてのファイルを含む、  **\_FilesToDelete**静的アイテムとして一覧表示は、実行が進行中になるまで待機する必要があります。 そのため、リストを作成するには、ターゲット内の動的なアイテムとして。
+ターゲットに**ItemGroup**要素が含まれていることに注意してください。 **ターゲット**要素内にプロパティまたは項目を定義すると、*動的*なプロパティと項目が作成されます。 つまり、プロパティまたは項目は、ターゲットが実行されるまで処理されません。 出力ディレクトリが存在しないか、ビルドプロセスが開始するまでファイルが含まれている可能性があるため、 **\_FilesToDelete** list を静的項目としてビルドすることはできません。実行が進行するまで待機する必要があります。 そのため、リストはターゲット内の動的な項目としてビルドします。
 
 > [!NOTE]
-> この場合は、ため、**クリーン**ターゲットは、最初に実行される、動的なグループを使用する実際の必要はありません。 ただし、ある時点で異なる順序でターゲットを実行するようにこの種類のシナリオでは、動的なプロパティと項目を使用することをお勧めを勧めします。  
-> 使用しない項目を宣言することを回避するためにも目指します。 特定のターゲットでのみ使用される項目があれば、ビルド プロセスで、不要なオーバーヘッドを削除するターゲット内に配置することを検討してください。
+> この場合、**クリーン**ターゲットは最初に実行されるため、動的な項目グループを使用する必要はありません。 ただし、この種のシナリオでは、ある時点で異なる順序でターゲットを実行する場合があるので、動的なプロパティと項目を使用することをお勧めします。  
+> また、使用されない項目を宣言しないようにすることもお勧めします。 特定のターゲットによってのみ使用される項目がある場合は、ターゲット内に配置して、ビルドプロセスの不要なオーバーヘッドを解消することを検討してください。
 
-項目を動的、**クリーン**ターゲットはとても簡単ですし、組み込みの使用**メッセージ**、**削除**、および**RemoveDir**へのタスクします。
+動的な項目については、**クリーン**ターゲットは非常に単純であり、組み込みの**Message**、 **Delete**、および**RemoveDir**タスクを使用して次のことを行います。
 
-1. Logger にメッセージを送信します。
+1. ロガーにメッセージを送信します。
 2. 削除するファイルの一覧を作成します。
 3. ファイルを削除します。
 4. 出力ディレクトリを削除します。
 
 ### <a name="the-buildprojects-target"></a>BuildProjects ターゲット
 
-**BuildProjects**ターゲットは基本的に、サンプル ソリューション内のすべてのプロジェクトをビルドします。
+**Buildprojects**ターゲットは基本的に、サンプルソリューション内のすべてのプロジェクトをビルドします。
 
 [!code-xml[Main](understanding-the-build-process/samples/sample8.xml)]
 
-このターゲットは、前のトピックで詳しく説明した[プロジェクト ファイルを理解する](understanding-the-project-file.md)タスクとターゲット プロパティと項目の参照方法を説明するためにします。 この時点では、主に関心、 **MSBuild**タスク。 このタスクを使用すると、複数のプロジェクトをビルドします。 タスクが MSBuild.exe; の新しいインスタンスを作成できません。各プロジェクトをビルド、実行中の現在のインスタンスを使用します。 この例では関心のある重要な点は、展開プロパティを示します。
+このターゲットについては、前のトピック「[プロジェクトファイルについ](understanding-the-project-file.md)て」で説明しました。これは、タスクとターゲットがプロパティと項目を参照する方法を説明するためのものです。 この時点で、主に**MSBuild**タスクに関心があります。 このタスクを使用すると、複数のプロジェクトをビルドできます。 このタスクでは、Msbuild.exe の新しいインスタンスは作成されません。現在実行中のインスタンスを使用して、各プロジェクトをビルドします。 この例の重要なポイントは、展開のプロパティです。
 
-- **DeployOnBuild**プロパティには、各プロジェクトのビルドが完了すると、プロジェクトの設定で、デプロイの手順を実行するために MSBuild がよう指示します。
-- **DeployTarget**プロパティは、プロジェクトのビルド後に起動するターゲットを識別します。 ここで、**パッケージ**ターゲットは、配置可能な web のパッケージにプロジェクトの出力をビルドします。
+- **Deployonbuild**プロパティは、各プロジェクトのビルドが完了したときに、プロジェクト設定の配置手順を実行するよう MSBuild に指示します。
+- **Deploytarget**プロパティは、プロジェクトのビルド後に呼び出すターゲットを指定します。 この場合、**パッケージ**ターゲットは、配置可能な web パッケージにプロジェクト出力をビルドします。
 
 > [!NOTE]
-> **パッケージ**ターゲットによって呼び出された Web 発行パイプライン (WPP)、MSBuild および Web デプロイ間の統合を提供します。 見てレビュー、組み込みターゲット、WPP が提供する場合、 *Microsoft.Web.Publishing.targets* %PROGRAMFILES (x86) %\MSBuild\Microsoft\VisualStudio\v10.0\Web フォルダーにファイル。
+> **パッケージ**ターゲットは、MSBuild と Web 配置の統合を提供する Web 発行パイプライン (WPP) を呼び出します。 WPP によって提供される組み込みターゲットを確認する場合は、% PROGRAMFILES (x86)% \ MSBuild\Microsoft\VisualStudio\v10.0\Web フォルダー内のファイルを確認して*みてください*。
 
 ### <a name="the-gatherpackagesforpublishing-target"></a>GatherPackagesForPublishing ターゲット
 
-調査する場合、 **GatherPackagesForPublishing**ターゲット、実際にすべてのタスクを含んでいないことを確認します。 代わりに、3 つの動的な項目を定義する 1 つの項目グループが含まれています。
+**GatherPackagesForPublishing**ターゲットを調べると、実際にはタスクが含まれていないことがわかります。 代わりに、3つの動的な項目を定義する1つの項目グループが含まれています。
 
 [!code-xml[Main](understanding-the-build-process/samples/sample9.xml)]
 
-これらの項目が際に作成された展開パッケージを参照してください、 **BuildProjects**ターゲットが実行されました。 でしたで定義するこれらの項目静的に、プロジェクト ファイルまで、項目が参照するファイルが存在しないため、 **BuildProjects**ターゲットを実行します。 代わりに、項目定義する必要が動的にまでは呼び出されませんターゲット内で後に、 **BuildProjects**ターゲットを実行します。
+これらの項目は、 **Buildprojects**ターゲットの実行時に作成された配置パッケージを参照します。 これらの項目をプロジェクトファイルで静的に定義することはできません。これは、項目が参照するファイルが、 **Buildprojects**ターゲットが実行されるまで存在しないためです。 代わりに、項目は、 **Buildprojects**ターゲットが実行されるまで呼び出されないターゲット内で動的に定義される必要があります。
 
-このターゲット内では、項目は使用されません&#x2014;項目と各項目の値に関連付けられているメタデータ単にこのターゲットをビルドします。 これらの要素が処理されると、 **PublishPackages**項目が 2 つの値へのパスを含む、 *ContactManager.Mvc.deploy.cmd*ファイルとパスを*ContactManager.Service.deploy.cmd*ファイル。 Web Deploy は、プロジェクトごとに web パッケージの一部としてこれらのファイルを作成し、これらは、呼び出す必要のあるファイル、パッケージをデプロイするには、移行先サーバーにします。 これらのファイルのいずれかを開くには場合、は、さまざまなビルドに固有のパラメーター値を持つ MSDeploy.exe コマンドを基本的に表示されます。
+項目はこのターゲット&#x2014;内では使用されません。このターゲットは、項目と各項目の値に関連付けられているメタデータを作成するだけです。 これらの要素が処理されると、 **Publishpackages**項目に2つの値 ( *Contactmanager. Mvc*ファイルのパスと*contactmanager. Service. .deploy*ファイルへのパス) が格納されます。 Web 配置は、各プロジェクトの web パッケージの一部としてこれらのファイルを作成します。これらのファイルは、パッケージを配置するために移行先サーバーで呼び出す必要があります。 これらのファイルのいずれかを開くと、基本的に、さまざまなビルド固有のパラメーター値を持つ Msdeploy.exe コマンドが表示されます。
 
-**DbPublishPackages**項目が 1 つの値へのパスを含む、 *ContactManager.Database.deploymanifest*ファイル。
+**Dbpublishpackages**項目には、 *Contactmanager. Database. deploymanifest*ファイルへのパスである単一の値が含まれます。
 
 > [!NOTE]
-> データベース プロジェクトをビルドすると、MSBuild プロジェクト ファイルと同じスキーマを使用して、.deploymanifest ファイルが生成されます。 データベース スキーマ (.dbschema) の場所や配置前や配置後スクリプトの詳細など、データベースを配置するために必要なすべての情報が含まれています。 詳細については、次を参照してください。 [、概要のデータベースのビルドと展開](https://msdn.microsoft.com/library/aa833165.aspx)します。
+> Deploymanifest ファイルは、データベースプロジェクトをビルドするときに生成され、MSBuild プロジェクトファイルと同じスキーマを使用します。 データベースの配置に必要なすべての情報 (データベーススキーマ (.dbschema) の場所、配置前スクリプトと配置後スクリプトの詳細など) が含まれています。 詳細については、「[データベースビルド & デプロイの概要](https://msdn.microsoft.com/library/aa833165.aspx)」を参照してください。
 
-デプロイ パッケージとデータベースの配置マニフェストの作成および使用方法の詳細を学習[のビルドとパッケージ化 Web Application Projects](building-and-packaging-web-application-projects.md)と[データベース プロジェクトの配置](deploying-database-projects.md)します。
+配置パッケージとデータベース配置マニフェストの作成方法と使用方法については、 [Web アプリケーションプロジェクトのビルドとパッケージ化](building-and-packaging-web-application-projects.md)、および[データベースプロジェクトの配置](deploying-database-projects.md)に関するページを参照してください。
 
 ### <a name="the-publishdbpackages-target"></a>PublishDbPackages ターゲット
 
-簡単に言うと、 **PublishDbPackages**ターゲットをデプロイする VSDBCMD ユーティリティによって呼び出された、 **ContactManager**をターゲット環境にデータベース。 多くの意思決定と微妙な差異は、データベースの配置を構成する必要があり、この点についての詳細を学習[データベース プロジェクトの配置](deploying-database-projects.md)と[の複数の環境のデータベースの配置をカスタマイズする](../advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments.md). このトピックでは、このターゲットが実際に動作する方法に注目します。
+簡単に言うと、 **Publishdbpackages**ターゲットは VSDBCMD ユーティリティを呼び出して、 **contactmanager**データベースをターゲット環境にデプロイします。 データベース配置の構成には多くの意思決定と微妙な関係があります。詳細については、[データベースプロジェクトの配置](deploying-database-projects.md)と[複数の環境のデータベース配置のカスタマイズ](../advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments.md)に関するページを参照してください。 このトピックでは、このターゲットが実際にどのように機能するかについて説明します。
 
-最初に、開始タグが含まれることに注意してください、**出力**属性。
+まず、開始タグに**Outputs**属性が含まれていることに注意してください。
 
 [!code-xml[Main](understanding-the-build-process/samples/sample10.xml)]
 
-これは、例の*ターゲット バッチ処理*します。 MSBuild プロジェクト ファイルでは、バッチ処理は、コレクションを反復処理するための手法です。 値、**出力**属性、 **「% (DbPublishPackages.Identity)」** を参照、 **Identity**のメタデータのプロパティ、 **DbPublishPackages**項目のリスト。 この表記法では、**Outputs=%** *(ItemList.ItemMetadataName)* 、として変換されます。
+これは、ターゲットの*バッチ*処理の例です。 MSBuild プロジェクトファイルでは、バッチ処理はコレクションを反復処理するための手法です。 **Outputs**属性の値 **"% (dbpublishpackages. Identity)"** は、 **Dbpublishpackages**項目リストの**id**メタデータプロパティを参照します。 この記法 **Outputs =% * * * (Itemlist)* は、次のように変換されます。
 
-- 内の項目を分割**DbPublishPackages**同じが含まれている項目のバッチに**Identity**メタデータ値。
-- バッチごとに 1 回のターゲットを実行します。
+- **Dbpublishpackages**の項目を、同じ**id**メタデータ値を含む項目のバッチに分割します。
+- バッチごとにターゲットを1回実行します。
 
 > [!NOTE]
-> **Identity**の 1 つ、[組み込みメタデータ値](https://msdn.microsoft.com/library/ms164313.aspx)作成時にすべての項目に割り当てられています。 値を参照して、 **Include**属性、**項目**要素&#x2014;つまり、パスと、項目のファイル名。
+> **Identity**は、作成時にすべての項目に割り当てられる[組み込みメタデータ値](https://msdn.microsoft.com/library/ms164313.aspx)の1つです。 ここでは、 **item**要素&#x2014;の**Include**属性の値 (項目のパスとファイル名) を参照します。
 
-この場合、同じパスとファイル名では、複数の項目はならない、ため、本質的に取り組んでいますに 1 つのバッチ サイズ。 ターゲットは、データベース パッケージごとに 1 回実行されます。
+この場合、同じパスとファイル名を持つ複数の項目を指定することはできないので、基本的には1つのバッチサイズを使用しています。 ターゲットは、データベースパッケージごとに1回実行されます。
 
-同様の表記法を確認できます、  **\_Cmd**プロパティで、適切なスイッチ VSDBCMD コマンドを構築します。
+**\_Cmd**プロパティにも同様の表記が表示されます。これにより、適切なスイッチで VSDBCMD コマンドが作成されます。
 
 [!code-xml[Main](understanding-the-build-process/samples/sample11.xml)]
 
-この場合、 **%(DbPublishPackages.DatabaseConnectionString)** 、 **%(DbPublishPackages.TargetDatabase)** 、および **%(DbPublishPackages.FullPath)** すべてを参照してくださいメタデータの値、 **DbPublishPackages**項目コレクション。 **\_Cmd** プロパティを使って、 **Exec** タスクは、コマンドを呼び出します。
+この場合、 **% (DatabaseConnectionString)** 、 **% (dbpublishpackages)** 、および **% (dbpublishpackages. FullPath)** はすべて、 **dbpublishpackages**項目コレクションのメタデータ値を参照します。 **\_Cmd**プロパティは、コマンドを呼び出す**Exec**タスクによって使用されます。
 
 [!code-xml[Main](understanding-the-build-process/samples/sample12.xml)]
 
-この表記法では、結果として、 **Exec**の一意の組み合わせに基づいてバッチを作成するタスク、 **DatabaseConnectionString**、 **TargetDatabase**、および**FullPath**メタデータの値、およびタスクは、バッチごとに 1 回実行します。 これは、例の*タスク バッチ処理*します。 ただし、ターゲット レベルのバッチ処理では、項目のコレクションを単一項目のバッチに既に分割があるため、 **Exec**タスクが 1 回とターゲットの繰り返しごとに 1 回だけ実行されます。 つまり、このタスクは、ソリューション内の各データベース パッケージに対して 1 回、VSDBCMD ユーティリティを呼び出します。
+この表記の結果、 **Exec**タスクは、 **DatabaseConnectionString**、 **targetdatabase**、および**FullPath**メタデータ値の一意の組み合わせに基づいてバッチを作成します。このタスクは、バッチごとに1回実行されます。 *タスクバッチ*の例を次に示します。 ただし、ターゲットレベルのバッチ処理では、項目コレクションが既に単一項目のバッチに分割されているため、 **Exec**タスクは、ターゲットの反復ごとに1回だけ実行されます。 言い換えると、このタスクは、ソリューション内のデータベースパッケージごとに VSDBCMD ユーティリティを1回呼び出します。
 
 > [!NOTE]
-> ターゲットとタスクのバッチ処理の詳細については、MSBuild を参照してください。[バッチ処理](https://msdn.microsoft.com/library/ms171473.aspx)、[ターゲットのバッチの項目メタデータ](https://msdn.microsoft.com/library/ms228229.aspx)、および[タスクのバッチの項目メタデータ](https://msdn.microsoft.com/library/ms171474.aspx)します。
+> ターゲットとタスクのバッチ処理の詳細については、「MSBuild の[バッチ](https://msdn.microsoft.com/library/ms171473.aspx)処理」、「[ターゲットのバッチの項目メタデータ](https://msdn.microsoft.com/library/ms228229.aspx)」、および「[タスクバッチの項目メタデータ](https://msdn.microsoft.com/library/ms171474.aspx)」を参照してください。
 
 ### <a name="the-publishwebpackages-target"></a>PublishWebPackages ターゲット
 
-この段階では、呼び出した、 **BuildProjects**ターゲットで、サンプル ソリューションでは、各プロジェクトの web 配置パッケージを生成します。 各パッケージに付属する、 *deploy.cmd*ファイルで、ターゲット環境にパッケージを展開するために必要な MSDeploy.exe コマンドが含まれていると*SetParameters.xml*ファイルを指定します、ターゲット環境の必要な詳細情報。 呼び出したも、 **GatherPackagesForPublishing**ターゲットを含む項目コレクションが生成されますが、 *deploy.cmd*ファイルに関心があります。 基本的には、 **PublishWebPackages**ターゲットは、これらの関数を実行します。
+この時点で、 **Buildprojects**ターゲットが呼び出されました。これにより、サンプルソリューション内の各プロジェクトの web 配置パッケージが生成されます。 各パッケージは、ターゲット環境にパッケージを配置するために必要な Msdeploy.exe コマンドを含む *.deploy*ファイルであり、ターゲット環境の必要な詳細を指定する*setparameters .xml*ファイルが含まれています。 また、 **GatherPackagesForPublishing**ターゲットも呼び出されました。これにより、目的の *.deploy*ファイルを含む項目コレクションが生成されます。 基本的に、 **Publishwebpackages**ターゲットは、次の関数を実行します。
 
-- 操作し、 *SetParameters.xml*ターゲット環境では、適切な詳細を含めるには、各パッケージのファイルを使用して、 **XmlPoke**タスク。
-- 呼び出す、 *deploy.cmd*適切なスイッチを使用して、各パッケージのファイル。
+- **XmlPoke**タスクを使用して、各パッケージの*setparameters .xml*ファイルを操作し、ターゲット環境の正しい詳細を含めます。
+- 適切なスイッチを使用して、パッケージごとに*配置 .cmd*ファイルを呼び出します。
 
-同じように、 **PublishDbPackages** 、ターゲット、 **PublishWebPackages**ターゲットでターゲット バッチ処理を使用して、ターゲットは、web パッケージごとに 1 回実行されます。
+**Publishdbpackages**ターゲットと同様に、 **publishdbpackages**ターゲットはターゲットバッチを使用して、ターゲットが web パッケージごとに1回実行されるようにします。
 
 [!code-xml[Main](understanding-the-build-process/samples/sample13.xml)]
 
-ターゲット内で、 **Exec**タスクが実行に使用される、 *deploy.cmd* web パッケージごとにファイル。
+ターゲット内では、 **Exec**タスクを使用して、各 web パッケージの*配置 .cmd*ファイルを実行します。
 
 [!code-xml[Main](understanding-the-build-process/samples/sample14.xml)]
 
-Web パッケージの展開の構成の詳細については、次を参照してください。[のビルドとパッケージ化 Web Application Projects](building-and-packaging-web-application-projects.md)します。
+Web パッケージの配置の構成の詳細については、「 [Web アプリケーションプロジェクトのビルドおよびパッケージ化](building-and-packaging-web-application-projects.md)」を参照してください。
 
 ## <a name="conclusion"></a>まとめ
 
-このトピックでは、プロジェクト ファイルの分割を使用して最初から最後の連絡先のマネージャーのサンプル ソリューションのビルドと展開プロセスを制御する方法のチュートリアルが用意されています。 このアプローチを使用するを実行する複雑なエンタープライズ規模の展開、反復可能な 1 つの手順では、ファイルを環境に固有のコマンドを実行するだけでできます。
+このトピックでは、Contact Manager サンプルソリューションのビルドおよび配置プロセスを開始から終了まで制御するために、分割プロジェクトファイルを使用する方法のチュートリアルを提供しました。 このアプローチを使用すると、環境固有のコマンドファイルを実行するだけで、複雑なエンタープライズ規模のデプロイを単一の反復可能な手順で実行できます。
 
-## <a name="further-reading"></a>関連項目
+## <a name="further-reading"></a>参考資料
 
-プロジェクト ファイルと、WPP をより詳細な概要については、次を参照してください[内で、Microsoft Build Engine:。MSBuild と Team Foundation ビルドを使用して](http://amzn.com/0735645248)Sayed Ibrahim Hashimi、William Bartholomew、ISBN:978-0-7356-4524-0.
+プロジェクトファイルと WPP の詳細については、「Microsoft Build Engine の内部」を参照してください[。: MSBuild と Team Foundation Build](http://amzn.com/0735645248) By 作成者 Iロウ Hashimi およびウィリアム Bartholomew、ISBN: 978-0-7356-4524-0。
 
 > [!div class="step-by-step"]
 > [前へ](understanding-the-project-file.md)

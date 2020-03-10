@@ -8,45 +8,45 @@ ms.date: 11/24/2017
 ms.custom: seoapril2019
 msc.legacyurl: /web-api/overview/advanced/calling-a-web-api-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 960960d26863cc3f725eee8a6c98844c5d3ce721
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.openlocfilehash: ab3ba71839123e848dffaa59871f9dac8c1a88d0
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519181"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78504958"
 ---
 # <a name="call-a-web-api-from-a-net-client-c"></a>.NET クライアントから Web API を呼び出す (C#)
 
-作成者[Mike Wasson](https://github.com/MikeWasson)および[Rick Anderson](https://twitter.com/RickAndMSFT)
+by [Mike Wasson](https://github.com/MikeWasson)および[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[完成したプロジェクトをダウンロード](https://github.com/aspnet/AspNetDocs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample)します。 [ダウンロードの方法はこちらをご覧ください。](/aspnet/core/tutorials/#how-to-download-a-sample) 
+[完成したプロジェクトをダウンロード](https://github.com/dotnet/AspNetDocs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample)します。 [ダウンロードの方法はこちらをご覧ください。](/aspnet/core/tutorials/#how-to-download-a-sample) 
 
-このチュートリアルでは [System.Net.Http.HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) を使用して .NET アプリケーションから web API を呼び出す方法を説明します。
+このチュートリアルでは、.NET アプリケーションから web API を呼び出す方法につい[て説明します](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx)。
 
 このチュートリアルでは、次の web API を使用するクライアント アプリケーションについて書かれています。
 
-| 動作 | [HTTP メソッド] | 相対 URI |
+| アクション | HTTP メソッド | 相対 URI |
 | --- | --- | --- |
-| ID によって製品を取得します。 | GET | /api/products/*id* |
+| ID によって製品を取得します。 | GET | /api/*id* |
 | 新しい製品を作成する | POST | /api/products |
-| 製品を更新する | PUT | /api/products/*id* |
-| 製品を削除する | Del | /api/products/*id* |
+| 製品を更新する | PUT | /api/*id* |
+| 製品を削除する | DELETE | /api/*id* |
 
-ASP.NET Web API を使用して、この API を実装する方法については [CRUD 操作をサポートする Web API の作成](xref:web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
-)を参照してください。
+ASP.NET Web API でこの API を実装する方法については、「 [CRUD 操作をサポートする WEB api の作成](xref:web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
+)」を参照してください。
 
-簡潔に示す目的のため、このチュートリアルではクライアント アプリケーションとして Windows コンソール アプリケーションを使用します。 **HttpClient** は Windows Phone や Windows ストア アプリでも同様にサポートされています。 より詳しい情報については [複数のプラットフォームを使用してポータブル ライブラリの Web API クライアント コードの記述。](https://blogs.msdn.com/b/webdev/archive/2013/07/19/writing-web-api-client-code-for-multiple-platforms-using-portable-libraries.aspx) を参照してください。
+簡潔に示す目的のため、このチュートリアルではクライアント アプリケーションとして Windows コンソール アプリケーションを使用します。 **Httpclient**は、Windows Phone および Windows ストアアプリでもサポートされています。 詳細については、「[ポータブルライブラリを使用して複数のプラットフォームの WEB API クライアントコードを作成](https://blogs.msdn.com/b/webdev/archive/2013/07/19/writing-web-api-client-code-for-multiple-platforms-using-portable-libraries.aspx)する」を参照してください。
 
 <a id="CreateConsoleApp"></a>
 ## <a name="create-the-console-application"></a>コンソール アプリケーションを作成する
 
-Visual Studio で、**HttpClientSample** という名前の新しい Windows コンソール アプリを作成し、次のコードに貼り付けます。
+Visual Studio で、 **HttpClientSample**という名前の新しい Windows コンソールアプリを作成し、次のコードを貼り付けます。
 
 [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet_all)]
 
 上記のコードは、完全なクライアントアプリです。
 
-`RunAsync` が実行され、完了するまでブロックされます。 **HttpClient**メソッドはネットワーク I/O として振る舞うため、多くの場合、非同期です。 すべての非同期タスクは `RunAsync` 内で完了します。 通常、アプリは、メイン スレッドをブロックしませんが、このアプリはユーザーとの対話を許可しません。
+`RunAsync` が実行され、完了するまでブロックされます。 ほとんどの**Httpclient**メソッドは、ネットワーク i/o を実行するため、非同期です。 すべての非同期タスクは `RunAsync`内で実行されます。 通常、アプリは、メイン スレッドをブロックしませんが、このアプリはユーザーとの対話を許可しません。
 
 [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet_run)]
 
@@ -55,7 +55,7 @@ Visual Studio で、**HttpClientSample** という名前の新しい Windows コ
 
 NuGet パッケージマネージャーを使用して、Web API クライアントライブラリパッケージをインストールします。
 
-**[ツール]** メニューで、 **[NuGet パッケージ マネージャー]** 、 **[パッケージ マネージャー コンソール]** の順に選択します。 パッケージマネージャーコンソール (PMC) で、次のコマンドを入力します。
+**[ツール]** メニューで、 **[NuGet パッケージ マネージャー]**  >  **[パッケージ マネージャー コンソール]** の順に選択します。 パッケージマネージャーコンソール (PMC) で、次のコマンドを入力します。
 
 `Install-Package Microsoft.AspNet.WebApi.Client`
 
@@ -73,7 +73,7 @@ Netwonsoft (Json.NET とも呼ばれます) は、.NET 用の一般的な高パ�
 
 [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet_prod)]
 
-このクラスでは、web API によって使用されるデータ モデルと一致します。 アプリは **HttpClient** を使用して HTTP レスポンスから `Product` インスタンスを読み取ることができます。 アプリで逆シリアル化コードを記述する必要はありません。
+このクラスでは、web API によって使用されるデータ モデルと一致します。 アプリは**Httpclient**を使用して、HTTP 応答から `Product` インスタンスを読み取ることができます。 アプリで逆シリアル化コードを記述する必要はありません。
 
 <a id="InitClient"></a>
 ## <a name="create-and-initialize-httpclient"></a>HttpClient を作成して初期化する
@@ -165,11 +165,11 @@ GET と同様、DELETE 要求には要求本文がありません。 DELETE を�
 
 クライアントアプリをテストするには:
 
-1. サーバーアプリを[ダウンロード](https://github.com/aspnet/AspNetDocs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server)して実行します。 [ダウンロードの方法はこちらをご覧ください。](/aspnet/core/#how-to-download-a-sample) サーバーアプリが動作していることを確認します。 たとえば、`http://localhost:64195/api/products` は製品の一覧を返す必要があります。
+1. サーバーアプリを[ダウンロード](https://github.com/dotnet/AspNetDocs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server)して実行します。 [ダウンロードの方法はこちらをご覧ください。](/aspnet/core/#how-to-download-a-sample) サーバーアプリが動作していることを確認します。 たとえば、`http://localhost:64195/api/products` は製品の一覧を返す必要があります。
 2. HTTP 要求のベース URI を設定します。 ポート番号を、サーバーアプリで使用するポートに変更します。
     [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet5&highlight=2)]
 
-3. クライアント アプリを実行します。 次の出力が生成されます。
+3. クライアントアプリを実行します。 次の出力が生成されます。
 
    ```console
    Created at http://localhost:64195/api/products/4

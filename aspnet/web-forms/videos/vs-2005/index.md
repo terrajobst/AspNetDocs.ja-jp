@@ -2,22 +2,22 @@
 uid: web-forms/videos/vs-2005/index
 title: Visual Studio 2005 |Microsoft Docs
 author: rick-anderson
-description: テスト、展開、およびその他のタスクを実行するには、Visual Studio 2005、Team System、およびアドインを操作する方法。
+description: テスト、配置、およびその他のタスクを実行するために、Visual Studio 2005、Team System、およびアドインを操作する方法について説明します。
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 1bcf9a1c-ed34-4ed0-ab91-253df08fc6ff
 msc.legacyurl: /web-forms/videos/vs-2005
 msc.type: chapter
 ms.openlocfilehash: 7bfa41c62ece2c5ac34fc290560ee16a82248de0
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131493"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78512914"
 ---
 # <a name="visual-studio-2005"></a>Visual Studio 2005
 
-> テスト、展開、およびその他のタスクを実行するには、Visual Studio 2005、Team System、およびアドインを操作する方法。
+> テスト、配置、およびその他のタスクを実行するために、Visual Studio 2005、Team System、およびアドインを操作する方法について説明します。
 
 - [Team System による単体テスト入門](introduction-to-unit-testing-with-team-system.md)
 - [Team System による Web アプリケーション テスト入門](introduction-to-testing-web-applications-with-team-system.md)

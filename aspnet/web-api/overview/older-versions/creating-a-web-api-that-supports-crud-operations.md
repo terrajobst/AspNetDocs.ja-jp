@@ -10,11 +10,11 @@ ms.assetid: c125ca47-606a-4d6f-a1fc-1fc62928af93
 msc.legacyurl: /web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
 msc.type: authoredcontent
 ms.openlocfilehash: a096fd1c54df33b40115907a5c2517b2e3fec5b8
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74600338"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78448042"
 ---
 # <a name="enabling-crud-operations-in-aspnet-web-api-1"></a>ASP.NET Web API 1 で CRUD 操作を有効にする
 
@@ -36,14 +36,14 @@ CRUD は、4つの基本的なデータベース操作である &quot;作成、�
 
 Products API は、次のメソッドを公開します。
 
-| 動作 | [HTTP メソッド] | 相対 URI |
+| アクション | HTTP メソッド | 相対 URI |
 | --- | --- | --- |
-| すべての製品の一覧を取得する | GET | /api/製品 |
-| ID で製品を取得する | GET | /api/*id* |
+| すべての製品の一覧を取得する | GET | /api/products |
+| ID によって製品を取得します。 | GET | /api/*id* |
 | カテゴリ別に製品を取得する | GET | /api/products? category =*category* |
-| 新しい製品を作成する | 投稿 | /api/製品 |
+| 新しい製品を作成する | POST | /api/products |
 | 製品を更新する | PUT | /api/*id* |
-| 製品を削除する | Del | /api/*id* |
+| 製品を削除する | DELETE | /api/*id* |
 
 Uri の一部には、パスに製品 ID が含まれていることに注意してください。 たとえば、ID が28の製品を取得するために、クライアントは `http://hostname/api/products/28`の GET 要求を送信します。
 
@@ -51,9 +51,9 @@ Uri の一部には、パスに製品 ID が含まれていることに注意し
 
 Products API は、次の2つのリソースの種類の Uri を定義します。
 
-| Resource | URI |
+| リソース | URI |
 | --- | --- |
-| すべての製品の一覧。 | /api/製品 |
+| すべての製品の一覧。 | /api/products |
 | 個々の製品。 | /api/*id* |
 
 ### <a name="methods"></a>メソッド
@@ -81,11 +81,11 @@ Products API は、次の2つのリソースの種類の Uri を定義します�
 
 ## <a name="adding-a-model"></a>モデルの追加
 
-*モデル*は、アプリケーションのデータを表すオブジェクトです。 ASP.NET Web API では、厳密に型指定された CLR オブジェクトをモデルとして使用できます。これらのオブジェクトは、クライアントの XML または JSON に自動的にシリアル化されます。
+*"モデル"* は、アプリケーションでデータを表すオブジェクトです。 ASP.NET Web API では、厳密に型指定された CLR オブジェクトをモデルとして使用できます。これらのオブジェクトは、クライアントの XML または JSON に自動的にシリアル化されます。
 
 ProductStore API では、データは製品で構成されているため、`Product`という名前の新しいクラスを作成します。
 
-ソリューションエクスプローラーがまだ表示されていない場合は、 **[表示]** メニューの **[ソリューションエクスプローラー]** をクリックします。 ソリューションエクスプローラーで、 **[モデル]** フォルダーを右クリックします。 コンテキストメニューから **[追加]** を選択し、 **[クラス]** を選択します。 クラスに Product&quot;&quot;名前を指定します。
+ソリューション エクスプローラーが表示されていない場合は、 **[表示]** メニューをクリックし、 **[ソリューション エクスプローラー]** を選択します。 ソリューションエクスプローラーで、 **[モデル]** フォルダーを右クリックします。 コンテキストメニューから **[追加]** を選択し、 **[クラス]** を選択します。 クラスに Product&quot;&quot;名前を指定します。
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image3.png)
 
@@ -124,18 +124,18 @@ ASP.NET MVC を使用している場合は、既にコントローラーに精�
 
 ソリューションエクスプローラーのファイルを右クリックし、[削除] を選択して、[を削除] をクリックし**ます。** 次のように、新しいコントローラーを追加します。
 
-**ソリューションエクスプローラー**で、Controllers フォルダーを右クリックします。 **[追加]** を選択し、 **[コントローラー]** を選択します。
+**ソリューション エクスプローラー**で、[コントローラー] フォルダーを右クリックします。 **[追加]** 、 **[コントローラー]** の順に選択します。
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image6.png)
 
-コントローラーの**追加**ウィザードで、コントローラーに &quot;製品コントローラー&quot;という名前を指定します。 **[テンプレート]** ボックスの一覧で、 **[空の API コントローラー]** を選択します。 次に、 **[追加]** をクリックします。
+コントローラーの**追加**ウィザードで、コントローラーに &quot;製品コントローラー&quot;という名前を指定します。 **[テンプレート]** ボックスの一覧で、 **[空の API コントローラー]** を選択します。 **[追加]** をクリックします。
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image7.png)
 
 > [!NOTE]
 > コントローラーを Controllers という名前のフォルダーに配置する必要はありません。 フォルダー名は重要ではありません。これは、ソースファイルを整理するための便利な方法にすぎません。
 
-**コントローラーの追加**ウィザードでは、ProductsController.cs という名前のファイルが Controllers フォルダーに作成されます。 このファイルがまだ開いていない場合は、ファイルをダブルクリックして開きます。 次の**using ステートメントを追加し**ます。
+**コントローラーの追加**ウィザードでは、ProductsController.cs という名前のファイルが Controllers フォルダーに作成されます。 このファイルがまだ開かれていない場合は、ファイルをダブルクリックして開きます。 次の **using** ステートメントを追加します。
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample4.cs)]
 
@@ -150,10 +150,10 @@ ASP.NET MVC を使用している場合は、既にコントローラーに精�
 
 ProductStore API は、いくつかの &quot;読み取り&quot; アクションを HTTP GET メソッドとして公開します。 各アクションは、`ProductsController` クラスのメソッドに対応します。
 
-| 動作 | [HTTP メソッド] | 相対 URI |
+| アクション | HTTP メソッド | 相対 URI |
 | --- | --- | --- |
-| すべての製品の一覧を取得する | GET | /api/製品 |
-| ID で製品を取得する | GET | /api/*id* |
+| すべての製品の一覧を取得する | GET | /api/products |
+| ID によって製品を取得します。 | GET | /api/*id* |
 | カテゴリ別に製品を取得する | GET | /api/products? category =*category* |
 
 すべての製品の一覧を取得するには、次のメソッドを `ProductsController` クラスに追加します。

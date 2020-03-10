@@ -1,23 +1,23 @@
 ---
 uid: web-forms/videos/data-access/index
-title: データ アクセス |Microsoft Docs
+title: データアクセス |Microsoft Docs
 author: rick-anderson
-description: データ アクセス層 (DAL) を作成する方法。
+description: データアクセス層 (DAL) を作成する方法。
 ms.author: riande
 ms.date: 11/14/2011
 ms.assetid: a923735c-2d34-456c-8327-40aa62a4c1d6
 msc.legacyurl: /web-forms/videos/data-access
 msc.type: chapter
 ms.openlocfilehash: 66c8851d53cef59ea560818a054729115ca62b3b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65106749"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78464296"
 ---
-# <a name="data-access"></a>データ アクセス
+# <a name="data-access"></a>[データ アクセス]
 
-> データ アクセス層 (DAL) を作成する方法。
+> データアクセス層 (DAL) を作成する方法。
 
 - [ADO.NET Data Services](adonet-data-services/index.md)
 
@@ -26,15 +26,15 @@ ms.locfileid: "65106749"
     - [ASP アプリケーションからデータセットとフィルターを使用する](adonet-data-services/how-to-work-with-datasets-and-filters-from-an-asp-application.md)
 - [LINQ の操作方法](how-do-i-with-linq/index.md)
 
-    - [LINQ to SQL:概要](how-do-i-with-linq/how-do-i-linq-to-sql-overview.md)
-    - [LINQ to SQL:データ モデル](how-do-i-with-linq/how-do-i-linq-to-sql-data-model.md)
-    - [LINQ to SQL:データベースのクエリを実行します。](how-do-i-with-linq/how-do-i-linq-to-sql-querying-the-database.md)
-    - [LINQ to SQL:データベースの更新](how-do-i-with-linq/how-do-i-linq-to-sql-updating-the-database.md)
-    - [LINQ to SQL:LinqDataSource](how-do-i-with-linq/how-do-i-linq-to-sql-linqdatasource.md)
-    - [LINQ to SQL:Custom LinqDataSource](how-do-i-with-linq/how-do-i-linq-to-sql-custom-linqdatasource.md)
-    - [LINQ to SQL:ストアド プロシージャの使用](how-do-i-with-linq/how-do-i-linq-to-sql-using-stored-procedures.md)
-    - [LINQ to SQL:ストアド プロシージャで更新しています](how-do-i-with-linq/how-do-i-linq-to-sql-updating-with-stored-procedures.md)
-    - [LINQ to SQL:任意の SQL を実行します。](how-do-i-with-linq/how-do-i-linq-to-sql-executing-arbitrary-sql.md)
+    - [LINQ to SQL: 概要](how-do-i-with-linq/how-do-i-linq-to-sql-overview.md)
+    - [LINQ to SQL: データ モデル](how-do-i-with-linq/how-do-i-linq-to-sql-data-model.md)
+    - [LINQ to SQL: データベースにクエリを実行する](how-do-i-with-linq/how-do-i-linq-to-sql-querying-the-database.md)
+    - [LINQ to SQL: データベースを更新する](how-do-i-with-linq/how-do-i-linq-to-sql-updating-the-database.md)
+    - [LINQ to SQL: LinqDataSource](how-do-i-with-linq/how-do-i-linq-to-sql-linqdatasource.md)
+    - [LINQ to SQL: カスタム LinqDataSource](how-do-i-with-linq/how-do-i-linq-to-sql-custom-linqdatasource.md)
+    - [LINQ to SQL: ストアド プロシージャを使用する](how-do-i-with-linq/how-do-i-linq-to-sql-using-stored-procedures.md)
+    - [LINQ to SQL: ストアド プロシージャによる更新](how-do-i-with-linq/how-do-i-linq-to-sql-updating-with-stored-procedures.md)
+    - [LINQ to SQL: 任意の SQL を実行する](how-do-i-with-linq/how-do-i-linq-to-sql-executing-arbitrary-sql.md)
 - [VB チーム提供の LINQ ビデオ](linq-videos-from-the-vb-team/index.md)
 
     - [LINQ 入門](linq-videos-from-the-vb-team/how-do-i-get-started-with-linq.md)

@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/older-versions-security/introduction/security-basics-and-asp-net-support-cs
-title: セキュリティの基本と ASP.NET のC#サポート () |Microsoft Docs
+title: セキュリティの基礎と ASP.NET のサポート (C#) |Microsoft Docs
 author: rick-anderson
 description: これは、web フォームを介して訪問者を認証し、partic へのアクセスを承認するための手法を紹介するチュートリアルシリーズの最初のチュートリアルです。
 ms.author: riande
@@ -9,17 +9,17 @@ ms.assetid: 07e15538-2f29-40c6-b2e7-e6115075ac83
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/security-basics-and-asp-net-support-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 1ccaac101a83d0e28b07b220b8b7b61a9039227e
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74642443"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78520072"
 ---
 # <a name="security-basics-and-aspnet-support-c"></a>セキュリティの基礎と ASP.NET のサポート (C#)
 
 [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[PDF のダウンロード](https://download.microsoft.com/download/2/F/7/2F705A34-F9DE-4112-BBDE-60098089645E/aspnet_tutorial01_Basics_cs.pdf)
+[[Download PDF]\(PDF をダウンロード\)](https://download.microsoft.com/download/2/F/7/2F705A34-F9DE-4112-BBDE-60098089645E/aspnet_tutorial01_Basics_cs.pdf)
 
 > このチュートリアルでは、web フォームから訪問者を認証したり、特定のページや機能へのアクセスを承認したり、ASP.NET アプリケーションでユーザーアカウントを管理したりするための手法について説明します。
 
@@ -34,13 +34,13 @@ ms.locfileid: "74642443"
 - ユーザーアカウントの作成、更新、削除
 - ログインしているユーザーに基づいて、web ページ、ディレクトリ、または特定の機能へのアクセスを制限する
 - ASP を使用します。ユーザーアカウントをロールに関連付ける NET のロールフレームワーク
-- ユーザーロールの管理
+- ユーザー ロールの管理
 - ログインしているユーザーのロールに基づいて、web ページ、ディレクトリ、または特定の機能へのアクセスを制限する
 - ASP をカスタマイズおよび拡張します。NET のセキュリティ Web コントロール
 
 これらのチュートリアルは簡潔にすることを目的としており、プロセスを視覚的に説明するためのさまざまなスクリーンショットを含む詳細な手順を説明しています。 各チュートリアルは、およびC# Visual Basic バージョンで使用でき、使用されている完全なコードのダウンロードが含まれています。 (この最初のチュートリアルでは、高レベルの視点からのセキュリティの概念に焦点を当てているため、関連付けられているコードは含まれていません)。
 
-このチュートリアルでは、フォーム認証、承認、ユーザーアカウント、およびロールの実装を支援するために、重要なセキュリティの概念と、ASP.NET で使用できる機能について説明します。 では、始めましょう。
+このチュートリアルでは、フォーム認証、承認、ユーザーアカウント、およびロールの実装を支援するために、重要なセキュリティの概念と、ASP.NET で使用できる機能について説明します。 作業開始
 
 > [!NOTE]
 > セキュリティは、物理的、技術的、およびポリシーの決定にまたがるアプリケーションの重要な側面であり、高いレベルの計画とドメインの知識が必要です。 このチュートリアルシリーズは、セキュリティで保護された web アプリケーションを開発するためのガイドとしてのものではありません。 代わりに、フォーム認証、承認、ユーザーアカウント、およびロールに焦点を当てています。 このシリーズでは、これらの問題の一部であるセキュリティの概念について説明しますが、その他の概念については未探索していません。
@@ -67,7 +67,7 @@ ms.locfileid: "74642443"
 
 Windows 認証ワークフローでは、次のいずれかの認証方法を使用します。
 
-- 基本認証
+- [基本認証]
 - ダイジェスト認証
 - Windows 統合認証
 
@@ -121,7 +121,7 @@ ASP.NET 2.0 より前の開発者は、独自のユーザーおよびロール�
 - GetAllUsers
 - GetUser
 - UpdateUser
-- System.web.security.membership.validateuser
+- ValidateUser
 
 メンバーシップフレームワークは、[プロバイダーモデル](http://aspnet.4guysfromrolla.com/articles/101905-1.aspx)を使用します。これにより、メンバーシップフレームワークの API が実装から明確に分離されます。 これにより、開発者は共通の API を使用できますが、アプリケーションのカスタムニーズを満たす実装を使用できるようになります。 つまり、メンバーシップクラスは、フレームワークの重要な機能 (メソッド、プロパティ、およびイベント) を定義しますが、実際には実装の詳細を提供しません。 代わりに、メンバーシップクラスのメソッドは、構成されたプロバイダーを呼び出します。これは、実際の作業を実行します。 たとえば、メンバーシップクラスの CreateUser メソッドが呼び出された場合、メンバーシップクラスはユーザーストアの詳細を認識しません。 ユーザーがデータベース、XML ファイル、またはその他のストアで管理されているかどうかはわかりません。 メンバーシップクラスは、web アプリケーションの構成を調べて、呼び出しを委任するプロバイダーを決定します。このプロバイダークラスは、適切なユーザーストアに新しいユーザーアカウントを実際に作成する役割を担います。 この相互作用を図3に示します。
 
@@ -150,7 +150,7 @@ ASP.NET 2.0 では、ロールフレームワークも導入されました。 �
 
 の下には、さまざまなログインコントロールがメンバーシップとロールのフレームワークと対話します。 ほとんどのログインコントロールは、1行のコードを記述しなくても実装できます。 これらのコントロールの詳細については、今後のチュートリアル (機能の拡張とカスタマイズの手法を含む) で詳しく説明します。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 ユーザーアカウントをサポートするすべての web アプリケーションは、同様の機能を必要とします。たとえば、ユーザーがログインして、ページにアクセスしたときにログの状態を記録しておくことができます。新しい訪問者がアカウントを作成するための web ページ。また、ページ開発者は、ユーザーまたはロールに対して使用できるリソース、データ、および機能を指定できます。 ユーザーの認証と承認、およびユーザーアカウントとロールの管理のタスクは、フォーム認証、URL 承認、およびメンバーシップとロールのフレームワークにより、ASP.NET アプリケーションで非常に簡単に実行できます。
 
@@ -158,7 +158,7 @@ ASP.NET 2.0 では、ロールフレームワークも導入されました。 �
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -174,7 +174,7 @@ ASP.NET 2.0 では、ロールフレームワークも導入されました。 �
 - [Professional ASP.NET 2.0 のセキュリティ、メンバーシップ、およびロール管理](http://www.wrox.com/WileyCDA/WroxTitle/productCd-0764596985.html)(ISBN: 978-0-7645-9698-8)
 - [プロバイダーツールキット](https://msdn.microsoft.com/asp.net/aa336558.aspx)
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
@@ -183,4 +183,4 @@ ASP.NET 2.0 では、ロールフレームワークも導入されました。 �
 このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリーダーレビュー担当者は、このチュートリアルシリーズは多くの便利なレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者には、Alicja Maziarz、John 加藤 u、Teresa Murphy が含まれています。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [次へ](an-overview-of-forms-authentication-cs.md)
+> [Next](an-overview-of-forms-authentication-cs.md)

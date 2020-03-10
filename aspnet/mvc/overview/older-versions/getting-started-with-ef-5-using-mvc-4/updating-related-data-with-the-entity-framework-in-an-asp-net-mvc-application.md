@@ -9,11 +9,11 @@ ms.assetid: 7871dc05-2750-470f-8b4c-3a52511949bc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
 ms.openlocfilehash: d29cb172d642b67947b461d1a7e55d01872bb8c2
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74592441"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78468286"
 ---
 # <a name="updating-related-data-with-the-entity-framework-in-an-aspnet-mvc-application-6-of-10"></a>ASP.NET MVC アプリケーションでの Entity Framework を使用した関連データの更新 (6/10)
 
@@ -71,7 +71,7 @@ ms.locfileid: "74592441"
 
 ![Course_create_page](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
 
-**[作成]** をクリックします。 新しいコースが一覧に追加された状態で、Course Index ページが表示されます。 Index ページのリストの部門名は、ナビゲーション プロパティから取得され、リレーションシップが正常に確立されていることを示しています。
+**Create** をクリックしてください。 新しいコースが一覧に追加された状態で、Course Index ページが表示されます。 Index ページのリストの部門名は、ナビゲーション プロパティから取得され、リレーションシップが正常に確立されていることを示しています。
 
 ![Course_Index_page_showing_new_course](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
 
@@ -103,9 +103,9 @@ ms.locfileid: "74592441"
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample9.cs)]
 
-このコードは次のことを行います。
+このコードは、次の処理を実行します。
 
-- `OfficeAssignment` ナビゲーション プロパティの一括読み込みを使用して、現在の `Instructor` エンティティをデータベースから取得します。 これは、`HttpGet` `Edit` メソッドで行ったものと同じです。
+- `Instructor` ナビゲーション プロパティの一括読み込みを使用して、現在の `OfficeAssignment` エンティティをデータベースから取得します。 これは、`HttpGet` `Edit` メソッドで行ったものと同じです。
 - モデル バインダーからの値を使用して、取得した `Instructor` エンティティを更新します。 使用する[TryUpdateModel](https://msdn.microsoft.com/library/dd470908(v=vs.108).aspx)オーバーロードを使用すると、含めるプロパティを*ホワイトリスト*に追加できます。 これにより、 [2 番目のチュートリアル](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)で説明されているように、過剰なポストを防ぐことができます。
 
     [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample10.cs)]
@@ -202,7 +202,7 @@ ms.locfileid: "74592441"
 
 管理者として部門に割り当てられているインストラクターを削除しようとすると、参照整合性エラーが発生します。 インストラクターが管理者として割り当てられている任意の部門からインストラクターを自動的に削除するその他のコードについては[、このチュートリアルの現在のバージョン](../../getting-started/getting-started-with-ef-using-mvc/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)を参照してください。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 これで、関連データの操作の概要が完了しました。 ここまでのチュートリアルでは、さまざまな CRUD 操作を行ってきましたが、同時実行の問題については扱いませんでした。 次のチュートリアルでは、同時実行のトピックを紹介し、それを処理するためのオプションについて説明し、1つのエンティティ型に対して既に記述した CRUD コードに同時実行処理を追加します。
 

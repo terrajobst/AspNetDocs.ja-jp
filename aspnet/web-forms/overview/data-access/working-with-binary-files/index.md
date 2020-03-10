@@ -1,23 +1,23 @@
 ---
 uid: web-forms/overview/data-access/working-with-binary-files/index
-title: バイナリ ファイルを扱う |Microsoft Docs
+title: バイナリファイルの操作 |Microsoft Docs
 author: rick-anderson
-description: これらのチュートリアルでは、ユーザーがそれらを保存できるフォルダーまたはデータベース サーバーにバイナリ ファイル (Word や PDF ドキュメントなど) をアップロードできるようにする方法を示します。
+description: これらのチュートリアルでは、ユーザーがバイナリファイル (Word や PDF ドキュメントなど) をサーバーにアップロードできるようにする方法について説明します。このファイルは、フォルダーまたはデータベースに保存できます。
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 2d08658a-16c4-4877-9f43-c6503adda7bf
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files
 msc.type: chapter
 ms.openlocfilehash: 35ef53b66f4c21b5cf486d791ae40bc1ca953998
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131122"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78501238"
 ---
 # <a name="working-with-binary-files"></a>バイナリ ファイルの操作
 
-> これらのチュートリアルでは、ユーザーがそれらを保存できるフォルダーまたはデータベース サーバーにバイナリ ファイル (Word や PDF ドキュメントなど) をアップロードできるようにする方法を示します。
+> これらのチュートリアルでは、ユーザーがバイナリファイル (Word や PDF ドキュメントなど) をサーバーにアップロードできるようにする方法について説明します。このファイルは、フォルダーまたはデータベースに保存できます。
 
 - [ファイルのアップロード (C#)](uploading-files-cs.md)
 - [データ Web コントロールにバイナリ データを表示する (C#)](displaying-binary-data-in-the-data-web-controls-cs.md)

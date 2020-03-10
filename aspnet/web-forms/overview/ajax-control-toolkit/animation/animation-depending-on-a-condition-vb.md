@@ -9,11 +9,11 @@ ms.assetid: 1b87d8d6-b3f7-4126-b51c-d41442fbf947
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animation-depending-on-a-condition-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 583ebdbf109beb74b9a425020477183067bbb79a
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74607014"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78497878"
 ---
 # <a name="animation-depending-on-a-condition-vb"></a>条件に基づくアニメーション (VB)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74607014"
 
 > ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 アニメーションが実行されるかどうかは、JavaScript コードの形式で条件に依存することもできます。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 ASP.NET AJAX Control Toolkit のアニメーションコントロールは、コントロールだけではなく、コントロールにアニメーションを追加するためのフレームワーク全体です。 アニメーションが実行されるかどうかは、JavaScript コードの形式で条件に依存することもできます。
 

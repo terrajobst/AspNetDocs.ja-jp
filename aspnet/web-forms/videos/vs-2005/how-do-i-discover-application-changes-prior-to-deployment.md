@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/vs-2005/how-do-i-discover-application-changes-prior-to-deployment
-title: '[How Do i:]アプリケーションを展開する前に変更を検出しますか。 | Microsoft Docs'
+title: '[操作方法:]展開前にアプリケーションの変更を検出しますか? | Microsoft Docs'
 author: pjhacker
-description: Visual Studio Team System からソース管理エクスプ ローラーを使用して、Web アプリケーションと ensur に加えられた変更を検出する方法について説明してください.
+description: Visual Studio Team System のソース管理エクスプローラーを使用して、Web アプリケーションに加えられた変更と、ensur...
 ms.author: riande
 ms.date: 07/25/2007
 ms.assetid: 6945a637-cab3-4a13-a678-f6d2d83c2587
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-discover-application-changes-prior-to-deployment
 msc.type: video
 ms.openlocfilehash: 2cedf4dd161751802bf197ee6b96731259bc5c2f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59402935"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78520906"
 ---
-# <a name="how-do-i-discover-application-changes-prior-to-deployment"></a>[How Do i:]アプリケーションを展開する前に変更を検出しますか。
+# <a name="how-do-i-discover-application-changes-prior-to-deployment"></a>[操作方法:]展開前にアプリケーションの変更を検出しますか?
 
-によって[Paul ハッカー](https://github.com/pjhacker)
+[Paul ハッカー](https://github.com/pjhacker)
 
-Web アプリケーションに加えられた変更を検出し、必要な変更のみがライブの Web サイトにデプロイを取得するようにするのには、Visual Studio Team System からソース管理エクスプ ローラーを使用する方法について説明します。 デプロイを簡略化して変更をマージできる無償のユーティリティについても説明します。
+Visual Studio Team System のソース管理エクスプローラーを使用して、Web アプリケーションに加えられた変更を検出し、必要な変更のみがライブ Web サイトにデプロイされるようにする方法について説明します。 また、変更をマージしてデプロイを簡略化できる無料のユーティリティについても見ていきます。
 
-[&#9654;ビデオ (5 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-discover-application-changes-prior-to-deployment)
+[&#9654;ビデオを見る (5 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-discover-application-changes-prior-to-deployment)
 
 > [!div class="step-by-step"]
 > [前へ](how-do-i-publish-and-analyze-test-results.md)

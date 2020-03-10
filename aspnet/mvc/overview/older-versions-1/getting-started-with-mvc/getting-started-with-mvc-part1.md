@@ -2,83 +2,83 @@
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part1
 title: ASP.NET MVC の概要 |Microsoft Docs
 author: shanselman
-description: これは、ASP.NET MVC の基本を紹介する初心者向けチュートリアルです。 読み取りと書き込みをデータベースから単純な web アプリケーションを作成します。
+description: これは、ASP.NET MVC の基本を紹介する初心者向けチュートリアルです。 データベースを読み書きする単純な web アプリケーションを作成します。
 ms.author: riande
 ms.date: 08/14/2010
 ms.assetid: bf4a1c19-0a94-4208-b268-a96ddcf26946
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part1
 msc.type: authoredcontent
 ms.openlocfilehash: f8f0014776ba1313119e8c39c63a216b0fc864e7
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65123126"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78469798"
 ---
 # <a name="intro-to-aspnet-mvc"></a>ASP.NET MVC 入門
 
-[Scott Hanselman](https://github.com/shanselman)による
+[Scott マン Selman](https://github.com/shanselman)
 
 > > [!NOTE]
-> > このチュートリアルでは、使用可能な場合は、更新されたバージョン[ここ](../../getting-started/introduction/getting-started.md)を使用して[Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)します。 新しいチュートリアルでは、このチュートリアルで多くの機能強化を提供する ASP.NET MVC 5 を使用します。
+> > このチュートリアルが使用可能な場合は、 [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)を[使用して](../../getting-started/introduction/getting-started.md)更新されたバージョンです。 このチュートリアルでは、ASP.NET MVC 5 を使用します。このチュートリアルでは、多くの機能強化が行われています。
 >
 >
-> これは、ASP.NET MVC の基本を紹介する初心者向けチュートリアルです。 読み取りと書き込みをデータベースから単純な web アプリケーションを作成します。 参照してください、 [ASP.NET MVC ラーニング センター](../../../index.md)チュートリアルとサンプルは、その他の ASP.NET MVC を検索します。
+> これは、ASP.NET MVC の基本を紹介する初心者向けチュートリアルです。 データベースを読み書きする単純な web アプリケーションを作成します。 他の ASP.NET MVC のチュートリアルとサンプルについては、 [ASP.NET mvc learning center](../../../index.md)を参照してください。
 
-しましょう最初 ASP.NET MVC Web アプリケーションを使用して、 [Visual Web Developer 2010 Express](https://www.microsoft.com/express/Web/)します。 少しのムービー リスト アプリケーションをお知らせを作成し、ムービーの一覧を確認しましょう。
+[Visual Web Developer 2010 Express](https://www.microsoft.com/express/Web/)を使用して最初の ASP.NET MVC Web アプリケーションを作成しましょう。 ムービーの作成と一覧表示を行うための小さなムービーリストアプリケーションを作成します。
 
-## <a name="what-youll-build"></a>構築します
+## <a name="what-youll-build"></a>作成するアプリケーション:
 
-ここでは、アプリケーションをビルドの 2 つのスクリーン ショットです。 さまざまな列を持つ映画の単純なテーブルがあります。
+ここでは、作成するアプリケーションの2つのスクリーンショットを示します。 さまざまな列を含む単純な映画のテーブルが作成されます。
 
-[![ムービーの一覧 - Windows Internet Explorer (12)](getting-started-with-mvc-part1/_static/image2.png)](getting-started-with-mvc-part1/_static/image1.png)
+[![ムービーの一覧-Windows Internet Explorer (12)](getting-started-with-mvc-part1/_static/image2.png)](getting-started-with-mvc-part1/_static/image1.png)
 
-フォームの作成は、ムービーの一覧に追加できます必要があります。
+また、ムービーをリストに追加できるように、フォームが作成されます。
 
-[![-ムービーを作成するには、Windows Internet Explorer (2)](getting-started-with-mvc-part1/_static/image4.png)](getting-started-with-mvc-part1/_static/image3.png)
+[![ムービーを作成する-Windows Internet Explorer (2)](getting-started-with-mvc-part1/_static/image4.png)](getting-started-with-mvc-part1/_static/image3.png)
 
 ## <a name="skills-youll-learn"></a>学習内容
 
-このチュートリアルでは、Visual Studio を使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明します。 について説明します。
+このチュートリアルでは、Visual Studio を使用して ASP.NET MVC Web アプリケーションを構築する方法の基本について説明します。 学習内容:
 
 - 新しい ASP.NET MVC プロジェクトを作成する方法
-- SQL Server で新しいデータベースを作成する方法
-- ASP.NET MVC のコント ローラーとビューを作成する方法
-- データ取得して表示する方法
+- SQL Server を使用して新しいデータベースを作成する方法
+- ASP.NET MVC コントローラーとビューを作成する方法
+- データを取得して表示する方法
 - データを編集し、データの検証を有効にする方法
-- データベース スキーマを更新する方法
+- データベーススキーマを更新する方法
 
 ## <a name="get-started"></a>開始するには
 
-スタート画面から Visual Web Developer 2010 Express (名前を付けます"VWD"ようになりました) と新しいプロジェクトを選択を実行して開始します。
+まず、Visual Web Developer 2010 Express を実行します (ここでは "VWD" と呼ばれます)。スタート画面から [新しいプロジェクト] を選択します。
 
-Visual Web Developer は、IDE、または統合開発環境です。 Microsoft Word を使用してドキュメントを記述するのにのと同じようにアプリケーションを作成、IDE を使用します。 およびファイルの選択にも使用してもメニューを使用できるさまざまなオプションを示す上部のツールバーが |新しいプロジェクト。
+Visual Web Developer は、IDE または統合開発環境です。 Microsoft Word を使用してドキュメントを記述するのと同じように、IDE を使用してアプリケーションを作成します。 上部には、使用可能なさまざまなオプションが表示されているツールバーがあります。また、[ファイル] を選択するために使用できるメニューもあります。新しいプロジェクト。
 
 [![Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part1/_static/image6.png)](getting-started-with-mvc-part1/_static/image5.png)
 
-## <a name="creating-your-first-application"></a>最初のアプリケーションを作成します。
+## <a name="creating-your-first-application"></a>最初のアプリケーションの作成
 
 Visual Basic または Visual C# を使用してアプリケーションを作成することができます。 ここで、選択 Visual C#、左側の「ASP.NET MVC 2 Web アプリケーション」を選択し、 プロジェクトに"Movies"という名前し、[ok] をクリックします。
 
-[![新しいプロジェクト](getting-started-with-mvc-part1/_static/image8.png)](getting-started-with-mvc-part1/_static/image7.png)
+[新しいプロジェクトの ![](getting-started-with-mvc-part1/_static/image8.png)](getting-started-with-mvc-part1/_static/image7.png)
 
-右側にあるすべてのファイルとフォルダーを示す、アプリケーションで、ソリューション エクスプ ローラーです。 中央の大きなウィンドウは、コードを編集し、ほとんどの時間を費やす場所には。 Visual Studio は、何もせず、実用的なアプリケーションが現在あるため、作成した ASP.NET MVC プロジェクトの既定のテンプレートを使用! これは、単純な"Hello World! プロジェクト、およびそのは、アプリケーションを起動することをお勧めします。
+右側には、アプリケーション内のすべてのファイルとフォルダーが表示されるソリューションエクスプローラーます。 中央の大きなウィンドウでは、コードを編集し、ほとんどの時間を費やすことができます。 Visual Studio では、先ほど作成した ASP.NET MVC プロジェクトの既定のテンプレートが使用されているため、何もしなくても、すぐに動作するアプリケーションがあります。 これは単純な "Hello World です。 プロジェクトは、アプリケーションを開始するのに最適な場所です。
 
 [![Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part1/_static/image10.png)](getting-started-with-mvc-part1/_static/image9.png)
 
-ツールバーに「再生」ボタンを選択します。
+ツールバーの [再生] ボタンを選択します。
 
-![デバッグの開始](getting-started-with-mvc-part1/_static/image11.png)
+![[デバッグ]](getting-started-with-mvc-part1/_static/image11.png)
 
-プログラムをコンパイルし、web ブラウザーでアプリケーションを起動する右側に緑色の矢印になります。
+これは、プログラムをコンパイルし、web ブラウザーでアプリケーションを起動する、右側を指す緑色の矢印です。
 
-*注:代わりに、キーボードの f5 キーを押して、デバッグを選択または&gt;[デバッグ] メニューからデバッグを開始します。*
+*注: 代わりに、キーボードの F5 キーを押すか、[デバッグ] メニューの [デバッグ] を選択して [デバッグ] を&gt;ます。*
 
-これは、結果、Visual Web Developer を開発 web サーバーを起動し、(はありません構成や手動の手順がこれを有効にするために必要)、web アプリケーションを実行します。 ブラウザーを起動し、アプリケーションのホーム ページを参照するように構成には、します。 以下の"localhost"の example.com のようなものであり、ブラウザーのアドレス バーに表示されるに注意してください。 Localhost は常に、ここで作成したアプリケーションを実行している独自のローカル コンピューターをポイントするためです。
+これにより、Visual Web Developer は開発 web サーバーを起動し、web アプリケーションを実行します (これを有効にするために必要な構成や手動の手順はありません)。 その後、ブラウザーが起動し、アプリケーションのホームページを参照するように構成されます。 以下のように、ブラウザーのアドレスバーには "localhost" と表示されており、example.com のようなものではないことに注意してください。 これは、localhost は常に独自のローカルコンピューターを指しているためです。この場合、この例では、先ほど作成したアプリケーションが実行されています。
 
-[![ホーム ページ](getting-started-with-mvc-part1/_static/image13.png)](getting-started-with-mvc-part1/_static/image12.png)
+[![ホームページ](getting-started-with-mvc-part1/_static/image13.png)](getting-started-with-mvc-part1/_static/image12.png)
 
-この既定のテンプレートはすぐする 2 つのページにアクセスして、基本的なログイン ページを示します。 このアプリケーションの動作を変更して、プロセスで ASP.NET MVC についてもう少し説明します。 ブラウザーを閉じて、いくつかのコードを変更することができます。
+すぐに使用できる既定のテンプレートでは、2つのページにアクセスでき、基本的なログインページが表示されます。 このアプリケーションの動作を変更し、プロセスでの ASP.NET MVC について少し説明しましょう。 ブラウザーを閉じ、コードを変更します。
 
 > [!div class="step-by-step"]
-> [次へ](getting-started-with-mvc-part2.md)
+> [Next](getting-started-with-mvc-part2.md)

@@ -2,22 +2,22 @@
 uid: web-forms/videos/iis/index
 title: 一般的な IIS ヒント |Microsoft Docs
 author: rick-anderson
-description: ASP.NET アプリケーションを使用するように IIS を構成する方法。
+description: ASP.NET アプリケーションで動作するように IIS を構成する方法。
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 0078ceb6-3447-4ce4-90c2-d0e013ebc000
 msc.legacyurl: /web-forms/videos/iis
 msc.type: chapter
 ms.openlocfilehash: 30a6f4f944ba070d02aa8677085b9c7a07f5c162
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65114491"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78519736"
 ---
 # <a name="general-iis-tips"></a>一般的な IIS ヒント
 
-> ASP.NET アプリケーションを使用するように IIS を構成する方法。
+> ASP.NET アプリケーションで動作するように IIS を構成する方法。
 
 - [共有ホスティングの開発と展開](developing-and-deploying-in-a-shared-hosting.md)
 - [IIS7 代理管理を使用する](working-with-iis7-deligated-admin.md)

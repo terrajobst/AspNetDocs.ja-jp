@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/index
-title: ASP.NET Web フォームのガイダンス |Microsoft Docs
+title: ASP.NET Web フォームガイダンス |Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: riande
@@ -9,15 +9,15 @@ ms.assetid: b3fb4480-0f41-495b-add6-163ca92dc8a3
 msc.legacyurl: /web-forms/overview
 msc.type: book
 ms.openlocfilehash: 4b38d6b54f53508f7b568207fe7f1a624a7af5f3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59402272"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78519382"
 ---
 # <a name="aspnet-web-forms-guidance"></a>ASP.NET Web フォームのガイダンス
 
-- [はじめに](getting-started/index.md)
+- [作業の開始](getting-started/index.md)
 
     - [ASP.NET 4.5 Web フォームと Visual Studio 2013 の概要](getting-started/getting-started-with-aspnet-45-web-forms/index.md)
 
@@ -56,7 +56,7 @@ ms.locfileid: "59402272"
 - [パフォーマンス](performance-and-caching/index.md)
 
     - [ASP.NET 4.5 での非同期メソッドの使用](performance-and-caching/using-asynchronous-methods-in-aspnet-45.md)
-- [配置](deployment/index.md)
+- [デプロイ](deployment/index.md)
 
     - [Visual Studio を利用する ASP.NET Web 展開](deployment/visual-studio-web-deployment/index.md)
 
@@ -75,8 +75,8 @@ ms.locfileid: "59402272"
     - [ASP.NET 4 - エンタープライズ展開の概要](deployment/deploying-web-applications-in-enterprise-scenarios/index.md)
 
         - [Visual Studio 2010 を利用し、エンタープライズ シナリオで Web アプリケーションを展開する](deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md)
-        - [エンタープライズ Web 展開:シナリオの概要](deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)
-        - [アプリケーション ライフ サイクル管理:開発運用環境から](deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production.md)
+        - [エンタープライズ Web 展開シナリオ概要](deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)
+        - [アプリケーション ライフサイクル管理: 開発から本稼働まで](deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production.md)
     - [ASP.NET 4 - エンタープライズ展開シリーズ 1](deployment/web-deployment-in-the-enterprise/index.md)
 
         - [エンタープライズの Web 展開](deployment/web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md)
@@ -94,9 +94,9 @@ ms.locfileid: "59402272"
 
         - [Web 展開のサーバー環境を構成する](deployment/configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md)
         - [適切な Web 展開手法を選択する](deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment.md)
-        - [シナリオ: Web 配置のテスト環境を構成します。](deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment.md)
-        - [シナリオ: Web デプロイのステージング環境を構成します。](deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment.md)
-        - [シナリオ: Web デプロイ用の運用環境の構成](deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment.md)
+        - [シナリオ: Web 展開のテスト環境を構成する](deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment.md)
+        - [シナリオ: Web 展開のステージング環境を構成する](deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment.md)
+        - [シナリオ: Web 展開の運用環境を構成する](deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment.md)
         - [Web 配置発行の Web サーバーを構成する (リモート エージェント)](deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)
         - [Web 配置発行の Web サーバーを構成する (Web 配置ハンドラー)](deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
         - [Web 配置発行の Web サーバーを構成する (オフライン展開)](deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
@@ -123,21 +123,21 @@ ms.locfileid: "59402272"
         - [Web 配置の際、Web アプリケーションをオフラインにする](deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy.md)
         - [MSBuild プロジェクト ファイルから Windows PowerShell スクリプトを実行する](deployment/advanced-enterprise-web-deployment/running-windows-powershell-scripts-from-msbuild-project-files.md)
         - [パッケージ化処理のトラブルシューティング](deployment/advanced-enterprise-web-deployment/troubleshooting-the-packaging-process.md)
-- [詳細設定](advanced/index.md)
+- [詳細](advanced/index.md)
 
     - [ASP.NET Web フォームの接続復元性とコマンド傍受](advanced/aspnet-web-forms-connection-resiliency-and-command-interception.md)
 - [旧バージョン - 概要](older-versions-getting-started/index.md)
 
     - [ASP.NET 4 - Tailspin Spyworks](older-versions-getting-started/tailspin-spyworks/index.md)
 
-        - [第 1 部: 新しいプロジェクトのファイル](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1.md)
-        - [第 2 部: データ アクセス層](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-2.md)
-        - [パート 3:レイアウトとカテゴリ メニュー](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3.md)
-        - [パート 4:製品のリスティング](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4.md)
-        - [パート 5:ビジネス ロジック](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-5.md)
-        - [パート 6:ASP.NET メンバーシップ](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6.md)
-        - [パート 7:機能の追加](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7.md)
-        - [パート 8:最終的なページ、例外処理、およびまとめ](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8.md)
+        - [パート 1: ファイル -> 新しいプロジェクト](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1.md)
+        - [パート 2: データ アクセス層](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-2.md)
+        - [パート 3: レイアウトとカテゴリ メニュー](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3.md)
+        - [パート 4: 製品のリスティング](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4.md)
+        - [パート 5: ビジネス ロジック](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-5.md)
+        - [パート 6: ASP.NET メンバーシップ](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6.md)
+        - [パート 7: 機能の追加](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7.md)
+        - [パート 8: 最終ページ、例外処理、まとめ](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8.md)
     - [ASP.NET 4 - Entity Framework 4 と Web フォームの概要](older-versions-getting-started/getting-started-with-ef/index.md)
 
         - [Entity Framework 4.0 Database First の概要](older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md)
@@ -150,9 +150,9 @@ ms.locfileid: "59402272"
         - [Entity Framework 4.0 Database First の概要 - パート 8](older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-8.md)
     - [ASP.NET 4 - Entity Framework 4 と Web フォームの続き](older-versions-getting-started/continuing-with-ef/index.md)
 
-        - [Entity Framework 4.0 と ObjectDataSource コントロール、パート 1:作業の開始](older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)
-        - [Entity Framework 4.0 と ObjectDataSource コントロール、パート 2:ビジネス ロジック層と単体テストの追加](older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)
-        - [Entity Framework 4.0 と ObjectDataSource コントロール、パート 3:並べ替えとフィルター処理](older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
+        - [Entity Framework 4.0 と ObjectDataSource コントロール、パート 1: 概要](older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)
+        - [Entity Framework 4.0 と ObjectDataSource コントロール、パート 2: ビジネス ロジック層と単体テストの追加](older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)
+        - [Entity Framework 4.0 と ObjectDataSource コントロール、パート 3: 並べ替えとフィルター処理](older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
         - [ASP.NET 4 の Entity Framework 4.0 でコンカレンシーを処理する](older-versions-getting-started/continuing-with-ef/handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application.md)
         - [ASP.NET 4 の Entity Framework 4.0 でパフォーマンスを最大化する](older-versions-getting-started/continuing-with-ef/maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application.md)
         - [Entity Framework 4.0 の新機能](older-versions-getting-started/continuing-with-ef/what-s-new-in-the-entity-framework-4.md)
@@ -236,7 +236,7 @@ ms.locfileid: "59402272"
         - [運用 Web サイトのユーザーとロール (VB)](older-versions-getting-started/deploying-web-site-projects/users-and-roles-on-the-production-website-vb.md)
 - [旧バージョン - Ajax Control Toolkit](ajax-control-toolkit/index.md)
 
-    - [はじめに](ajax-control-toolkit/getting-started/index.md)
+    - [作業の開始](ajax-control-toolkit/getting-started/index.md)
 
         - [AJAX Control Toolkit の概要 (C#)](ajax-control-toolkit/getting-started/get-started-with-the-ajax-control-toolkit-cs.md)
         - [AJAX Control Toolkit のコントロールとコントロール エクステンダーを使用する (C#)](ajax-control-toolkit/getting-started/using-ajax-control-toolkit-controls-and-control-extenders-cs.md)

@@ -2,22 +2,22 @@
 uid: web-pages/videos/aspnet-razor-pages/index
 title: ASP.NET Razor Pages |Microsoft Docs
 author: rick-anderson
-description: どのビデオ Web ページおよび WebMatrix にドリル ダウンを表示できます。
+description: Web ページと WebMatrix にドリルダウンするために表示できるビデオ。
 ms.author: riande
 ms.date: 05/18/2012
 ms.assetid: ffad842d-548c-40c6-84c5-10858133e972
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages
 msc.type: chapter
 ms.openlocfilehash: c1889f0eab6d2df41ac6e19d433303198c4789f4
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65127794"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78514192"
 ---
-# <a name="aspnet-web-pages"></a>ASP.NET Web ページ
+# <a name="aspnet-web-pages"></a>ASP.NET Web Pages
 
-> どのビデオ Web ページおよび WebMatrix にドリル ダウンを表示できます。
+> Web ページと WebMatrix にドリルダウンするために表示できるビデオ。
 
 - [WebMatrix と ASP.NET Web ページの概要](getting-started-with-webmatrix-and-aspnet-web-pages.md)
 - [ASP.NET Web プログラミング Razor 構文入門](introduction-to-aspnet-web-programming-using-the-razor-syntax.md)

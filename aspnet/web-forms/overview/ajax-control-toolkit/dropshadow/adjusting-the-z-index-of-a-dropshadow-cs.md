@@ -9,11 +9,11 @@ ms.assetid: 14133833-e518-4347-87b9-6b6f71f14a77
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dropshadow/adjusting-the-z-index-of-a-dropshadow-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 12bc7f0430f1f30ff964cd9547ee1e9b0aa7423c
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74574300"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78497482"
 ---
 # <a name="adjusting-the-z-index-of-a-dropshadow-c"></a>DropShadow の Z インデックスを調整する (C#)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74574300"
 
 > AJAX コントロールツールキットの DropShadow コントロールは、ドロップシャドウを持つパネルを拡張します。 ただし、この影は、ASP.NET Menu コントロールなど、他のコントロールと競合することがあります。 メニューエントリがポップアップ表示されると、ドロップシャドウの背後に表示されます。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 AJAX コントロールツールキットの DropShadow コントロールは、ドロップシャドウを持つパネルを拡張します。 ただし、この影は、ASP.NET Menu コントロールなど、他のコントロールと競合することがあります。 メニューエントリがポップアップ表示されると、ドロップシャドウの背後に表示されます。
 
@@ -63,4 +63,4 @@ AJAX コントロールツールキットの DropShadow コントロールは、
 [完了]: メニューエントリが表示されます ([クリックすると、フルサイズの画像が表示](adjusting-the-z-index-of-a-dropshadow-cs/_static/image6.png)されます)
 
 > [!div class="step-by-step"]
-> [次へ](manipulating-dropshadow-properties-from-client-code-cs.md)
+> [Next](manipulating-dropshadow-properties-from-client-code-cs.md)

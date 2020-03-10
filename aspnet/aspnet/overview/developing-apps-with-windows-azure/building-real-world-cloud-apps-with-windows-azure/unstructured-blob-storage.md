@@ -9,11 +9,11 @@ ms.assetid: 9f05ccb1-2004-4661-ad8b-c370e6c09c8e
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage
 msc.type: authoredcontent
 ms.openlocfilehash: f48b2be755b84dff9b2672bd348c73107602c6dd
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77456792"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78500410"
 ---
 # <a name="unstructured-blob-storage-building-real-world-cloud-apps-with-azure"></a>非構造化 Blob Storage (Azure を使用した実際のクラウドアプリの構築)
 
@@ -127,7 +127,7 @@ It アプリケーションを修正すると、タスクの詳細が表示さ�
 
 [!code-cshtml[Main](unstructured-blob-storage/samples/sample13.cshtml?highlight=11)]
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 修正プログラムによる It アプリの Blob service でのイメージの保存方法と、SQL データベースのイメージ Url の使用方法について説明しました。 Blob service を使用すると、SQL データベースは、それ以外の場合と比べて大幅に小さくなります。これにより、ほぼ無制限の数のタスクをスケールアップすることができ、多くのコードを記述することなく実行できます。
 

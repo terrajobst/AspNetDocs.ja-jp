@@ -9,11 +9,11 @@ ms.assetid: 2b0df3d9-450b-4ea6-b315-4c9650722cad
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12
 msc.type: authoredcontent
 ms.openlocfilehash: 9e7902bcf8a16c154aee1a982824bfaedeea7d9d
-ms.sourcegitcommit: 7b1e1784213dd4c301635f9e181764f3e2f94162
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76309237"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78515506"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-webconfig-file-transformations---3-of-12"></a>Visual Studio または Visual Web Developer を使用した SQL Server Compact を使用した ASP.NET Web アプリケーションのデプロイ: web.config ファイルの変換-3/12
 
@@ -25,7 +25,7 @@ ms.locfileid: "76309237"
 > 
 > Visual Studio 2012 の RC リリース後に導入された配置機能を示すチュートリアルについては、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法、Azure App Service Web Apps にデプロイする方法については、「 [ASP.NET Web deployment Using Visual studio (Visual studio を使用した Web デプロイ](../../deployment/visual-studio-web-deployment/introduction.md)のデプロイ)」を参照してください。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 このチュートリアルでは、別の移行先環境に配置するときに web.config ファイルを変更するプロセスを自動化する方法について説明*します。* ほとんどのアプリケーションでは、アプリケーションの配置時に異なる必要がある設定が*web.config ファイルに*あります。 これらの変更を行うプロセスを自動化すると、を展開するたびに手動で行う必要がなくなります。これは面倒でエラーが発生しやすくなります。
 
@@ -131,7 +131,7 @@ Web.config*を開き、* 前の手順で追加した `location` 要素の開始�
 
 ## <a name="setting-connection-strings"></a>接続文字列の設定
 
-ほとんどの場合、接続文字列の変換を設定する必要はありません。これは、発行プロファイルで接続文字列を指定できるためです。 ただし、SQL Server Compact データベースを配置するときに、Entity Framework Code First Migrations を使用して移行先サーバー上のデータベースを更新すると、例外が発生します。 このシナリオでは、データベーススキーマを更新するためにサーバーで使用される追加の接続文字列を指定する必要があります。 この変換を設定するには、追加、 **&lt;connectionStrings&gt;** 要素の開始後すぐに **&lt;構成&gt;** 両方のタグ*Web.Test.config*と*Web.Production.config*ファイルに変換します。
+ほとんどの場合、接続文字列の変換を設定する必要はありません。これは、発行プロファイルで接続文字列を指定できるためです。 ただし、SQL Server Compact データベースを配置するときに、Entity Framework Code First Migrations を使用して移行先サーバー上のデータベースを更新すると、例外が発生します。 このシナリオでは、データベーススキーマを更新するためにサーバーで使用される追加の接続文字列を指定する必要があります。 この変換を設定するには、 *web.config と web.config の両方の変換*ファイルで、 **&lt;構成**の開始&gt;タグの直後に **&lt;connectionStrings&gt;** 要素を追加します。
 
 [!code-xml[Main](deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12/samples/sample7.xml)]
 
@@ -139,7 +139,7 @@ Web.config*を開き、* 前の手順で追加した `location` 要素の開始�
 
 これで、テストと運用のために Contoso 大学アプリケーションを展開するために必要なすべての*web.config 変換が*指定されました。 次のチュートリアルでは、プロジェクトのプロパティの設定を必要とする配置のセットアップタスクについて説明します。
 
-## <a name="more-information"></a>その他の情報
+## <a name="more-information"></a>詳細情報
 
 このチュートリアルで説明しているトピックの詳細については、「 [ASP.NET Deployment Content Map](https://msdn.microsoft.com/library/bb386521.aspx)」の web.config 変換シナリオを参照してください。
 

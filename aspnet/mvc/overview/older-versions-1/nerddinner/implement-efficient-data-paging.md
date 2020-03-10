@@ -1,139 +1,139 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/implement-efficient-data-paging
-title: 効率的なデータ ページングを実装する |Microsoft Docs
+title: 効率的なデータページングを実装する |Microsoft Docs
 author: microsoft
-description: 手順 8 では、dinners 一度に数千ものを表示するには、代わりで今後 10 の dinners を表示しますがのみように、/Dinners URL にページング サポートを追加する方法を示します.
+description: 手順 8. 数千のディナーを一度に表示するのではなく、/Dinners の URL にページングサポートを追加する方法について説明します。
 ms.author: riande
 ms.date: 07/27/2010
 ms.assetid: adea836d-dbc2-4005-94ea-53aef09e9e34
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/implement-efficient-data-paging
 msc.type: authoredcontent
 ms.openlocfilehash: 2d9a0dba381b71755ac626f76d52bc5bcb434447
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65125643"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78486484"
 ---
 # <a name="implement-efficient-data-paging"></a>効率的なデータ ページングを実装する
 
-によって[Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft)
 
-[PDF のダウンロード](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[[Download PDF]\(PDF をダウンロード\)](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
-> これは、無料の手順 8 ["NerdDinner"アプリケーションのチュートリアル](introducing-the-nerddinner-tutorial.md)をウォーク スルーの小さなをビルドしても、ASP.NET MVC 1 を使用して web アプリケーションを実行する方法。
+> これは、ASP.NET MVC 1 を使用して小規模で完成した web アプリケーションを構築する方法を説明する無料の["" アプリケーションのチュートリアル](introducing-the-nerddinner-tutorial.md)の手順8です。
 > 
-> 手順 8 では、dinners 一度に数千ものを表示するには、代わりには、のみ - 一度に 10 個の今後の dinners を表示し、戻るページし、SEO フレンドリな方法で、一覧全体を転送するエンドユーザーを許可するありますようにする、/Dinners URL にページング サポートを追加する方法を示します。
+> 手順 8. では、/Dinners URL にページングサポートを追加して、ディナーの数千を一度に表示するのではなく、一度に10個のディナーが表示されるようにして、エンドユーザーがリスト全体を反復可能な方法でページバックして前方に移動できるようにする方法を示します。
 > 
-> 次のことをお勧め ASP.NET MVC 3 を使用している場合、 [MVC 3 の開始と取得](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)または[MVC Music Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)チュートリアル。
+> ASP.NET MVC 3 を使用している場合は、MVC 3 または[Mvc ミュージックストア](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)[のチュートリアルではじめに](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)に従うことをお勧めします。
 
-## <a name="nerddinner-step-8-paging-support"></a>NerdDinner 手順 8:ページングのサポート
+## <a name="nerddinner-step-8-paging-support"></a>ステップ 8: ページングのサポート
 
-私たちのサイトが成功した場合は、何千もの今後の dinners があります。 UI がすべてこれらの dinners の処理を拡張し、それらを参照することができます、かどうかを確認する必要があります。 これを有効にするのには、ページング サポートを追加します、 */Dinners*のみが数千の dinners を表示するのにはの代わりに URL を一度に - 10 今後 dinners を表示し、戻るページおよびでは、すべてのリストを転送するエンドユーザーを許可します。SEO のわかりやすい方法です。
+サイトが正常に実行されると、何千ものディナーがあります。 これらのすべてのディナーを処理し、ユーザーが参照できるように UI をスケーリングする必要があります。 これを有効にするには、 */Dinners* URL にページングサポートを追加します。これにより、数千 of ディナーを一度に表示するのではなく、一度に10個のディナーが表示されるようになり、エンドユーザーが SEO のわかりやすい方法でリスト全体をページバックおよび転送できるようになります。
 
-### <a name="index-action-method-recap"></a>Index() アクション メソッドの要約
+### <a name="index-action-method-recap"></a>Index () アクションメソッドの要約
 
-Index() アクション メソッド、DinnersController クラス内で現在は次のような。
+次のように、Dinのコントローラークラス内の Index () アクションメソッドは、現在は次のようになります。
 
 [!code-csharp[Main](implement-efficient-data-paging/samples/sample1.cs)]
 
-要求はに対して行われた場合、 */Dinners* URL、今後のすべて dinners の一覧を取得し、それらのすべての一覧を表示します。
+*/Dinners* URL に対して要求が行われると、今後のすべてのディナーの一覧を取得し、すべての一覧を表示します。
 
 ![](implement-efficient-data-paging/_static/image1.png)
 
-### <a name="understanding-iqueryablelttgt"></a>Understanding IQueryable&lt;T&gt;
+### <a name="understanding-iqueryablelttgt"></a>IQueryable&lt;T&gt; について
 
-*IQueryable&lt;T&gt;* は .NET 3.5 の一部として、LINQ で導入されたインターフェイスです。 活用ページング サポートを実装するために実行できる強力な「遅延実行」のシナリオを可能になります。
+*IQueryable&lt;t&gt;* は、.net 3.5 の一部として LINQ で導入されたインターフェイスです。 これにより、ページングサポートを実装するために利用できる強力な "遅延実行" シナリオが可能になります。
 
-IQueryable を返すことのときは必ず DinnerRepository で&lt;Dinner&gt; FindUpcomingDinners() メソッドからシーケンス。
+このリポジトリでは、FindUpcomingDinners () メソッドから IQueryable&lt;ディナー&gt; シーケンスを返しています。
 
 [!code-csharp[Main](implement-efficient-data-paging/samples/sample2.cs)]
 
-対象の IQueryable&lt;Dinner&gt; FindUpcomingDinners() メソッドによって返されるオブジェクトは、LINQ to SQL を使用して、データベースから Dinner オブジェクトを取得するクエリをカプセル化します。 重要なは、か ToList() メソッドを呼び出すことで、クエリ内のデータをアクセス/反復処理するまでのデータベースに対してクエリを実行しません。 この FindUpcomingDinners() メソッドを呼び出すコードは、IQueryable に追加の「チェーン」操作/フィルターを追加する必要に応じて選択できます&lt;Dinner&gt;オブジェクト クエリを実行する前にします。 LINQ to SQL は、データが要求されたときに、データベースに対して結合のクエリを実行するのに十分なスマートでは、します。
+FindUpcomingDinners () メソッドによって返される IQueryable&lt;ディナー&gt; オブジェクトは、LINQ to SQL を使用してデータベースからディナーオブジェクトを取得するクエリをカプセル化します。 重要なのは、クエリ内のデータに対してアクセスまたは反復処理を試みるか、そのデータに対して ToList () メソッドを呼び出すまで、データベースに対してクエリを実行しないことです。 FindUpcomingDinners () メソッドを呼び出すコードでは、必要に応じて、クエリを実行する前に、IQueryable&lt;ディナー&gt; オブジェクトに "チェーン" 操作/フィルターを追加することを選択できます。 その後、データが要求されたときにデータベースに対して結合クエリを実行するのに十分な LINQ to SQL です。
 
-返される対象の IQueryable を「スキップ」と「実行」の追加の演算子が適用されるページング ロジックを実装するために、DinnersController の Index() アクション メソッドを更新しましたできます&lt;Dinner&gt;に ToList() を呼び出す前にシーケンス。
+ページングロジックを実装するには、Din() を呼び出す前に、返された IQueryable&lt;ディナー&gt; シーケンスに追加の "Skip" 演算子と "Take" 演算子を適用するように、dinの Scontroller の Index () アクションメソッドを更新します。
 
 [!code-csharp[Main](implement-efficient-data-paging/samples/sample3.cs)]
 
-上記のコードでは、データベース内の最初の 10 の今後 dinners をスキップし、戻る 20 dinners を返します。 LINQ to SQL では、– SQL データベースと web サーバーではなくロジックをスキップしています。 これを実行する最適化された SQL クエリを構築できるほどスマートです。 これは、データベースに何百万もの今後の Dinners がある場合でも、必要な 10 のみは (ので効率的でスケーラブルな) この要求の一部として取得することを意味します。
+上記のコードは、データベース内の最初の10個のディナーをスキップし、戻り値の20ディナーを返します。 LINQ to SQL は、web サーバーではなく、SQL database でこのスキップロジックを実行する最適化された SQL クエリを作成するのに十分なスマートです。 これは、データベースに数百万のディナーがある場合でも、必要な10のみをこの要求の一部として取得することを意味します (効率と拡張性を実現します)。
 
-### <a name="adding-a-page-value-to-the-url"></a>URL に「ページ」値を追加します。
+### <a name="adding-a-page-value-to-the-url"></a>URL への "ページ" 値の追加
 
-特定のページ範囲をハードコーディングするのではなく、Url にユーザーを要求しているどの Dinner 範囲を示す「ページ」パラメーターを含めてがいいでしょう。
+特定のページ範囲をハードコーディングするのではなく、ユーザーが要求しているディナー範囲を示す "page" パラメーターを Url に含めるようにします。
 
-#### <a name="using-a-querystring-value"></a>クエリ文字列値を使用します。
+#### <a name="using-a-querystring-value"></a>Querystring 値の使用
 
-次のコードでは、クエリ文字列パラメーターをサポートし、Url などを有効にする、Index() アクション メソッドの更新を示します */Dinners でしょうかページ 2 =*:。
+次のコードは、クエリ文字列パラメーターをサポートする Index () アクションメソッドを更新し、 */Dinners? page = 2*のような url を有効にする方法を示しています。
 
 [!code-csharp[Main](implement-efficient-data-paging/samples/sample4.cs)]
 
-上記の Index() アクション メソッドには、「ページ」という名前のパラメーターがあります。 パラメーターが null 許容の整数として宣言されている (どのような int ですか? を示します)。 つまり、 */Dinners でしょうか。 ページ 2 =* URL パラメーター値として渡されるには、"2"の値になります。 */Dinners* (クエリ文字列値) のない URL が渡される null 値になります。
+上記の Index () アクションメソッドには、"page" という名前のパラメーターがあります。 パラメーターが null 許容の整数として宣言されています (int? はを示します)。 これは、 */Dinners? page = 2* URL によって値 "2" がパラメーター値として渡されることを意味します。 */Dinners* URL (querystring 値なし) を指定すると、null 値が渡されます。
 
-ページ サイズ (この場合は 10 行) をページの値を乗算するをスキップする数の dinners を判断することは。 使用している、 [c# null「結合」演算子 (?)](https://weblogs.asp.net/scottgu/archive/2007/09/20/the-new-c-null-coalescing-operator-and-using-it-with-linq.aspx) null 許容型を扱う場合に便利です。 上記のコードは、ページのパラメーターが null の場合に、ページの 0 の値を割り当てます。
+ページの値をページサイズ (この場合は10行) で乗算して、スキップするディナーの数を決定します。 Null 許容型を処理するときに役立つ、 [ C# null の "合体" 演算子 (??)](https://weblogs.asp.net/scottgu/archive/2007/09/20/the-new-c-null-coalescing-operator-and-using-it-with-linq.aspx)を使用しています。 ページパラメーターが null の場合、上記のコードによって値0が割り当てられます。
 
-#### <a name="using-embedded-url-values"></a>埋め込まれた URL 値を使用してください。
+#### <a name="using-embedded-url-values"></a>埋め込み URL 値の使用
 
-クエリ文字列値を使用する代わりには、埋め込む自体は実際の URL 内にあるページ パラメーターになります。 例: */Dinners/Page/2*または */Dinners/2*します。 ASP.NET MVC には、このようなシナリオをサポートしやすい強力な URL ルーティング エンジンが含まれています。
+Querystring 値を使用する代わりに、実際の URL 自体にページパラメーターを埋め込むこともできます。 たとえば、次のよう*になります*(例:// *page/page/* /)。 ASP.NET MVC には、このようなシナリオを簡単にサポートできる強力な URL ルーティングエンジンが含まれています。
 
-受信 URL または URL の形式、コント ローラー クラスまたはアクション メソッドをマップするカスタムのルーティング規則を登録することができます。 To do 必要がありますは、このプロジェクト内で、Global.asax ファイルを開くことだけです。
+任意の受信 URL または URL 形式を任意のコントローラークラスまたはアクションメソッドにマップするカスタムルーティング規則を登録できます。 必要なのは、プロジェクト内で global.asax ファイルを開くことだけです。
 
 ![](implement-efficient-data-paging/_static/image2.png)
 
-ルートの最初の呼び出しのような MapRoute() ヘルパー メソッドを使用して、新しいマッピング ルールを登録します。MapRoute() 下:
+次に、ルートの最初の呼び出しのような MapRoute () ヘルパーメソッドを使用して、新しいマッピング規則を登録します。MapRoute () 以下:
 
 [!code-csharp[Main](implement-efficient-data-paging/samples/sample5.cs)]
 
-上記の"UpcomingDinners"をという名前の新しいルーティング規則が登録されます。 URL の形式であることを示すことは"Dinners/ページ/{ページ}": {ページ} は、URL に埋め込まれたパラメーター値。 MapRoute() メソッドの 3 番目のパラメーターは、DinnersController クラス Index() アクション メソッドには、この形式に一致する Url をマップする必要があることを示します。
+上の例では、"UpcomingDinners" という名前の新しいルーティング規則を登録しています。 URL 形式が "ディナー/Page/{Page}" であることを示しています。 {Page} は、URL 内に埋め込まれているパラメーター値です。 MapRoute () メソッドの3番目のパラメーターは、この形式に一致する Url を、Dinの Scontroller クラスの Index () アクションメソッドにマップする必要があることを示しています。
 
-点を除いて、URL とクエリ文字列ではないから、「ページ」パラメーターになるようになりました、Querystring シナリオ – 以前まったく同じ Index() コードを使用できます。
+以前に使用したものとまったく同じインデックス () コードをクエリ文字列シナリオで使用できます。ただし、"page" パラメーターは、querystring ではなく URL から取得されるようになりました。
 
 [!code-csharp[Main](implement-efficient-data-paging/samples/sample6.cs)]
 
-ここでときに、アプリケーションを実行し、入力と */Dinners*最初の 10 個の今後の dinners を見てみましょう。
+ここで、アプリケーションを実行し、 */Dinners*に「」と入力すると、次のディナーの最初の10が表示されます。
 
 ![](implement-efficient-data-paging/_static/image3.png)
 
-入力 */Dinners/Page/1* dinners の次のページを見てみましょう。
+*/Dinners/Page/1*に入力すると、ディナーの次のページが表示されます。
 
 ![](implement-efficient-data-paging/_static/image4.png)
 
-### <a name="adding-page-navigation-ui"></a>ページ ナビゲーション UI を追加します。
+### <a name="adding-page-navigation-ui"></a>ページナビゲーション UI の追加
 
-Dinner データを簡単にスキップできるように、ビュー テンプレート内の"next"および「前」のナビゲーション UI を実装するために、ページングのシナリオを完了する最後の手順になります。
+ページングシナリオを完了するための最後の手順は、ビューテンプレート内に "next" および "previous" ナビゲーション UI を実装して、ユーザーがディナーデータを簡単にスキップできるようにすることです。
 
-これを正しく実装するに必要になります Dinners の総数をデータベースにわかっているにも方法は複数のデータ ページと解釈されます。 現在要求されている「ページ」値が先頭または、データの末尾かどうかを計算し、表示を切り替える適宜「前」と"次へ の UI を非表示にし、必要になります。 このロジックを実装、Index() アクション メソッド内で可能性があります。 また、プロジェクトを再利用可能な複数の方法でこのロジックをカプセル化するヘルパー クラスを追加できます。
+これを正しく実装するには、データベースのディナーの合計数と、このが変換されるデータのページ数を把握しておく必要があります。 次に、現在要求されている "ページ" 値がデータの先頭または末尾にあるかどうかを計算し、それに従って "previous" と "next" UI を表示または非表示にする必要があります。 このロジックは、Index () アクションメソッド内に実装できます。 または、このロジックを再利用可能な方法でカプセル化するヘルパークラスをプロジェクトに追加することもできます。
 
-一覧から派生した単純な"PaginatedList"ヘルパー クラスを次に示します&lt;T&gt;コレクション クラスに組み込まれて、.NET Framework です。 IQueryable データの任意のシーケンスを改ページを使用できる再利用可能なコレクション クラスを実装しています。 アプリケーションで NerdDinner した IQueryable 経由で動作&lt;Dinner&gt;結果がされる可能性がありますには簡単に IQueryable に対して&lt;製品&gt;または IQueryable&lt;顧客&gt;他のアプリケーション シナリオになります。
+次に示すのは、.NET Framework に組み込まれている&lt;T&gt; コレクションクラスのリストから派生する単純な "PaginatedList" ヘルパークラスです。 再利用可能なコレクションクラスを実装しています。このクラスを使用すると、IQueryable データの任意のシーケンスに改ページすることができます。 この例では、IQueryable&lt;ディナー&gt; の結果を処理していますが、その他のアプリケーションシナリオでは、IQueryable&lt;製品&gt; または IQueryable&lt;の結果に簡単に使用できます。&gt;
 
 [!code-csharp[Main](implement-efficient-data-paging/samples/sample7.cs)]
 
-上の例が計算され、"PageIndex"、"PageSize"、"TotalCount"および"TotalPages"などの公開のプロパティの します。 ヘルパーの 2 つのプロパティ"HasPreviousPage"と"HasNextPage"コレクション内のデータのページが先頭または元のシーケンスの末尾にあるかどうかを示すも公開します。 上記のコードを実行する - Dinner オブジェクトの合計数の数を取得する最初の 2 つの SQL クエリとなります (これには、オブジェクトを返さない – ではなく整数を返す"SELECT COUNT"ステートメントを実行します)、2 番目の行だけを取得するにはデータは、データベースのデータの現在のページから必要があります。
+"PageIndex"、"PageSize"、"TotalCount"、"TotalPages" などのプロパティがどのように計算され、公開されるかに注目してください。 さらに、コレクション内のデータのページが元のシーケンスの先頭または末尾にあるかどうかを示す、2つのヘルパープロパティ "HasPreviousPage" と "HasNextPage" を公開します。 上記のコードでは、2つの SQL クエリが実行されます。1つ目は、1つは整数を返す "SELECT COUNT" ステートメントを実行し、もう1つはオブジェクトを返さず、次の行だけを取得するためです。データの現在のページについて、データベースから必要なデータを提供します。
 
-今後、PaginatedList を作成する、DinnersController.Index() ヘルパー メソッドを更新できるし&lt;Dinner&gt; DinnerRepository.FindUpcomingDinners() から、発生して、ビュー テンプレートに渡すこと。
+次に、DinPaginatedList () ヘルパーメソッドを更新して、FindUpcomingDinners () 結果から&lt;ディナー&gt; を作成し、ビューテンプレートに渡すことができます。
 
 [!code-csharp[Main](implement-efficient-data-paging/samples/sample8.cs)]
 
-ViewPage から継承する \Views\Dinners\Index.aspx ビュー テンプレートを更新することができますし&lt;NerdDinner.Helpers.PaginatedList&lt;Dinner&gt; &gt; ViewPage ではなく&lt;IEnumerable&lt;Dinner&gt;&gt;、または次または前のナビゲーション UI を非表示に、ビュー テンプレートの下部に次のコードを追加します。
+次に、\Views\Dinners\Index.aspx view テンプレートを更新して&lt;ViewPage&lt;IEnumerable&lt;ディナー&gt;&gt;ではなく PaginatedList&lt;ディナー&gt;&gt; を継承し、次のコードをビューテンプレートの下部に追加して、次のナビゲーション UI と前のナビゲーション UI を表示または非表示にすることができます。
 
 [!code-aspx[Main](implement-efficient-data-paging/samples/sample9.aspx)]
 
-このハイパーリンクを生成する Html.RouteLink() のヘルパー メソッドを使って方法に注意してください。 このメソッドは、以前に使用した Html.ActionLink() ヘルパー メソッドに似ています。 違いは、"UpcomingDinners"ルーティング規則、Global.asax ファイル内でセットアップを使用して URL を生成することです。 これにより、Url、形式を持つ、Index() アクション メソッドを生成します: */Dinners/ページ/{ページ}* -{ページ} の値が提供するという上記現在 PageIndex に基づいて変数は、場所。
+この記事では、Html の Teltelink () ヘルパーメソッドを使用してハイパーリンクを生成する方法について説明します。 このメソッドは、以前に使用した Html.actionlink () ヘルパーメソッドに似ています。 違いは、global.asax ファイル内で設定する "UpcomingDinners" ルーティング規則を使用して URL を生成していることです。 これにより *、次の*形式の Index () アクションメソッドへの url が生成されます。 {Page} の値は、現在の PageIndex に基づいて前に指定した変数です。
 
-これで、アプリケーションを実行するともう一度おいでください、一度に 10 個の dinners、ブラウザーで。
+アプリケーションをもう一度実行すると、ブラウザーに10のディナーが表示されるようになります。
 
 ![](implement-efficient-data-paging/_static/image5.png)
 
-またある&lt; &lt; &lt;と&gt; &gt; &gt;転送をスキップし、旧バージョンとを使用して、データをエンジンにアクセスできる Url を検索できるようにするページの下部にある UI のナビゲーション。
+また、ページの下部にある &lt;&lt; と &gt;の &gt;&gt; ナビゲーション UI も &lt;します。これにより、検索エンジンのアクセス可能な Url を使用してデータの転送と逆方向のスキップを行うことができます。
 
 ![](implement-efficient-data-paging/_static/image6.png)
 
-| **側のトピック:IQueryable の影響を理解する&lt;T&gt;** |
+| **サイドトピック: IQueryable&lt;T&gt; の影響について** |
 | --- |
-| IQueryable&lt;T&gt;により、遅延実行の興味深いシナリオのさまざまな強力な機能は、(ページングおよびコンポジションのように基づくクエリ)。 として、強力な機能はすべて、使用する方法を慎重にしてはいないに悪用されることを確認します。 IQueryable を返すことを認識することが重要&lt;T&gt;リポジトリからの結果により、呼び出し元のコードは、連結演算子のメソッドに追加し、そのため、最終的なクエリの実行に参加します。 この機能は、呼び出し元のコードを提供したくないかどうかは、返す必要があります IList をバックアップ&lt;T&gt;または IEnumerable&lt;T&gt;が既に実行しているクエリの結果を含んだ結果。 改ページ調整シナリオをリポジトリ メソッドが呼び出される実際のデータの改ページ調整ロジックをプッシュする必要がこれは。 このシナリオでは、返される、PaginatedList がいずれかの署名、FindUpcomingDinners() finder メソッドを更新しました可能性があります。PaginatedList&lt; Dinner&gt; FindUpcomingDinners (pageIndex の int、int pageSize) {} 返された場合は、IList をバックアップまたは&lt;Dinner&gt;、"totalCount"out パラメーターを使用して、Dinners の合計数を返すとします。IList&lt;Dinner&gt; FindUpcomingDinners(int pageIndex, int pageSize, out int totalCount) { } |
+| IQueryable&lt;T&gt; は、さまざまな興味深い実行シナリオ (ページングやコンポジションベースのクエリなど) を可能にする非常に強力な機能です。 すべての強力な機能と同様に、使用方法について慎重に検討し、悪用されないようにする必要があります。 リポジトリから IQueryable&lt;T&gt; 結果を返すことにより、呼び出し元のコードがチェーン演算子メソッドに追加され、最終的なクエリの実行に参加することを認識することが重要です。 この機能の呼び出しコードを指定しない場合は、既に実行されているクエリの結果を含む IList&lt;T&gt; または IEnumerable&lt;T&gt; 結果を返す必要があります。 改ページのシナリオでは、実際のデータ改ページロジックを、呼び出されるリポジトリメソッドにプッシュする必要があります。 このシナリオでは、FindUpcomingDinners () finder メソッドを更新して、PaginatedList を返したシグネチャを取得することがあります。 PaginatedList&lt; ディナー&gt; FindUpcomingDinners (int pageIndex, int pageSize) {} を返すか、IList&lt;ディナー&gt;を返し、"totalCount" out パラメーターを使用してディナー: IList&lt;ディナー&gt; FindUpcomingDinners (int pageIndex, int pageSize, out int totalCount) {} の合計数を返します。 |
 
 ### <a name="next-step"></a>次の手順
 
-これで、アプリケーションへの認証と承認のサポートを追加する方法を見てみましょう。
+次に、認証と承認のサポートをアプリケーションに追加する方法を見てみましょう。
 
 > [!div class="step-by-step"]
 > [前へ](re-use-ui-using-master-pages-and-partials.md)

@@ -1,23 +1,23 @@
 ---
 uid: web-forms/overview/older-versions-security/membership/index
-title: ASP.NET 3.5 - メンバーシップ |Microsoft Docs
+title: ASP.NET 3.5-Membership |Microsoft Docs
 author: rick-anderson
-description: このチュートリアル シリーズでは、組み込みメンバーシップ (セキュリティ) システムを使用して、ユーザー アカウントを作成し、承認規則を構成する方法について説明します。
+description: このチュートリアルシリーズでは、組み込みのメンバーシップ (セキュリティ) システムを使用してユーザーアカウントを作成し、承認規則を構成する方法について紹介します。
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 96fc5552-05cd-4547-909f-9bb3176e44d6
 msc.legacyurl: /web-forms/overview/older-versions-security/membership
 msc.type: chapter
 ms.openlocfilehash: eca16fea2cce2cef84e0a66e18c1bee0b9e54e94
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133084"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78512992"
 ---
 # <a name="aspnet-35---membership"></a>ASP.NET 3.5 - メンバーシップ
 
-> このチュートリアル シリーズでは、組み込みメンバーシップ (セキュリティ) システムを使用して、ユーザー アカウントを作成し、承認規則を構成する方法について説明します。
+> このチュートリアルシリーズでは、組み込みのメンバーシップ (セキュリティ) システムを使用してユーザーアカウントを作成し、承認規則を構成する方法について紹介します。
 
 - [SQL Server でメンバーシップ スキーマを作成する (C#)](creating-the-membership-schema-in-sql-server-cs.md)
 - [ユーザー アカウントを作成する (C#)](creating-user-accounts-cs.md)

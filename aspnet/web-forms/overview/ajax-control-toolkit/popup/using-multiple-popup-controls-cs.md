@@ -9,11 +9,11 @@ ms.assetid: 91511b0b-311d-481f-9e7c-73f07b813b79
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/popup/using-multiple-popup-controls-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 8700fe89af591e8b481e853580b0efa0cddbf1bc
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74611640"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78496426"
 ---
 # <a name="using-multiple-popup-controls-c"></a>複数のポップアップ コントロールを使用する (C#)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74611640"
 
 > AJAX Control Toolkit の PopupControl extender は、他のコントロールがアクティブになったときにポップアップをトリガーする簡単な方法を提供します。 1つのページで複数のポップアップコントロールを使用することもできます。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 AJAX Control Toolkit の PopupControl extender は、他のコントロールがアクティブになったときにポップアップをトリガーする簡単な方法を提供します。 1つのページで複数のポップアップコントロールを使用することもできます。
 
@@ -52,4 +52,4 @@ ASP.NET AJAX と Control Toolkit の機能をアクティブ化するには、�
 ユーザーがテキストボックスをクリックするとカレンダーが表示されます ([クリックすると、フルサイズの画像が表示](using-multiple-popup-controls-cs/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
-> [次へ](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs.md)
+> [Next](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs.md)

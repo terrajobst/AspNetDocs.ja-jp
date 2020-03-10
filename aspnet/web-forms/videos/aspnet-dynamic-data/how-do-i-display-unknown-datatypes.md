@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/aspnet-dynamic-data/how-do-i-display-unknown-datatypes
-title: How do I 表示不明なデータ型 | Microsoft Docs
+title: 不明なデータ型操作方法表示しますか? | Microsoft Docs
 author: shanselman
-description: このビデオで紹介するバイナリ BLOB としてデータベースに格納されているカスタム データを完全に不明な型を処理する動的なデータを構成する方法。
+description: このビデオでは、バイナリ BLOB としてデータベースに格納されている完全に不明なカスタムデータ型を処理するように動的データを構成する方法について説明します。
 ms.author: riande
 ms.date: 05/08/2008
 ms.assetid: ce7a9af6-d01b-46a7-8b47-e1024b693830
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/how-do-i-display-unknown-datatypes
 msc.type: video
 ms.openlocfilehash: a57464c575e5ababdcf52593fae0cc6d2dc055e3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59394134"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78488278"
 ---
-# <a name="how-do-i-display-unknown-datatypes"></a>How do I 表示不明なデータ型
+# <a name="how-do-i-display-unknown-datatypes"></a>不明なデータ型操作方法表示しますか?
 
-[Scott Hanselman](https://github.com/shanselman)による
+[Scott マン Selman](https://github.com/shanselman)
 
-このビデオで紹介するバイナリ BLOB としてデータベースに格納されているカスタム データを完全に不明な型を処理する動的なデータを構成する方法。
+このビデオでは、バイナリ BLOB としてデータベースに格納されている完全に不明なカスタムデータ型を処理するように動的データを構成する方法について説明します。
 
-[&#9654;ビデオ (8 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-display-unknown-datatypes)
+[&#9654;ビデオを見る (8 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-display-unknown-datatypes)
 
 > [!div class="step-by-step"]
 > [前へ](how-do-i-make-custom-pages.md)

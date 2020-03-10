@@ -1,28 +1,28 @@
 ---
 uid: web-pages/index
-title: ASP.NET Web Pages |Microsoft Docs
+title: ASP.NET Web ページ |Microsoft Docs
 author: rick-anderson
-description: WebMatrix のダウンロードし、HTML とサーバー コードを結合する最も簡単な方法で web ページをすばやく構築する方法について説明します。
+description: WebMatrix のダウンロード & web ページを簡単に作成して、サーバーコードと HTML を組み合わせることができます。
 ms.author: riande
 ms.date: 05/18/2012
 ms.assetid: 5418ba96-ff49-4a43-9cbb-09dea4949d23
 msc.legacyurl: /web-pages
 msc.type: categoryindex
 ms.openlocfilehash: 56bf82e22b3562893ef842a90d42aa7b6ff5858f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65114532"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78520672"
 ---
-# <a name="aspnet-web-pages"></a>ASP.NET Web ページ
+# <a name="aspnet-web-pages"></a>ASP.NET Web Pages
 
 > [!NOTE] 
-> WebMatrix はASP.NET Webページの統合開発環境としては推奨されなくなりました。 [Visual Studio](xref:aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio)または[Visual Studio Code](https://code.visualstudio.com/)を使用してください。
+> WebMatrix はASP.NET Webページの統合開発環境としては推奨されなくなりました。 [Visual Studio](xref:aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio)または[Visual Studio Code](https://code.visualstudio.com/)を使用します。
 
 - [ガイダンス](overview/index.md)
 
-    - [はじめに](overview/getting-started/index.md)
+    - [作業の開始](overview/getting-started/index.md)
 
         - [Visual Studio で ASP.NET Web ページをプログラミングする](overview/getting-started/program-asp-net-web-pages-in-visual-studio.md)
         - [ASP.NET Web プログラミング Razor 構文入門](overview/getting-started/introducing-razor-syntax-c.md)
@@ -32,7 +32,7 @@ ms.locfileid: "65114532"
         - [Web サイトにソーシャル ネットワーキングを追加する](overview/getting-started/13-adding-social-networking-to-your-web-site.md)
         - [ASP.NET Web ページの概要](overview/getting-started/introducing-aspnet-web-pages-2/index.md)
 
-            - [はじめに](overview/getting-started/introducing-aspnet-web-pages-2/getting-started.md)
+            - [作業の開始](overview/getting-started/introducing-aspnet-web-pages-2/getting-started.md)
             - [プログラミングの基礎](overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming.md)
             - [データの表示](overview/getting-started/introducing-aspnet-web-pages-2/displaying-data.md)
             - [HTML フォームの基本](overview/getting-started/introducing-aspnet-web-pages-2/form-basics.md)
@@ -56,7 +56,7 @@ ms.locfileid: "65114532"
         - [ヘルパーをインストールする](overview/ui-layouts-and-themes/installing-helpers.md)
         - [Twitter ヘルパーと ASP.NET Web ページ](overview/ui-layouts-and-themes/twitter-helper.md)
         - [ASP.NET Web ページ サイトでマップを表示する](overview/ui-layouts-and-themes/displaying-maps-in-an-aspnet-web-pages-site.md)
-    - [モバイル](overview/mobile/index.md)
+    - [Mobile](overview/mobile/index.md)
 
         - [モバイル デバイスで ASP.NET Web ページ サイトをレンダリングする](overview/mobile/rendering-aspnet-web-pages-sites-for-mobile-devices.md)
     - [データの使用](overview/data/index.md)
@@ -102,7 +102,7 @@ ms.locfileid: "65114532"
         - [WebMatrix でデータ編集ページを作成する](videos/introduction/create-an-edit-data-page-in-webmatrix.md)
         - [WebMatrix でデータ削除ページを作成する](videos/introduction/create-a-delete-data-page-in-webmatrix.md)
         - [WebMatrix を使用してインターネットに Web サイトを公開する](videos/introduction/publish-a-website-to-the-internet-using-webmatrix.md)
-    - [ASP.NET Razor ページ](videos/aspnet-razor-pages/index.md)
+    - [ASP.NET Razor Pages](videos/aspnet-razor-pages/index.md)
 
         - [WebMatrix と ASP.NET Web ページの概要](videos/aspnet-razor-pages/getting-started-with-webmatrix-and-aspnet-web-pages.md)
         - [ASP.NET Web プログラミング Razor 構文入門](videos/aspnet-razor-pages/introduction-to-aspnet-web-programming-using-the-razor-syntax.md)

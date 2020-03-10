@@ -1,26 +1,26 @@
 ---
 uid: web-pages/videos/introduction/index
-title: Web ページのビデオの概要 |Microsoft Docs
+title: Web ページの概要に関するビデオ |Microsoft Docs
 author: rick-anderson
-description: どのビデオ Web ページおよび WebMatrix に関する基本事項を表示できます。
+description: Web ページと WebMatrix の基本を学習するために表示できるビデオ。
 ms.author: riande
 ms.date: 05/18/2012
 ms.assetid: b8a43660-177f-4a00-bb51-be887364c607
 msc.legacyurl: /web-pages/videos/introduction
 msc.type: chapter
 ms.openlocfilehash: e4e9d63ddc701205d9f102e05fe47dd2c552bdf1
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65127740"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78512734"
 ---
-# <a name="introduction-to-web-pages-videos"></a>Web ページのビデオの概要
+# <a name="introduction-to-web-pages-videos"></a>Web ページの概要に関するビデオ
 
-> どのビデオ Web ページおよび WebMatrix に関する基本事項を表示できます。
+> Web ページと WebMatrix の基本を学習するために表示できるビデオ。
 
 > [!NOTE] 
-> WebMatrix はASP.NET Webページの統合開発環境としては推奨されなくなりました。 [Visual Studio](xref:aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio)または[Visual Studio Code](https://code.visualstudio.com/)を使用してください。
+> WebMatrix はASP.NET Webページの統合開発環境としては推奨されなくなりました。 [Visual Studio](xref:aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio)または[Visual Studio Code](https://code.visualstudio.com/)を使用します。
 
 - [5 分で学ぶ ASP.NET Web ページ](5-minute-introduction-to-aspnet-web-pages.md)
 - [Microsoft WebMatrix ツールをインストールし、使用する](install-and-use-the-microsoft-webmatrix-tool.md)

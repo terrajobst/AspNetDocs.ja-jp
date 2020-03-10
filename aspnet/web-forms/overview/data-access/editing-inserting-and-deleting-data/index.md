@@ -1,23 +1,23 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/index
-title: 編集、挿入、およびデータの削除 |Microsoft Docs
+title: データの編集、挿入、および削除 |Microsoft Docs
 author: rick-anderson
-description: これらのチュートリアルでは、GridView、DetailsView、FormView co を構成する方法と BLL メソッドでは、ObjectDataSource コントロールのメソッドにマップする方法を見る.
+description: これらのチュートリアルでは、ObjectDataSource コントロールのメソッドを BLL メソッドにマップする方法と、GridView、DetailsView、および FormView co を構成する方法について説明します。
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 9fc60498-ced4-47c6-b2cf-8d464e6aeef8
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data
 msc.type: chapter
 ms.openlocfilehash: 4657a52b05c1cf8a991158f212d6b6ce849ef276
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65109055"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78492196"
 ---
 # <a name="editing-inserting-and-deleting-data"></a>データの編集、挿入、削除
 
-> これらのチュートリアル BLL メソッドでは、ObjectDataSource コントロールのメソッドにマップする方法と GridView、DetailsView を構成する方法と、ユーザー データを変更できるようにするコントロールと FormView コントロールします。
+> これらのチュートリアルでは、ObjectDataSource コントロールのメソッドを BLL メソッドにマップする方法と、ユーザーがデータを変更できるように GridView、DetailsView、および FormView コントロールを構成する方法について説明します。
 
 - [データの挿入、更新、削除の概要 (C#)](an-overview-of-inserting-updating-and-deleting-data-cs.md)
 - [挿入、更新、削除に関連付けられているイベントを調べる (C#)](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md)

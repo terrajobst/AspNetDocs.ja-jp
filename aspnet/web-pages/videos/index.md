@@ -9,16 +9,16 @@ ms.assetid: febf2824-4e3d-4dc6-84c5-f99777ec6144
 msc.legacyurl: /web-pages/videos
 msc.type: book
 ms.openlocfilehash: 4c22b024240740d971740e9f043231ccbcdc47fb
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65127681"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78512782"
 ---
 # <a name="videos"></a>ビデオ
 
 > [!NOTE] 
-> WebMatrix はASP.NET Webページの統合開発環境としては推奨されなくなりました。 [Visual Studio](xref:aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio)または[Visual Studio Code](https://code.visualstudio.com/)を使用してください。
+> WebMatrix はASP.NET Webページの統合開発環境としては推奨されなくなりました。 [Visual Studio](xref:aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio)または[Visual Studio Code](https://code.visualstudio.com/)を使用します。
 
 - [はじめに](introduction/index.md)
 
@@ -32,7 +32,7 @@ ms.locfileid: "65127681"
     - [WebMatrix でデータ編集ページを作成する](introduction/create-an-edit-data-page-in-webmatrix.md)
     - [WebMatrix でデータ削除ページを作成する](introduction/create-a-delete-data-page-in-webmatrix.md)
     - [WebMatrix を使用してインターネットに Web サイトを公開する](introduction/publish-a-website-to-the-internet-using-webmatrix.md)
-- [ASP.NET Razor ページ](aspnet-razor-pages/index.md)
+- [ASP.NET Razor Pages](aspnet-razor-pages/index.md)
 
     - [WebMatrix と ASP.NET Web ページの概要](aspnet-razor-pages/getting-started-with-webmatrix-and-aspnet-web-pages.md)
     - [ASP.NET Web プログラミング Razor 構文入門](aspnet-razor-pages/introduction-to-aspnet-web-programming-using-the-razor-syntax.md)

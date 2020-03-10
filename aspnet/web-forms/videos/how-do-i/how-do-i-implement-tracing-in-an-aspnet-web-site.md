@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-implement-tracing-in-an-aspnet-web-site
-title: '[How Do i:] ASP.NET Web サイトでは、トレースを実装しますか。 | Microsoft Docs'
+title: '[操作方法:] ASP.NET の Web サイトでトレースを実装する | Microsoft Docs'
 author: rick-anderson
-description: このビデオでは Chris Pels が説明を監視またはパフォーマンスを測定し、エラーを診断する ASP.NET web サイトでトレースを実装する方法。
+description: このビデオでは、ASP.NET web サイトでトレースを実装して、パフォーマンスを監視または測定し、エラーを診断する方法について説明します。
 ms.author: riande
 ms.date: 11/05/2007
 ms.assetid: b3abbbef-ddac-4c8e-a068-5bab31db5931
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-implement-tracing-in-an-aspnet-web-site
 msc.type: video
 ms.openlocfilehash: 0a17b2f73cde4e4d6914c38486d19438138e21cd
-ms.sourcegitcommit: a256895f6160acc28d75424b8ab5d03b4e74412e
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67471403"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78516286"
 ---
-# <a name="how-do-i--implement-tracing-in-an-aspnet-web-site"></a>[How Do i:] ASP.NET Web サイトでは、トレースを実装しますか。
+# <a name="how-do-i--implement-tracing-in-an-aspnet-web-site"></a>[操作方法:] ASP.NET の Web サイトでトレースを実装する
 
-によって[Chris Pels](https://twitter.com/chrispels)
+[Chris Pels](https://twitter.com/chrispels)
 
-このビデオでは Chris Pels が説明を監視またはパフォーマンスを測定し、エラーを診断する ASP.NET web サイトでトレースを実装する方法。 トレースを web サイト全体と個々 のページに追加する方法について説明します。 ページとサイトのパフォーマンスを評価してエラーの診断を支援するためにビジネス オブジェクトのカスタム トレース メッセージを追加する方法を参照してください。 トレースとトレース情報をビジネス オブジェクトの System.Diagnostics.Trace を使用して、ASP.NET ページでの相違点について説明します。 トレース情報をログ ファイルを作成し、トレース ビューアーにトレース情報を表示することも説明します。
+このビデオでは、ASP.NET web サイトでトレースを実装して、パフォーマンスを監視または測定し、エラーを診断する方法について説明します。 個々のページだけでなく、web サイト全体にトレースを追加する方法についても説明します。 サイトのパフォーマンスの評価およびエラーの診断を支援するために、ページおよびビジネスオブジェクトにカスタムトレースメッセージを追加する方法に関するページを参照してください。 ASP.NET ページでのトレースと、ビジネスオブジェクトのトレース情報に使用するトレースの違いについて説明します。 トレース情報をログファイルに書き込んだり、トレースビューアーでトレース情報を表示したりする方法についても説明します。
 
-[&#9654;ビデオ (30 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-implement-tracing-in-an-aspnet-web-site)
+[&#9654;ビデオを見る (30 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-implement-tracing-in-an-aspnet-web-site)

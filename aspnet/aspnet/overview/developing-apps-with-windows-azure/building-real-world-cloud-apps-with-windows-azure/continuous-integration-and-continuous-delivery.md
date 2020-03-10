@@ -9,11 +9,11 @@ ms.assetid: eaece9f5-f80c-428b-b771-5db66d275b7d
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
 msc.type: authoredcontent
 ms.openlocfilehash: cf3c65ef95528173eed3fb08984035b2512861c4
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77457038"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78500860"
 ---
 # <a name="continuous-integration-and-continuous-delivery-building-real-world-cloud-apps-with-azure"></a>継続的インテグレーションと継続的デリバリー (Azure を使用した実際のクラウドアプリの構築)
 
@@ -54,7 +54,7 @@ Azure DevOps Services の継続的インテグレーションと継続的配信�
 
 ターンキープロジェクト管理、チームコラボレーション、およびソース管理ソリューションをお探しの場合は、「Azure DevOps Services」を参照してください。 [Azure DevOps Services](https://dev.azure.com/)でサインアップします。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 最初の3つのクラウド開発パターンでは、反復可能で信頼性が高く、予測可能な開発プロセスを低サイクル時間で実装する方法について説明しました。 次の[章](web-development-best-practices.md)では、アーキテクチャとコーディングパターンについて説明します。
 

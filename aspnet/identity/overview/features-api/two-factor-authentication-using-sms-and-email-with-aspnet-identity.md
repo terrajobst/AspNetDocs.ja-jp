@@ -10,11 +10,11 @@ ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity
 msc.type: authoredcontent
 ms.openlocfilehash: 527b4392846e60dae0b216fdeabf21fd6618e4d7
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77456739"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78499870"
 ---
 # <a name="two-factorauthentication-using-sms-and-email-with-aspnet-identity"></a>SMS と電子メールを使用した2要素認証 (ASP.NET Identity)
 
@@ -77,7 +77,7 @@ ms.locfileid: "77456739"
   
     ![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image1.png)  
   
-   住所 :  
+   Address:  
     `https://webservice.aspsms.com/aspsmsx2.asmx?WSDL`  
   
    名前空間:  

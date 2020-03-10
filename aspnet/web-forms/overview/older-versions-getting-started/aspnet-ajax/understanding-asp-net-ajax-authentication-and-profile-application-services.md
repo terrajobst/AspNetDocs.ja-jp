@@ -9,17 +9,17 @@ ms.assetid: 6ab4efb6-aab6-45ac-ad2c-bdec5848ef9e
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-authentication-and-profile-application-services
 msc.type: authoredcontent
 ms.openlocfilehash: cab9acb1ffd75cca87f6c575a6abdd000235828e
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74635690"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78520312"
 ---
 # <a name="understanding-aspnet-ajax-authentication-and-profile-application-services"></a>ASP.NET AJAX 認証とプロファイル アプリケーション サービスについて理解する
 
 [Scott Cate](https://github.com/scottcate)
 
-[PDF のダウンロード](https://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial03_MSAjax_ASP.NET_Services_cs.pdf)
+[[Download PDF]\(PDF をダウンロード\)](https://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial03_MSAjax_ASP.NET_Services_cs.pdf)
 
 > 認証サービスを使用すると、ユーザーは認証 cookie を受信するために資格情報を提供できます。また、ASP.NET によって提供されるカスタムユーザープロファイルを許可するゲートウェイサービスです。 ASP.NET AJAX 認証サービスの使用は標準の ASP.NET フォーム認証と互換性があるため、現在フォーム認証を使用しているアプリケーション (ログインコントロールなど) は AJAX 認証サービスにアップグレードしても破損しません。
 
@@ -39,7 +39,7 @@ Microsoft ASP.NET のプロファイルと認証サービスは ASP.NET Forms �
 
 プロファイルサービスを使用すると、認証サービスによって提供されるメンバーシップに基づいて、ユーザーデータを自動統合および格納できます。 格納されているデータは web.config ファイルによって指定され、さまざまなプロファイリングサービスプロバイダーがデータ管理を処理します。 認証サービスと同様に、AJAX プロファイルサービスは標準の ASP.NET profile service と互換性があるため、ASP.NET Profile service の機能が現在組み込まれているページは、AJAX サポートを含むことによって破損しないようにする必要があります。
 
-ASP.NET 認証とプロファイルサービスをアプリケーションに組み込むことは、このホワイトペーパーの範囲外です。 トピックの詳細については、MSDN ライブラリリファレンス記事「 [https://msdn.microsoft.com/library/tw292whz.aspx](https://msdn.microsoft.com/library/tw292whz.aspx)でメンバーシップを使用してユーザーを管理する」を参照してください。 また、ASP.NET には、ASP.NET メンバーシップの既定の認証サービスプロバイダーである SQL Server のメンバーシップを自動的に設定するユーティリティも含まれています。 詳細については、 [https://msdn.microsoft.com/library/ms229862(vs.80).aspx](https://msdn.microsoft.com/library/ms229862(vs.80).aspx)の「ASP.NET SQL Server Registration Tool (Aspnet\_ regsql)」を参照してください。
+ASP.NET 認証とプロファイルサービスをアプリケーションに組み込むことは、このホワイトペーパーの範囲外です。 トピックの詳細については、MSDN ライブラリリファレンス記事「 [https://msdn.microsoft.com/library/tw292whz.aspx](https://msdn.microsoft.com/library/tw292whz.aspx)でメンバーシップを使用してユーザーを管理する」を参照してください。 また、ASP.NET には、ASP.NET メンバーシップの既定の認証サービスプロバイダーである SQL Server のメンバーシップを自動的に設定するユーティリティも含まれています。 詳細については、 [https://msdn.microsoft.com/library/ms229862(vs.80).aspx](https://msdn.microsoft.com/library/ms229862(vs.80).aspx)の「ASP.NET SQL Server Registration Tool (Aspnet\_regsql)」を参照してください。
 
 ## <a name="using-the-aspnet-ajax-authentication-service"></a>*ASP.NET AJAX 認証サービスの使用*
 
@@ -57,17 +57,17 @@ AJAX 認証サービスが有効化され、構成されると、クライアン
 
 Login () メソッドは、ユーザーの資格情報の認証要求を開始します。 このメソッドは非同期であり、実行をブロックしません。
 
-*パラメータ*
+*パラメーター:*
 
-| **パラメーター名** | **通用** |
+| **パラメーター名** | **意味** |
 | --- | --- |
-| userName | 必須です。 認証するユーザー名。 |
-| のパスワード | 省略可能 (既定値は null)。 ユーザーのパスワード。 |
+| userName | 必須。 認証するユーザー名。 |
+| パスワード | 省略可能 (既定値は null)。 ユーザーのパスワード。 |
 | isPersistent | 省略可能 (既定値は false)。 ユーザーの認証クッキーをセッション間で保持する必要があるかどうか。 False の場合、ブラウザーが終了したとき、またはセッションの有効期限が切れたときに、ユーザーがログアウトします。 |
 | redirectUrl | 省略可能 (既定値は null)。認証が成功したときにブラウザーをリダイレクトする URL。 このパラメーターが null または空の文字列の場合、リダイレクトは実行されません。 |
 | customInfo | 省略可能 (既定値は null)。 このパラメーターは現在使用されていないため、将来使用するために予約されています。 |
 | loginCompletedCallback | 省略可能 (既定値は null)。ログインが正常に完了したときに呼び出す関数。 指定した場合、このパラメーターは defaultLoginCompleted プロパティよりも優先されます。 |
-| 失敗したコールバック | 省略可能 (既定値は null)。ログインが失敗したときに呼び出す関数。 指定した場合、このパラメーターは Defaultの Callback プロパティよりも優先されます。 |
+| failedCallback | 省略可能 (既定値は null)。ログインが失敗したときに呼び出す関数。 指定した場合、このパラメーターは Defaultの Callback プロパティよりも優先されます。 |
 | userContext | 省略可能 (既定値は null)。 コールバック関数に渡される必要があるカスタムユーザーコンテキストデータ。 |
 
 *戻り値:*
@@ -82,13 +82,13 @@ Login () メソッドは、ユーザーの資格情報の認証要求を開始�
 
 Logout () メソッドは、資格情報の cookie を削除し、web アプリケーションから現在のユーザーをログアウトします。
 
-*パラメータ*
+*パラメーター:*
 
-| **パラメーター名** | **通用** |
+| **パラメーター名** | **意味** |
 | --- | --- |
 | redirectUrl | 省略可能 (既定値は null)。認証が成功したときにブラウザーをリダイレクトする URL。 このパラメーターが null または空の文字列の場合、リダイレクトは実行されません。 |
 | logoutCompletedCallback | 省略可能 (既定値は null)。ログアウトが正常に完了したときに呼び出す関数。 指定した場合、このパラメーターは defaultLogoutCompleted プロパティよりも優先されます。 |
-| 失敗したコールバック | 省略可能 (既定値は null)。ログインが失敗したときに呼び出す関数。 指定した場合、このパラメーターは Defaultの Callback プロパティよりも優先されます。 |
+| failedCallback | 省略可能 (既定値は null)。ログインが失敗したときに呼び出す関数。 指定した場合、このパラメーターは Defaultの Callback プロパティよりも優先されます。 |
 | userContext | 省略可能 (既定値は null)。 コールバック関数に渡される必要があるカスタムユーザーコンテキストデータ。 |
 
 *戻り値:*
@@ -107,11 +107,11 @@ Logout () メソッドは、資格情報の cookie を削除し、web アプリ�
 
 [!code-javascript[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample2.js)]
 
-*パラメータ*
+*パラメーター:*
 
-| **パラメーター名** | **通用** |
+| **パラメーター名** | **意味** |
 | --- | --- |
-| エラー | エラー情報を指定します。 |
+| error | エラー情報を指定します。 |
 | userContext | Login または logout 関数が呼び出されたときに指定されたユーザーコンテキスト情報を指定します。 |
 | methodName | 呼び出し元のメソッドの名前。 |
 
@@ -123,9 +123,9 @@ Logout () メソッドは、資格情報の cookie を削除し、web アプリ�
 
 [!code-javascript[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample3.js)]
 
-*パラメータ*
+*パラメーター:*
 
-| **パラメーター名** | **通用** |
+| **パラメーター名** | **意味** |
 | --- | --- |
 | validCredentials | ユーザーが有効な資格情報を指定したかどうかを指定します。 ユーザーが正常にログインした場合は `true`。それ以外の場合は `false`。 |
 | userContext | Login 関数が呼び出されたときに指定されたユーザーコンテキスト情報を指定します。 |
@@ -139,11 +139,11 @@ Logout () メソッドは、資格情報の cookie を削除し、web アプリ�
 
 [!code-javascript[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample4.js)]
 
-*パラメータ*
+*パラメーター:*
 
-| **パラメーター名** | **通用** |
+| **パラメーター名** | **意味** |
 | --- | --- |
-| result | このパラメーターは常に `null`になります。将来使用するために予約されています。 |
+| 結果 | このパラメーターは常に `null`になります。将来使用するために予約されています。 |
 | userContext | Login 関数が呼び出されたときに指定されたユーザーコンテキスト情報を指定します。 |
 | methodName | 呼び出し元のメソッドの名前。 |
 
@@ -203,13 +203,13 @@ AJAX プロファイルサービスが構成されると、ページですぐに
 
 サーバーから選択された一覧またはすべてのプロパティを読み込みます。
 
-*パラメータ*
+*パラメーター:*
 
-| **パラメーター名** | **通用** |
+| **パラメーター名** | **意味** |
 | --- | --- |
 | propertyNames | 省略可能 (既定値は null)。 サーバーから読み込まれるプロパティ。 |
 | loadCompletedCallback | 省略可能 (既定値は null)。 読み込みが完了したときに呼び出す関数。 |
-| 失敗したコールバック | 省略可能 (既定値は null)。 エラーが発生した場合に呼び出される関数。 |
+| failedCallback | 省略可能 (既定値は null)。 エラーが発生した場合に呼び出される関数。 |
 | userContext | 省略可能 (既定値は null)。 コールバック関数に渡されるコンテキスト情報。 |
 
 Load 関数に戻り値がありません。 呼び出しが正常に完了した場合は、`loadCompletedCallback` パラメーターまたは `defaultLoadCompletedCallback` のいずれかのプロパティが呼び出されます。 呼び出しが失敗した場合、またはタイムアウトが経過した場合は、`failedCallback` パラメーターまたは `defaultFailedCallback` プロパティのいずれかが呼び出されます。
@@ -220,13 +220,13 @@ Load 関数に戻り値がありません。 呼び出しが正常に完了し�
 
 Save () メソッドは、指定されたプロパティリスト (またはすべてのプロパティ) をユーザーの ASP.NET プロファイルに保存します。
 
-*パラメータ*
+*パラメーター:*
 
-| **パラメーター名** | **通用** |
+| **パラメーター名** | **意味** |
 | --- | --- |
 | propertyNames | 省略可能 (既定値は null)。 サーバーに保存するプロパティです。 |
 | saveCompletedCallback | 省略可能 (既定値は null)。 保存が完了したときに呼び出す関数。 |
-| 失敗したコールバック | 省略可能 (既定値は null)。 エラーが発生した場合に呼び出される関数。 |
+| failedCallback | 省略可能 (既定値は null)。 エラーが発生した場合に呼び出される関数。 |
 | userContext | 省略可能 (既定値は null)。 コールバック関数に渡されるコンテキスト情報。 |
 
 Save 関数に戻り値がありません。 呼び出しが正常に完了した場合は、`saveCompletedCallback` パラメーターまたは `defaultSaveCompletedCallback` のいずれかのプロパティが呼び出されます。 呼び出しが失敗した場合、またはタイムアウトが経過した場合は、`failedCallback` または `defaultFailedCallback` のいずれかのプロパティが呼び出されます。
@@ -241,9 +241,9 @@ Save 関数に戻り値がありません。 呼び出しが正常に完了し�
 
 [!code-javascript[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample9.js)]
 
-*パラメータ*
+*パラメーター:*
 
-| **パラメーター名** | **通用** |
+| **パラメーター名** | **意味** |
 | --- | --- |
 | エラー | エラー情報を指定します。 |
 | userContext | Load または save 関数が呼び出されたときに指定されたユーザーコンテキスト情報を指定します。 |
@@ -257,9 +257,9 @@ Save 関数に戻り値がありません。 呼び出しが正常に完了し�
 
 [!code-javascript[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample10.js)]
 
-*パラメータ*
+*パラメーター:*
 
-| **パラメーター名** | **通用** |
+| **パラメーター名** | **意味** |
 | --- | --- |
 | numPropsSaved | 保存されたプロパティの数を指定します。 |
 | userContext | Load または save 関数が呼び出されたときに指定されたユーザーコンテキスト情報を指定します。 |
@@ -273,9 +273,9 @@ Save 関数に戻り値がありません。 呼び出しが正常に完了し�
 
 [!code-javascript[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample11.js)]
 
-*パラメータ*
+*パラメーター:*
 
-| **パラメーター名** | **通用** |
+| **パラメーター名** | **意味** |
 | --- | --- |
 | numPropsLoaded | 読み込まれるプロパティの数を指定します。 |
 | userContext | Load または save 関数が呼び出されたときに指定されたユーザーコンテキスト情報を指定します。 |
@@ -331,7 +331,7 @@ ASP.NET AJAX 拡張機能を使用すると、カスタム web サービスを�
 
 [!code-aspx[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample16.aspx)]
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 ASP.NET services-特に、プロファイル、メンバーシップ、および認証サービスは、クライアントブラウザーで JavaScript に簡単に公開されます。 これにより、開発者はクライアント側のコードを認証メカニズムとシームレスに統合できます。これにより、UpdatePanels などのコントロールに依存せずに、大量の処理を行うことができます。 Web 構成設定を利用することで、プロファイルデータをクライアントからも保護できます。既定ではデータは使用できず、開発者はプロファイルプロパティをオプトインする必要があります。
 

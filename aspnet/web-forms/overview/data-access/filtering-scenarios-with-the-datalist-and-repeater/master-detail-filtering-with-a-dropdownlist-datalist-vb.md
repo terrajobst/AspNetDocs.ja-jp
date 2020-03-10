@@ -9,11 +9,11 @@ ms.assetid: ad0f1014-1eff-465f-bdc6-93058de00e44
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-with-a-dropdownlist-datalist-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 537f8e76bc0cbfa759a014b63ae5f68b5d3ca64d
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74629813"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78491086"
 ---
 # <a name="masterdetail-filtering-with-a-dropdownlist-vb"></a>DropDownList でマスター/詳細をフィルター処理する (VB)
 
@@ -115,7 +115,7 @@ ms.locfileid: "74629813"
 
 新しいリストアイテムを DropDownList に追加するには、プロパティウィンドウにアクセスし、`Items` プロパティの省略記号をクリックします。 `Text` "--Category--" と `Value` `0`を持つ新しいリスト項目を追加します。
 
-![を追加する](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image27.png)
+![追加](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image27.png)
 
 **図 11**: "--カテゴリを選択する--" リスト項目を追加する
 
@@ -137,7 +137,7 @@ ms.locfileid: "74629813"
 
 [--カテゴリの選択--] オプションを選択したときに*すべて*の製品を表示する場合は、代わりに値 `-1` を使用します。 ずる賢い reader は、DropDownList チュートリアルを使用し*てマスター/詳細フィルター処理*を行ったことを思い出して、`-1` の *`categoryID`* 値が渡された場合に、すべての製品レコードが返されるように `ProductsBLL` クラスの `GetProductsByCategoryID(categoryID)` メソッドを更新しました。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 階層的に関連するデータを表示する場合は、多くの場合、マスター/詳細レポートを使用してデータを表示することができます。この場合、ユーザーは階層の最上位からデータのつい man を開始し、詳細にドリルダウンできます。 このチュートリアルでは、選択したカテゴリの製品を示す単純なマスター/詳細レポートを作成する方法を説明しました。 これを実現するには、選択したカテゴリに属する製品のカテゴリの一覧に DropDownList を使用します。
 
@@ -145,7 +145,7 @@ ms.locfileid: "74629813"
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

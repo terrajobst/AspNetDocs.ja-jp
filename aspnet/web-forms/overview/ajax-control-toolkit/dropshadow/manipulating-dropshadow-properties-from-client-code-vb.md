@@ -9,11 +9,11 @@ ms.assetid: 11be4211-2fb9-4e15-b6d4-2aa623d81f3e
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dropshadow/manipulating-dropshadow-properties-from-client-code-vb
 msc.type: authoredcontent
 ms.openlocfilehash: a39adb9c06819f6f828add7d762effad430b8570
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74574033"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78497410"
 ---
 # <a name="manipulating-dropshadow-properties-from-client-code-vb"></a>クライアント コードから DropShadow プロパティを操作する (VB)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74574033"
 
 > AJAX コントロールツールキットの DropShadow コントロールは、ドロップシャドウを持つパネルを拡張します。 このエクステンダーのプロパティは、クライアントの JavaScript コードを使用して変更することもできます。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 AJAX コントロールツールキットの DropShadow コントロールは、ドロップシャドウを持つパネルを拡張します。 このエクステンダーのプロパティは、クライアントの JavaScript コードを使用して変更することもできます。
 
@@ -58,4 +58,4 @@ JavaScript 関数 `changeOpacity()` は、まずページの `DropShadowExtender
 不透明度がクライアント側で変更されます ([クリックすると、フルサイズの画像が表示](manipulating-dropshadow-properties-from-client-code-vb/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
-> [前へ](adjusting-the-z-index-of-a-dropshadow-vb.md)
+> [[戻る]](adjusting-the-z-index-of-a-dropshadow-vb.md)

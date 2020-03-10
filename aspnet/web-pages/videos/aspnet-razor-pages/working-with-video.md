@@ -1,27 +1,27 @@
 ---
 uid: web-pages/videos/aspnet-razor-pages/working-with-video
-title: 操作に関するビデオ |Microsoft Docs
+title: ビデオを操作する |Microsoft Docs
 author: JoeStagner
-description: ビデオの主役にビデオ チュートリアルを使用した作業
+description: ビデオの使用に関するチュートリアルへのビデオ最適
 ms.author: riande
 ms.date: 02/25/2011
 ms.assetid: 7544e93f-a754-4e1d-bd0f-461f38e11db9
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages/working-with-video
 msc.type: video
 ms.openlocfilehash: 1682565cb872ed999c1285ddd2641a7afe02c4d2
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59412087"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78514048"
 ---
 # <a name="working-with-video"></a>ビデオの操作
 
-によって[Joe Stagner](https://github.com/JoeStagner)
+[Joe Stagner](https://github.com/JoeStagner)
 
-ビデオの主役にビデオ チュートリアルを使用した作業
+ビデオの使用に関するチュートリアルへのビデオ最適
 
-[&#9654;ビデオ (9 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/working-with-video)
+[&#9654;ビデオを見る (9 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/working-with-video)
 
 > [!div class="step-by-step"]
 > [前へ](working-with-images.md)

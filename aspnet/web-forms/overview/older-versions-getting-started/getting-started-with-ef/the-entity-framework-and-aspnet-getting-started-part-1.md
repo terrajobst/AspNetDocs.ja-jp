@@ -1,56 +1,56 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1
-title: Web フォームの作業の Entity Framework 4.0 Database で最初に開始および ASP.NET 4 |Microsoft Docs
+title: はじめに Entity Framework 4.0 Database First および ASP.NET 4 Web Forms |Microsoft Docs
 author: tdykstra
-description: Contoso University のサンプルの web アプリケーションでは、Entity Framework 4.0 と Visual Studio 2010 を使用して ASP.NET Web フォーム アプリケーションを作成する方法について説明しています.
+description: Contoso 大学のサンプル web アプリケーションでは、Entity Framework 4.0 と Visual Studio 2010 を使用して ASP.NET Web フォームアプリケーションを作成する方法を示しています。
 ms.author: riande
 ms.date: 12/03/2010
 ms.assetid: 5cb00916-8f46-491f-be25-4739a615d619
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1
 msc.type: authoredcontent
 ms.openlocfilehash: fd88b32ad2a65e5b4c7ead15f0d6dc5dc6e97e75
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65126943"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78511678"
 ---
-# <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms"></a>Web フォームの作業の Entity Framework 4.0 Database で最初に開始および ASP.NET 4
+# <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms"></a>Entity Framework 4.0 Database First および ASP.NET 4 Web フォームでのはじめに
 
-によって[Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra)
 
-> Contoso University のサンプルの web アプリケーションでは、Entity Framework 4.0 と Visual Studio 2010 を使用して ASP.NET Web フォーム アプリケーションを作成する方法を示します。 サンプル アプリケーションは、架空の Contoso University の web サイトです。 学生の受け付け、講座の作成、講師の割り当てなどの機能が含まれています。
+> Contoso 大学のサンプル web アプリケーションは、Entity Framework 4.0 と Visual Studio 2010 を使用して ASP.NET Web フォームアプリケーションを作成する方法を示しています。 サンプルアプリケーションは、架空の Contoso 大学の web サイトです。 学生の受け付け、講座の作成、講師の割り当てなどの機能が含まれています。
 > 
-> このチュートリアルでは、c# で例を示します。 [ダウンロード可能なサンプル](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a)c# および Visual Basic の両方でコードが含まれています。
+> このチュートリアルでは、 C#の例を示します。 ダウンロード可能な[サンプル](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a)には、 C#と Visual Basic の両方のコードが含まれています。
 > 
-> ## <a name="database-first"></a>最初のデータベースします。
+> ## <a name="database-first"></a>Database First
 > 
-> Entity Framework でのデータを使用する 3 つの方法があります。*データベース ファースト*、*モデル ファースト*、および*コード ファースト*します。 このチュートリアルでは、データベースの最初の。 シナリオに最適なものを選択する方法に関するこれらのワークフローとガイダンスの違いについては、次を参照してください。 [Entity Framework 開発ワークフロー](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf)します。
+> Entity Framework のデータを操作するには、 *Database First*、 *Model First*、および*Code First*の3つの方法があります。 このチュートリアルは Database First を対象としています。 これらのワークフローの違いと、シナリオに最適なワークフローを選択する方法については、「 [Entity Framework 開発ワークフロー](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf)」を参照してください。
 > 
 > ## <a name="web-forms"></a>Web フォーム
 > 
-> このチュートリアル シリーズでは、ASP.NET Web フォーム モデルを使用して、Visual Studio で ASP.NET Web フォームを使用する方法を理解する前提としています。 表示されない場合、 [ASP.NET 4.5 Web フォームの概要](../../getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview.md)します。 ASP.NET MVC フレームワークで作業する場合を参照してください。 [ASP.NET MVC を使用して Entity Framework の概要](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)します。
+> このチュートリアルシリーズでは、ASP.NET Web フォームモデルを使用しており、Visual Studio で ASP.NET Web フォームを使用する方法を理解していることを前提としています。 そうでない場合は、「[はじめにと ASP.NET 4.5 Web フォーム](../../getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview.md)」を参照してください。 ASP.NET MVC フレームワークを使用する場合は、「 [ASP.NET mvc を使用した Entity Framework でのはじめに](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)」を参照してください。
 > 
 > ## <a name="software-versions"></a>ソフトウェアのバージョン
 > 
-> | **このチュートリアルで示すように** | **でも使用できます。** |
+> | **チュートリアルに表示されます。** | **でも動作します。** |
 > | --- | --- |
 > | Windows 7 | Windows 8 |
-> | Visual Studio 2010 | Visual Studio 2010 Express for Web です。 このチュートリアルは以降のバージョンの Visual Studio でテストされていません。 メニューのダイアログ ボックス、およびテンプレートで多くの違いがあります。 |
-> | .NET 4 | .NET 4.5 は .NET 4 では、旧バージョンと互換性のあるが、このチュートリアルは .NET 4.5 でテストされていません。 |
-> | Entity Framework 4 | このチュートリアルは Entity Framework の以降のバージョンでテストされていません。 既定では、Entity Framework 5 以降では、EF で使用、`DbContext API`は EF 4.1 で導入されました。 EntityDataSource コントロールが使用するように設計、 `ObjectContext` API。 コントロールを EntityDataSource を使用する方法については、 `DbContext` API を参照してください[このブログの投稿](https://blogs.msdn.com/b/webdev/archive/2012/09/13/how-to-use-the-entitydatasource-control-with-entity-framework-code-first.aspx)します。 |
+> | Visual Studio 2010 | Visual Studio 2010 Express for Web。 このチュートリアルは、以降のバージョンの Visual Studio ではテストされていません。 メニューの選択、ダイアログボックス、テンプレートにはさまざまな違いがあります。 |
+> | .NET 4 | .Net 4.5 は .NET 4 と下位互換性がありますが、このチュートリアルは .NET 4.5 ではテストされていません。 |
+> | Entity Framework 4 | このチュートリアルは、以降のバージョンの Entity Framework ではテストされていません。 Entity Framework 5 以降では、ef 4.1 で導入された `DbContext API` が既定で使用されます。 EntityDataSource コントロールは、`ObjectContext` API を使用するように設計されています。 `DbContext` API で EntityDataSource コントロールを使用する方法の詳細については、[このブログ投稿](https://blogs.msdn.com/b/webdev/archive/2012/09/13/how-to-use-the-entitydatasource-control-with-entity-framework-code-first.aspx)を参照してください。 |
 > 
-> ## <a name="questions"></a>質問
+> ## <a name="questions"></a>疑問がある場合
 > 
-> チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET Entity Framework フォーラム](https://forums.asp.net/1227.aspx)、 [Entity Framework と LINQ to エンティティ フォーラム](https://social.msdn.microsoft.com/forums/adodotnetentityframework/threads/)、または[StackOverflow.com](http://stackoverflow.com/)します。
+> チュートリアルに直接関係のない質問がある場合は、 [ASP.NET Entity Framework フォーラム](https://forums.asp.net/1227.aspx)、 [Entity Framework と LINQ to Entities フォーラム](https://social.msdn.microsoft.com/forums/adodotnetentityframework/threads/)、または[StackOverflow.com](http://stackoverflow.com/)に投稿できます。
 
 ## <a name="overview"></a>概要
 
-これらのチュートリアルで作成するアプリケーションは、簡単な大学向け web サイトです。
+これらのチュートリアルで作成するアプリケーションは、単純な大学の web サイトです。
 
 [![Image03](the-entity-framework-and-aspnet-getting-started-part-1/_static/image2.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image1.png)
 
-ユーザーは学生、講座、講師の情報を見たり、更新したりできます。 いくつかの画面を作成しますが、以下に示します。
+ユーザーは学生、講座、講師の情報を見たり、更新したりできます。 作成する画面のいくつかを次に示します。
 
 [![Image30](the-entity-framework-and-aspnet-getting-started-part-1/_static/image4.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image3.png)
 
@@ -60,155 +60,155 @@ ms.locfileid: "65126943"
 
 [![Image32](the-entity-framework-and-aspnet-getting-started-part-1/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image9.png)
 
-## <a name="creating-the-web-application"></a>Web アプリケーションを作成します。
+## <a name="creating-the-web-application"></a>Web アプリケーションの作成
 
-チュートリアルを開始する Visual Studio を開き、使用して新しい ASP.NET Web アプリケーション プロジェクトを作成し、 **ASP.NET Web アプリケーション**テンプレート。
+チュートリアルを開始するには、Visual Studio を開き、 **ASP.NET Web アプリケーション**テンプレートを使用して新しい ASP.NET Web アプリケーションプロジェクトを作成します。
 
 [![Image01](the-entity-framework-and-aspnet-getting-started-part-1/_static/image12.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image11.png)
 
-このテンプレートでは、スタイル シートとマスター ページに既に含まれている web アプリケーション プロジェクトを作成します。
+このテンプレートは、スタイルシートとマスターページが既に含まれている web アプリケーションプロジェクトを作成します。
 
 [![Image02](the-entity-framework-and-aspnet-getting-started-part-1/_static/image14.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image13.png)
 
-開く、 *Site.Master*ファイルし、"Contoso University"に"My ASP.NET Application"に変更します。
+*.Master*ファイルを開き、"My ASP.NET Application" を "Contoso 大学" に変更します。
 
 [!code-html[Main](the-entity-framework-and-aspnet-getting-started-part-1/samples/sample1.html)]
 
-検索、*メニュー*という名前のコントロール`NavigationMenu`し作成するページのメニュー項目を追加します。 次のマークアップに置き換えます。
+`NavigationMenu` という名前の*メニュー*コントロールを見つけて、次のマークアップに置き換えます。これにより、作成するページのメニュー項目が追加されます。
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-1/samples/sample2.aspx)]
 
-開く、 *Default.aspx*ページし、変更、`Content`という名前のコントロール`BodyContent`この。
+*Default.aspx*ページを開き、`BodyContent` という名前の `Content` コントロールを次のように変更します。
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-1/samples/sample3.aspx)]
 
-作成するさまざまなページへのリンクを含む単純なホーム ページがあるようになりました。
+これで、作成するさまざまなページへのリンクを含む単純なホームページが作成されました。
 
 [![Image03](the-entity-framework-and-aspnet-getting-started-part-1/_static/image16.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image15.png)
 
 ## <a name="creating-the-database"></a>データベースの作成
 
-これらのチュートリアルについては、既存のデータベースに基づくデータ モデルを自動的に作成、Entity Framework データ モデル デザイナーを使用します (多くの場合と呼ばれる、*データベース優先*アプローチ)。 代わりにこのチュートリアル シリーズでは説明しませんが、データ モデルを手動で作成し、データベースを作成するスクリプトのデザイナー生成する (、*モデルファースト*アプローチ)。
+これらのチュートリアルでは、Entity Framework データモデルデザイナーを使用して、既存のデータベースに基づいてデータモデルを自動的に作成します (多くの場合、*データベース優先*のアプローチと呼ばれます)。 このチュートリアルシリーズでは説明しませんが、データモデルを手動で作成した後、データベースを作成するスクリプト (*モデルファースト*アプローチ) を生成することもできます。
 
-このチュートリアルで使用されるデータベース優先方法の場合は、次の手順は、サイト データベースを追加するは。 最も簡単な方法では、まずこのチュートリアルではプロジェクトをダウンロードします。 右クリックし、*アプリ\_データ*フォルダーで、**既存項目の追加**を選択し、 *School.mdf*ダウンロードしたプロジェクトからデータベース ファイル。
+このチュートリアルで使用するデータベース優先の方法では、次の手順として、データベースをサイトに追加します。 最も簡単な方法は、このチュートリアルで使用するプロジェクトを最初にダウンロードすることです。 次に、[ *App\_Data* ] フォルダーを右クリックし、 **[既存項目の追加]** を選択して、ダウンロードしたプロジェクトから*School*データベースファイルを選択します。
 
-代替策」の手順に従うは[School サンプル データベースを作成する](https://msdn.microsoft.com/library/bb399731.aspx)します。 データベースをダウンロードまたは作成するかどうかをコピー、 *School.mdf*ファイルは、次のフォルダーから、アプリケーションの*アプリ\_データ*フォルダー。
+別の方法として、 [School サンプルデータベースの作成](https://msdn.microsoft.com/library/bb399731.aspx)に関する説明に従ってください。 データベースをダウンロードするか、作成するかにかかわらず、次のフォルダーから*School*ファイルをアプリケーションの*アプリ\_データ*フォルダーにコピーします。
 
 `%PROGRAMFILES%\Microsoft SQL Server\MSSQL10.SQLEXPRESS\MSSQL\DATA`
 
-(この場所の *.mdf*ファイルでは、SQL Server 2008 Express を使用している前提としています)。
+( *.Mdf*ファイルのこの場所では、SQL Server 2008 Express を使用していることを前提としています)。
 
-スクリプトからデータベースを作成する場合は、データベース ダイアグラムを作成するには、次の手順を実行します。
+スクリプトからデータベースを作成する場合は、次の手順を実行してデータベースダイアグラムを作成します。
 
-1. **サーバー エクスプ ローラー**、展開**データ接続**、展開*School.mdf*、右クリックして**データベース ダイアグラム**を選択します **。新しいダイアグラムの追加**します。
+1. **サーバーエクスプローラー**で、 **[データ接続]** 、[ *School .mdf*] の順に展開し、 **[データベースダイアグラム]** を右クリックして、 **[新しいダイアグラムの追加]** を選択します。
 
     [![Image35](the-entity-framework-and-aspnet-getting-started-part-1/_static/image18.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image17.png)
-2. すべてのテーブルを選択し、クリックして**追加**します。
+2. すべてのテーブルを選択し、 **[追加]** をクリックします。
 
     [![Image36](the-entity-framework-and-aspnet-getting-started-part-1/_static/image20.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image19.png)
 
-    SQL Server では、テーブル、列、テーブル、およびテーブル間のリレーションシップを表示するデータベース ダイアグラムを作成します。 自由に整理するためにテーブルを移動することができます。
-3. "SchoolDiagram"としてダイアグラムを保存して閉じます。
+    SQL Server により、テーブル、テーブル内の列、およびテーブル間のリレーションシップを示すデータベースダイアグラムが作成されます。 テーブルを移動して、自由に整理することができます。
+3. ダイアグラムを "SchoolDiagram" として保存し、閉じます。
 
-ダウンロードする場合、 *School.mdf*このチュートリアルでは、付いたファイルをダブルクリックして、データベース ダイアグラムを表示する**SchoolDiagram** **データベース ダイアグラム**で**サーバー エクスプ ローラー**します。
+このチュートリアルに記載されている*School .mdf*ファイルをダウンロードすると、**サーバーエクスプローラー**の **[データベースダイアグラム]** の下にある **[SchoolDiagram]** をダブルクリックすると、データベースダイアグラムが表示されます。
 
 [![Image38](the-entity-framework-and-aspnet-getting-started-part-1/_static/image22.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image21.png)
 
-図は、次のような (テーブルをここに表示される内容から別の場所にあります)。
+ダイアグラムは次のようになります (テーブルは、ここに表示されている場所とは異なる場所にある可能性があります)。
 
 [![Image04](the-entity-framework-and-aspnet-getting-started-part-1/_static/image24.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image23.png)
 
-## <a name="creating-the-entity-framework-data-model"></a>Entity Framework データ モデルを作成します。
+## <a name="creating-the-entity-framework-data-model"></a>Entity Framework データモデルの作成
 
-これでこのデータベースから Entity Framework データ モデルを作成できます。 アプリケーションのルート フォルダーで、データ モデルを作成できますが、このチュートリアルではありますに配置するという名前のフォルダー *DAL* (のデータ アクセス層)。
+これで、このデータベースから Entity Framework データモデルを作成できるようになりました。 データモデルはアプリケーションのルートフォルダーに作成できますが、このチュートリアルでは、 *DAL*という名前のフォルダーに配置します (データアクセス層の場合)。
 
-**ソリューション エクスプ ローラー**、という名前のプロジェクト フォルダーの追加*DAL* (ソリューションではなく、プロジェクトの下にあることを確認ください)。
+**ソリューションエクスプローラー**で、 *DAL*という名前のプロジェクトフォルダーを追加します (ソリューションではなく、プロジェクトの下にあることを確認してください)。
 
-右クリックし、 *DAL*クリックしてフォルダー**追加**と**新しい項目の**します。 **インストールされたテンプレート**を選択します**データ**を選択、 **ADO.NET Entity Data Model**テンプレート、名前を付けます*SchoolModel.edmx*とクリックして**追加**します。
+[ *DAL* ] フォルダーを右クリックし、 **[追加]** 、 **[新しい項目]** の順に選択します。 **[インストールされたテンプレート]** で **[データ]** を選択し、 **[ADO.NET Entity Data Model]** テンプレートを選択して*SchoolModel*という名前を入力し、 **[追加]** をクリックします。
 
 [![Image05](the-entity-framework-and-aspnet-getting-started-part-1/_static/image26.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image25.png)
 
-これは、Entity Data Model ウィザードを起動します。 ウィザードの最初の手順で、**データベースから生成**オプションは既定で選択されます。 **[次へ]** をクリックします。
+これにより、Entity Data Model ウィザードが起動します。 ウィザードの最初の手順では、 **[データベースから生成]** オプションが既定で選択されています。 **[次へ]** をクリックします。
 
 [![Image06](the-entity-framework-and-aspnet-getting-started-part-1/_static/image28.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image27.png)
 
-**データ接続の選択**ステップ、既定値のまま をクリックして**次**します。 既定では、School データベースが選択されているし、では、接続設定を保存してください。、 *Web.config*ファイルとして**SchoolEntities**します。
+**[データ接続の選択]** 手順で、既定値をそのまま使用し、 **[次へ]** をクリックします。 School データベースが既定で選択され、接続設定が*web.config*ファイルに**SchoolEntities**として保存されます。
 
 [![Image07](the-entity-framework-and-aspnet-getting-started-part-1/_static/image30.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image29.png)
 
-**データベース オブジェクトの選択**ウィザードの手順を除く、テーブルをすべて選択`sysdiagrams`(以前に作成したダイアグラムの作成された) 順にクリックします**完了**します。
+**[データベースオブジェクトの選択]** ウィザードの手順で、(前に生成したダイアグラム用に作成された) `sysdiagrams` を除くすべてのテーブルを選択し、 **[完了]** をクリックします。
 
 [![Image08](the-entity-framework-and-aspnet-getting-started-part-1/_static/image32.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image31.png)
 
-これには、モデルの作成が終了したら、Visual Studio に、データベース テーブルに対応する Entity Framework オブジェクト (エンティティ) のグラフィカル表現が示します。 (データベース ダイアグラムで、個々 の要素の場所異なる可能性がありますこの図で参照してください。 要素をドラッグできますする場合は、図を一致するように約。)
+モデルの作成が完了すると、Visual Studio には、データベーステーブルに対応する Entity Framework オブジェクト (エンティティ) がグラフィカルに表示されます。 (データベースダイアグラムと同様に、個々の要素の場所は、この図に表示されるものとは異なる場合があります。 必要に応じて、要素をドラッグして、イラストレーションに一致させることができます)。
 
 [![Image09](the-entity-framework-and-aspnet-getting-started-part-1/_static/image34.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image33.png)
 
-## <a name="exploring-the-entity-framework-data-model"></a>Entity Framework データ モデルの検証
+## <a name="exploring-the-entity-framework-data-model"></a>Entity Framework データモデルの調査
 
-エンティティの図は、いくつかの相違点と、データベース ダイアグラムによく似て ことを確認できます。 1 つの違いは、関連付けの種類を示す各アソシエーションの end のシンボルの追加 (テーブルのリレーションシップと呼ばれるエンティティの関連付けデータ モデル内)。
+エンティティダイアグラムがデータベースダイアグラムと非常によく似ていることがわかりますが、いくつか違いがあります。 違いの1つは、関連付けの種類を示す各アソシエーションの最後にシンボルを追加することです (テーブルのリレーションシップはデータモデル内のエンティティの関連付けと呼ばれます)。
 
-- 0 または 1 に 1 つのアソシエーションは、「1」と「0..1」で表されます。
+- 一対ゼロまたは一対一のアソシエーションは、"1" と "0 ..1" で表されます。
 
     [![Image39](the-entity-framework-and-aspnet-getting-started-part-1/_static/image36.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image35.png)
 
-    ここで、`Person`エンティティがまたはに関連付けられていない可能性があります、`OfficeAssignment`エンティティ。 `OfficeAssignment`にエンティティが関連付けられている必要がありますが、`Person`エンティティ。 つまり、インストラクター、オフィスに割り当てることはできませんし、office 講師が 1 つだけに割り当てることができます。
-- 一対多のアソシエーションは、「1」で表される、"\*"。
+    この場合、`Person` エンティティは、`OfficeAssignment` エンティティに関連付けられている場合も、そうでない場合もあります。 `OfficeAssignment` エンティティは、`Person` エンティティに関連付けられている必要があります。 つまり、インストラクターはオフィスに割り当てられない場合もあれば、1人のインストラクターにのみ割り当てることもできます。
+- 一対多のアソシエーションは、"1" と "\*" で表されます。
 
     [![Image40](the-entity-framework-and-aspnet-getting-started-part-1/_static/image38.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image37.png)
 
-    ここで、`Person`エンティティのことがありますまたは関連付けることはできません`StudentGrade`エンティティ。 A`StudentGrade`エンティティが 1 つを関連付ける必要がある`Person`エンティティ。 `StudentGrade` エンティティが実際にこのデータベースに登録されているコースを表します学生がコースに登録されているし、グレードがまだない場合、`Grade`プロパティは null です。 つまり、受講者コースに登録されていない可能性があります、1 つのコースに登録することがあります。 または複数のコースに登録することがあります。 各学年の登録済みのコースは、学生の 1 つだけに適用されます。
-- 多対多のアソシエーションとして表されます"\*「と」\*"。
+    この場合、`Person` エンティティは、`StudentGrade` エンティティに関連付けられている場合と、存在しない場合があります。 `StudentGrade` エンティティは、1つの `Person` エンティティに関連付けられている必要があります。 `StudentGrade` エンティティは、実際には、このデータベースに登録されているコースを表します。学生がコースに登録されていて、まだグレードがない場合、`Grade` プロパティは null になります。 言い換えると、学生がコースに登録されていない場合、1つのコースに登録されている場合、または複数のコースに登録されている場合があります。 登録したコースの各グレードは、1人の学生にのみ適用されます。
+- 多対多のアソシエーションは、"\*" と "\*" で表されます。
 
     [![Image41](the-entity-framework-and-aspnet-getting-started-part-1/_static/image40.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image39.png)
 
-    ここで、`Person`エンティティのことがありますまたは関連付けることはできません`Course`エンティティ、およびその逆は true も:`Course`エンティティのことがありますまたは関連付けることはできません`Person`エンティティ。 つまり、インストラクターが複数のコースを教えることがあり、コースは、複数の講師が担当することがあります。 (、このデータベースにこの関係はインストラクターのみに適用されます。 コースを受講者はリンクされません。 受講者にリンクされてコース StudentGrades テーブルによって。)
+    この場合、`Person` エンティティは、`Course` エンティティに関連付けられている場合と、存在しない場合があります。また、逆の場合もあります。 `Course` エンティティには `Person` エンティティが関連付けられている場合と、存在しない場合があります。 つまり、インストラクターは複数のコースを教えることができ、コースは複数の教師によって教育されることがあります。 (このデータベースでは、この関係は講師にのみ適用されます。学生はコースにリンクされません。 学生は、StudentGrades テーブルによってコースにリンクされています)。
 
-データベース ダイアグラムとデータ モデルにはもう 1 つの違いは、追加**ナビゲーション プロパティ**各エンティティのセクション。 エンティティのナビゲーション プロパティは、関連エンティティを参照します。 たとえば、`Courses`プロパティ、`Person`エンティティには、すべてのコレクションが含まれています、`Course`に関連付けられているエンティティ`Person`エンティティ。
+データベースダイアグラムとデータモデルのもう1つの違いは、各エンティティの追加の**ナビゲーションプロパティ**セクションです。 エンティティのナビゲーションプロパティは、関連エンティティを参照します。 たとえば、`Person` エンティティの `Courses` プロパティには、その `Person` エンティティに関連するすべての `Course` エンティティのコレクションが含まれています。
 
 [![Image12](the-entity-framework-and-aspnet-getting-started-part-1/_static/image42.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image41.png)
 
-データベースとデータ モデルのもう 1 つの違いがない場合は、まだ、`CourseInstructor`関連テーブルにリンクする、データベースで使用される、`Person`と`Course`多対多リレーションシップのテーブル。 ナビゲーション プロパティでは、関連を取得できます。`Course`からエンティティ、`Person`エンティティと関連`Person`からエンティティ、`Course`エンティティ データ モデルに関連テーブルを表示する必要はありませんので。
+ただし、データベースとデータモデルのもう1つの違いは、多対多リレーションシップで `Person` テーブルと `Course` テーブルをリンクするためにデータベースで使用される `CourseInstructor` 関連付けテーブルがないことです。 ナビゲーションプロパティを使用すると、`Person` エンティティから関連する `Course` エンティティと、`Course` エンティティから関連する `Person` エンティティを取得できます。そのため、データモデルでアソシエーションテーブルを表す必要はありません。
 
 [![Image11](the-entity-framework-and-aspnet-getting-started-part-1/_static/image44.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image43.png)
 
-このチュートリアルの目的で、たとえば、`FirstName`の列、`Person`テーブルには実際には、個人の姓とミドル ネームの両方が含まれています。 これを反映するフィールドの名前を変更したいが、データベース管理者 (DBA) が、データベースに変更しない可能性があります。 名前を変更することができます、`FirstName`まま、そのデータベースは同等のデータ モデルでプロパティが変更されません。
+このチュートリアルでは、`Person` テーブルの `FirstName` 列に、実際にはユーザーの名とミドルネームの両方が含まれているとします。 これを反映するようにフィールドの名前を変更する必要がありますが、データベース管理者 (DBA) がデータベースを変更したくない可能性があります。 データモデルの `FirstName` プロパティの名前は変更できますが、データベースはそのままにしておきます。
 
-デザイナーで、右クリック**FirstName**で、`Person`エンティティ、および選択**の名前を変更**します。
+デザイナーで、`Person` エンティティの **[FirstName]** を右クリックし、 **[名前の変更]** を選択します。
 
 [![Image13](the-entity-framework-and-aspnet-getting-started-part-1/_static/image46.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image45.png)
 
-新しい名前"FirstMidName"を入力します。 これは、データベースを変更することがなくコード内の列を参照する方法を変更します。
+新しい "FirstMidName" という名前を入力します。 これにより、データベースを変更することなく、コード内の列を参照する方法が変更されます。
 
 [![Image29](the-entity-framework-and-aspnet-getting-started-part-1/_static/image48.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image47.png)
 
-モデル ブラウザーでは、データベース構造、データ モデルの構造、およびそれらの間のマッピングを表示する別の方法を提供します。 表示は、エンティティ デザイナーでの空白領域を右クリックし、順にクリックします**モデル ブラウザー**します。
+モデルブラウザーには、データベース構造、データモデル構造、およびそれらの間のマッピングを表示する別の方法が用意されています。 表示するには、エンティティデザイナーで空白の領域を右クリックし、 **[モデルブラウザー]** をクリックします。
 
 [![Image18](the-entity-framework-and-aspnet-getting-started-part-1/_static/image50.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image49.png)
 
-**モデル ブラウザー**ウィンドウには、ツリー ビューが表示されます。 (、**モデル ブラウザー**ウィンドウとドッキング可能性があります、**ソリューション エクスプ ローラー**ウィンドウ)。**SchoolModel**ノードが、データ モデルの構造を表す、 **SchoolModel.Store**ノードは、データベースの構造を表します。
+**[モデルブラウザー]** ペインにツリービューが表示されます。 ( **[モデルブラウザー]** ウィンドウは、 **[ソリューションエクスプローラー]** ウィンドウと共にドッキングされている場合があります)。**SchoolModel**ノードはデータモデル構造を表し、 **SchoolModel**ノードはデータベース構造を表します。
 
 [![Image26](the-entity-framework-and-aspnet-getting-started-part-1/_static/image52.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image51.png)
 
-展開**SchoolModel.Store**テーブルを表示する展開**テーブル/ビュー**テーブルを参照し、展開に**コース**にテーブル内の列を参照してください。
+**[SchoolModel]** を展開してテーブルを表示し、 **[テーブル/ビュー]** を展開してテーブルを表示します。次に、 **[Course]** を展開してテーブル内の列を表示します。
 
 [![Image19](the-entity-framework-and-aspnet-getting-started-part-1/_static/image54.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image53.png)
 
-展開**SchoolModel**、展開**エンティティ型**の順に展開し、**コース**エンティティと、エンティティ内でプロパティを表示するノード。
+**[SchoolModel]** 、 **[エンティティ型]** の順に展開し、 **Course**ノードを展開してエンティティとエンティティ内のプロパティを表示します。
 
 [![Image20](the-entity-framework-and-aspnet-getting-started-part-1/_static/image56.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image55.png)
 
-いずれか、デザイナーで、または**モデル ブラウザー**ウィンドウで、Entity Framework が 2 つのモデルのオブジェクトを関連付ける方法を参照してください。 右クリックし、`Person`エンティティと選択**テーブル マッピング**します。
+デザイナーまたは **[モデルブラウザー]** ペインには、Entity Framework が2つのモデルのオブジェクトにどのように関連しているかが表示されます。 `Person` エンティティを右クリックし、 **[テーブルマッピング]** を選択します。
 
 [![Image21](the-entity-framework-and-aspnet-getting-started-part-1/_static/image58.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image57.png)
 
-開き、**マッピングの詳細**ウィンドウ。 このウィンドウを使うとことを確認できることに注意してください、データベース列`FirstName`にマップされます`FirstMidName`、どのような名前を変更したをデータ モデルであります。
+[マッピングの**詳細**] ウィンドウが開きます。 このウィンドウでは、データベース列 `FirstName` が `FirstMidName`にマップされていることを確認できます。これは、データモデルで名前を変更したものです。
 
 [![Image22](the-entity-framework-and-aspnet-getting-started-part-1/_static/image60.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image59.png)
 
-Entity Framework では、XML を使用して、データベース、データ モデル、およびそれらの間のマッピングに関する情報を格納します。 *SchoolModel.edmx*ファイルは、実際にこの情報を含む XML ファイル。 デザイナーは、グラフィカルな形式で情報を表示しますを右クリックし、XML としてファイルを表示することもできます、 *.edmx*ファイル**ソリューション エクスプ ローラー**、 **から開く**を選択して**XML (テキスト) エディター**します。 (データのモデル デザイナーと XML エディターを開くと、デザイナーを開くし、同時に、XML エディターでファイルを開くことはできませんが、同じファイルで作業のさまざまな方法が 2 つだけです)。
+Entity Framework は、XML を使用して、データベース、データモデル、およびそれらの間のマッピングに関する情報を格納します。 *SchoolModel*ファイルは、実際にはこの情報を含む XML ファイルです。 デザイナーでは情報がグラフィカルな形式で表示されますが、ファイルを XML として表示するには、**ソリューションエクスプローラー**で *.edmx*ファイルを右クリックし、ファイルを **[開くアプリケーション]** の選択 をクリックし、 **[xml (テキスト) エディター]** を選択します。 (データモデルデザイナーと XML エディターは、同じファイルを開いて作業するための2つの異なる方法であるため、デザイナーを開いて、同時に XML エディターでファイルを開くことはできません)。
 
-Web サイト、データベース、およびデータ モデルを作成したようになりました。 次のチュートリアルでは、データ モデルと ASP.NET を使用してデータの操作を開始するを`EntityDataSource`コントロール。
+これで、web サイト、データベース、およびデータモデルが作成されました。 次のチュートリアルでは、データモデルと ASP.NET `EntityDataSource` コントロールを使用してデータの操作を開始します。
 
 > [!div class="step-by-step"]
-> [次へ](the-entity-framework-and-aspnet-getting-started-part-2.md)
+> [Next](the-entity-framework-and-aspnet-getting-started-part-2.md)

@@ -9,11 +9,11 @@ ms.assetid: f555c531-bf33-4699-9987-42dbfef23c1f
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/showing-multiple-records-per-row-with-the-datalist-control-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 17283dae192896fbaa48f1d7fe49afdbaf4c9a02
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74627509"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78495304"
 ---
 # <a name="showing-multiple-records-per-row-with-the-datalist-control-vb"></a>DataList コントロールで複数のレコードを行ごとに表示する (VB)
 
@@ -89,11 +89,11 @@ DataList は、`RepeatDirection` プロパティを `Vertical` から `Horizonta
 
 結果のテーブルに表示される行数は、DataList にバインドされている合計レコード数によって異なります。 正確には、データソースアイテムの合計数が `RepeatColumns` プロパティ値で割った値になります。 現在、`Products` テーブルには3で割り切れる84製品があるため、28行あります。 データソース内の項目数と `RepeatColumns` プロパティ値が割り切れない場合、最後の行または列には空白のセルが含まれます。 `RepeatDirection` が `Vertical`に設定されている場合、最後の列には空のセルが含まれます。`RepeatDirection` が `Horizontal`の場合、最後の行には空のセルが含まれます。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 既定では、DataList は単一列の複数行のテーブルに項目を一覧表示します。これは、1つの TemplateField を持つ GridView のレイアウトを模倣します。 この既定のレイアウトは許容されますが、行ごとに複数のデータソース項目を表示することで、画面の不動産を最大化できます。 これを実現するには、DataList s `RepeatColumns` プロパティを行ごとに表示する列数に設定するだけです。 さらに、[DataList s `RepeatDirection`] プロパティを使用して、複数列の複数行のテーブルの内容を、左から右、上から下、または上下左右の左から右にレイアウトするかどうかを指定できます。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

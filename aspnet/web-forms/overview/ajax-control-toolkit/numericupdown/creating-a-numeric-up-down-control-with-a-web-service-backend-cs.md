@@ -9,11 +9,11 @@ ms.assetid: c99bbc72-d4de-41ed-92a4-9a4632368363
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/numericupdown/creating-a-numeric-up-down-control-with-a-web-service-backend-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 816a840b9e93b95a049c3a4cb792e9deeab28983
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74598911"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78509014"
 ---
 # <a name="creating-a-numeric-updown-control-with-a-web-service-backend-c"></a>Web サービス バックエンドで数値を上げ下げするコントロールを作成する (C#)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74598911"
 
 > ユーザーがチェックボックスに値を入力する代わりに、数値のアップ/ダウンコントロール (Windows およびその他のオペレーティングシステムに存在) を確認することで、より快適に証明できます。 既定では、NumericUpDown コントロールの値は常に1ずつ増加または減少しますが、web サービスの方が柔軟性が高くなります。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 ユーザーがチェックボックスに値を入力する代わりに、数値のアップ/ダウンコントロール (Windows およびその他のオペレーティングシステムに存在) を確認することで、より快適に証明できます。 既定では、`NumericUpDown` コントロールの値は常に1ずつ増加または減少しますが、web サービスの方が柔軟性が高くなります。
 
@@ -57,4 +57,4 @@ ASP.NET AJAX Control Toolkit には、テキストボックスに2つのボタ�
 2の累乗の数値のみが表示されます ([クリックすると、フルサイズの画像が表示](creating-a-numeric-up-down-control-with-a-web-service-backend-cs/_static/image3.png)されます)
 
 > [!div class="step-by-step"]
-> [次へ](creating-a-numeric-up-down-control-with-a-web-service-backend-vb.md)
+> [Next](creating-a-numeric-up-down-control-with-a-web-service-backend-vb.md)

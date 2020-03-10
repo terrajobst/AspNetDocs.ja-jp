@@ -9,11 +9,11 @@ ms.assetid: 493b2a66-816c-485c-8315-952ed1085ccc
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12
 msc.type: authoredcontent
 ms.openlocfilehash: 5d85232ff2cb229d771d517db7173721c9e277bf
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74633429"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78515680"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-iis-as-a-test-environment---5-of-12"></a>Visual Studio または Visual Web Developer を使用した SQL Server Compact を使用した ASP.NET Web アプリケーションの配置: テスト環境としての IIS への配置-5/12
 
@@ -25,7 +25,7 @@ ms.locfileid: "74633429"
 > 
 > Visual Studio 2012 の RC リリース後に導入された配置機能を示すチュートリアルについては、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法、Azure App Service Web Apps にデプロイする方法については、「 [ASP.NET Web deployment Using Visual studio (Visual studio を使用した Web デプロイ](../../deployment/visual-studio-web-deployment/introduction.md)のデプロイ)」を参照してください。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 このチュートリアルでは、ASP.NET web アプリケーションをローカルコンピューター上の IIS に配置する方法について説明します。
 
@@ -112,7 +112,7 @@ Visual Studio 2010 と Web 配置を使用してデプロイできる方法は�
 
 **ソリューションエクスプローラー**で、(ContosoUniversity プロジェクトではなく) ContosoUniversity プロジェクトを右クリックし、 **[発行]** を選択します。
 
-**Web の発行**ウィザードが表示されます。
+**Web の発行** ウィザードが表示されます。
 
 ![Publish_Web_wizard_Profile_tab](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image9.png)
 
@@ -233,7 +233,7 @@ Visual Studio が管理者モードの場合、 **[出力]** ウィンドウは�
 
 これで、開発用コンピューター上の IIS にアプリケーションを配置し、そこでテストしました。 これにより、展開プロセスによって、アプリケーションのコンテンツが適切な場所にコピーされているかどうかが確認されます (展開する必要のないファイルは除外されます)。また、展開時に IIS が正しく構成された Web 配置ます。 次のチュートリアルでは、まだ完了していない配置タスクを検索するテストをもう1つ実行します。これは、 *Elmah*フォルダーのフォルダーアクセス許可の設定です。
 
-## <a name="more-information"></a>その他の情報
+## <a name="more-information"></a>詳細情報
 
 Visual Studio で IIS または IIS Express を実行する方法の詳細については、次のリソースを参照してください。
 

@@ -9,11 +9,11 @@ ms.assetid: 83b4f5a4-4f5a-4380-ba33-f0b5c5ac6a75
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/role-based-authorization-vb
 msc.type: authoredcontent
 ms.openlocfilehash: feb3e5eb992284033853e67bfab3872243cefe39
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74570558"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78462574"
 ---
 # <a name="role-based-authorization-vb"></a>ロールベースの承認 (VB)
 
@@ -31,7 +31,7 @@ URL 承認に加えて、表示されるデータを制御するための宣言�
 
 ユーザーごとに承認規則を適用すると、簿記の悪夢になる可能性があります。 より保守しやすい方法は、ロールベースの承認を使用することです。 ユーザーアカウントの場合と同様に、承認規則を適用するためのツールはロールと同様に機能します。 URL 承認規則では、ユーザーの代わりにロールを指定できます。 認証されたユーザーと匿名ユーザーに対して異なる出力を表示する LoginView コントロールは、ログインしているユーザーのロールに基づいてさまざまなコンテンツを表示するように構成できます。 および Roles API には、ログインしているユーザーのロールを決定するためのメソッドが含まれています。
 
-このチュートリアルでは、まず、ロールフレームワークによってユーザーのロールとセキュリティコンテキストがどのように関連付けられるかについて説明します。 次に、ロールベースの URL 承認規則を適用する方法を調べます。 ここでは、表示されるデータと、ASP.NET ページによって提供される機能を変更するための、宣言型の方法とプログラムによる方法について説明します。 では、始めましょう。
+このチュートリアルでは、まず、ロールフレームワークによってユーザーのロールとセキュリティコンテキストがどのように関連付けられるかについて説明します。 次に、ロールベースの URL 承認規則を適用する方法を調べます。 ここでは、表示されるデータと、ASP.NET ページによって提供される機能を変更するための、宣言型の方法とプログラムによる方法について説明します。 作業開始
 
 ## <a name="understanding-how-roles-are-associated-with-a-users-security-context"></a>ロールがユーザーのセキュリティコンテキストにどのように関連付けられているかを理解する
 
@@ -64,17 +64,17 @@ URL 承認に加えて、表示されるデータを制御するための宣言�
 > [!NOTE]
 > 表1に示す構成設定では、結果として得られるロールキャッシュクッキーのプロパティを指定します。 Cookie、そのしくみ、およびさまざまなプロパティの詳細については、[この cookie](http://www.quirksmode.org/js/cookies.html)に関するチュートリアルを参照してください。
 
-| <strong>Property</strong> |                                                                                                                                                                                                                                                                                                                                                         <strong>説明</strong>                                                                                                                                                                                                                                                                                                                                                          |
+| <strong>プロパティ</strong> |                                                                                                                                                                                                                                                                                                                                                         <strong>説明</strong>                                                                                                                                                                                                                                                                                                                                                          |
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |   `cacheRolesInCookie`    |                                                                                                                                                                                                                                                                                                                              クッキーのキャッシュを使用するかどうかを示すブール値です。 既定値は `false` です。                                                                                                                                                                                                                                                                                                                              |
 |       `cookieName`        |                                                                                                                                                                                                                                                                                                                                     ロールキャッシュクッキーの名前。 既定値は "です。ASPXROLES "。                                                                                                                                                                                                                                                                                                                                     |
-|       `cookiePath`        |                                                                                                                                                                                                                                ロール名のクッキーのパス。 パス属性を使用すると、開発者は cookie のスコープを特定のディレクトリ階層に限定できます。 既定値は "/" です。これは、ドメインに対して行われたすべての要求に認証チケットクッキーを送信するようブラウザーに通知します。                                                                                                                                                                                                                                 |
+|       `cookiePath`        |                                                                                                                                                                                                                                ロール名のクッキーのパス。 Path 属性は、開発者は特定のディレクトリ階層のクッキーのスコープを制限できます。 既定値は "/" です。これは、ドメインに対して行われたすべての要求に認証チケットクッキーを送信するようブラウザーに通知します。                                                                                                                                                                                                                                 |
 |    `cookieProtection`     |                                                                                                                                                               ロールキャッシュクッキーを保護するために使用される手法を示します。 使用できる値は、`All` (既定値) です。`Encryption`;`None`;および `Validation`ます。 これらの保護レベルの詳細に<a id="_anchor_5"></a>ついては、 [ *「フォーム認証の構成」および「高度なトピック*](../introduction/forms-authentication-configuration-and-advanced-topics-vb.md)」の手順3を参照してください。                                                                                                                                                                |
-|    `cookieRequireSSL`     |                                                                                                                                                                                                                                                                                                   認証 cookie の送信に SSL 接続が必要かどうかを示すブール値。 既定値は `false`です。                                                                                                                                                                                                                                                                                                   |
-| `cookieSlidingExpiration` |                                                                                                                                                                                                                                                  シングルセッション中にユーザーがサイトにアクセスするたびに cookie のタイムアウトをリセットするかどうかを示すブール値です。 既定値は `false`です。 この値は、`createPersistentCookie` が `true`に設定されている場合にのみ関連します。                                                                                                                                                                                                                                                  |
-|      `cookieTimeout`      |                                                                                                                                                                                                                                                                         認証チケットのクッキーの有効期限が切れるまでの時間を分単位で指定します。 既定値は `30`です。 この値は、`createPersistentCookie` が `true`に設定されている場合にのみ関連します。                                                                                                                                                                                                                                                                         |
+|    `cookieRequireSSL`     |                                                                                                                                                                                                                                                                                                   認証 cookie の送信に SSL 接続が必要かどうかを示すブール値。 既定値は `false` です。                                                                                                                                                                                                                                                                                                   |
+| `cookieSlidingExpiration` |                                                                                                                                                                                                                                                  シングルセッション中にユーザーがサイトにアクセスするたびに cookie のタイムアウトをリセットするかどうかを示すブール値です。 既定値は `false` です。 この値は、`createPersistentCookie` が `true`に設定されている場合にのみ関連します。                                                                                                                                                                                                                                                  |
+|      `cookieTimeout`      |                                                                                                                                                                                                                                                                         認証チケットのクッキーの有効期限が切れるまでの分、時間を指定します。 既定値は `30` です。 この値は、`createPersistentCookie` が `true`に設定されている場合にのみ関連します。                                                                                                                                                                                                                                                                         |
 | `createPersistentCookie`  |                                                                                                                                                                   ロールキャッシュクッキーがセッション cookie であるか、永続的なクッキーであるかを指定するブール値です。 `false` (既定値) の場合、セッション cookie が使用されます。これは、ブラウザーを閉じたときに削除されます。 `true`場合は、永続的な cookie が使用されます。`cookieSlidingExpiration`の値によっては、作成後または前の訪問後に、`cookieTimeout` 期限切れになります。                                                                                                                                                                    |
-|         `domain`          |                                                                                                                                                 Cookie のドメイン値を指定します。 既定値は空の文字列です。これにより、ブラウザーは発行元のドメイン (www.yourdomain.com など) を使用します。 この場合、admin.yourdomain.com などのサブドメインに要求を行うときに cookie は送信され<strong>ません</strong>。 Cookie をすべてのサブドメインに渡す必要がある場合は、`domain` 属性を "yourdomain.com" に設定してカスタマイズする必要があります。                                                                                                                                                 |
+|         `domain`          |                                                                                                                                                 Cookie のドメイン値を指定します。 既定値は、空の文字列です。そのため、ブラウザは発行元のドメイン (www.yourdomain.com) などを使用します。 この場合、admin.yourdomain.com などのサブドメインに要求を行うときに cookie は送信され<strong>ません</strong>。 Cookie をすべてのサブドメインに渡す必要がある場合は、`domain` 属性を "yourdomain.com" に設定してカスタマイズする必要があります。                                                                                                                                                 |
 |    `maxCachedResults`     | クッキーにキャッシュされるロール名の最大数を指定します。 既定値は 25 です。 `RoleManagerModule` は、`maxCachedResults` のロールを超えるユーザーの cookie を作成しません。 その結果、`RolePrincipal` オブジェクトの `IsInRole` メソッドは、`Roles` クラスを使用してユーザーのロールを決定します。 `maxCachedResults` 存在する理由は、多くのユーザーエージェントが4096バイトを超える cookie を許可しないためです。 この上限は、このサイズ制限を超える可能性を低減することを目的としています。 ロール名が非常に長い場合は、より小さな `maxCachedResults` 値を指定することを検討してください。contrariwise、非常に短いロール名を使用している場合は、この値を増やすことができます。 |
 
 **表 1**: ロールキャッシュクッキーの構成オプション
@@ -85,7 +85,7 @@ URL 承認に加えて、表示されるデータを制御するための宣言�
 
 `<roleManager>`を更新しました。要素には、`cacheRolesInCookie`、`createPersistentCookie`、および `cookieProtection`の3つの属性を追加します。 `cacheRolesInCookie` を `true`に設定することにより、`RoleManagerModule` は、各要求のユーザーのロール情報を参照するのではなく、ユーザーのロールを cookie に自動的にキャッシュするようになります。 `createPersistentCookie` と `cookieProtection` 属性をそれぞれ `false` および `All`に明示的に設定します。 技術的には、これらの属性を既定値に割り当てただけなので、これらの属性の値を指定する必要はありませんでしたが、永続的な cookie を使用していないこと、および cookie が暗号化および検証されていることを明示的に明確にするために、ここに配置しました。
 
-必要な作業は以上です。 その後、ロールフレームワークはユーザーのロールを cookie にキャッシュします。 ユーザーのブラウザーで cookie がサポートされていない場合、または cookie が削除されたり失われたりした場合は、大きな問題はありません。 `RolePrincipal` オブジェクトは、cookie (または無効または有効期限が切れたもの) が使用できない場合にのみ、`Roles` クラスを使用します。
+これですべて完了です。 その後、ロールフレームワークはユーザーのロールを cookie にキャッシュします。 ユーザーのブラウザーで cookie がサポートされていない場合、または cookie が削除されたり失われたりした場合は、大きな問題はありません。 `RolePrincipal` オブジェクトは、cookie (または無効または有効期限が切れたもの) が使用できない場合にのみ、`Roles` クラスを使用します。
 
 > [!NOTE]
 > Microsoft のパターン &amp; プラクティスグループは、永続的なロールキャッシュクッキーの使用を推奨していません。 ロールキャッシュクッキーを所有しているため、ロールのメンバーシップを証明するには十分です。ハッカーが何らかの方法で有効なユーザーの cookie にアクセスできる場合は、そのユーザーを偽装できます。 Cookie がユーザーのブラウザーで永続化されている場合、このような事態が発生する可能性は高くなります。 このセキュリティの推奨事項とその他のセキュリティの問題の詳細については、 [ASP.NET 2.0 のセキュリティの質問リスト](https://msdn.microsoft.com/library/ms998375.aspx)を参照してください。
@@ -324,7 +324,7 @@ ASP.NET ページに加えて、多くのアプリケーションには、ビジ
 
 `PrincipalPermission` 属性を使用してクラスとメソッドの承認規則を定義する方法の詳細については、 [Scott Guthrie](https://weblogs.asp.net/scottgu/)のブログ記事「 [`PrincipalPermissionAttributes`を使用したビジネス層およびデータ層への承認規則の追加](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx)」を参照してください。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、ユーザーのロールに基づいて粒度の粗い粒度の承認規則を指定する方法について説明しました。 ASP.NET の URL 承認機能を使用すると、ページの開発者は、ページへのアクセスを許可または拒否する id を指定できます。 <a id="_msoanchor_10"> </a>[*ユーザーベースの承認*](../membership/user-based-authorization-vb.md)のチュートリアルで説明したように、URL 承認規則はユーザーごとに適用できます。 また、このチュートリアルの手順1で見たように、ロールごとにロールを適用することもできます。
 
@@ -332,7 +332,7 @@ ASP.NET ページに加えて、多くのアプリケーションには、ビジ
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -341,7 +341,7 @@ ASP.NET ページに加えて、多くのアプリケーションには、ビジ
 - [ASP.NET 2.0 のセキュリティの質問リスト](https://msdn.microsoft.com/library/ms998375.aspx)
 - [`<roleManager>` 要素の技術ドキュメント](https://msdn.microsoft.com/library/ms164660.aspx)
 
-### <a name="about-the-author"></a>作成者について
+### <a name="about-the-author"></a>著者について
 
 1998以降、Microsoft の Web テクノロジを使用して、Scott Mitchell (複数の ASP/創設者4GuysFromRolla.com の執筆者) が Microsoft の Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は *[、ASP.NET 2.0 を24時間以内に教え](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* ています。 Scott は、 [mitchell@4guysfromrolla.com](mailto:mitchell@4guysfromrolla.com)またはブログで[http://ScottOnWriting.NET](http://scottonwriting.net/)にアクセスできます。
 
@@ -350,4 +350,4 @@ ASP.NET ページに加えて、多くのアプリケーションには、ビジ
 このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者には、Suchi Teresa Erjee と Murphy が含まれています。 今後の MSDN 記事を確認することに興味がありますか? その場合は、 [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)の行を削除します。
 
 > [!div class="step-by-step"]
-> [前へ](assigning-roles-to-users-vb.md)
+> [[戻る]](assigning-roles-to-users-vb.md)

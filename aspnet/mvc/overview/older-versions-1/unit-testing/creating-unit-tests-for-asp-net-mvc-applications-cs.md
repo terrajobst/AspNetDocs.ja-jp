@@ -9,17 +9,17 @@ ms.assetid: d3a270b9-d7b1-47f2-8775-fc3beb518b5c
 msc.legacyurl: /mvc/overview/older-versions-1/unit-testing/creating-unit-tests-for-asp-net-mvc-applications-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 35fd0d85c63e5bd196394ce11b851c822a6405d9
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74595302"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78506092"
 ---
 # <a name="creating-unit-tests-for-aspnet-mvc-applications-c"></a>ASP.NET MVC アプリケーションの単体テストを作成する (C#)
 
 [Stephen Walther](https://github.com/StephenWalther)
 
-[PDF のダウンロード](https://download.microsoft.com/download/8/4/8/84843d8d-1575-426c-bcb5-9d0c42e51416/ASPNET_MVC_Tutorial_07_CS.pdf)
+[[Download PDF]\(PDF をダウンロード\)](https://download.microsoft.com/download/8/4/8/84843d8d-1575-426c-bcb5-9d0c42e51416/ASPNET_MVC_Tutorial_07_CS.pdf)
 
 > コントローラーアクションの単体テストを作成する方法について説明します。 このチュートリアルでは、Stephen Walther は、コントローラーアクションが特定のビューを返すか、特定のデータセットを返すか、または別の種類のアクション結果を返すかをテストする方法を示しています。
 
@@ -103,7 +103,7 @@ MVC コントローラーは、 *`View Data`* と呼ばれるものを使用し�
 
 コントローラーアクションで `RedirectToAction()` メソッドを呼び出すと、コントローラーアクションは `RedirectToRouteResult`を返します。 テストでは、`RedirectToRouteResult` が `Index`という名前のコントローラーアクションにユーザーをリダイレクトするかどうかを確認します。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、MVC コントローラーアクションの単体テストを作成する方法について学習しました。 まず、コントローラーアクションによって、右側のビューが返されるかどうかを確認する方法を学習しました。 `ViewResult.ViewName` プロパティを使用して、ビューの名前を確認する方法について学習しました。
 
@@ -112,4 +112,4 @@ MVC コントローラーは、 *`View Data`* と呼ばれるものを使用し�
 最後に、さまざまな種類のアクションの結果がコントローラーアクションから返されたかどうかをテストする方法について説明しました。 コントローラーが `ViewResult` と `RedirectToRouteResult`のどちらを返すかをテストする方法について学習しました。
 
 > [!div class="step-by-step"]
-> [次へ](creating-unit-tests-for-asp-net-mvc-applications-vb.md)
+> [Next](creating-unit-tests-for-asp-net-mvc-applications-vb.md)

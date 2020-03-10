@@ -9,11 +9,11 @@ ms.assetid: 0591cacc-b34b-4cf6-885e-2c9953bb0946
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 09d3faf811f21a66bb5c234f71d77b2552ae6516
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74623062"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78495748"
 ---
 # <a name="displaying-data-with-the-datalist-and-repeater-controls-c"></a>DataList および Repeater コントロールでデータを表示する (C#)
 
@@ -111,7 +111,7 @@ GridView と同様に、DataList には、`Font`、`ForeColor`、`BackColor`、`
 
 「 [ObjectDataSource チュートリアルを使用したデータの表示](../basic-reporting/displaying-data-with-the-objectdatasource-cs.md)」で説明したように、スキンファイルは Web コントロールの既定の外観に関連するプロパティを指定します。テーマとは、web サイトの特定のルックアンドフィールを定義するスキン、CSS、イメージ、および JavaScript ファイルのコレクションです。 「 *ObjectDataSource チュートリアルを使用したデータの表示*」では、現在、2つのスキンファイル `GridView.skin` と `DetailsView.skin`を持つ `DataWebControls` テーマ (`App_Themes` フォルダー内のフォルダーとして実装されています) を作成しました。 3番目のスキンファイルを追加して、DataList の定義済みのスタイル設定を指定します。
 
-スキンファイルを追加するには、[`App_Themes/DataWebControls`] フォルダーを右クリックし、[新しい項目の追加] を選択して、一覧から [スキンファイル] オプションを選択します。 そのファイルに `DataList.skin` という名前を付けます。
+スキンファイルを追加するには、[`App_Themes/DataWebControls`] フォルダーを右クリックし、[新しい項目の追加] を選択して、一覧から [スキンファイル] オプションを選択します。 このファイルには `DataList.skin` という名前を付けます。
 
 [![、DataList という名前の新しいスキンファイルを作成します。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image22.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image21.png)
 
@@ -248,7 +248,7 @@ DataList とは異なり、Visual Studio では、データソースにバイン
 
 **図 18**: カテゴリの列が背景色で交互に表示され、ヘッダー行が含まれる ([クリックしてフルサイズの画像を表示する](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image50.png))
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 GridView コントロールを使用すると、データの表示、編集、削除、並べ替え、およびページの表示を簡単に行うことができますが、外観は非常に簡単です。 外観を詳細に制御するには、DataList または Repeater コントロールのいずれかに切り替える必要があります。 これらのコントロールはどちらも、BoundFields、CheckBoxFields などではなく、テンプレートを使用してレコードのセットを表示します。
 
@@ -258,7 +258,7 @@ DataList と Repeater では、レンダリングされる出力がより柔軟�
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
@@ -267,4 +267,4 @@ DataList と Repeater では、レンダリングされる出力がより柔軟�
 このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は、Yaakov Ellis、Liz Shulok、Randy、および Stacy 公園でした。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [次へ](formatting-the-datalist-and-repeater-based-upon-data-cs.md)
+> [Next](formatting-the-datalist-and-repeater-based-upon-data-cs.md)

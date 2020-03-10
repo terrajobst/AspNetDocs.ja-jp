@@ -2,92 +2,92 @@
 uid: aspnet/overview/owin-and-katana/enabling-windows-authentication-in-katana
 title: Katana で Windows 認証を有効にする |Microsoft Docs
 author: MikeWasson
-description: この記事では、Katana で Windows 認証を有効にする方法を示しています。 これには、2 つのシナリオについて説明します。IIS ホストしていた Katana を使用して、HttpListener を使用して自己 Kat をホストする.
+description: この記事では、Katana で Windows 認証を有効にする方法について説明します。 この例では、IIS を使用して Katana をホストし、HttpListener を使用して自己ホスト Kat...
 ms.author: riande
 ms.date: 07/30/2013
 ms.assetid: 82324ef0-3b75-4f63-a217-76ef4036ec93
 msc.legacyurl: /aspnet/overview/owin-and-katana/enabling-windows-authentication-in-katana
 msc.type: authoredcontent
 ms.openlocfilehash: 3d81e7e1bf13ab63417378fba0c5ab80213f404b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65118323"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78500296"
 ---
 # <a name="enabling-windows-authentication-in-katana"></a>Katana で Windows 認証を有効にする
 
-作成者[Mike Wasson](https://github.com/MikeWasson)
+[Mike Wasson](https://github.com/MikeWasson)
 
-> この記事では、Katana で Windows 認証を有効にする方法を示しています。 これには、2 つのシナリオについて説明します。ホストしていた Katana に IIS を使用して、HttpListener を使用して、カスタム プロセスで Katana を自己ホストします。 この記事のレビュー Barry Dorrans、David Matson、および Chris Ross に感謝します。
+> この記事では、Katana で Windows 認証を有効にする方法について説明します。 この記事では、IIS を使用して Katana をホストし、HttpListener を使用してカスタムプロセスで自己ホスト Katana を使用する2つのシナリオについて説明します。 この記事を確認するには、Dorrans、David Matson、Chris Ross に感謝します。
 
-Katana は Microsoft の実装の[OWIN](http://owin.org/)、Open Web Interface for .NET。 OWIN と Katana の概要については読み取ることができます[ここ](an-overview-of-project-katana.md)します。 OWIN のアーキテクチャには、複数のレイヤーがあります。
+Katana は、.NET 用の Open Web Interface である[OWIN](http://owin.org/)の Microsoft の実装です。 OWIN と Katana の概要については、[こちら](an-overview-of-project-katana.md)を参照してください。 OWIN アーキテクチャには、いくつかのレイヤーがあります。
 
-- ホスト:OWIN パイプラインを実行するプロセスを管理します。
-- サーバーネットワーク ソケットを開き、要求をリッスンします。
-- ミドルウェア:HTTP 要求と応答を処理します。
+- Host: OWIN パイプラインを実行するプロセスを管理します。
+- サーバー: ネットワークソケットを開き、要求をリッスンします。
+- ミドルウェア: HTTP 要求と応答を処理します。
 
-Katana には、Windows 統合認証をサポートする 2 つのサーバーが現在提供しています。
+現在、Katana には2つのサーバーがあり、どちらも Windows 統合認証をサポートしています。
 
-- **Microsoft.Owin.Host.SystemWeb**します。 ASP.NET パイプラインでは、IIS を使用します。
-- **Microsoft.Owin.Host.HttpListener**します。 使用して[System.Net.HttpListener](https://msdn.microsoft.com/library/system.net.httplistener.aspx)します。 このサーバーは現在、既定のオプションと自己ホスト Katana します。
+- **Owin**のようになります。 IIS を ASP.NET パイプラインと共に使用します。
+- **Owin. HttpListener**. [HttpListener](https://msdn.microsoft.com/library/system.net.httplistener.aspx)を使用します。 Katana を自己ホストする場合、このサーバーは現在既定のオプションです。
 
 > [!NOTE]
-> Katana は提供されていません OWIN ミドルウェアの Windows 認証では、この機能は、サーバーで使用可能な既にあるため。
+> Katana では、現在、Windows 認証の OWIN ミドルウェアは提供されていません。この機能は既にサーバーで使用可能になっているためです。
 
-## <a name="windows-authentication-in-iis"></a>IIS で Windows 認証
+## <a name="windows-authentication-in-iis"></a>IIS での Windows 認証
 
-Microsoft.Owin.Host.SystemWeb を使用して、単に、IIS で Windows 認証を有効にできます。
+Owin を使用すると、IIS で Windows 認証を有効にすることができます。
 
-「ASP.NET 空の Web アプリケーション」プロジェクト テンプレートを使用して、新しい ASP.NET アプリケーションを作成してみましょう。
+まず、"ASP.NET Empty Web Application" プロジェクトテンプレートを使用して、新しい ASP.NET アプリケーションを作成します。
 
 ![](enabling-windows-authentication-in-katana/_static/image1.png)
 
-次に、NuGet パッケージを追加します。 **ツール**メニューの  **NuGet パッケージ マネージャー**を選択し、**パッケージ マネージャー コンソール**します。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
+次に、NuGet パッケージを追加します。 **[ツール]** メニューの **[NuGet パッケージマネージャー]** を選択し、 **[パッケージマネージャーコンソール]** を選択します。 [パッケージ マネージャー コンソール] ウィンドウで、次のコマンドを入力します。
 
 [!code-console[Main](enabling-windows-authentication-in-katana/samples/sample1.cmd)]
 
-という名前のクラスを追加するようになりました`Startup`を次のコード。
+ここで、次のコードを使用して、`Startup` という名前のクラスを追加します。
 
 [!code-csharp[Main](enabling-windows-authentication-in-katana/samples/sample2.cs)]
 
-Owin の IIS で実行されている"Hello world"アプリケーションを作成する必要があるだけです。 F5 キーを押してアプリケーションをデバッグします。 "Hello World!"を表示する必要があります。 ブラウザーのウィンドウです。
+これで、IIS で実行される OWIN 用の "Hello world" アプリケーションを作成する必要があります。 F5 キーを押してアプリケーションをデバッグします。 "Hello World!" が ブラウザーウィンドウに表示されます。
 
 ![](enabling-windows-authentication-in-katana/_static/image2.png)
 
-次に、IIS Express で Windows 認証を有効にします。 **ビュー**メニューの **プロパティ**します。 プロジェクトのプロパティを表示するソリューション エクスプ ローラーでプロジェクト名をクリックします。
+次に、IIS Express で Windows 認証を有効にします。 **[表示]** メニューの **[プロパティ]** をクリックします。 プロジェクトのプロパティを表示するには、ソリューションエクスプローラーでプロジェクト名をクリックします。
 
-**プロパティ**ウィンドウで、設定**匿名認証**に**無効**設定と**Windows 認証**に**有効になっている**します。
+**[プロパティ]** ウィンドウで、 **[匿名認証]** を **[無効]** に設定し、 **[Windows 認証]** を **[有効]** に設定します。
 
 ![](enabling-windows-authentication-in-katana/_static/image3.png)
 
-Visual Studio からアプリケーションを実行するときに IIS Express とユーザーの Windows 資格情報が必要です。 これを使用して表示できる[Fiddler](http://fiddler2.com/home)または別の HTTP デバッグ ツール。 HTTP 応答例を次に示します。
+Visual Studio からアプリケーションを実行する場合、IIS Express にはユーザーの Windows 資格情報が必要です。 これは、 [Fiddler](http://fiddler2.com/home)または別の HTTP デバッグツールを使用して確認できます。 HTTP 応答の例を次に示します。
 
 [!code-console[Main](enabling-windows-authentication-in-katana/samples/sample3.cmd?highlight=1,5-6)]
 
-この応答で Www-authenticate ヘッダーを示す、サーバーをサポートしている、[ネゴシエート](http://www.ietf.org/rfc/rfc4559.txt)、Kerberos または NTLM を使用するプロトコル。
+この応答の WWW-認証ヘッダーは、サーバーが[Negotiate](http://www.ietf.org/rfc/rfc4559.txt)プロトコルをサポートしていることを示します。これは、Kerberos または NTLM のいずれかを使用します。
 
-後で、サーバーにアプリケーションを展開するときにに従って[手順](https://www.iis.net/configreference/system.webserver/security/authentication/windowsauthentication)そのサーバー上の IIS で Windows 認証を有効にします。
+後で、アプリケーションをサーバーに展開するときに、[次の手順](https://www.iis.net/configreference/system.webserver/security/authentication/windowsauthentication)に従って、そのサーバー上の IIS で Windows 認証を有効にします。
 
-## <a name="windows-authentication-in-httplistener"></a>HttpListener で Windows 認証
+## <a name="windows-authentication-in-httplistener"></a>HttpListener での Windows 認証
 
-直接は Windows 認証を有効にする Microsoft.Owin.Host.HttpListener Katana を自己ホストを使用している場合、 **HttpListener**インスタンス。
+HttpListener を自己ホスト Katana に使用している場合は、 **HttpListener**インスタンスで Windows 認証を直接有効にすることができます。
 
-最初に、新しいコンソール アプリケーションを作成します。 次に、NuGet パッケージを追加します。 **ツール**メニューの  **NuGet パッケージ マネージャー**を選択し、**パッケージ マネージャー コンソール**します。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
+まず、新しいコンソールアプリケーションを作成します。 次に、NuGet パッケージを追加します。 **[ツール]** メニューの **[NuGet パッケージマネージャー]** を選択し、 **[パッケージマネージャーコンソール]** を選択します。 [パッケージ マネージャー コンソール] ウィンドウで、次のコマンドを入力します。
 
 [!code-console[Main](enabling-windows-authentication-in-katana/samples/sample4.cmd)]
 
-という名前のクラスを追加するようになりました`Startup`を次のコード。
+ここで、次のコードを使用して、`Startup` という名前のクラスを追加します。
 
 [!code-csharp[Main](enabling-windows-authentication-in-katana/samples/sample5.cs)]
 
-このクラスが実装する前に、同じ"Hello world"の例は、認証方法として Windows 認証を設定します。
+このクラスは、以前と同じ "Hello world" の例を実装しますが、認証スキームとして Windows 認証を設定します。
 
-内で、`Main`関数を OWIN パイプラインを開始します。
+`Main` 関数内で、OWIN パイプラインを開始します。
 
 [!code-csharp[Main](enabling-windows-authentication-in-katana/samples/sample6.cs)]
 
-アプリケーションが Windows 認証を使用していることを確認するように Fiddler では、要求を送信できます。
+Fiddler で要求を送信して、アプリケーションが Windows 認証を使用していることを確認できます。
 
 [!code-console[Main](enabling-windows-authentication-in-katana/samples/sample7.cmd?highlight=1,4-5)]
 
@@ -97,4 +97,4 @@ Visual Studio からアプリケーションを実行するときに IIS Express
 
 [System.Net.HttpListener](https://msdn.microsoft.com/library/system.net.httplistener.aspx)
 
-[MVC 5 で OWIN フォーム認証を理解します。](https://blogs.msdn.com/b/webdev/archive/2013/07/03/understanding-owin-forms-authentication-in-mvc-5.aspx)
+[MVC 5 での OWIN フォーム認証について](https://blogs.msdn.com/b/webdev/archive/2013/07/03/understanding-owin-forms-authentication-in-mvc-5.aspx)

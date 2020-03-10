@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-configure-email-notification-for-health-monitoring-on-an-aspnet-web-site
-title: '[How Do i:]ASP.NET Web サイトの正常性を監視するための電子メール通知の構成 |Microsoft Docs'
+title: '[操作方法:]ASP.NET の Web サイトで正常性の監視のための電子メール通知を構成する |Microsoft Docs'
 author: rick-anderson
-description: このビデオの Chris Pels では、ASP.NET web サイトでの監視の正常性の電子メール通知を構成する方法を示します。 最初に、電子メールの送信を構成する方法を参照してください.
+description: このビデオでは、ASP.NET の web サイトで正常性を監視するための電子メール通知を構成する方法を示します。 まず、「電子メールの送信を構成する方法」を参照してください。
 ms.author: riande
 ms.date: 09/11/2008
 ms.assetid: 1fa884c0-582e-4dc6-abb6-a5ec70d43ffb
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-configure-email-notification-for-health-monitoring-on-an-aspnet-web-site
 msc.type: video
 ms.openlocfilehash: 8c6512cebfb141dbf2f4c19e614aac99ccd41dac
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59413699"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78506776"
 ---
-# <a name="how-do-i-configure-email-notification-for-health-monitoring-on-an-aspnet-web-site"></a>[How Do i:]正常性監視の ASP.NET Web サイトでの電子メール通知を構成します。
+# <a name="how-do-i-configure-email-notification-for-health-monitoring-on-an-aspnet-web-site"></a>[操作方法:]ASP.NET Web サイトでの正常性監視のための電子メール通知を構成する
 
-によって[Chris Pels](https://twitter.com/chrispels)
+[Chris Pels](https://twitter.com/chrispels)
 
-このビデオの Chris Pels では、ASP.NET web サイトでの監視の正常性の電子メール通知を構成する方法を示します。 最初に、使用して ASP.NET web サイトでの電子メールの送信を構成する方法を参照してください、&lt;電子メール&gt;web.config ファイル内の要素。 次に、状態監視イベントをプロバイダーとしての電子メールを送信する SimpleMailWebEventProvider を追加する方法について説明します。 マシン レベルの正常性監視の構成を調べることで電子メール通知で使用できるイベントを監視する標準的な正常性を参照してください。 使用可能なイベントを確認した後は、「すべてのイベント」を電子メール プロバイダーにマップするルールの実装を参照してください。 Web サイトの開始時にいくつかの電子メールは送信し、Outlook の受信時に検査します。 最後に、正常性監視の電子メール プロバイダーにマップすることがありますイベントいくつかの基本的な原則がについて説明します。
+このビデオでは、ASP.NET の web サイトで正常性を監視するための電子メール通知を構成する方法を示します。 まず、web.config ファイルの &lt;emailSettings&gt; 要素を使用して、「ASP.NET web サイトで電子メールの送信を構成する方法」を参照してください。 次に、正常性監視イベントの電子メールをプロバイダーとして送信する SimpleMailWebEventProvider を追加する方法について説明します。 次に、マシンレベルの正常性監視の構成を調べて、電子メール通知で使用できる標準の正常性監視イベントを確認します。 使用可能なイベントを確認した後、"すべてのイベント" を電子メールプロバイダーにマップする、実装されたルールを参照してください。 Web サイトを起動すると、複数の電子メールが送信され、Outlook で受信されたときに確認されます。 最後に、正常性監視電子メールプロバイダーにマップされるイベントの基本原則について説明します。
 
-[&#9654;ビデオでは (25 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-configure-email-notification-for-health-monitoring-on-an-aspnet-web-site)
+[&#9654;ビデオを見る (25 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-configure-email-notification-for-health-monitoring-on-an-aspnet-web-site)

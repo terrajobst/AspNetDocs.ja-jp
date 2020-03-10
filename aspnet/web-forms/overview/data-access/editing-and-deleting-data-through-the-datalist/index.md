@@ -1,23 +1,23 @@
 ---
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/index
-title: DataList でデータ編集と削除 |Microsoft Docs
+title: DataList | を使用したデータの編集と削除Microsoft Docs
 author: rick-anderson
-description: これらのチュートリアルを使用してデータの変更をできるようにするために、DataList コントロールを調整する方法を説明します。
+description: これらのチュートリアルでは、DataList コントロールを調整して、データの変更を使用できるようにする方法について説明します。
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: a6f02826-428a-49b1-ab2c-8e080b72f51e
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist
 msc.type: chapter
 ms.openlocfilehash: b19b983272988cc6802e56541a8dfed052eead04
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133532"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78494938"
 ---
 # <a name="editing-and-deleting-data-through-the-datalist"></a>DataList でデータを編集し、削除する
 
-> これらのチュートリアルを使用してデータの変更をできるようにするために、DataList コントロールを調整する方法を説明します。
+> これらのチュートリアルでは、DataList コントロールを調整して、データの変更を使用できるようにする方法について説明します。
 
 - [DataList のデータの編集と削除の概要 (C#)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs.md)
 - [バッチ更新を実行する (C#)](performing-batch-updates-cs.md)

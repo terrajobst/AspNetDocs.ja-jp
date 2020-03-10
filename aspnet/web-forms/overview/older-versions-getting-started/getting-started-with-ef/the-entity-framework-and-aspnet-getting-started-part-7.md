@@ -1,139 +1,139 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-7
-title: Entity Framework 4.0 Database でまず getting Started と ASP.NET 4 Web フォームの第 7 部 |Microsoft Docs
+title: Entity Framework 4.0 Database First および ASP.NET 4 Web フォームでのはじめに-パート 7 |Microsoft Docs
 author: tdykstra
-description: Contoso University のサンプルの web アプリケーションでは、Entity Framework を使用して ASP.NET Web フォーム アプリケーションを作成する方法を示します。 サンプル アプリケーションは、.
+description: Contoso 大学のサンプル web アプリケーションは、Entity Framework を使用して ASP.NET Web フォームアプリケーションを作成する方法を示しています。 サンプルアプリケーションは...
 ms.author: riande
 ms.date: 12/03/2010
 ms.assetid: f8afb245-b705-419c-8790-0b295e90d5e2
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-7
 msc.type: authoredcontent
 ms.openlocfilehash: 18d4b44c5e23fd6942c3adf48a33a5602e6df6d0
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133099"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78488524"
 ---
-# <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-7"></a>Entity Framework 4.0 Database でまず getting Started と ASP.NET 4 Web フォーム - パート 7
+# <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-7"></a>Entity Framework 4.0 Database First および ASP.NET 4 Web フォームでのはじめに-パート7
 
-によって[Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra)
 
-> Contoso University のサンプルの web アプリケーションでは、Entity Framework 4.0 と Visual Studio 2010 を使用して ASP.NET Web フォーム アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、次を参照してください[シリーズの最初のチュートリアル。](the-entity-framework-and-aspnet-getting-started-part-1.md)
+> Contoso 大学のサンプル web アプリケーションは、Entity Framework 4.0 と Visual Studio 2010 を使用して ASP.NET Web フォームアプリケーションを作成する方法を示しています。 チュートリアルシリーズの詳細については、[シリーズの最初のチュートリアル](the-entity-framework-and-aspnet-getting-started-part-1.md)を参照してください。
 
 ## <a name="using-stored-procedures"></a>ストアド プロシージャの使用
 
-前のチュートリアルでは、table-per-hierarchy 継承パターンを実装しました。 このチュートリアルでは、ストアド プロシージャを使用して、データベースのアクセスをより詳細に制御する方法を説明します。
+前のチュートリアルでは、階層ごとのテーブル継承パターンを実装しています。 このチュートリアルでは、ストアドプロシージャを使用してデータベースアクセスをより細かく制御する方法について説明します。
 
-Entity Framework では、データベースへのアクセスのストアド プロシージャを使用することを指定することができます。 任意のエンティティ型の作成、更新、またはその型のエンティティを削除するのに使用するストアド プロシージャを指定できます。 データ モデルのエンティティのセットの取得などのタスクを実行するのに使用できるストアド プロシージャへの参照を追加できます。
+Entity Framework では、データベースアクセスにストアドプロシージャを使用するように指定できます。 任意のエンティティ型について、その型のエンティティを作成、更新、または削除するために使用するストアドプロシージャを指定できます。 次に、データモデルで、エンティティのセットの取得などのタスクを実行するために使用できるストアドプロシージャへの参照を追加できます。
 
-データベースへのアクセスの一般的な要件は、ストアド プロシージャを使用します。 場合によっては、データベース管理者は、セキュリティ上の理由からストアド プロシージャを介してすべてのデータベース アクセスが行われる必要があります。 それ以外の場合、Entity Framework がデータベースを更新する際に使用するプロセスの一部にビジネス ロジックをビルドする場合があります。 たとえば、エンティティを削除するたびに、アーカイブ データベースにコピーする可能性があります。 または、変更を行ったユーザーを記録するログ記録テーブルに行を記述する場合、行が更新されるたびにします。 Entity Framework のエンティティを削除またはエンティティを更新するたびに呼び出されるストアド プロシージャでは、このようなタスクを実行できます。
+ストアドプロシージャの使用は、データベースアクセスの一般的な要件です。 場合によっては、データベース管理者は、セキュリティ上の理由により、すべてのデータベースアクセスでストアドプロシージャを通過することが必要になる場合があります。 場合によっては、Entity Framework がデータベースを更新するときに使用するプロセスの一部にビジネスロジックを組み込むこともできます。 たとえば、エンティティが削除されるたびに、そのエンティティをアーカイブデータベースにコピーすることができます。 または、行が更新されるたびに、変更を行ったユーザーを記録する行をログテーブルに書き込むことができます。 これらのタスクは、Entity Framework がエンティティを削除するかエンティティを更新するたびに呼び出されるストアドプロシージャで実行できます。
 
-前のチュートリアルでは、ようにしない新しいページを作成します。 代わりに、Entity Framework を既に作成してページの一部のデータベースにアクセスする方法を変更します。
+前のチュートリアルと同様に、新しいページは作成されません。 代わりに、既に作成した一部のページに対して Entity Framework がデータベースにアクセスする方法を変更します。
 
-このチュートリアルでは、挿入するため、データベース内のストアド プロシージャを作成します`Student`と`Instructor`エンティティ。 データ モデルに追加され、エンティティ フレームワークが追加するために使用するかを指定します`Student`と`Instructor`エンティティをデータベースにします。 取得に使用できるストアド プロシージャを作成することもあります。`Course`エンティティ。
+このチュートリアルでは、`Student` と `Instructor` エンティティを挿入するためのストアドプロシージャをデータベースに作成します。 これらのデータモデルをデータモデルに追加し、データベースに `Student` および `Instructor` エンティティを追加するために Entity Framework でそれらを使用するように指定します。 また、`Course` エンティティを取得するために使用できるストアドプロシージャも作成します。
 
-## <a name="creating-stored-procedures-in-the-database"></a>データベースのストアド プロシージャの作成
+## <a name="creating-stored-procedures-in-the-database"></a>データベースでのストアドプロシージャの作成
 
-(使用する場合、 *School.mdf*ファイル、ストアド プロシージャが既に存在するため、このチュートリアルでダウンロード可能なプロジェクトからこのセクションをスキップすることができます)。
+(このチュートリアルでダウンロード可能なプロジェクトの*School .mdf*ファイルを使用している場合は、ストアドプロシージャが既に存在しているため、このセクションをスキップできます)。
 
-**サーバー エクスプ ローラー**、展開*School.mdf*を右クリックして**ストアド プロシージャ**、選択と**新しいストアド プロシージャの追加**します。
+**サーバーエクスプローラー**で、[ *School .mdf*] を展開し、 **[ストアドプロシージャ]** を右クリックして、 **[新しいストアドプロシージャの追加]** を選択します。
 
 [![image15](the-entity-framework-and-aspnet-getting-started-part-7/_static/image2.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image1.png)
 
-次の SQL ステートメントをコピーし、そのウィンドウに貼り付けストアド プロシージャ、スケルトンのストアド プロシージャを置き換えます。
+次の SQL ステートメントをコピーし、[ストアドプロシージャ] ウィンドウに貼り付けて、スケルトンストアドプロシージャを置き換えます。
 
 [!code-sql[Main](the-entity-framework-and-aspnet-getting-started-part-7/samples/sample1.sql)]
 
 [![image14](the-entity-framework-and-aspnet-getting-started-part-7/_static/image4.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image3.png)
 
-`Student` エンティティがある 4 つのプロパティ: `PersonID`、 `LastName`、 `FirstName`、および`EnrollmentDate`します。 データベース ID 値を自動的に生成して、ストアド プロシージャは、その他の 3 つのパラメーターを受け取ります。 ストアド プロシージャは、Entity Framework の追跡できるをメモリ内に保持するエンティティのバージョンにするために、新しい行のレコードのキーの値を返します。
+`Student` エンティティには、`PersonID`、`LastName`、`FirstName`、および `EnrollmentDate`の4つのプロパティがあります。 データベースは ID 値を自動的に生成し、ストアドプロシージャは他の3つのパラメーターを受け取ります。 このストアドプロシージャは、新しい行のレコードキーの値を返します。これにより、Entity Framework は、メモリ内に保持されているエンティティのバージョンで追跡できるようになります。
 
-保存して、ストアド プロシージャ ウィンドウを閉じます。
+ストアドプロシージャウィンドウを保存して閉じます。
 
-作成、`InsertInstructor`ストアド プロシージャを次の SQL ステートメントを使用して、同じ方法で。
+次の SQL ステートメントを使用して、同じ方法で `InsertInstructor` ストアドプロシージャを作成します。
 
 [!code-sql[Main](the-entity-framework-and-aspnet-getting-started-part-7/samples/sample2.sql)]
 
-作成`Update`ストアド プロシージャの`Student`と`Instructor`エンティティもします。 (データベースは既に、`DeletePerson`ストアド プロシージャの両方で動作する`Instructor`と`Student`エンティティです)。
+`Student` エンティティと `Instructor` エンティティの `Update` ストアドプロシージャも作成します。 (データベースには、`Instructor` と `Student` の両方のエンティティに対して機能する `DeletePerson` ストアドプロシージャが既に存在します。)
 
 [!code-sql[Main](the-entity-framework-and-aspnet-getting-started-part-7/samples/sample3.sql)]
 
 [!code-sql[Main](the-entity-framework-and-aspnet-getting-started-part-7/samples/sample4.sql)]
 
-このチュートリアルでは、各エンティティ型のすべての 3 つ関数 - insert、update、および delete--をマップします。 Entity Framework バージョン 4 では、1 つだけマップできますまたは、他のユーザー、1 つの例外を割り当てずにストアド プロシージャに関数のこれら 2 つ: Entity Framework で例外がスローされますが、更新関数、not delete 関数をマップした場合とする。エンティティを削除しようとしてください。 ストアド プロシージャのマッピングでこれほどの柔軟性がありません、Entity Framework version 3.5 で: 3 つすべてをマップする必要があった場合は 1 つの関数をマップします。
+このチュートリアルでは、各エンティティ型に対して、挿入、更新、および削除の3つのすべての関数をマップします。 Entity Framework version 4 では、これらの関数のうち1つまたは2つだけをストアドプロシージャにマップすることができます。ただし、次の例外があります。 update 関数をマップしても delete 関数をマップしない場合、Entity Framework は例外をスローします。エンティティを削除しようとしています。 Entity Framework バージョン3.5 では、ストアドプロシージャのマッピングがこれほど柔軟性がありませんでした。1つの関数をマップした場合は、3つすべてをマップする必要がありました。
 
-データを更新するのではなく、読み取りをストアド プロシージャを作成するには、すべてを選択する 1 つを作成`Course`エンティティは、次の SQL ステートメントを使用します。
+更新データではなく読み取りを行うストアドプロシージャを作成するには、次の SQL ステートメントを使用して、すべての `Course` エンティティを選択するストアドプロシージャを作成します。
 
 [!code-sql[Main](the-entity-framework-and-aspnet-getting-started-part-7/samples/sample5.sql)]
 
-## <a name="adding-the-stored-procedures-to-the-data-model"></a>データ モデルにストアド プロシージャを追加します。
+## <a name="adding-the-stored-procedures-to-the-data-model"></a>ストアドプロシージャをデータモデルに追加する
 
-ストアド プロシージャは、データベースで定義されているようになりましたが、これらは、Entity Framework を使用できるようにするデータ モデルに追加する必要があります。 開いている*SchoolModel.edmx*をデザイン画面を右クリックし、**データベースからモデルを更新**します。 **追加**のタブ、**データベース オブジェクトの選択** ダイアログ ボックスで、展開**ストアド プロシージャ**、新しく作成されたストアド プロシージャを選択し、 `DeletePerson`ストアド プロシージャ、およびクリックして**完了**します。
+これで、ストアドプロシージャがデータベースに定義されましたが、Entity Framework で使用できるようにするには、それらをデータモデルに追加する必要があります。 *SchoolModel*を開き、デザイン画面を右クリックして、 **[データベースからモデルを更新]** を選択します。 **[データベースオブジェクトの選択]** ダイアログボックスの **[追加]** タブで、 **[ストアドプロシージャ]** を展開し、新しく作成したストアドプロシージャと `DeletePerson` ストアドプロシージャを選択して、 **[完了]** をクリックします。
 
 [![image20](the-entity-framework-and-aspnet-getting-started-part-7/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image5.png)
 
-## <a name="mapping-the-stored-procedures"></a>ストアド プロシージャのマッピング
+## <a name="mapping-the-stored-procedures"></a>ストアドプロシージャのマッピング
 
-データ モデル デザイナーで右クリックし、`Student`エンティティと選択**ストアド プロシージャ マッピング**します。
+データモデルデザイナーで、`Student` エンティティを右クリックし、 **[ストアドプロシージャマッピング]** を選択します。
 
 [![image21](the-entity-framework-and-aspnet-getting-started-part-7/_static/image8.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image7.png)
 
-**マッピングの詳細**ウィンドウが表示されたら、Entity Framework が挿入、更新、および、この型のエンティティを削除するのに使用するストアド プロシージャを指定することができます。
+**[マッピングの詳細]** ウィンドウが表示されます。このウィンドウでは、Entity Framework がこの種類のエンティティの挿入、更新、および削除に使用するストアドプロシージャを指定できます。
 
 [![image22](the-entity-framework-and-aspnet-getting-started-part-7/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image9.png)
 
-設定、**挿入**関数を**InsertStudent**します。 ウィンドウには、ストアド プロシージャのパラメーターを使用して、それぞれのエンティティ プロパティにマップする必要がありますの一覧が表示されます。 名前が同じであるためには、自動的にマップのこれら 2 つです。 という名前のエンティティ プロパティはありません`FirstName`で手動で選択する必要があるため、`FirstMidName`使用可能なエンティティのプロパティを表示するドロップダウン リストから。 (これは、名前を変更したため、`FirstName`プロパティを`FirstMidName`最初のチュートリアルです)。
+**挿入**関数を**insertstudent**に設定します。 このウィンドウには、ストアドプロシージャのパラメーターの一覧が表示されます。各パラメーターは、エンティティプロパティにマップされている必要があります。 これらの2つは、名前が同じであるため、自動的にマップされます。 `FirstName`という名前のエンティティプロパティはないため、使用可能なエンティティプロパティを示すドロップダウンリストから `FirstMidName` を手動で選択する必要があります。 (これは、最初のチュートリアルで `FirstName` プロパティの名前を `FirstMidName` に変更したためです)。
 
 [![image23](the-entity-framework-and-aspnet-getting-started-part-7/_static/image12.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image11.png)
 
-同じ**マッピングの詳細**ウィンドウで、マップ、`Update`関数を`UpdateStudent`ストアド プロシージャ (を指定するかどうかを確認`FirstMidName`のパラメーター値として`FirstName`の場合と同様、 `Insert`ストアド プロシージャ) および`Delete`関数を`DeletePerson`ストアド プロシージャ。
+同じ **[マッピングの詳細]** ウィンドウで、`Update` 関数を `UpdateStudent` ストアドプロシージャにマップします (`Insert` ストアドプロシージャの場合と同様に、`FirstName`のパラメーター値として `FirstMidName` を指定していることを確認してください)。 `Delete` は `DeletePerson` ストアドプロシージャに対して関数を指定します。
 
 [![image01](the-entity-framework-and-aspnet-getting-started-part-7/_static/image14.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image13.png)
 
-インストラクターにストアド プロシージャを挿入、更新、および削除をマップするのと同じ手順に従って、`Instructor`エンティティ。
+同じ手順に従って、インストラクターの挿入、更新、および削除のストアドプロシージャを `Instructor` エンティティにマップします。
 
 [![image02](the-entity-framework-and-aspnet-getting-started-part-7/_static/image16.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image15.png)
 
-使用するデータの更新ではなく読み取りなストアド プロシージャの場合、**モデル ブラウザー**ストアド プロシージャをエンティティにマップするウィンドウに入力を返します。 データ モデル デザイナーでデザイン サーフェスと選択を右クリックして**モデル ブラウザー**します。 開く、 **SchoolModel.Store**ノードと順に開いて、 **Stored Procedures**ノード。 右クリックし、`GetCourses`ストアド プロシージャと選択**関数インポートの追加**します。
+データを更新するのではなく、読み取りを行うストアドプロシージャの場合は、 **[モデルブラウザー]** ウィンドウを使用して、ストアドプロシージャを返すエンティティ型にマップします。 データモデルデザイナーでデザイン画面を右クリックし、 **[モデルブラウザー]** を選択します。 **SchoolModel**ノードを開き、 **[ストアドプロシージャ]** ノードを開きます。 次に `GetCourses` ストアドプロシージャを右クリックし、 **[関数インポートの追加]** を選択します。
 
 [![image24](the-entity-framework-and-aspnet-getting-started-part-7/_static/image18.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image17.png)
 
-**関数インポートの追加**ダイアログ ボックスで、**コレクションの返します**選択**エンティティ**、し、`Course`エンティティ型として返されます。 完了したら、クリックして**OK**します。 保存して閉じます、 *.edmx*ファイル。
+**[関数インポートの追加]** ダイアログボックスの [選択した**エンティティ** **のコレクションを返す**] をクリックし、返されるエンティティ型として [`Course`] を選択します。 完了したら **[OK]** をクリックします。 *.Edmx*ファイルを保存して閉じます。
 
 [![image25](the-entity-framework-and-aspnet-getting-started-part-7/_static/image20.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image19.png)
 
-## <a name="using-insert-update-and-delete-stored-procedures"></a>Insert を使用して、更新、およびストアド プロシージャの削除
+## <a name="using-insert-update-and-delete-stored-procedures"></a>Insert、Update、Delete の各ストアドプロシージャの使用
 
-ストアド プロシージャを挿入するには、更新、および、データの削除は、Entity Framework によって自動的に使用、データ モデルに追加し、それらを適切なエンティティにマップした後。 今すぐ実行することができます、 *StudentsAdd.aspx*  ページで、新しい学生を作成するたびに、Entity Framework を使用して、`InsertStudent`ストアド プロシージャに新しい行を追加する、`Student`テーブル。
+データを挿入、更新、および削除するストアドプロシージャは、データモデルに追加して適切なエンティティにマップした後に、Entity Framework によって自動的に使用されます。 StudentsAdd ページを実行できるようになりました *。* 新しい Entity Framework 学生を作成するたびに、`InsertStudent` ストアドプロシージャを使用して `Student` テーブルに新しい行が追加されます。
 
 [![image03](the-entity-framework-and-aspnet-getting-started-part-7/_static/image22.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image21.png)
 
-実行、 *Students.aspx*ページと、新しい学生が、一覧に表示されます。
+*Student ページを*実行すると、新しい学生が一覧に表示されます。
 
 [![image04](the-entity-framework-and-aspnet-getting-started-part-7/_static/image24.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image23.png)
 
-Update 関数が動作することを確認する名前を変更し、受講者の機能の削除の動作を確認するを削除します。
+名前を変更して update 関数が動作することを確認し、学生を削除して delete 関数が動作することを確認します。
 
 [![image05](the-entity-framework-and-aspnet-getting-started-part-7/_static/image26.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image25.png)
 
-## <a name="using-select-stored-procedures"></a>Select ストアド プロシージャの使用
+## <a name="using-select-stored-procedures"></a>Select ストアドプロシージャの使用
 
-Entity Framework は自動的に実行されないストアド プロシージャなど`GetCourses`でそれらを使用することはできませんし、`EntityDataSource`コントロール。 を使用するには、そのコードから呼び出します。
+Entity Framework では、`GetCourses`などのストアドプロシージャは自動的には実行されず、`EntityDataSource` コントロールでは使用できません。 これらを使用するには、コードから呼び出します。
 
-開く、 *InstructorsCourses.aspx.cs*ファイル。 `PopulateDropDownLists`メソッドでは、LINQ to Entities クエリを使用して、一覧をループしてに、インストラクターが割り当てられているものと、割り当てが解除されるかを判断できるようにすべての course エンティティを取得します。
+*InstructorsCourses.aspx.cs*ファイルを開きます。 `PopulateDropDownLists` メソッドは、LINQ to entities クエリを使用してすべての course エンティティを取得します。これにより、リストをループ処理し、インストラクターが割り当てられているものと割り当て解除されているエンティティを特定できます。
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-7/samples/sample6.cs)]
 
-これは、次のコードで置き換えます。
+これを次のコードに置き換えます。
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-7/samples/sample7.cs)]
 
-では、ページ、`GetCourses`ストアド プロシージャをすべてのコースの一覧を取得します。 前に、と同様に動作することを確認するページを実行します。
+このページでは、`GetCourses` ストアドプロシージャを使用して、すべてのコースの一覧を取得します。 ページを実行して、以前と同じように動作することを確認します。
 
-(ストアド プロシージャで取得したエンティティのナビゲーション プロパティが自動的が設定されませんに応じて、これらのエンティティに関連するデータ`ObjectContext`既定の設定。 詳細については、次を参照してください[関連オブジェクトの読み込み](https://msdn.microsoft.com/library/bb896272.aspx)、MSDN ライブラリです。)。
+(ストアドプロシージャによって取得されたエンティティのナビゲーションプロパティは、`ObjectContext` の既定の設定によっては、それらのエンティティに関連するデータが自動的に設定されない場合があります。 詳細については、MSDN ライブラリの「[関連オブジェクトの読み込み](https://msdn.microsoft.com/library/bb896272.aspx)」を参照してください。)
 
-次のチュートリアルでは、Dynamic Data 機能を使用して、プログラムとテスト データの書式設定と検証規則に容易にできるようにする方法を学習します。 などのデータの書式指定文字列には、各 web ページ ルールとフィールドが必要かどうかを指定することではなくデータ モデルのメタデータでこのようなルールを指定することができ、すべてのページに自動的に適用します。
+次のチュートリアルでは、動的データ機能を使用して、データの書式設定と検証規則を簡単にプログラミングおよびテストできるようにする方法について説明します。 データ書式指定文字列などの各 web ページの規則に対してを指定する代わりに、フィールドが必要であるかどうかを指定する代わりに、データモデルのメタデータにこのような規則を指定して、すべてのページに自動的に適用されます。
 
 > [!div class="step-by-step"]
 > [前へ](the-entity-framework-and-aspnet-getting-started-part-6.md)

@@ -1,304 +1,304 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application
-title: ASP.NET 4 Web アプリケーションで Entity Framework 4.0 での同時実行の処理 |Microsoft Docs
+title: ASP.NET 4 Web アプリケーションでの Entity Framework 4.0 での同時実行の処理Microsoft Docs
 author: tdykstra
-description: このチュートリアル シリーズでは、Entity Framework 4.0 のチュートリアル シリーズの概要を作成した Contoso University web アプリケーションに基づいています。 ここには.
+description: このチュートリアルシリーズは、Entity Framework 4.0 チュートリアルシリーズを使用してはじめにによって作成された Contoso 大学 web アプリケーションに基づいています。 ...
 ms.author: riande
 ms.date: 01/26/2011
 ms.assetid: a5aa22a6-fb7f-4f41-9c7f-addda151940b
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application
 msc.type: authoredcontent
 ms.openlocfilehash: 3df5f7d9c8fb22e1ea34fe16560bdb9a1309bb56
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131885"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78513502"
 ---
-# <a name="handling-concurrency-with-the-entity-framework-40-in-an-aspnet-4-web-application"></a>ASP.NET 4 Web アプリケーションで Entity Framework 4.0 での同時実行の処理
+# <a name="handling-concurrency-with-the-entity-framework-40-in-an-aspnet-4-web-application"></a>ASP.NET 4 Web アプリケーションでの Entity Framework 4.0 での同時実行の処理
 
-によって[Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra)
 
-> このチュートリアル シリーズは、Contoso University web アプリケーションによって作成される、 [、Entity Framework 4.0 の概要](https://asp.net/entity-framework/tutorials#Getting%20Started)チュートリアル シリーズです。 前のチュートリアルを完了していない場合は、このチュートリアルの開始点としてできます[アプリケーションをダウンロードする](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a)に、作成します。 できます[アプリケーションをダウンロードする](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa)完全なチュートリアル シリーズで作成します。 チュートリアルについて質問等がございましたらを投稿できます、 [ASP.NET Entity Framework フォーラム](https://forums.asp.net/1227.aspx)します。
+> このチュートリアルシリーズは、 [Entity Framework 4.0 チュートリアルシリーズを使用](https://asp.net/entity-framework/tutorials#Getting%20Started)してはじめにによって作成された Contoso 大学 web アプリケーションに基づいています。 前のチュートリアルを完了していない場合は、このチュートリアルの開始点として、作成した[アプリケーションをダウンロード](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a)できます。 チュートリアルシリーズ全体で作成した[アプリケーションをダウンロード](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa)することもできます。 チュートリアルについてご質問がある場合は、 [ASP.NET Entity Framework フォーラム](https://forums.asp.net/1227.aspx)に投稿することができます。
 
-前のチュートリアルを並べ替える方法およびデータを使用してフィルターを学習しました、`ObjectDataSource`コントロールと Entity Framework。 このチュートリアルでは、Entity Framework を使用する ASP.NET web アプリケーションでの同時実行を処理するためのオプションを使用します。 インストラクターのオフィスの割り当てを更新するのには専用の新しい web ページを作成します。 そのページで、先ほど作成した部門 ページで、同時実行の問題を処理します。
+前のチュートリアルでは、`ObjectDataSource` コントロールと Entity Framework を使用してデータの並べ替えとフィルター処理を行う方法について学習しました。 このチュートリアルでは、Entity Framework を使用する ASP.NET web アプリケーションで同時実行を処理するためのオプションについて説明します。 講師のオフィスの割り当てを更新するための専用の新しい web ページを作成します。 このページと、前に作成した部門ページで同時実行の問題を処理します。
 
 [![Image06](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image2.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image1.png)
 
 [![Image01](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image4.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image3.png)
 
-## <a name="concurrency-conflicts"></a>同時実行の競合
+## <a name="concurrency-conflicts"></a>コンカレンシーの競合
 
-同時実行の競合は、1 人のユーザーがレコードを編集し、最初のユーザーの変更がデータベースに書き込まれる前に、別のユーザーが同じレコードを編集するときに発生します。 Entity Framework をこのような競合を検出するように設定しない場合では、他のユーザーの変更は上書き最後にデータベースを更新します。 多くのアプリケーションでこのようなリスクが許容されると、可能な同時実行の競合を処理するためにアプリケーションを構成する必要はありません。 (いくつかのユーザー、またはいくつかの更新がある場合、または場合いない本当に重要な場合は、いくつかの変更が上書きされると、同時実行プログラミングのコストがメリットを上回る可能性があります)。同時実行の競合について心配する必要はありませんが場合は、このチュートリアルでは; を省略できます。残りの 2 つのチュートリアル シリーズでは、この 1 で作成したものについてに依存しません。
+同時実行の競合は、1人のユーザーがレコードを編集したときに、最初のユーザーの変更がデータベースに書き込まれる前に別のユーザーが同じレコードを編集したときに発生します。 このような競合を検出するように Entity Framework を設定しなかった場合、最後にデータベースを更新すると、その他のユーザーの変更が上書きされます。 多くのアプリケーションでは、このリスクが許容されるため、同時実行の競合を処理するようにアプリケーションを構成する必要はありません。 (ユーザー数が少ない場合、または更新プログラムがほとんどない場合、または一部の変更が上書きされても本当に重要でない場合は、同時実行のプログラミングのコストが利点を上回る可能性があります)。同時実行の競合について心配する必要がない場合は、このチュートリアルをスキップできます。このシリーズの残りの2つのチュートリアルは、この記事で作成したものに依存していません。
 
-### <a name="pessimistic-concurrency-locking"></a>ペシミスティック同時実行制御 (ロック)
+### <a name="pessimistic-concurrency-locking"></a>ペシミスティック同時実行 (ロック)
 
-コンカレンシーで偶発的にデータが失われる事態をアプリケーションで回避する必要があれば、その方法としてデータベース ロックがあります。 これは呼び出されます*ペシミスティック同時実行制御*します。 たとえば、データベースから行を読む前に、読み取り専用か更新アクセスでロックを要求します。 更新アクセスで行をロックすると、他のユーザーはその行を読み取り専用または更新アクセスでロックできなくなります。変更中のデータのコピーが与えられるためです。 読み取り専用で行をロックすると、他のユーザーはその行を読み取り専用でロックできますが、更新アクセスではロックできません。
+コンカレンシーで偶発的にデータが失われる事態をアプリケーションで回避する必要があれば、その方法としてデータベース ロックがあります。 これは、*ペシミスティック同時実行制御*と呼ばれます。 たとえば、データベースから行を読む前に、読み取り専用か更新アクセスでロックを要求します。 更新アクセスで行をロックすると、他のユーザーはその行を読み取り専用または更新アクセスでロックできなくなります。変更中のデータのコピーが与えられるためです。 読み取り専用で行をロックすると、他のユーザーはその行を読み取り専用でロックできますが、更新アクセスではロックできません。
 
-ロックの管理には、いくつかのデメリットがあります。 プログラムが複雑になります。 必要な重大なデータベース管理のリソースとアプリケーションのユーザーの数とパフォーマンスの問題が生じる増加 (つまり、適切にスケールされない)。 そのような理由から、一部のデータベース管理システムはペシミスティック コンカレンシーに対応していません。 Entity Framework は、組み込みのサポートしていませんし、チュートリアルのこの方法は説明しませんが実装するためにします。
+ロックの管理にはいくつかの欠点があります。 プログラムが複雑になります。 多くのデータベース管理リソースが必要であり、アプリケーションのユーザー数が増えるにつれてパフォーマンスの問題が発生する可能性があります (つまり、スケールが適切ではありません)。 そのような理由から、一部のデータベース管理システムはペシミスティック コンカレンシーに対応していません。 Entity Framework には、組み込みのサポートはありません。このチュートリアルでは、実装方法については説明しません。
 
 ### <a name="optimistic-concurrency"></a>オプティミスティック コンカレンシー
 
-ペシミスティック同時実行制御の代わりに、*オプティミスティック同時実行制御*します。 オプティミスティック コンカレンシーでは、コンカレンシーの競合の発生を許し、発生したら適切に対処します。 たとえば、John が実行されます、 *Department.aspx*ページで、数回のクリック、**編集**史学部、用のリンクし、削減、**予算**$ $1,000,000.00 から量125,000.00 します。 (John の競合する部門の管理し、自分の部門にお金を解放する必要がある)。
+ペシミスティック同時実行制御の代替として、*オプティミスティック同時実行制御*があります。 オプティミスティック コンカレンシーでは、コンカレンシーの競合の発生を許し、発生したら適切に対処します。 たとえば、John は、*学科の .aspx*ページを実行し、履歴部門の **[編集]** リンクをクリックして、**予算**の金額を $1000000.00 から $125000.00 に減らします。 (John は競争部門を管理しており、自分の部署の資金を解放する必要があります)。
 
 [![Image07](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image6.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image5.png)
 
-John が前に**Update**、Jane が、同じページの実行をクリックする、**編集**史学部、し、変更リンク、 **Start Date** 2011 年 1 月 10 日からフィールドを 1/1/1999 します。 (Jane の史学部の管理し、複数勤続年数を指定する必要がある)。
+John が**Update**をクリックする前に、加藤さんは同じページを実行し、履歴部門の **[編集]** リンクをクリックして、 **[開始日]** フィールドを1/10/2011 から1/1/1999 に変更します。 (加藤さんは履歴部門を管理しており、より多くの勤続を提供したいと考えています)。
 
 [![Image08](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image8.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image7.png)
 
-John が**Update** Jane がクリックし、最初に、 **Update**します。 ジェーンのブラウザーの現在のリスト、**予算**金額が $1,000,000.00、としては、金額が $125,000.00 に John が変更されたため、正しくないです。
+最初に **[update]** をクリックし、加藤さんは **[更新]** をクリックします。 Jane のブラウザーでは、**予算**の金額が $1000000.00 と表示されるようになりましたが、この金額は John から $125000.00 に変更されているため、正しくありません。
 
-このシナリオで実行できる操作の一部を以下に示します。
+このシナリオで実行できる操作には、次のようなものがあります。
 
-- ユーザーが変更したプロパティを追跡記録し、それに該当する列だけをデータベースで更新できます。 例のシナリオでは、2 人のユーザーが異なるプロパティを更新したため、データは失われません。 次回の誰かが閲覧の履歴の部門、1/1/1999 が表示されますおよび 125,000.00 ドルです。 
+- ユーザーが変更したプロパティを追跡記録し、それに該当する列だけをデータベースで更新できます。 例のシナリオでは、2 人のユーザーが異なるプロパティを更新したため、データは失われません。 次にだれかが履歴部門を参照したときに、1/1/1999 と $125000.00 が表示されます。 
 
-    これは、Entity Framework の既定の動作であり、データが失われる可能性がある競合の数を大幅に短縮することができます。 ただし、この動作は、エンティティの同じプロパティに競合する変更が加えられた場合、データ損失を回避しません。 さらに、この動作は必ずしも可能であればエンティティ型をストアド プロシージャをマップするときに、エンティティへの変更は、データベースに加えられたときにすべてのエンティティのプロパティの更新されます。
-- Jane の変更の John の変更を上書きすることができます。 Jane がクリックした後**Update**、**予算**金額が $1,000,000.00 に戻ります。 これは *Client Wins* (クライアント側に合わせる) シナリオまたは *Last in Wins* (最終書き込み者優先) シナリオと呼ばれています。 (クライアントの値よりも優先データ ストアの新機能です。)
-- Jane の変更は、データベースに更新されないようにできます。 通常、エラー メッセージが表示は、データの現在の状態を表示させます、彼女できるようにする必要がある場合は、その変更を再入力できるようにと。 入力を保存し、それを再入力しなくても再適用する機会を提供してプロセスを自動化することがさらにします。 これは *Store Wins* (ストア側に合わせる) シナリオと呼ばれています。 (クライアントが送信した値よりデータストアの値が優先されます。)
+    これは Entity Framework の既定の動作であり、データの損失につながる可能性がある競合の数を大幅に減らすことができます。 ただし、この動作は、エンティティの同じプロパティに対して競合する変更が行われた場合に、データの損失を回避するものではありません。 また、この動作は常に可能であるとは限りません。ストアドプロシージャをエンティティ型にマップすると、エンティティに対する変更がデータベースで行われたときに、エンティティのすべてのプロパティが更新されます。
+- 加藤さんの変更によって John の変更が上書きされるようにすることができます。 加藤さんが**Update**をクリックすると、**予算**の金額は $1000000.00 に戻ります。 これは *Client Wins* (クライアント側に合わせる) シナリオまたは *Last in Wins* (最終書き込み者優先) シナリオと呼ばれています。 (クライアントの値は、データストアの内容よりも優先されます)。
+- Jane の変更がデータベースで更新されないようにすることができます。 通常は、エラーメッセージを表示して、データの現在の状態を表示し、それでも変更したい場合は自分の変更を再入力できるようにします。 さらに、入力を保存し、再入力することなく再適用する機会を与えることで、プロセスを自動化できます。 これは *Store Wins* (ストア側に合わせる) シナリオと呼ばれています。 (クライアントが送信した値よりデータストアの値が優先されます。)
 
-### <a name="detecting-concurrency-conflicts"></a>同時実行競合の検出
+### <a name="detecting-concurrency-conflicts"></a>同時実行の競合の検出
 
-Entity Framework では、処理することによって競合を解決できます`OptimisticConcurrencyException`Entity Framework がスローする例外。 このような例外がスローされるタイミングを認識する目的で、Entity Framework は競合を検出できなければなりません。 そのため、データベースとデータ モデルを適宜構成する必要があります。 競合検出を有効にするためのオプションには次のようなものがあります。
+Entity Framework では、Entity Framework がスローする `OptimisticConcurrencyException` 例外を処理することで、競合を解決できます。 このような例外がスローされるタイミングを認識する目的で、Entity Framework は競合を検出できなければなりません。 そのため、データベースとデータ モデルを適宜構成する必要があります。 競合検出を有効にするためのオプションには次のようなものがあります。
 
-- データベースに行が変更されたときの判断に使用できるテーブルの列を含めます。 その列を含めるに Entity Framework を構成することができますし、 `Where` sql 句`Update`または`Delete`コマンド。
+- データベースで、行がいつ変更されたかを判断するために使用できるテーブル列を含めます。 次に、SQL `Update` または `Delete` コマンドの `Where` 句にその列を含めるように Entity Framework を構成できます。
 
-    目的は、`Timestamp`内の列、`OfficeAssignment`テーブル。
+    これは、`OfficeAssignment` テーブルの `Timestamp` 列の目的です。
 
     [![Image09](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image10.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image9.png)
 
-    データ型、`Timestamp`列ともいいます`Timestamp`します。 ただし、列には、実際には日付または時刻の値にはが含まれていません。 代わりに、値は、行が更新されるたびにインクリメントが連続番号です。 `Update`または`Delete`コマンド、`Where`句に含まれる元`Timestamp`値。 別のユーザーの値によって更新される行が変更された場合`Timestamp`は元の値と異なるため、`Where`句に更新する行が返されません。 現在の行が更新されたしないことを Entity Framework が見つかると`Update`または`Delete`(つまり、影響を受けた行の数が 0 である場合) をコマンドを同時実行の競合として解釈します。
-- Entity Framework 内のテーブルにすべての列の元の値を含めるを構成、`Where`の句`Update`と`Delete`コマンド。
+    `Timestamp` 列のデータ型は `Timestamp`とも呼ばれます。 ただし、列には実際には日付または時刻の値が含まれていません。 この値は、行が更新されるたびにインクリメントされる連続番号です。 `Update` または `Delete` コマンドでは、`Where` 句に元の `Timestamp` 値が含まれます。 更新対象の行が別のユーザーによって変更されている場合、`Timestamp` の値は元の値とは異なるため、`Where` 句は更新する行を返しません。 現在の `Update` または `Delete` コマンドによって更新された行がないことを Entity Framework が検出した場合 (つまり、影響を受ける行の数が0の場合)、同時実行の競合として解釈されます。
+- Entity Framework を構成して、テーブル内のすべての列の元の値を、`Update` および `Delete` コマンドの `Where` 句に含めます。
 
-    最初のオプションで、行が最初に読み取らため、行のすべてのものが変更された場合のように、`Where`句しない行を返すを更新する同時実行の競合として解釈し、Entity Framework。 このメソッドを使用して効率的に作業を`Timestamp`フィールドしますが、効率的なことができます。 多くの列を含むデータベース テーブルでは、する可能性が非常に大きな`Where`句、web アプリケーションで要求できます大量の状態を維持するとします。 大量の状態を保持することと、サーバー リソース (たとえば、セッション状態) が必要ですか、web ページ自体 (たとえば、ビュー状態) に含める必要があるためにアプリケーションのパフォーマンスが影響することができます。
+    最初のオプションと同様に、行の最初の読み取り以降に行の内容が変更された場合、`Where` 句は更新する行を返しません。この場合、Entity Framework は同時実行の競合として解釈されます。 このメソッドは `Timestamp` フィールドを使用するのと同じように有効ですが、非効率的になる可能性があります。 多数の列を含むデータベーステーブルの場合は、非常に大きな `Where` 句になることがあります。また、web アプリケーションでは、大量の状態を維持することが必要になる場合があります。 大量の状態を維持すると、アプリケーションのパフォーマンスに影響を与える可能性があります。これは、サーバーリソース (セッション状態など) が必要であるか、web ページ自体に含まれる必要がある (たとえば、ビューステート) 必要があるためです。
 
-このチュートリアルでは、エラー追跡プロパティがないエンティティのオプティミスティック同時実行競合の処理を追加します (、`Department`エンティティ) および追跡プロパティがエンティティの (、`OfficeAssignment`エンティティ)。
+このチュートリアルでは、追跡プロパティ (`Department` エンティティ) と、追跡プロパティ (`OfficeAssignment` エンティティ) を持つエンティティのオプティミスティック同時実行の競合に対するエラー処理を追加します。
 
-## <a name="handling-optimistic-concurrency-without-a-tracking-property"></a>追跡プロパティを使用しないで、オプティミスティック同時実行の処理
+## <a name="handling-optimistic-concurrency-without-a-tracking-property"></a>追跡プロパティを使用せずにオプティミスティック同時実行制御を処理する
 
-オプティミスティック同時実行制御を実装するために、`Department`エンティティで、追跡がありません (`Timestamp`) プロパティは、次のタスクを完了します。
+追跡 (`Timestamp`) プロパティを持たない `Department` エンティティに対してオプティミスティック同時実行制御を実装するには、次のタスクを実行します。
 
-- 同時実行の追跡を有効にするデータ モデルを変更`Department`エンティティ。
-- `SchoolRepository`クラスでの同時実行例外の処理、`SaveChanges`メソッド。
-- *Departments.aspx*ページで、実行しようとした変更が成功したことを警告ユーザーにメッセージを表示して同時実行例外を処理します。 ユーザーは、現在の値を参照してくださいし、まだ必要な場合は、変更を再試行してください。
+- `Department` エンティティの同時実行の追跡を有効にするようにデータモデルを変更します。
+- `SchoolRepository` クラスで、`SaveChanges` メソッドの同時実行例外を処理します。
+- Department ページで、試行された変更が失敗したことを示すメッセージをユーザーに表示して、同時実行例外を処理*します。* ユーザーは現在の値を確認し、必要に応じて変更を再試行することができます。
 
-### <a name="enabling-concurrency-tracking-in-the-data-model"></a>同時実行データ モデルでの追跡を有効にします。
+### <a name="enabling-concurrency-tracking-in-the-data-model"></a>データモデルでの同時実行追跡の有効化
 
-Visual Studio では、このシリーズで前のチュートリアルで作業していた Contoso University web アプリケーションを開きます。
+Visual Studio で、このシリーズの前のチュートリアルで使用していた Contoso 大学 web アプリケーションを開きます。
 
-開いている*SchoolModel.edmx*、データ モデル デザイナーで右クリックし、`Name`プロパティ、`Department`エンティティをクリック**プロパティ**します。 **プロパティ**ウィンドウで、変更、`ConcurrencyMode`プロパティを`Fixed`します。
+*SchoolModel*を開き、データモデルデザイナーで `Department` エンティティ内の `Name` プロパティを右クリックし、 **[プロパティ]** をクリックします。 **プロパティ** ウィンドウで、`ConcurrencyMode` プロパティを `Fixed`に変更します。
 
 [![Image16](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image12.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image11.png)
 
-その他の非主キーのスカラー プロパティの同じ操作を行います (`Budget`、 `StartDate`、および`Administrator`)。(できないナビゲーション プロパティ。)生成するたびに、Entity Framework を指定します、`Update`または`Delete`を更新する SQL コマンド、 `Department` 、データベース内のエンティティ、これらの列 (元の値) で含める必要がある、`Where`句。 行が見つからない場合に場合、`Update`または`Delete`コマンドが実行される、Entity Framework では、オプティミスティック同時実行例外をスローします。
+その他の非主キースカラープロパティ (`Budget`、`StartDate`、および `Administrator`に対しても同じ操作を行います。(ナビゲーションプロパティに対してこれを行うことはできません)。これにより、Entity Framework が `Update` または `Delete` SQL コマンドを生成してデータベースの `Department` エンティティを更新するときに、これらの列 (元の値を含む) を `Where` 句に含める必要があることを指定します。 `Update` または `Delete` コマンドの実行時に行が見つからない場合、Entity Framework はオプティミスティック同時実行例外をスローします。
 
-保存して、データ モデルを閉じます。
+データモデルを保存して閉じます。
 
-### <a name="handling-concurrency-exceptions-in-the-dal"></a>//DAL で同時実行例外の処理
+### <a name="handling-concurrency-exceptions-in-the-dal"></a>DAL での同時実行例外の処理
 
-開いている*SchoolRepository.cs*し、以下の追加`using`のステートメント、`System.Data`名前空間。
+*SchoolRepository.cs*を開き、`System.Data` 名前空間に対して次の `using` ステートメントを追加します。
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/samples/sample1.cs)]
 
-次の新しい追加`SaveChanges`オプティミスティック同時実行例外を処理します。
+オプティミスティック同時実行例外を処理する次の新しい `SaveChanges` メソッドを追加します。
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/samples/sample2.cs)]
 
-このメソッドが呼び出されたときに、同時実行エラーが発生した場合、メモリ内のエンティティのプロパティの値は、データベースの現在の値に置き換えられます。 Web ページが処理できるように、同時実行例外が再度スローされます。
+このメソッドが呼び出されたときに同時実行エラーが発生した場合、メモリ内のエンティティのプロパティ値は、現在データベース内にある値に置き換えられます。 Web ページが処理できるように、同時実行の例外が再スローされます。
 
-`DeleteDepartment`と`UpdateDepartment`メソッド、既存の呼び出しを置き換える`context.SaveChanges()`への呼び出しで`SaveChanges()`新しいメソッドを呼び出すためにします。
+`DeleteDepartment` メソッドと `UpdateDepartment` メソッドで、新しいメソッドを呼び出すために、`context.SaveChanges()` の既存の呼び出しを `SaveChanges()` への呼び出しに置き換えます。
 
 ### <a name="handling-concurrency-exceptions-in-the-presentation-layer"></a>プレゼンテーション層での同時実行例外の処理
 
-開いている*Departments.aspx*を追加し、`OnDeleted="DepartmentsObjectDataSource_Deleted"`属性を`DepartmentsObjectDataSource`コントロール。 コントロールの開始タグは、次の例のようになります。
+Department *.aspx*を開き、`OnDeleted="DepartmentsObjectDataSource_Deleted"` 属性を `DepartmentsObjectDataSource` コントロールに追加します。 コントロールの開始タグは、次の例のようになります。
 
 [!code-aspx[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/samples/sample3.aspx)]
 
-`DepartmentsGridView`コントロールをすべての表の列の指定、`DataKeyNames`属性は、次の例に示すようにします。 メモ、これが作成されます非常に大きいビュー状態フィールド、理由の 1 つである追跡フィールドを使用する理由は一般に同時実行の競合を追跡することをお勧めします。
+次の例に示すように、`DepartmentsGridView` コントロールで、`DataKeyNames` 属性のすべてのテーブル列を指定します。 これにより、非常に大きなビューステートフィールドが作成されることに注意してください。これは、通常、追跡フィールドを使用して同時実行の競合を追跡する方法として推奨される理由の1つです。
 
 [!code-aspx[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/samples/sample4.aspx)]
 
-開いている*Departments.aspx.cs*し、以下の追加`using`のステートメント、`System.Data`名前空間。
+*Departments.aspx.cs*を開き、`System.Data` 名前空間に対して次の `using` ステートメントを追加します。
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/samples/sample5.cs)]
 
-データ ソース コントロールの呼び出しは次の新しいメソッドを追加`Updated`と`Deleted`同時実行例外を処理するためのイベント ハンドラー。
+次の新しいメソッドを追加します。このメソッドは、データソースコントロールの `Updated` から呼び出され、同時実行例外を処理するためのイベントハンドラーを `Deleted` します。
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/samples/sample6.cs)]
 
-このコードが例外の種類をチェックし、コードを動的に作成、同時実行例外の場合を`CustomValidator`順番にメッセージを表示するコントロールを`ValidationSummary`コントロール。
+このコードは、例外の種類を確認します。同時実行例外の場合、コードは動的に `CustomValidator` コントロールを作成し、`ValidationSummary` コントロールにメッセージを表示します。
 
-新しいメソッドを呼び出し、`Updated`先ほど追加したイベント ハンドラー。 さらに、作成、新しい`Deleted`イベント ハンドラーを同じメソッドを呼び出します (ただし、他の何も行いません)。
+先ほど追加した `Updated` イベントハンドラーから新しいメソッドを呼び出します。 また、同じメソッドを呼び出す新しい `Deleted` イベントハンドラーを作成します (それ以外は何も実行しません)。
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/samples/sample7.cs)]
 
-### <a name="testing-optimistic-concurrency-in-the-departments-page"></a>部門のページでオプティミスティック同時実行のテスト
+### <a name="testing-optimistic-concurrency-in-the-departments-page"></a>[部門] ページでオプティミスティック同時実行制御をテストする
 
-実行、 *Departments.aspx*ページ。
+Department *. .aspx*ページを実行します。
 
 [![Image17](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image14.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image13.png)
 
-をクリックして**編集**行内の値を変更し、**予算**列。 (ために、のみ、このチュートリアル用に作成したレコードを編集することに注意してください。 既存の`School`データベース レコードには、無効なデータが含まれています。 経済性部門のレコードは、安全なみたりする場合。)
+行の **[編集]** をクリックし、 **[予算]** 列の値を変更します。 (既存の `School` データベースレコードに無効なデータが含まれているため、このチュートリアルで作成したレコードのみを編集できます。 経済部門のレコードは、試してみるのに安全です。)
 
 [![Image18](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image16.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image15.png)
 
-新しいブラウザー ウィンドウを開き、ページをもう一度 (2 番目のブラウザー ウィンドウに、最初のブラウザー ウィンドウのアドレス ボックスから URL をコピーする) を実行します。
+新しいブラウザーウィンドウを開き、再度ページを実行します (最初のブラウザーウィンドウの [アドレス] ボックスから2番目のブラウザーウィンドウに URL をコピーします)。
 
 [![Image17](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image18.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image17.png)
 
-クリックして**編集**と同じで、以前に編集する行し、変更、**予算**を別の値。
+前に編集したものと同じ行の **[編集]** をクリックし、**予算**の値を別の値に変更します。
 
 [![Image19](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image20.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image19.png)
 
-2 番目のブラウザー ウィンドウでクリックして**Update**します。 **予算**量がこの新しい値に正常に変更されました。
+2番目のブラウザーウィンドウで、 **[更新]** をクリックします。 **予算**金額は、この新しい値に正常に変更されました。
 
 [![Image20](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image22.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image21.png)
 
-最初のブラウザー ウィンドウでクリックして**Update**します。 更新プログラムは失敗します。 **予算**2 番目のブラウザー ウィンドウで設定した値を使用して、金額が表示され、エラー メッセージが表示されます。
+最初のブラウザーウィンドウで、 **[更新]** をクリックします。 更新は失敗します。 2番目のブラウザーウィンドウで設定した値を使用して**予算**金額が再表示され、エラーメッセージが表示されます。
 
 [![Image21](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image24.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image23.png)
 
-## <a name="handling-optimistic-concurrency-using-a-tracking-property"></a>追跡プロパティを使用してオプティミスティック同時実行の処理
+## <a name="handling-optimistic-concurrency-using-a-tracking-property"></a>追跡プロパティを使用したオプティミスティック同時実行制御の処理
 
-追跡プロパティを持つエンティティのオプティミスティック同時実行制御を処理するには、次のタスクを行います。
+Tracking プロパティを持つエンティティのオプティミスティック同時実行制御を処理するには、次のタスクを実行します。
 
-- ストアド プロシージャを管理するデータ モデルに追加`OfficeAssignment`エンティティ。 (追跡のプロパティとストアド プロシージャは、一緒に使用する必要はありません。 がいるだけでグループ化されたここで図)。
-- DAL との BLL に CRUD メソッドを追加`OfficeAssignment`DAL でオプティミスティック同時実行例外を処理するコードを含むエンティティ。
-- オフィスの割り当ての web ページを作成します。
-- 新しい web ページでは、オプティミスティック同時実行制御をテストします。
+- `OfficeAssignment` エンティティを管理するためのストアドプロシージャをデータモデルに追加します。 (追跡のプロパティとストアドプロシージャを一緒に使用する必要はありません。これらは、ここでは説明のためにグループ化されています)。
+- Dal に CRUD メソッドを追加し、DAL でオプティミスティック同時実行例外を処理するコードを含む `OfficeAssignment` エンティティの BLL を追加します。
+- Office の割り当て web ページを作成します。
+- 新しい web ページでオプティミスティック同時実行制御をテストします。
 
-### <a name="adding-officeassignment-stored-procedures-to-the-data-model"></a>ストアド プロシージャ、データ モデルを OfficeAssignment を追加します。
+### <a name="adding-officeassignment-stored-procedures-to-the-data-model"></a>データモデルへの OfficeAssignment ストアドプロシージャの追加
 
-開く、 *SchoolModel.edmx*モデル デザイナーでファイルをデザイン サーフェイスを右クリックし、をクリックして**データベースからモデルを更新**します。 **追加**のタブ、**データベース オブジェクトの選択** ダイアログ ボックスで、展開**ストアド プロシージャ**、3 つを選択します`OfficeAssignment`ストアド プロシージャ (を参照してください、。次のスクリーン ショット)、順にクリックします**完了**します。 (これらのストアド プロシージャが既にデータベースにダウンロードまたはスクリプトを使用して作成したときにします。)
+モデルデザイナーで*SchoolModel*ファイルを開き、デザイン画面を右クリックして、 **[データベースからモデルを更新]** をクリックします。 **[データベースオブジェクトの選択]** ダイアログボックスの **[追加]** タブで、 **[ストアドプロシージャ]** を展開し、3つの `OfficeAssignment` ストアドプロシージャ (次のスクリーンショットを参照) を選択して、 **[完了]** をクリックします。 (これらのストアドプロシージャは、スクリプトを使用してダウンロードまたは作成したときにデータベースに既に存在していました)。
 
 [![Image02](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image26.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image25.png)
 
-右クリックし、`OfficeAssignment`エンティティと選択**ストアド プロシージャ マッピング**します。
+`OfficeAssignment` エンティティを右クリックし、 **[ストアドプロシージャマッピング]** を選択します。
 
 [![Image03](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image28.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image27.png)
 
-設定、**挿入**、**更新**、および**削除**ストアド プロシージャの対応を使用する関数。 `OrigTimestamp`のパラメーター、`Update`関数は、設定、**プロパティ**に`Timestamp`を選択し、**元の値を使用**オプション。
+対応するストアドプロシージャを使用するように、 **Insert**、 **Update**、および**Delete**の各関数を設定します。 `Update` 関数の `OrigTimestamp` パラメーターについては、**プロパティ**を `Timestamp` に設定し、[**元の値を使用**する] オプションを選択します。
 
 [![Image04](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image30.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image29.png)
 
-Entity Framework を呼び出すと、`UpdateOfficeAssignment`ストアド プロシージャの元の値を渡すことは、`Timestamp`内の列、`OrigTimestamp`パラメーター。 ストアド プロシージャでは、このパラメーターを使用してその`Where`句。
+Entity Framework が `UpdateOfficeAssignment` ストアドプロシージャを呼び出すと、`OrigTimestamp` パラメーターの `Timestamp` 列の元の値が渡されます。 ストアドプロシージャは、`Where` 句でこのパラメーターを使用します。
 
 [!code-sql[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/samples/sample8.sql)]
 
-ストアド プロシージャもの新しい値を選択、`Timestamp`列を更新後に、Entity Framework が保持できるように、`OfficeAssignment`対応するデータベースの行との同期がメモリ内のエンティティ。
+また、このストアドプロシージャでは、更新後の `Timestamp` 列の新しい値も選択されるため、Entity Framework はメモリ内の `OfficeAssignment` エンティティを対応するデータベース行と同期させることができます。
 
-(オフィスの割り当てを削除するためのストアド プロシージャはありませんが、`OrigTimestamp`パラメーター。 このため、Entity Framework を検証できませんエンティティが削除する前にも維持されます。)
+(オフィスの割り当てを削除するストアドプロシージャには、`OrigTimestamp` パラメーターがありません。 このため、Entity Framework でエンティティが変更されていないことを確認してから削除することはできません)。
 
-保存して、データ モデルを閉じます。
+データモデルを保存して閉じます。
 
-### <a name="adding-officeassignment-methods-to-the-dal"></a>DAL に OfficeAssignment メソッドを追加
+### <a name="adding-officeassignment-methods-to-the-dal"></a>DAL に OfficeAssignment メソッドを追加する
 
-開いている*ISchoolRepository.cs*の次の CRUD メソッドを追加し、`OfficeAssignment`エンティティ セット。
+*ISchoolRepository.cs*を開き、`OfficeAssignment` エンティティセットに対して次の CRUD メソッドを追加します。
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/samples/sample9.cs)]
 
-次の新しいメソッドを追加*SchoolRepository.cs*します。 `UpdateOfficeAssignment`メソッド、ローカルを呼び出す`SaveChanges`メソッドの代わりに`context.SaveChanges`します。
+次の新しいメソッドを*SchoolRepository.cs*に追加します。 `UpdateOfficeAssignment` メソッドでは、`context.SaveChanges`ではなく、ローカルの `SaveChanges` メソッドを呼び出します。
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/samples/sample10.cs)]
 
-テスト プロジェクトで開きます*MockSchoolRepository.cs*し、以下の追加`OfficeAssignment`コレクションと CRUD メソッド。 (モック リポジトリは、リポジトリ インターフェイスを実装する必要があります。 またはソリューションがコンパイルされません)。
+テストプロジェクトで*MockSchoolRepository.cs*を開き、次の `OfficeAssignment` collection メソッドと CRUD メソッドをそれに追加します。 (モックリポジトリは、リポジトリインターフェイスを実装する必要があります。そうでない場合、ソリューションはコンパイルされません)。
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/samples/sample11.cs)]
 
-### <a name="adding-officeassignment-methods-to-the-bll"></a>BLL に OfficeAssignment メソッドを追加
+### <a name="adding-officeassignment-methods-to-the-bll"></a>BLL に OfficeAssignment メソッドを追加する
 
-メインのプロジェクトで開きます*SchoolBL.cs*の次の CRUD メソッドを追加し、`OfficeAssignment`エンティティを設定するには。
+メインプロジェクトで*SchoolBL.cs*を開き、`OfficeAssignment` エンティティセットに対して次の CRUD メソッドを追加します。
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/samples/sample12.cs)]
 
 ## <a name="creating-an-officeassignments-web-page"></a>OfficeAssignments Web ページの作成
 
-使用する新しい web ページを作成、 *Site.Master*マスター ページと名前を付けます*OfficeAssignments.aspx*します。 次のマークアップを追加、`Content`という名前のコントロール`Content2`:
+*.Master*マスターページを使用する新しい web ページを作成し、「 *officeassignments*」という名前を指定します。 `Content2`という名前の `Content` コントロールに次のマークアップを追加します。
 
 [!code-aspx[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/samples/sample13.aspx)]
 
-インシデントを`DataKeyNames`属性は、マークアップを指定します、`Timestamp`プロパティだけでなく、レコードのキー (`InstructorID`)。 プロパティを指定する、`DataKeyNames`属性によって、コントロールにコントロールの状態 (これは状態を表示するような) に保存するポストバック処理中に元の値が使用できるようにします。
+`DataKeyNames` 属性では、マークアップによって、`Timestamp` プロパティとレコードキー (`InstructorID`) が指定されていることに注意してください。 `DataKeyNames` 属性でプロパティを指定すると、コントロールはコントロールの状態 (ビューステートに似ています) に保存します。これにより、ポストバック処理中に元の値を使用できるようになります。
 
-保存しなかった場合、`Timestamp`値、Entity Framework ができないため、 `Where` sql 句`Update`コマンド。 その結果を更新する何も見つかりませんなります。 Entity Framework は毎回オプティミスティック同時実行例外をスローする結果として、`OfficeAssignment`エンティティを更新します。
+`Timestamp` の値を保存していない場合、Entity Framework では、SQL `Update` コマンドの `Where` 句の値は使用できません。 そのため、何も更新する必要はありません。 その結果、`OfficeAssignment` エンティティが更新されるたびに、Entity Framework はオプティミスティック同時実行例外をスローします。
 
-開いている*OfficeAssignments.aspx.cs*し、次を追加`using`データ アクセス層のステートメント。
+*OfficeAssignments.aspx.cs*を開き、データアクセス層の次の `using` ステートメントを追加します。
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/samples/sample14.cs)]
 
-次の追加`Page_Init`メソッドで、Dynamic Data 機能を有効にします。 次のハンドラーを追加しても、`ObjectDataSource`コントロールの`Updated`イベントの同時実行エラーを確認するには。
+次の `Page_Init` メソッドを追加します。これにより、動的データ機能が有効になります。 同時実行エラーを確認するために、`ObjectDataSource` コントロールの `Updated` イベントの次のハンドラーも追加します。
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/samples/sample15.cs)]
 
-### <a name="testing-optimistic-concurrency-in-the-officeassignments-page"></a>OfficeAssignments ページでオプティミスティック同時実行のテスト
+### <a name="testing-optimistic-concurrency-in-the-officeassignments-page"></a>[OfficeAssignments] ページでオプティミスティック同時実行制御をテストする
 
-実行、 *OfficeAssignments.aspx*ページ。
+*Officeassignments .aspx*ページを実行します。
 
 [![Image10](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image32.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image31.png)
 
-をクリックして**編集**行内の値を変更し、**場所**列。
+行の **[編集]** をクリックし、 **[場所]** 列の値を変更します。
 
 [![Image11](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image34.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image33.png)
 
-新しいブラウザー ウィンドウを開き、ページをもう一度 (2 番目のブラウザー ウィンドウに、最初のブラウザー ウィンドウから URL をコピーする) を実行します。
+新しいブラウザーウィンドウを開き、再度ページを実行します (最初のブラウザーウィンドウから2番目のブラウザーウィンドウに URL をコピーします)。
 
 [![Image10](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image36.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image35.png)
 
-クリックして**編集**と同じで、以前に編集する行し、変更、**場所**を別の値。
+前に編集した同じ行の **[編集]** をクリックし、 **[場所]** の値を別の値に変更します。
 
 [![Image12](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image38.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image37.png)
 
-2 番目のブラウザー ウィンドウでクリックして**Update**します。
+2番目のブラウザーウィンドウで、 **[更新]** をクリックします。
 
 [![Image13](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image40.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image39.png)
 
-最初のブラウザー ウィンドウに切り替え、をクリックして**Update**します。
+最初のブラウザーウィンドウに切り替えて、 **[更新]** をクリックします。
 
 [![Image15](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image42.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image41.png)
 
-エラー メッセージが表示、**場所**に 2 番目のブラウザー ウィンドウで変更する値を表示する値が更新されました。
+エラーメッセージが表示され、 **[場所]** の値が更新され、2番目のブラウザーウィンドウで変更した値が表示されます。
 
 ## <a name="handling-concurrency-with-the-entitydatasource-control"></a>EntityDataSource コントロールでの同時実行の処理
 
-`EntityDataSource`コントロールには、データ モデルでの同時実行設定を認識する組み込みのロジックが含まれていて、ハンドルを更新および削除操作はそれに応じて。 ただし、すべての例外と行う必要があります`OptimisticConcurrencyException`例外わかりやすいエラー メッセージを提供するために自分でします。
+`EntityDataSource` コントロールには、データモデルの同時実行設定を認識し、それに応じて更新操作と削除操作を処理する組み込みのロジックが含まれています。 ただし、すべての例外と同様に、ユーザーにわかりやすいエラーメッセージを提供するために、`OptimisticConcurrencyException` 例外を自分で処理する必要があります。
 
-次に、構成は、 *Courses.aspx*ページ (使用する、`EntityDataSource`コントロール) を更新できるようにして、削除操作と同時実行の競合が発生した場合、エラー メッセージを表示します。 `Course`エンティティで行った方法と同じものを使用するために、列を追跡する並列処理はありません、`Department`エンティティ: すべてのキー以外のプロパティの値を追跡します。
+次に、更新操作と削除操作を許可し、同時実行の競合が発生した場合にエラーメッセージを表示するために、(`EntityDataSource` コントロールを使用する) *course ページを*構成します。 `Course` エンティティには、同時実行追跡列がないため、`Department` エンティティで行ったのと同じメソッドを使用します。すべての非キープロパティの値を追跡します。
 
-開く、 *SchoolModel.edmx*ファイル。 キー以外のプロパティの`Course`エンティティ (`Title`、 `Credits`、および`DepartmentID`)、設定、**同時実行モード**プロパティを`Fixed`します。 保存して、データ モデルを終了します。
+*SchoolModel*ファイルを開きます。 `Course` エンティティ (`Title`、`Credits`、および `DepartmentID`) の非キープロパティについては、 **Concurrency Mode**プロパティを `Fixed`に設定します。 次に、データモデルを保存して閉じます。
 
-開く、 *Courses.aspx*ページし、次の変更を加えます。
+[Course *] ページを開き*、次のように変更します。
 
-- `CoursesEntityDataSource`コントロールを追加`EnableUpdate="true"`と`EnableDelete="true"`属性。 そのコントロールの開始タグには、次の例では、今すぐようになります。
+- `CoursesEntityDataSource` コントロールで、`EnableUpdate="true"` 属性と `EnableDelete="true"` 属性を追加します。 そのコントロールの開始タグは、次の例のようになります。
 
     [!code-aspx[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/samples/sample16.aspx)]
-- `CoursesGridView`制御、変更、`DataKeyNames`属性に値`"CourseID,Title,Credits,DepartmentID"`します。 追加し、`CommandField`要素を`Columns`要素を示す**編集**と**削除**ボタン (`<asp:CommandField ShowEditButton="True" ShowDeleteButton="True" />`)。 `GridView`コントロール次の例のようになります。
+- `CoursesGridView` コントロールで、`DataKeyNames` 属性の値を `"CourseID,Title,Credits,DepartmentID"`に変更します。 次に、 **[編集]** ボタンと **[削除]** ボタン (`<asp:CommandField ShowEditButton="True" ShowDeleteButton="True" />`) を表示する `Columns` 要素に `CommandField` 要素を追加します。 `GridView` コントロールは、次の例のようになります。
 
     [!code-aspx[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/samples/sample17.aspx)]
 
-ページを実行し、前に、[部門] ページで行ったように、競合状況を作成します。 2 つのブラウザー ウィンドウで、ページの実行をクリックします**編集**と同じで、各ウィンドウの行し、それぞれに別の変更を加えます。 をクリックして**更新**クリックして 1 つのウィンドウで**更新**他のウィンドウで。 クリックすると**Update** 2 回目、同時実行のハンドルされない例外に起因するエラー ページが表示されます。
+ページを実行し、[部門] ページで行ったのと同じように競合状態を作成します。 2つのブラウザーウィンドウでページを実行し、各ウィンドウで同じ行の **[編集]** をクリックして、それぞれに異なる変更を加えます。 1つのウィンドウで **[更新]** をクリックし、その他のウィンドウで **[更新]** をクリックします。 **[更新]** をクリックすると、未処理の同時実行例外の結果として発生するエラーページが表示されます。
 
 [![Image22](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image44.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image43.png)
 
-このエラーの処理方法に類似した方法で処理する、`ObjectDataSource`コントロール。 開く、 *Courses.aspx*  ページで、および、`CoursesEntityDataSource`コントロール、ハンドラーを指定、`Deleted`と`Updated`イベント。 コントロールの開始タグには、次の例では、今すぐようになります。
+このエラーは、`ObjectDataSource` コントロールの処理方法と非常によく似た方法で処理されます。 *[Course] ページを*開き、`CoursesEntityDataSource` コントロールで、`Deleted` イベントと `Updated` イベントのハンドラーを指定します。 コントロールの開始タグは、次の例のようになります。
 
 [!code-aspx[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/samples/sample18.aspx)]
 
-前に、`CoursesGridView`コントロールを次の追加`ValidationSummary`コントロール。
+`CoursesGridView` コントロールの前に、次の `ValidationSummary` コントロールを追加します。
 
 [!code-aspx[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/samples/sample19.aspx)]
 
-*Courses.aspx.cs*、追加、`using`のステートメント、`System.Data`名前空間は、同時実行例外をチェックするメソッドを追加し、ハンドラーを追加、`EntityDataSource`コントロールの`Updated`と`Deleted`ハンドラー。 コードは、次のようになります。
+*Courses.aspx.cs*で、`System.Data` 名前空間の `using` ステートメントを追加し、同時実行例外をチェックするメソッドを追加して、`EntityDataSource` コントロールの `Updated` および `Deleted` ハンドラーのハンドラーを追加します。 コードは次のようになります。
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/samples/sample20.cs)]
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/samples/sample21.cs)]
 
-このコード実行したとの唯一の違い、`ObjectDataSource`コントロールがここでは、同時実行例外があるは`Exception`その例外のではなく、イベント引数オブジェクトのプロパティ`InnerException`プロパティ。
+このコードと `ObjectDataSource` コントロールの唯一の違いは、この場合の同時実行例外は、その例外の `InnerException` プロパティではなく、イベント引数オブジェクトの `Exception` プロパティにあるという点です。
 
-ページを実行し、同時実行の競合をもう一度作成します。 この時間は、エラー メッセージが表示します。
+ページを実行し、同時実行の競合を再度作成します。 今度は、次のエラーメッセージが表示できます。
 
 [![Image23](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image46.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image45.png)
 
-コンカレンシーの競合処理の入門編はこれで終わりです。 次のチュートリアルでは、Entity Framework を使用する web アプリケーションのパフォーマンスを向上する方法のガイダンスが提供されます。
+コンカレンシーの競合処理の入門編はこれで終わりです。 次のチュートリアルでは、Entity Framework を使用する web アプリケーションのパフォーマンスを向上させる方法について説明します。
 
 > [!div class="step-by-step"]
 > [前へ](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)

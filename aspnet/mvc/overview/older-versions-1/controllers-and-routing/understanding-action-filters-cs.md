@@ -9,17 +9,17 @@ ms.assetid: a94e4e81-40c1-47b7-8613-126a1a6cc93d
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/understanding-action-filters-cs
 msc.type: authoredcontent
 ms.openlocfilehash: d1c72c2355c6122f851351a8c1e8f04fa63ae04e
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74590092"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78470002"
 ---
 # <a name="understanding-action-filters-c"></a>アクション フィルターについて理解する (C#)
 
 [Microsoft](https://github.com/microsoft)
 
-[PDF のダウンロード](https://download.microsoft.com/download/e/f/3/ef3f2ff6-7424-48f7-bdaa-180ef64c3490/ASPNET_MVC_Tutorial_14_CS.pdf)
+[[Download PDF]\(PDF をダウンロード\)](https://download.microsoft.com/download/e/f/3/ef3f2ff6-7424-48f7-bdaa-180ef64c3490/ASPNET_MVC_Tutorial_14_CS.pdf)
 
 > このチュートリアルの目的は、アクションフィルターについて説明することです。 アクションフィルターは、アクションが実行される方法を変更するコントローラーアクション (またはコントローラー全体) に適用可能な属性です。
 
@@ -113,7 +113,7 @@ ASP.NET MVC フレームワークでは、次の4種類のフィルターがサ�
 
 [!code-csharp[Main](understanding-action-filters-cs/samples/sample3.cs)]
 
-### <a name="summary"></a>要約
+### <a name="summary"></a>まとめ
 
 このチュートリアルでは、ASP.NET MVC アクションフィルターについて説明しました。 4種類のフィルター (承認フィルター、アクションフィルター、結果フィルター、例外フィルター) について学習しました。 また、基本 `ActionFilterAttribute` クラスについても学習しました。
 

@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-3
-title: Code First Migrations を使用して、データベースのシードを |Microsoft Docs
+title: Code First Migrations を使用してデータベースをシードする |Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -9,93 +9,93 @@ ms.assetid: 76e2013a-65b7-488c-834d-9448ecea378e
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-3
 msc.type: authoredcontent
 ms.openlocfilehash: 257bd06848adb949330856cc71eeb3d685e9d036
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59421668"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78449116"
 ---
-# <a name="use-code-first-migrations-to-seed-the-database"></a>Code First Migrations を使用して、データベースのシード
+# <a name="use-code-first-migrations-to-seed-the-database"></a>Code First Migrations を使用してデータベースをシード処理する
 
-作成者[Mike Wasson](https://github.com/MikeWasson)
+[Mike Wasson](https://github.com/MikeWasson)
 
 [完成したプロジェクトのダウンロード](https://github.com/MikeWasson/BookService)
 
-このセクションでは使用して[Code First Migrations](https://msdn.microsoft.com/data/jj591621)テスト データでデータベースをシードする EF でします。
+このセクションでは、EF の[Code First Migrations](https://msdn.microsoft.com/data/jj591621)を使用して、データベースにテストデータをシードします。
 
-**ツール**メニューの  **NuGet パッケージ マネージャー**を選択し、**パッケージ マネージャー コンソール**します。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
+**[ツール]** メニューの **[NuGet パッケージマネージャー]** を選択し、 **[パッケージマネージャーコンソール]** を選択します。 [パッケージ マネージャー コンソール] ウィンドウで、次のコマンドを入力します。
 
 [!code-console[Main](part-3/samples/sample1.cmd)]
 
-このコマンドは、プロジェクトに移行をという名前のフォルダーとという名前の Migrations フォルダーに Configuration.cs コード ファイルを追加します。
+このコマンドは、移行という名前のフォルダーをプロジェクトに追加し、Configuration.cs という名前のコードファイルを [移行] フォルダーに追加します。
 
 ![](part-3/_static/image1.png)
 
-Configuration.cs ファイルを開きます。 次の追加**を使用して**ステートメント。
+Configuration.cs ファイルを開きます。 次の**using ステートメントを**追加します。
 
 [!code-csharp[Main](part-3/samples/sample2.cs)]
 
-次のコードを追加し、 **Configuration.Seed**メソッド。
+次に、次のコードを**構成の Seed**メソッドに追加します。
 
 [!code-csharp[Main](part-3/samples/sample3.cs)]
 
-パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
+[パッケージマネージャーコンソール] ウィンドウで、次のコマンドを入力します。
 
 [!code-console[Main](part-3/samples/sample4.cmd)]
 
-最初のコマンドは、データベースを作成するコードを生成し、2 番目のコマンドは、そのコードを実行します。 データベースがローカルで作成されるを使用して[LocalDB](https://msdn.microsoft.com/library/hh510202.aspx)します。
+最初のコマンドは、データベースを作成するコードを生成し、2番目のコマンドはそのコードを実行します。 データベースは、 [LocalDB](https://msdn.microsoft.com/library/hh510202.aspx)を使用してローカルに作成されます。
 
 ![](part-3/_static/image2.png)
 
-## <a name="explore-the-api-optional"></a>(省略可能) の API を確認します。
+## <a name="explore-the-api-optional"></a>API を探索する (省略可能)
 
-F5 キーを押して、デバッグ モードでアプリケーションを実行します。 Visual Studio では、IIS Express を起動し、web アプリを実行します。 Visual Studio は、ブラウザーを起動し、アプリのホーム ページを開きます。
+F5 キーを押してデバッグ モードでアプリケーションを実行します。 Visual Studio が起動し IIS Express、web アプリが実行されます。 その後、Visual Studio によってブラウザーが起動され、アプリのホームページが開きます。
 
-Visual Studio で web プロジェクトを実行すると、ポート番号が割り当てられます。 次の図では、ポート番号は、50524 です。 アプリケーションを実行するときに、別のポート番号を確認します。
+Visual Studio で web プロジェクトを実行すると、ポート番号が割り当てられます。 次の図では、ポート番号は50524です。 アプリケーションを実行すると、別のポート番号が表示されます。
 
 ![](part-3/_static/image3.png)
 
-ホーム ページは、ASP.NET MVC を使用して実装されます。 ページの上部にある"API"というリンクがあります。 このリンクを自動生成されたヘルプ ページに web API に表示されます。 (このヘルプ ページを生成する方法と、ページを独自のドキュメントを追加する方法については、次を参照してください[ASP.NET Web API のヘルプ ページを作成する](../../getting-started-with-aspnet-web-api/creating-api-help-pages.md)。)。リンクをクリックして ヘルプ ページを要求と応答の形式を含む、API の詳細を確認します。
+ホームページは、ASP.NET MVC を使用して実装されます。 ページの上部には、"API" というリンクがあります。 このリンクを使用すると、web API の自動生成されたヘルプページが表示されます。 (このヘルプページの生成方法と、独自のドキュメントをページに追加する方法については、「 [ASP.NET Web API のヘルプページの作成](../../getting-started-with-aspnet-web-api/creating-api-help-pages.md)」を参照してください)。[ヘルプ] ページのリンクをクリックすると、要求と応答の形式など、API の詳細を確認できます。
 
 ![](part-3/_static/image4.png)
 
-この API は、データベースに対する CRUD 操作を使用します。 次に、API の概要を示します。
+この API により、データベースに対する CRUD 操作が有効になります。 API の概要を次に示します。
 
 | Authors |  |
 | --- | -- |
-| GET api/authors | すべての著者を取得します。 |
+| GET api/authors | すべての作成者を取得します。 |
 | GET api/authors/{id} | ID で作成者を取得します。 |
 | POST /api/authors | 新しい作成者を作成します。 |
 | PUT /api/authors/{id} | 既存の作成者を更新します。 |
 | DELETE /api/authors/{id} | 作成者を削除します。 |
 
-| ブック |  |
+| 書籍 |  |
 | --- | -- |
 | GET /api/books | すべてのブックを取得します。 |
-| GET /api/books/{id} | ID での書籍を入手します。 |
-| POST /api/books | 新しいブックを作成します。 |
+| GET /api/books/{id} | ID でブックを取得します。 |
+| POST /api/books | 新しい本を作成します。 |
 | PUT /api/books/{id} | 既存のブックを更新します。 |
 | DELETE /api/books/{id} | ブックを削除します。 |
 
-## <a name="view-the-database-optional"></a>(省略可能) データベースを表示します。
+## <a name="view-the-database-optional"></a>データベースを表示する (省略可能)
 
-EF がデータベースを作成しと呼ばれる、Update-database コマンドを実行したときに、`Seed`メソッド。 EF を使用して、アプリケーションをローカルで実行するときに[LocalDB](https://blogs.msdn.com/b/sqlexpress/archive/2011/07/12/introducing-localdb-a-better-sql-express.aspx)します。 Visual Studio でデータベースを表示することができます。 **ビュー**メニューの  **SQL Server オブジェクト エクスプ ローラー**します。
+データベースの更新コマンドを実行すると、EF によってデータベースが作成され、`Seed` メソッドが呼び出されます。 アプリケーションをローカルで実行すると、EF によって[LocalDB](https://blogs.msdn.com/b/sqlexpress/archive/2011/07/12/introducing-localdb-a-better-sql-express.aspx)が使用されます。 データベースは Visual Studio で表示できます。 **[表示]** メニューの **[SQL Server オブジェクト エクスプローラー]** を選択します。
 
 ![](part-3/_static/image5.png)
 
-**サーバーへの接続**ダイアログで、**サーバー名**編集ボックスに、"(localdb) \v11.0"を入力します。 ままに、**認証**として [Windows 認証] オプション。 **[接続]** をクリックします。
+**[サーバーへの接続]** ダイアログの **[サーバー名]** ボックスに「(localdb) \ v11.0」と入力します。 **認証** オプションは Windows 認証 のままにします。 **[接続]** をクリックします。
 
 ![](part-3/_static/image6.png)
 
-Visual Studio では、LocalDB に接続し、SQL Server オブジェクト エクスプ ローラー ウィンドウで、既存のデータベースを示しています。 EF を作成したテーブルを表示するノードを展開することができます。
+Visual Studio は LocalDB に接続し、[SQL Server オブジェクトエクスプローラー] ウィンドウに既存のデータベースを表示します。 ノードを展開して、EF によって作成されたテーブルを表示できます。
 
 ![](part-3/_static/image7.png)
 
-データを表示するには、テーブルを右クリックして**ビュー データ**します。
+データを表示するには、テーブルを右クリックし、 **[データの表示]** を選択します。
 
 ![](part-3/_static/image8.png)
 
-次のスクリーン ショットは、ブックの「テーブルの結果を示しています。 EF がデータをシードとの表に、使用してデータベースを設定することに注意してくださいには、Authors テーブルへの外部キーが含まれています。
+次のスクリーンショットは、Books テーブルの結果を示しています。 EF によってシードデータがデータベースに設定され、テーブルに Authors テーブルへの外部キーが格納されていることに注意してください。
 
 ![](part-3/_static/image9.png)
 

@@ -9,11 +9,11 @@ ms.assetid: 1642132a-1ca5-4872-983f-ab59fc8865d3
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/storing-additional-user-information-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 24b96e86bc93e03d2639b73e35ed1fd1271bac5a
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74641452"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78515458"
 ---
 # <a name="storing-additional-user-information-c"></a>追加のユーザー情報を格納する (C#)
 
@@ -29,7 +29,7 @@ ASP.NET のメンバーシップフレームワークは、ユーザーを管理
 
 多くの場合、アプリケーションでは、メンバーシップフレームワークに含まれていない追加のユーザー情報を格納する必要があります。 たとえば、オンライン小売業者は、各ユーザーに配送先住所と請求先住所、支払い情報、配信設定、連絡先の電話番号を保存することが必要になる場合があります。 さらに、システム内の各注文は、特定のユーザーアカウントに関連付けられています。
 
-`MembershipUser` クラスには、`PhoneNumber`、`DeliveryPreferences`、`PastOrders`などのプロパティは含まれません。 では、アプリケーションが必要とするユーザー情報を追跡し、それをメンバーシップフレームワークと統合するにはどうすればよいでしょうか。 このチュートリアルでは、非常に基本的なゲストブックアプリケーションを構築することで、この質問に答えます。 ここでは、データベースでユーザー情報をモデル化するためのさまざまなオプションについて説明し、メンバーシップフレームワークによって作成されたユーザーアカウントにこのデータを関連付ける方法について説明します。 では、始めましょう。
+`MembershipUser` クラスには、`PhoneNumber`、`DeliveryPreferences`、`PastOrders`などのプロパティは含まれません。 では、アプリケーションが必要とするユーザー情報を追跡し、それをメンバーシップフレームワークと統合するにはどうすればよいでしょうか。 このチュートリアルでは、非常に基本的なゲストブックアプリケーションを構築することで、この質問に答えます。 ここでは、データベースでユーザー情報をモデル化するためのさまざまなオプションについて説明し、メンバーシップフレームワークによって作成されたユーザーアカウントにこのデータを関連付ける方法について説明します。 作業開始
 
 ## <a name="step-1-creating-the-guestbook-applications-data-model"></a>手順 1: ゲストブックアプリケーションのデータモデルを作成する
 
@@ -438,7 +438,7 @@ CreateUserWizard の `ActiveStepChanged` イベントのイベントハンドラ
 > [!NOTE]
 > Web サイトには、現在、訪問者が新しいアカウントを作成するための2つのページ (`CreatingUserAccounts.aspx` と `EnhancedCreateUserWizard.aspx`) があります。 Web サイトのサイトマップとログインページは `CreatingUserAccounts.aspx` ページを指していますが、[`CreatingUserAccounts.aspx`] ページでは、ユーザーに自宅の住所、ホームページ、および署名情報の入力を求めるメッセージは表示されず、対応する行は `UserProfiles`に追加されません。 したがって、この機能を提供するように `CreatingUserAccounts.aspx` ページを更新するか、`CreatingUserAccounts.aspx`ではなく `EnhancedCreateUserWizard.aspx` を参照するように sitemap と login ページを更新してください。 後者のオプションを選択した場合は、匿名ユーザーが `EnhancedCreateUserWizard.aspx` ページにアクセスできるように、`Membership` フォルダーの `Web.config` ファイルを必ず更新してください。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、メンバーシップフレームワーク内のユーザーアカウントに関連するデータをモデル化するための手法について説明しました。 特に、一対多のリレーションシップをユーザーアカウントと共有するエンティティと、一対一のリレーションシップを共有するデータをモデル化することを検討しました。 さらに、この関連情報を表示、挿入、更新する方法についても説明しました。ここでは、SqlDataSource コントロールを使用した例と ADO.NET コードを使用したその他の例を紹介します。
 
@@ -446,7 +446,7 @@ CreateUserWizard の `ActiveStepChanged` イベントのイベントハンドラ
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -465,7 +465,7 @@ CreateUserWizard の `ActiveStepChanged` イベントのイベントハンドラ
 - [Asp: ListView コントロール](https://weblogs.asp.net/scottgu/archive/2007/08/10/the-asp-listview-control-part-1-building-a-product-listing-page-with-clean-css-ui.aspx)
 - [ユーザープロファイルのクイックスタート](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/profile/default.aspx)
 
-### <a name="about-the-author"></a>作成者について
+### <a name="about-the-author"></a>著者について
 
 1998以降、Microsoft の Web テクノロジを使用して、Scott Mitchell (複数の ASP/創設者4GuysFromRolla.com の執筆者) が Microsoft の Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は *[、ASP.NET 2.0 を24時間以内に教え](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* ています。 Scott は、 [mitchell@4guysfromrolla.com](mailto:mitchell@4guysfromrolla.com)またはブログで[http://ScottOnWriting.NET](http://scottonwriting.net/)にアクセスできます。
 

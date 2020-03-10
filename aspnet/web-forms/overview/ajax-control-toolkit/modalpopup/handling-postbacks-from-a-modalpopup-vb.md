@@ -9,11 +9,11 @@ ms.assetid: f70ac2b3-900f-40fa-858f-ab057904506b
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/handling-postbacks-from-a-modalpopup-vb
 msc.type: authoredcontent
 ms.openlocfilehash: df0b71b3e336a0d230869623473bdac24b3dd07b
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74606619"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78504022"
 ---
 # <a name="handling-postbacks-from-a-modalpopup-vb"></a>ModalPopup からポストバックを処理する (VB)
 
@@ -23,7 +23,7 @@ ms.locfileid: "74606619"
 
 > AJAX コントロールツールキットの ModalPopup コントロールを使用すると、クライアント側の方法を使用してモーダルポップアップを簡単に作成できます。 ポップアップ内からポストバックを作成する場合は、特別な注意が必要です。
 
-## <a name="overview"></a>の概要
+## <a name="overview"></a>概要
 
 AJAX コントロールツールキットの ModalPopup コントロールを使用すると、クライアント側の方法を使用してモーダルポップアップを簡単に作成できます。 ポップアップ内からポストバックを作成する場合は、特別な注意が必要です。
 

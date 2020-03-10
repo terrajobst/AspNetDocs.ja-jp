@@ -10,11 +10,11 @@ ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity
 msc.type: authoredcontent
 ms.openlocfilehash: 4b2c88280df39aa81d60f9508910e8fe5d6db6b8
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519116"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78499984"
 ---
 # <a name="account-confirmation-and-password-recovery-with-aspnet-identity-c"></a>ASP.NET Identity (C#) を使用したアカウントの確認とパスワードの回復
 
@@ -199,7 +199,7 @@ SendGrid の資格情報を入力し、アプリを実行して、電子メー�
 
 ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image13.png)
 
-## <a name="examine-the-code"></a>コードを調べる
+## <a name="examine-the-code"></a>コードを確認する
 
 次のコードは `POST ForgotPassword` メソッドを示します。
 
@@ -224,7 +224,7 @@ SendGrid の資格情報を入力し、アプリを実行して、電子メー�
  アプリのセキュリティを強化するために、ASP.NET Identity では2要素認証 (2FA) がサポートされています。 「 [ASP.NET Identity 2.0: アカウントの検証の設定」と「John の規則による2要素認証の設定](http://typecastexception.com/post/2014/04/20/ASPNET-Identity-20-Setting-Up-Account-Validation-and-Two-Factor-Authorization.aspx)」を参照してください。 ログインパスワードの試行に失敗したときにアカウントのロックアウトを設定することはできますが、この方法を使用すると、ログインが[DOS](http://en.wikipedia.org/wiki/Denial-of-service_attack)ロックアウトの影響を受けやすくなります。 アカウントロックアウトは、2FA でのみ使用することをお勧めします。  
 <a id="addRes"></a>
 
-## <a name="additional-resources"></a>その他の技術情報
+## <a name="additional-resources"></a>その他のリソース
 
 - [ASP.NET Identity のカスタム ストレージ プロバイダーの概要](../extensibility/overview-of-custom-storage-providers-for-aspnet-identity.md)
 - [Facebook、Twitter、LinkedIn、Google OAuth2 サインオンを使用した MVC 5 アプリで](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)は、ユーザーテーブルにプロファイル情報を追加する方法についても説明しています。
