@@ -9,11 +9,11 @@ ms.assetid: bd347d93-4251-4532-801c-a36f2dfa7f96
 msc.legacyurl: /web-forms/overview/data-access/caching-data/using-sql-cache-dependencies-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 7d095538bd92d50675e5fce44f5ca68e8ee6c0e8
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74603748"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78442906"
 ---
 # <a name="using-sql-cache-dependencies-vb"></a>SQL キャッシュ依存関係を使用する (VB)
 
@@ -21,7 +21,7 @@ ms.locfileid: "74603748"
 
 [コードのダウンロード](https://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_61_VB.zip)または[PDF のダウンロード](using-sql-cache-dependencies-vb/_static/datatutorial61vb1.pdf)
 
-> 最も簡単なキャッシュ方法は、キャッシュされたデータの有効期限が指定した期間後に切れるようにすることです。 ただし、この簡単な方法では、キャッシュされたデータが基になるデータソースと関連付けられていないことを意味します。その結果、古いデータが長すぎるか、現在のデータが短時間で期限切れになります。 より優れたアプローチは、SqlCacheDependency クラスを使用して、SQL データベースで基になるデータが変更されるまでデータがキャッシュされたままになるようにすることです。 このチュートリアルでは、その方法について説明します。
+> 最も簡単なキャッシュ方法は、キャッシュされたデータの有効期限が指定した期間後に切れるようにすることです。 ただし、この簡単な方法では、キャッシュされたデータが基になるデータソースと関連付けられていないことを意味します。その結果、古いデータが長すぎるか、現在のデータが短時間で期限切れになります。 より優れたアプローチは、SqlCacheDependency クラスを使用して、SQL データベースで基になるデータが変更されるまでデータがキャッシュされたままになるようにすることです。 このチュートリアルでは、その方法を説明します。
 
 ## <a name="introduction"></a>はじめに
 
@@ -248,13 +248,13 @@ GridView のいくつかのページを使用してページングを行った�
 > [!NOTE]
 > SQL キャッシュの依存関係は、[出力キャッシュ](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/caching/output.aspx)と共に使用することもできます。 この機能のデモンストレーションについては、「 [SQL Server での ASP.NET 出力キャッシュの使用](https://msdn.microsoft.com/library/e3w8402y(VS.80).aspx)」を参照してください。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 データベースデータをキャッシュする場合、データはデータベースで変更されるまでキャッシュに保持されるのが理想的です。 ASP.NET 2.0 を使用すると、SQL キャッシュの依存関係を作成し、宣言型とプログラムによる両方のシナリオで使用できます。 この方法の課題の1つは、データが変更されたときの検出です。 Microsoft SQL Server 2005 の完全バージョンでは、クエリの結果が変更されたときにアプリケーションを警告できる通知機能を提供します。 SQL Server 2005 とそれ以前のバージョンの SQL Server の Express Edition では、代わりにポーリングシステムを使用する必要があります。 幸いにも、必要なポーリングインフラストラクチャの設定は非常に簡単です。
 
 プログラミングを楽しんでください。
 
-## <a name="further-reading"></a>関連項目
+## <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -264,7 +264,7 @@ GridView のいくつかのページを使用してページングを行った�
 - [ASP.NET SQL Server 登録ツール (`aspnet_regsql.exe`)](https://msdn.microsoft.com/library/ms229862(vs.80).aspx)
 - [`SqlCacheDependency` の概要](http://www.aspnetresources.com/blog/sql_cache_depedency_overview.aspx)
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
@@ -273,4 +273,4 @@ GridView のいくつかのページを使用してページングを行った�
 このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビュー担当者は、Marko Rangel、Teresa Murphy、および Hilton Giesenow でした。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [前へ](caching-data-at-application-startup-vb.md)
+> [[戻る]](caching-data-at-application-startup-vb.md)

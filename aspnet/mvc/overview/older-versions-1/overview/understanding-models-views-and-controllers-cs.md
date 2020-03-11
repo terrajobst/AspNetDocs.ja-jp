@@ -1,176 +1,176 @@
 ---
 uid: mvc/overview/older-versions-1/overview/understanding-models-views-and-controllers-cs
-title: 理解のモデル、ビュー、およびコント ローラー (c#) |Microsoft Docs
+title: モデル、ビュー、およびコントローラーについC#て () |Microsoft Docs
 author: StephenWalther
-description: モデル、ビュー、およびコント ローラーと混同するでしょうか。 このチュートリアルで Stephen Walther がわかる ASP.NET MVC アプリケーションのさまざまな部分。
+description: モデル、ビュー、およびコントローラーについて混同されていない場合は、 このチュートリアルでは、Stephen Walther が ASP.NET MVC アプリケーションのさまざまな部分について説明します。
 ms.author: riande
 ms.date: 08/19/2008
 ms.assetid: 87313792-0a96-4caf-89fc-1457d54e5c1e
 msc.legacyurl: /mvc/overview/older-versions-1/overview/understanding-models-views-and-controllers-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 57dc82d02d38adc2514aa2c02c6f156ed0fb88a6
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65122064"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78486088"
 ---
 # <a name="understanding-models-views-and-controllers-c"></a>モデル、ビュー、コントローラーを理解する (C#)
 
-によって[Stephen Walther](https://github.com/StephenWalther)
+[Stephen Walther](https://github.com/StephenWalther)
 
-> モデル、ビュー、およびコント ローラーと混同するでしょうか。 このチュートリアルで Stephen Walther がわかる ASP.NET MVC アプリケーションのさまざまな部分。
+> モデル、ビュー、およびコントローラーについて混同されていない場合は、 このチュートリアルでは、Stephen Walther が ASP.NET MVC アプリケーションのさまざまな部分について説明します。
 
-このチュートリアルでは ASP.NET MVC の概要をモデル、ビュー、およびコント ローラー。 つまり、M を説明 '、V'、および C' ASP.NET MVC でします。
+このチュートリアルでは、ASP.NET MVC モデル、ビュー、およびコントローラーの概要について説明します。 言い換えると、ASP.NET MVC では M '、V '、および C ' が説明されています。
 
-このチュートリアルを読むには、ASP.NET MVC アプリケーションのさまざまな部分がどのように連携を理解する必要があります。 ASP.NET Web フォーム アプリケーションまたは Active Server Pages アプリケーションの相違点、ASP.NET MVC アプリケーションのアーキテクチャを理解する必要があります。
+このチュートリアルを読んだ後、ASP.NET MVC アプリケーションのさまざまな部分がどのように連携するかを理解する必要があります。 また、ASP.NET MVC アプリケーションのアーキテクチャが ASP.NET Web フォームアプリケーションまたは Active Server ページアプリケーションとどのように異なるかについても理解しておく必要があります。
 
-## <a name="the-sample-aspnet-mvc-application"></a>サンプルの ASP.NET MVC アプリケーション
+## <a name="the-sample-aspnet-mvc-application"></a>サンプル ASP.NET MVC アプリケーション
 
-ASP.NET MVC Web アプリケーションを作成するための既定の Visual Studio テンプレートには、ASP.NET MVC アプリケーションのさまざまな部分を理解するのに使用できる非常に簡単なサンプル アプリケーションが含まれています。 私たちは、このチュートリアルではこのシンプルなアプリケーションの利用します。
+ASP.NET MVC Web アプリケーションを作成するための既定の Visual Studio テンプレートには、ASP.NET MVC アプリケーションのさまざまな部分を理解するために使用できる、非常に単純なサンプルアプリケーションが含まれています。 このチュートリアルでは、このシンプルなアプリケーションを利用します。
 
-Visual Studio 2008 を起動することで、MVC テンプレートを使用して、新しい ASP.NET MVC アプリケーションを作成して、新規プロジェクト ファイル メニュー オプションを選択すると、(図 1 参照)。 新しいプロジェクト] ダイアログで [プロジェクトの種類 (Visual Basic または c#)、好みのプログラミング言語を選択し、[ **ASP.NET MVC Web アプリケーション**テンプレート] の下。 [Ok] ボタンをクリックします。
+MVC テンプレートを使用して新しい ASP.NET MVC アプリケーションを作成するには、Visual Studio 2008 を起動し、メニューオプションファイル [新しいプロジェクト] を選択します (図1を参照)。 新しいプロジェクト ダイアログボックスで、プロジェクトの種類 (Visual Basic またはC#) で任意のプログラミング言語を選択し、テンプレート で  **ASP.NET MVC Web アプリケーション** を選択します。 [OK] ボタンをクリックします。
 
-[![新しいプロジェクト ダイアログ ボックス](understanding-models-views-and-controllers-cs/_static/image1.jpg)](understanding-models-views-and-controllers-cs/_static/image1.png)
+[[新しいプロジェクトの ![] ダイアログ](understanding-models-views-and-controllers-cs/_static/image1.jpg)](understanding-models-views-and-controllers-cs/_static/image1.png)
 
-**図 01**:新しいプロジェクト ダイアログ ボックス ([フルサイズの画像を表示する をクリックします](understanding-models-views-and-controllers-cs/_static/image2.png))。
+**図 01**: [新しいプロジェクト] ダイアログボックス ([クリックすると、フルサイズの画像が表示](understanding-models-views-and-controllers-cs/_static/image2.png)される)
 
-新しい ASP.NET MVC アプリケーションを作成するときに、**単体テスト プロジェクトの作成**ダイアログでは、(図 2 参照) が表示されます。 このダイアログ ボックスでは、ASP.NET MVC アプリケーションのテスト用のソリューションで別のプロジェクトを作成することができます。 オプションを選択**単体テスト プロジェクトを作成できません** をクリックし、 **OK**ボタン。
+新しい ASP.NET MVC アプリケーションを作成すると、 **[単体テストプロジェクトの作成]** ダイアログボックスが表示されます (図2を参照)。 このダイアログボックスでは、ASP.NET MVC アプリケーションをテストするためのソリューションに別のプロジェクトを作成できます。 **[いいえ、単体テストプロジェクトを作成しません]** オプションを選択し、 **[OK]** ボタンをクリックします。
 
-[![単体テスト ダイアログ ボックスを作成します。](understanding-models-views-and-controllers-cs/_static/image2.jpg)](understanding-models-views-and-controllers-cs/_static/image3.png)
+[![単体テストの作成 ダイアログ](understanding-models-views-and-controllers-cs/_static/image2.jpg)](understanding-models-views-and-controllers-cs/_static/image3.png)
 
-**図 02**:単体テスト ダイアログ ボックスの作成 ([フルサイズの画像を表示する をクリックします](understanding-models-views-and-controllers-cs/_static/image4.png))。
+**図 02**: 単体テストダイアログを作成[する (クリックすると、フルサイズの画像が表示](understanding-models-views-and-controllers-cs/_static/image4.png)される)
 
-新しい ASP.NET MVC アプリケーションが作成されます。 複数のフォルダーと、ソリューション エクスプ ローラー ウィンドウ内のファイルが表示されます。 具体的には、モデル、ビュー、およびコント ローラーという 3 つのフォルダーが表示されます。 フォルダー名から推察のとおり、これらのフォルダーには、モデル、ビュー、およびコント ローラーを実装するためのファイルが含まれます。
+新しい ASP.NET MVC アプリケーションが作成された後。 [ソリューションエクスプローラー] ウィンドウに複数のフォルダーとファイルが表示されます。 特に、モデル、ビュー、およびコントローラーという名前の3つのフォルダーが表示されます。 フォルダー名から推測されるように、これらのフォルダーには、モデル、ビュー、およびコントローラーを実装するためのファイルが含まれています。
 
-Controllers フォルダーを展開する場合、AccountController.cs という名前のファイルと HomeController.cs をという名前のファイルが表示されます。 Views フォルダーを展開する場合は、アカウント ホーム共有という 3 つのサブフォルダーが表示されます。 ホーム フォルダーを展開する場合は、About.aspx と Index.aspx (図 3 参照) という 2 つの追加ファイルが表示されます。 これらのファイルは、既定の ASP.NET MVC テンプレートに含まれているサンプル アプリケーションを構成します。
+Controllers フォルダーを展開すると、AccountController.cs という名前のファイルと HomeController.cs という名前のファイルが表示されます。 Views フォルダーを展開すると、"Account"、"Home"、および "Shared" という名前の3つのサブフォルダーが表示されます。 [ホーム] フォルダーを展開すると、"About .aspx" と "Index .aspx" という名前の2つの追加ファイルが表示されます (図3を参照)。 これらのファイルは、既定の ASP.NET MVC テンプレートに含まれるサンプルアプリケーションを構成します。
 
-[![ソリューション エクスプ ローラー ウィンドウ](understanding-models-views-and-controllers-cs/_static/image3.jpg)](understanding-models-views-and-controllers-cs/_static/image5.png)
+[[ソリューションエクスプローラー] ウィンドウの ![](understanding-models-views-and-controllers-cs/_static/image3.jpg)](understanding-models-views-and-controllers-cs/_static/image5.png)
 
-**図 03**:ソリューション エクスプ ローラー ウィンドウ ([フルサイズの画像を表示する をクリックします](understanding-models-views-and-controllers-cs/_static/image6.png))。
+**図 03**: ソリューションエクスプローラーウィンドウ ([クリックしてフルサイズの画像を表示する](understanding-models-views-and-controllers-cs/_static/image6.png))
 
-サンプル アプリケーションを実行するには、メニュー オプションを選択して**デバッグ、デバッグの開始**します。 または、F5 キーを押してことができます。
+このサンプルアプリケーションを実行するには、デバッグ メニューの **デバッグの開始** をクリックします。 または、F5 キーを押してもかまいません。
 
-ASP.NET アプリケーションを初めて実行すると、デバッグ モードを有効にすることをお勧めの図 4 ダイアログが表示されます。 [Ok] ボタンをクリックし、アプリケーションを実行します。
+ASP.NET アプリケーションを初めて実行すると、図4のダイアログが表示され、デバッグモードを有効にすることをお勧めします。 [OK] ボタンをクリックすると、アプリケーションが実行されます。
 
-[![デバッグの有効になっていません ダイアログ](understanding-models-views-and-controllers-cs/_static/image4.jpg)](understanding-models-views-and-controllers-cs/_static/image7.png)
+[![デバッグが有効になっていません ダイアログ](understanding-models-views-and-controllers-cs/_static/image4.jpg)](understanding-models-views-and-controllers-cs/_static/image7.png)
 
-**図 04**:有効になっていないダイアログをデバッグ ([フルサイズの画像を表示する をクリックします](understanding-models-views-and-controllers-cs/_static/image8.png))。
+**図 04**: デバッグが有効になっていないダイアログボックス ([クリックすると、フルサイズの画像が表示](understanding-models-views-and-controllers-cs/_static/image8.png)されます)
 
-ASP.NET MVC アプリケーションを実行すると、Visual Studio は、web ブラウザーでアプリケーションを起動します。 サンプル アプリケーションは、2 つだけのページで構成されます。 インデックス ページと [About] ページ。 まず、アプリケーションの起動時に、インデックス ページ (図 5 参照) が表示されます。 上部のメニューのリンクをクリックして、About ページに移動することができます、アプリケーションの右。
+ASP.NET MVC アプリケーションを実行すると、Visual Studio によって web ブラウザーでアプリケーションが起動されます。 サンプルアプリケーションは、インデックスページと [バージョン情報] ページの2つのページで構成されています。 アプリケーションを初めて起動すると、インデックスページが表示されます (図5を参照)。 [バージョン情報] ページに移動するには、アプリケーションの右上にあるメニューリンクをクリックします。
 
-[![インデックス ページ](understanding-models-views-and-controllers-cs/_static/image10.png)](understanding-models-views-and-controllers-cs/_static/image9.png)
+[インデックスページの ![](understanding-models-views-and-controllers-cs/_static/image10.png)](understanding-models-views-and-controllers-cs/_static/image9.png)
 
-**図 05**:インデックス ページ ([フルサイズの画像を表示する をクリックします](understanding-models-views-and-controllers-cs/_static/image11.png))。
+**図 05**: インデックスページ ([クリックすると、フルサイズの画像が表示](understanding-models-views-and-controllers-cs/_static/image11.png)されます)
 
-お使いのブラウザーのアドレス バーに Url に注意してください。 たとえば、バージョン情報 メニューのリンクをクリックするとブラウザーのアドレス バーで URL に変更 **/ホーム/について**します。
+ブラウザーのアドレスバーに Url が表示されます。 たとえば、[バージョン情報] メニューリンクをクリックすると、ブラウザーのアドレスバーの URL が **/Home/About**に変わります。
 
-ブラウザー ウィンドウを閉じるし、Visual Studio に戻り場合、パス ホーム/約ファイルを検索することはできません。 ファイルは存在しません。 設定できないのでしょうか。
+ブラウザーウィンドウを閉じて Visual Studio に戻ると、[ホーム]、[バージョン情報] のパスのファイルを見つけることができなくなります。 ファイルが存在しません。 設定できないのでしょうか。
 
 ## <a name="a-url-does-not-equal-a-page"></a>URL がページと一致しません
 
-従来の ASP.NET Web フォーム アプリケーションまたは Active Server Pages アプリケーションをビルドするときに、URL とページ間の一対一の対応。 サーバーから SomePage.aspx をという名前のページを要求する場合がよりページにあります SomePage.aspx という名前のディスク。 SomePage.aspx ファイルが存在しない場合、これらが表示**404 - ページが見つかりません**エラー。
+従来の ASP.NET Web フォームアプリケーションまたは Active Server ページアプリケーションをビルドする場合、URL とページの間に1対1の対応があります。 サーバーから ".aspx" という名前のページを要求すると、ディスク上のページに ".aspx" という名前が付けられていることがわかります。 ページ .aspx ファイルが存在しない場合は、 **404-ページが見つかりませんでし**たというエラーが表示されます。
 
-ASP.NET MVC アプリケーションを構築するときにこれに対しはありません、ブラウザーのアドレス バーに入力した URL と、アプリケーションで表示されているファイルの間の通信。 ASP.NET MVC アプリケーションでは、URL は、ディスク上のページではなく、コント ローラー アクションに対応します。
+一方、ASP.NET MVC アプリケーションをビルドする場合は、ブラウザーのアドレスバーに入力した URL と、アプリケーションで検出されたファイルの間には対応していません。 ASP.NET MVC アプリケーションでは、URL はディスク上のページではなく、コントローラーアクションに対応します。
 
-従来の ASP.NET または ASP アプリケーションでは、ブラウザーの要求がページにマップされます。 これに対し、ASP.NET MVC アプリケーションではブラウザーの要求がコント ローラー アクションへマッピングされています。 ASP.NET Web フォーム アプリケーションは、コンテンツを中心としました。 ASP.NET MVC アプリケーションは、中心のアプリケーション ロジックをこれに対しです。
+従来の ASP.NET または ASP アプリケーションでは、ブラウザーの要求はページにマップされます。 一方、ASP.NET MVC アプリケーションでは、ブラウザーの要求はコントローラーアクションにマップされます。 ASP.NET Web フォームアプリケーションは、コンテンツ中心です。 これに対して、ASP.NET MVC アプリケーションはアプリケーションロジック中心です。
 
-## <a name="understanding-aspnet-routing"></a>ASP.NET ルーティングを理解します。
+## <a name="understanding-aspnet-routing"></a>ASP.NET ルーティングについて
 
-ブラウザーの要求と呼ばれる ASP.NET フレームワークの機能を介してコント ローラー アクションにマップ*ASP.NET ルーティング*します。 ASP.NET ルーティングがする ASP.NET MVC フレームワークによって使用される*ルート*コント ローラー アクションへの着信要求。
+Browser 要求は、 *ASP.NET Routing*と呼ばれる ASP.NET フレームワークの機能を介して、コントローラーアクションにマップされます。 ASP.NET Routing は、着信要求をコントローラーアクションに*ルーティング*するために ASP.NET MVC フレームワークによって使用されます。
 
-ASP.NET ルーティングでは、ルート テーブルを使用して、着信要求を処理します。 Web アプリケーションの起動時にこのルート テーブルが作成されます。 ルート テーブルは、Global.asax ファイルで設定します。 既定の MVC の Global.asax ファイルは、リスト 1 に含まれます。
+ASP.NET ルーティングは、ルートテーブルを使用して受信要求を処理します。 このルートテーブルは、web アプリケーションの初回起動時に作成されます。 ルートテーブルは、global.asax ファイルに設定されます。 既定の MVC global.asax ファイルは、リスト1に含まれています。
 
-**1 - Global.asax を一覧表示します。**
+**リスト 1-global.asax**
 
 [!code-csharp[Main](understanding-models-views-and-controllers-cs/samples/sample1.cs)]
 
-ASP.NET アプリケーションを最初の起動時、アプリケーション\_Start() メソッドが呼び出されます。 リストの 1 では、このメソッドは、RegisterRoutes() メソッドを呼び出し、RegisterRoutes() メソッドが既定のルーティング テーブルを作成します。
+ASP.NET アプリケーションを初めて起動すると、アプリケーション\_Start () メソッドが呼び出されます。 リスト1では、このメソッドは RegisterRoutes () メソッドを呼び出し、RegisterRoutes () メソッドは既定のルートテーブルを作成します。
 
-既定のルーティング テーブルは、1 つのルートで構成されます。 この既定のルートでは、すべての着信要求を (URL セグメントは、スラッシュの間を) 次の 3 つのセグメントに分割します。 最初のセグメントは、コント ローラー名にマップされて、2 番目のセグメントは、アクション名にマップされて、および最終セグメントがという名前の id。 アクションに渡されるパラメーターにマップされます。
+既定のルートテーブルは、1つのルートで構成されます。 この既定のルートでは、すべての受信要求が3つのセグメントに分割されます (URL セグメントは、スラッシュの間の任意のものです)。 最初のセグメントはコントローラー名にマップされ、2番目のセグメントはアクション名にマップされ、最後のセグメントは、Id という名前のアクションに渡されるパラメーターにマップされます。
 
 たとえば、次のような URL があるとします。
 
-製品/詳細/3
+/Product/Details/3
 
-このような 3 つのパラメーターには、この URL が解析されます。
+この URL は、次のように3つのパラメーターに解析されます。
 
-コント ローラー製品を =
+Controller = 製品
 
-アクションの詳細を =
+Action = 詳細
 
 id = 3
 
-Global.asax ファイルで定義されている既定のルートには、次の 3 つすべてのパラメーターの既定値が含まれています。 既定のコント ローラーはホーム、既定のアクションは、インデックス、および既定の Id が空の文字列。 これらの既定値に注意してくださいには、次の URL を解析する方法を検討してください。
+Global.asax ファイルで定義されている既定のルートには、3つのパラメーターすべての既定値が含まれています。 既定のコントローラーは Home、既定のアクションは Index、既定の Id は空の文字列です。 これらの既定値を考慮して、次の URL がどのように解析されるかを検討します。
 
-あたり従業員
+/Employee
 
-このような 3 つのパラメーターには、この URL が解析されます。
+この URL は、次のように3つのパラメーターに解析されます。
 
-コント ローラーの従業員を =
+Controller = Employee
 
-アクション インデックスを =
-
-Id =
-
-最後に、任意の URL を指定せずに、ASP.NET MVC アプリケーションを開くかどうか (たとえば、 `http://localhost`) このような URL が解析結果。
-
-コント ローラー = ホーム
-
-アクション インデックスを =
+Action = インデックス
 
 Id =
 
-要求は、HomeController クラスに Index() アクションにルーティングされます。
+最後に、URL (`http://localhost`など) を指定せずに ASP.NET MVC アプリケーションを開くと、URL は次のように解析されます。
 
-## <a name="understanding-controllers"></a>コント ローラーの説明
+コントローラー = ホーム
 
-コント ローラーは、MVC アプリケーションでユーザーと対話する方法を制御します。 コント ローラーには、ASP.NET MVC アプリケーションのフロー制御ロジックが含まれています。 コント ローラーは、ユーザーがブラウザーの要求を行うと、ユーザーに送信するには、どのような応答を決定します。
+Action = インデックス
 
-コント ローラーは、クラス (たとえば、Visual Basic または c# クラス) だけです。 サンプル ASP.NET MVC アプリケーションには、コント ローラーがコント ローラーのフォルダーにある HomeController.cs をという名前が含まれています。 HomeController.cs ファイルの内容は、リスト 2 に継承されます。
+Id =
 
-**2 - HomeController.cs を一覧表示します。**
+要求は、HomeController クラスの Index () アクションにルーティングされます。
+
+## <a name="understanding-controllers"></a>コントローラーについて
+
+コントローラーは、ユーザーが MVC アプリケーションと対話する方法を制御する役割を担います。 コントローラーには、ASP.NET MVC アプリケーションのフロー制御ロジックが含まれています。 コントローラーは、ユーザーがブラウザー要求を行ったときにユーザーに返される応答を決定します。
+
+コントローラーは、クラス (Visual Basic やC#クラスなど) にすぎません。 サンプル ASP.NET MVC アプリケーションには、Controllers フォルダーにある HomeController.cs という名前のコントローラーが含まれています。 HomeController.cs ファイルの内容は、リスト2で再現されます。
+
+**リスト 2-HomeController.cs**
 
 [!code-csharp[Main](understanding-models-views-and-controllers-cs/samples/sample2.cs)]
 
-HomeController が Index() と About() という 2 つのメソッドを持つことに注意してください。 これら 2 つのメソッドは、コント ローラーによって公開されている 2 つのアクションに対応します。 URL/Home/インデックス HomeController.Index() メソッドを呼び出すし、URL/Home/について HomeController.About() メソッドを呼び出します。
+HomeController には、Index () と About () という2つのメソッドがあることに注意してください。 これらの2つのメソッドは、コントローラーによって公開される2つのアクションに対応しています。 URL/Home/Index は HomeController () メソッドを呼び出し、URL/Home/About は HomeController () メソッドを呼び出します。
 
-コント ローラーのすべてのパブリック メソッドは、コント ローラーのアクションとして公開されます。 これについて注意する必要があります。 これは、ブラウザーに適切な URL を入力して、インターネットへのアクセスを持つユーザーで、コント ローラーに含まれているすべてのパブリック メソッドを起動できることを意味します。
+コントローラー内のパブリックメソッドは、コントローラーアクションとして公開されます。 このことに注意する必要があります。 つまり、コントローラーに含まれているすべてのパブリックメソッドは、ブラウザーに正しい URL を入力することによって、インターネットにアクセスできるすべてのユーザーが呼び出すことができます。
 
 ## <a name="understanding-views"></a>ビューについて
 
-Index() と About()、HomeController クラスによって公開される 2 つのコント ローラー アクション ビューはどちらも返します。 ビューには、HTML マークアップと、ブラウザーに送信されるコンテンツが含まれています。 ビューとは、ASP.NET MVC アプリケーションを使用する場合、ページに相当です。
+HomeController クラスによって公開されている2つのコントローラーアクション (Index () と About ()) は、どちらもビューを返します。 ビューには、ブラウザーに送信される HTML マークアップとコンテンツが含まれています。 ビューは、ASP.NET MVC アプリケーションを操作するときのページに相当します。
 
-適切な場所で、ビューを作成する必要があります。 HomeController.Index() アクションには、次のパスにあるビューが返されます。
+適切な場所にビューを作成する必要があります。 HomeController () アクションは、次のパスにあるビューを返します。
 
 \Views\Home\Index.aspx
 
-HomeController.About() アクションには、次のパスにあるビューが返されます。
+HomeController () アクションは、次のパスにあるビューを返します。
 
 \Views\Home\About.aspx
 
-一般に、コント ローラー アクションのビューを返す場合は、しする必要があります、コント ローラーと同じ名前で、Views フォルダーにサブフォルダーを作成します。 サブフォルダー内には、コント ローラー アクションと同じ名前の .aspx ファイルを作成する必要があります。
+一般に、コントローラーアクションのビューを返す場合は、コントローラーと同じ名前のサブフォルダーを Views フォルダーに作成する必要があります。 サブフォルダー内では、コントローラーアクションと同じ名前の .aspx ファイルを作成する必要があります。
 
-リスト 3 のファイルには、About.aspx ビューが含まれています。
+リスト3のファイルには、About .aspx ビューが含まれています。
 
-**3 - About.aspx を一覧表示します。**
+**リスト 3-About .aspx**
 
 [!code-aspx[Main](understanding-models-views-and-controllers-cs/samples/sample3.aspx)]
 
-リスト 3 の最初の行を無視する場合、ビューの残りの部分のほとんどは標準の HTML で構成されます。 ここでする任意の HTML を入力して、ビューの内容を変更できます。
+リスト3の最初の行を無視した場合、ビューの残りの部分のほとんどは標準の HTML で構成されます。 ここで必要な HTML を入力して、ビューの内容を変更できます。
 
-ビューは、Active Server Pages または ASP.NET Web フォーム内のページによく似ています。 ビューは、HTML コンテンツとスクリプトに含めることができます。 プログラミング言語 (たとえば、c# または Visual Basic .NET)、使い慣れた .NET で、スクリプトを記述することができます。 データベースのデータなどの動的なコンテンツを表示するのにには、スクリプトを使用します。
+ビューは Active Server ページまたは ASP.NET Web フォームのページによく似ています。 ビューには、HTML コンテンツとスクリプトを含めることができます。 任意の .NET プログラミング言語 (たとえば、 C#や Visual Basic .net) でスクリプトを記述できます。 スクリプトを使用して、データベースデータなどの動的なコンテンツを表示します。
 
-## <a name="understanding-models"></a>理解のモデル
+## <a name="understanding-models"></a>モデルについて
 
-コント ローラーについて説明し、ビューについて説明します。 説明が必要な最後のトピックでは、モデルです。 MVC モデルとは何ですか。
+コントローラーについて説明し、ビューについて説明しました。 最後に説明する必要のあるトピックは、モデルです。 MVC モデルとは
 
-MVC モデルには、ビューまたはコント ローラーに含まれていないこと、アプリケーション ロジックのすべてが含まれます。 モデルには、すべてのアプリケーションのビジネス ロジック、検証ロジックでは、データベース アクセス ロジックを含める必要があります。 たとえば、データベースにアクセスする Microsoft Entity Framework を使用する場合は、Models フォルダーに、Entity Framework クラス (.edmx ファイル) を作成は。
+MVC モデルには、ビューまたはコントローラーに含まれていないアプリケーションロジックがすべて含まれています。 モデルには、アプリケーションのビジネスロジック、検証ロジック、およびデータベースアクセスロジックがすべて含まれている必要があります。 たとえば、データベースにアクセスするために Microsoft Entity Framework を使用している場合は、Entity Framework クラス (.edmx ファイル) を [モデル] フォルダーに作成します。
 
-ビューには、ユーザー インターフェイスの生成に関連するロジックのみを含める必要があります。 コント ローラーには、右側のビューを返すか、別のアクション (フロー制御) にユーザーをリダイレクトするために必要なロジックの最低限ののみを含める必要があります。 他のすべては、モデルに含める必要があります。
+ビューには、ユーザーインターフェイスの生成に関連するロジックだけを含める必要があります。 コントローラーには、適切なビューを返す、またはユーザーを別のアクション (フロー制御) にリダイレクトするために必要な最小限のロジックのみが含まれている必要があります。 それ以外はすべてモデルに含まれている必要があります。
 
-一般に、fat モデルおよびスキニー コント ローラーよう努力する必要があります。 コント ローラーのメソッドは、数行のコードのみを含める必要があります。 コント ローラーのアクションが fat すぎる場合は、ロジックを行き来する、Models フォルダーに新しいクラスを検討してください。
+一般に、fat モデルと skinny コントローラーを使用することをお勧めします。 コントローラーメソッドには数行のコードのみを含める必要があります。 コントローラーアクションが大きすぎる場合は、[モデル] フォルダー内の新しいクラスにロジックを移動することを検討してください。
 
 ## <a name="summary"></a>まとめ
 
-このチュートリアルは、web アプリケーションで、ASP.NET MVC のさまざまな部分の高レベルな概要を提供します。 特定のコント ローラー アクションへ受信ブラウザー要求をマップ ASP.NET ルーティング方法を学習しました。 コント ローラーがブラウザーにビューを返す方法を調整する方法を学習しました。 最後に、モデルがアプリケーションの業務、検証、およびデータベース アクセス ロジックを含めることが方法を学習しました。
+このチュートリアルでは、ASP.NET MVC web アプリケーションのさまざまな部分について概要を説明しました。 ASP.NET Routing が着信ブラウザーの要求を特定のコントローラーアクションにマップする方法について学習しました。 コントローラーで、ビューがブラウザーに返される方法を調整する方法について学習しました。 最後に、モデルにアプリケーションのビジネス、検証、およびデータベースアクセスのロジックが含まれていることを学習しました。

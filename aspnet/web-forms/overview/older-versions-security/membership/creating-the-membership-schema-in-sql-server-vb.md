@@ -9,11 +9,11 @@ ms.assetid: 112a674d-716f-41a6-99b8-4074d65a54c0
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/creating-the-membership-schema-in-sql-server-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 96fd72d1f368b1f7947ef0a2293161d97aaf7065
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74580787"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78513046"
 ---
 # <a name="creating-the-membership-schema-in-sql-server-vb"></a>SQL Server でメンバーシップ スキーマを作成する (VB)
 
@@ -33,7 +33,7 @@ ASP.NET 2.0 より前の開発者は、これらのユーザーアカウント�
 
 このチュートリアルでは、まず、`SqlMembershipProvider`を使用するために必要なスキーマをデータベースに追加する方法を調べます。 ここでは、スキーマの主要なテーブルを調べ、その目的と重要性について説明します。 このチュートリアルでは、メンバーシップフレームワークが使用するプロバイダーを ASP.NET アプリケーションに通知する方法について説明します。
 
-では、始めましょう。
+作業開始
 
 ## <a name="step-1-deciding-where-to-place-the-user-store"></a>手順 1: ユーザーストアを配置する場所を決定する
 
@@ -46,7 +46,7 @@ ASP.NET アプリケーションのデータは、通常、データベース内
 
 ユーザーストアとアプリケーションデータを別々のデータベースに分離することは、それぞれが別々のデータベースを使用し、共通のユーザーストアを共有する必要がある複数のアプリケーションがある場合に、意味があります。
 
-### <a name="creating-a-database"></a>データベースの作成
+### <a name="creating-a-database"></a>データベースを作成します。
 
 2番目のチュートリアルで作成したアプリケーションは、まだデータベースを必要としていません。 ただし、ここではユーザーストアに対して1つが必要です。 1つを作成し、`SqlMembershipProvider` プロバイダーが必要とするスキーマを追加してみましょう (手順2を参照)。
 
@@ -202,13 +202,13 @@ ASP.NET アプリケーションでメンバーシップとロールのフレー
 
 パスワードを格納する列は、`Password`、`PasswordFormat`、および `PasswordSalt`です。 `PasswordFormat` は、パスワードを格納するために使用される方法を示す値を持つ `int` 型のフィールドです。空の場合は0です。ハッシュされる場合は1。2暗号化されます。 使用されるパスワードストレージの手法に関係なく、ランダムに生成された文字列が `PasswordSalt` に割り当てられます。`PasswordSalt` の値は、パスワードのハッシュを計算する場合にのみ使用されます。 最後に、[`Password`] 列には、実際のパスワードデータ、プレーンテキストのパスワード、パスワードのハッシュ、または暗号化されたパスワードを入力します。
 
-表1は、パスワード MySecret を格納するときに、これら3つの列がさまざまなストレージ手法でどのように表示されるかを示しています。 を確認しています。
+表1は、パスワード MySecret を格納するときに、これら3つの列がさまざまなストレージ手法でどのように表示されるかを示しています。 。
 
 | **ストレージ手法&lt;\_o3a\_p/&gt;** | **パスワード&lt;\_o3a\_p/&gt;** | **PasswordFormat&lt;\_o3a\_p/&gt;** | **PasswordSalt&lt;\_o3a\_p/&gt;** |
 | --- | --- | --- | --- |
-| クリア | MySecret! | 0 | tTnkPlesqissc2y2SMEygA = = |
-| ハッシュ | 2oXm6sZHWbTHFgjgkGQsc2Ec9ZM = | 1 | wFgjUfhdUFOCKQiI61vtiQ = = |
-| 暗号化 | 62RZgDvhxykkqsMchZ0Yly7HS6onhpaoCYaRxV8g0F4CW56OXUU3e7Inza9j9BKp | 2 | LSRzhGS/aa/oqAXGLHJNBw = = |
+| Clear | MySecret! | 0 | tTnkPlesqissc2y2SMEygA== |
+| ハッシュ | 2oXm6sZHWbTHFgjgkGQsc2Ec9ZM= | 1 | wFgjUfhdUFOCKQiI61vtiQ== |
+| Encrypted | 62RZgDvhxykkqsMchZ0Yly7HS6onhpaoCYaRxV8g0F4CW56OXUU3e7Inza9j9BKp | 2 | LSRzhGS/aa/oqAXGLHJNBw== |
 
 **表 1**: パスワード Mysecret を保存するときのパスワード関連のフィールドの値の例
 
@@ -247,20 +247,20 @@ ASP.NET アプリケーションでメンバーシップとロールのフレー
 | **&lt;の設定 \_o3a\_p/&gt;** | **説明&lt;\_o3a\_p/&gt;** |
 | --- | --- |
 | `ApplicationName` | メンバーシップフレームワークによって、単一のユーザーストアを複数のアプリケーションでパーティション分割できることを思い出してください。 この設定は、メンバーシッププロバイダーによって使用されるアプリケーションパーティションの名前を示します。 この値が明示的に指定されていない場合は、実行時にアプリケーションの仮想ルートパスの値に設定されます。 |
-| `commandTimeout` | SQL コマンドのタイムアウト値を秒単位で指定します。 既定値は、30 です。 |
+| `commandTimeout` | SQL コマンドのタイムアウト値を秒単位で指定します。 既定値は 30 です。 |
 | `connectionStringName` | ユーザーストアデータベースへの接続に使用する `<connectionStrings>` 要素内の接続文字列の名前。 この値は必須です。 |
 | `description` | 登録されているプロバイダーについてのわかりやすい説明を提供します。 |
-| `enablePasswordRetrieval` | ユーザーが忘れたパスワードを取得できるかどうかを指定します。 既定値は `false`です。 |
+| `enablePasswordRetrieval` | ユーザーが忘れたパスワードを取得できるかどうかを指定します。 既定値は `false` です。 |
 | `enablePasswordReset` | ユーザーがパスワードのリセットを許可されているかどうかを示します。 既定値は `true` です。 |
 | `maxInvalidPasswordAttempts` | ユーザーがロックアウトされる前に、指定された `passwordAttemptWindow` 中に特定のユーザーに対して失敗したログイン試行の最大回数。既定値は5です。 |
 | `minRequiredNonalphanumericCharacters` | ユーザーのパスワードに表示する必要がある英数字以外の文字の最小数。 この値は 0 ~ 128 の範囲で指定する必要があります。既定値は1です。 |
 | `minRequiredPasswordLength` | パスワードに必要な最小文字数。 この値は 0 ~ 128 の範囲で指定する必要があります。既定値は7です。 |
 | `name` | 登録されているプロバイダーの名前。 この値は必須です。 |
 | `passwordAttemptWindow` | 失敗したログイン試行が追跡される時間 (分単位)。 この指定した期間内にユーザーが無効なログイン資格情報を `maxInvalidPasswordAttempts` 入力した場合は、ロックアウトされます。既定値は10です。 |
-| `PasswordFormat` | パスワードの保存形式: `Clear`、`Hashed`、または `Encrypted`。 既定値は、 `Hashed`です。 |
+| `PasswordFormat` | パスワードの保存形式: `Clear`、`Hashed`、または `Encrypted`。 既定では、 `Hashed`です。 |
 | `passwordStrengthRegularExpression` | 指定されている場合、この正規表現を使用して、新しいアカウントを作成するとき、またはパスワードを変更するときに、ユーザーが選択したパスワードの強度を評価します。 既定値は空の文字列です。 |
-| `requiresQuestionAndAnswer` | パスワードを取得またはリセットするときに、ユーザーがセキュリティの質問に答える必要があるかどうかを指定します。 既定値は `true`です。 |
-| `requiresUniqueEmail` | 特定のアプリケーションパーティション内のすべてのユーザーアカウントが一意の電子メールアドレスを持つ必要があるかどうかを示します。 既定値は `true`です。 |
+| `requiresQuestionAndAnswer` | パスワードを取得またはリセットするときに、ユーザーがセキュリティの質問に答える必要があるかどうかを指定します。 既定値は `true` です。 |
+| `requiresUniqueEmail` | 特定のアプリケーションパーティション内のすべてのユーザーアカウントが一意の電子メールアドレスを持つ必要があるかどうかを示します。 既定値は `true` です。 |
 | `type` | プロバイダーの種類を指定します。 この値は必須です。 |
 
 **表 2**: メンバーシップと `SqlMembershipProvider` 構成設定
@@ -303,7 +303,7 @@ ASP.NET アプリケーションでメンバーシップとロールのフレー
 > [!NOTE]
 > メンバーシップフレームワークによって、単一のユーザーストアを複数のアプリケーションでパーティション分割できることを思い出してください。 メンバーシッププロバイダーの `applicationName` 設定は、ユーザーストアを操作するときにプロバイダーが使用するアプリケーションを示します。 `applicationName` が明示的に設定されていない場合は、実行時に web アプリケーションの仮想ルートパスに割り当てられるため、`applicationName` 構成設定の値を明示的に設定することが重要です。 アプリケーションの仮想ルートパスが変更されない限り、これは問題なく動作しますが、アプリケーションを別のパスに移動した場合、`applicationName` 設定も変わります。 この場合、メンバーシッププロバイダーは、以前に使用されていたものとは異なるアプリケーションパーティションを使用して作業を開始します。 移動前に作成されたユーザーアカウントは別のアプリケーションパーティションに存在するため、これらのユーザーはサイトにログインできなくなります。 この問題の詳細については、「 [ASP.NET 2.0 のメンバーシップとその他のプロバイダーを構成するときに常に `applicationName` プロパティを設定する](https://weblogs.asp.net/scottgu/443634)」を参照してください。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 この時点で、アプリケーションサービス (`SecurityTutorials.mdf`) が構成されたデータベースがあり、メンバーシップフレームワークが登録した `SecurityTutorialsSqlMembershipProvider` プロバイダーを使用するように web アプリケーションを構成しました。 この登録されたプロバイダーは `SqlMembershipProvider` 型で、`connectionStringName` が適切な接続文字列 (`SecurityTutorialsConnectionString`) に設定され、`applicationName` 値が明示的に設定されています。
 
@@ -311,7 +311,7 @@ ASP.NET アプリケーションでメンバーシップとロールのフレー
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -331,7 +331,7 @@ ASP.NET アプリケーションでメンバーシップとロールのフレー
 - [メンバーシップ スキーマと連動するように SQL を構成する](../../../videos/authentication/configuring-sql-to-work-with-membership-schemas.md)
 - [既定のメンバーシップ スキーマのメンバーシップ設定を変更する](../../../videos/authentication/changing-membership-settings-in-the-default-membership-schema.md)
 
-### <a name="about-the-author"></a>作成者について
+### <a name="about-the-author"></a>著者について
 
 1998以降、Microsoft の Web テクノロジを使用して、Scott Mitchell (複数の ASP/創設者4GuysFromRolla.com の執筆者) が Microsoft の Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は *[、ASP.NET 2.0 を24時間以内に教え](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* ています。 Scott は、 [mitchell@4guysfromrolla.com](mailto:mitchell@4guysfromrolla.com)またはブログで[http://ScottOnWriting.NET](http://scottonwriting.net/)にアクセスできます。
 

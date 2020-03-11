@@ -9,11 +9,11 @@ ms.assetid: 8be9a51b-ea6b-46c7-bfa2-476d9b14c24c
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 0ac5f71d519689a9dc84fb82a04196d520cca6e1
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74610388"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78443842"
 ---
 # <a name="creating-stored-procedures-and-user-defined-functions-with-managed-code-vb"></a>マネージド コードでストアド プロシージャとユーザー定義関数を作成する (VB)
 
@@ -136,7 +136,7 @@ SQL Server プロジェクトは、特定のデータベースに関連付けら
 
 ## <a name="step-4-deploying-the-managed-stored-procedure"></a>手順 4: マネージストアドプロシージャの配置
 
-このコードが完成すると、Northwind データベースにデプロイできるようになります。 SQL Server プロジェクトを配置すると、コードがアセンブリにコンパイルされ、アセンブリがデータベースに登録され、データベースに対応するオブジェクトが作成されて、アセンブリ内の適切なメソッドにリンクされます。 配置オプションによって実行されるタスクの正確なセットは、手順13でより正確に記述されます。 ソリューションエクスプローラーで `ManagedDatabaseConstructs` プロジェクト名を右クリックし、[配置] オプションを選択します。 ただし、配置は次のエラーで失敗します: ' EXTERNAL ' 付近に正しくない構文があります。 この機能を有効にするには、現在のデータベースの互換性レベルを高い値に設定することが必要になる場合があります。 ストアドプロシージャ `sp_dbcmptlevel`のヘルプを参照してください。
+このコードが完成すると、Northwind データベースにデプロイできるようになります。 SQL Server プロジェクトを配置すると、コードがアセンブリにコンパイルされ、アセンブリがデータベースに登録され、データベースに対応するオブジェクトが作成されて、アセンブリ内の適切なメソッドにリンクされます。 配置オプションによって実行されるタスクの正確なセットは、手順13でより正確に記述されます。 ソリューションエクスプローラーで `ManagedDatabaseConstructs` プロジェクト名を右クリックし、[配置] オプションを選択します。 ただし、配置は次のエラーで失敗します: ' EXTERNAL ' 付近に正しくない構文があります。 現在のデータベースの互換性レベルを高い値に設定し、この機能を有効にする必要があります。 ストアドプロシージャ `sp_dbcmptlevel`のヘルプを参照してください。
 
 このエラーメッセージは、アセンブリを Northwind データベースに登録しようとしたときに発生します。 SQL Server 2005 データベースにアセンブリを登録するには、データベースの互換性レベルを90に設定する必要があります。 既定では、新しい SQL Server 2005 データベースの互換性レベルは90です。 ただし、Microsoft SQL Server 2000 を使用して作成されたデータベースの既定の互換性レベルは80です。 Northwind データベースは最初 Microsoft SQL Server 2000 データベースであったため、その互換性レベルは現在は80に設定されているため、マネージデータベースオブジェクトを登録するには、90に上げる必要があります。
 
@@ -190,13 +190,13 @@ Clr enabled 構成が完了すると、マネージ `GetDiscontinuedProducts` �
 
 入力パラメーターを受け取るマネージストアドプロシージャを作成するには、メソッドの定義でこれらのパラメーターを指定するだけです。 これを説明するために、次のように `GetProductsWithPriceLessThan`という名前の `ManagedDatabaseConstructs` プロジェクトに別のマネージストアドプロシージャを追加します。 このマネージストアドプロシージャは、価格を指定する入力パラメーターを受け取り、`UnitPrice` フィールドがパラメーター s 値よりも小さいすべての製品を返します。
 
-新しいストアドプロシージャをプロジェクトに追加するには、`ManagedDatabaseConstructs` プロジェクト名を右クリックし、[新しいストアドプロシージャの追加] を選択します。 そのファイルに `GetProductsWithPriceLessThan.vb` という名前を付けます。 手順 3. で見たように、これにより、`Partial` クラス `StoredProcedures`内に配置された `GetProductsWithPriceLessThan` という名前のメソッドを使用して、新しい Visual Basic クラスファイルが作成されます。
+新しいストアドプロシージャをプロジェクトに追加するには、`ManagedDatabaseConstructs` プロジェクト名を右クリックし、[新しいストアドプロシージャの追加] を選択します。 このファイルには `GetProductsWithPriceLessThan.vb` という名前を付けます。 手順 3. で見たように、これにより、`Partial` クラス `StoredProcedures`内に配置された `GetProductsWithPriceLessThan` という名前のメソッドを使用して、新しい Visual Basic クラスファイルが作成されます。
 
 `GetProductsWithPriceLessThan` メソッドの定義を更新して、`price` という名前の[`SqlMoney`](https://msdn.microsoft.com/library/system.data.sqltypes.sqlmoney.aspx)入力パラメーターを受け取り、クエリ結果を実行して返すコードを記述します。
 
 [!code-vb[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample6.vb)]
 
-`GetProductsWithPriceLessThan` メソッドの定義とコードは、手順 3. で作成した `GetDiscontinuedProducts` メソッドの定義とコードによく似ています。 唯一の違いは、`GetProductsWithPriceLessThan` メソッドが入力パラメーターとして受け入れ (`price`)、`SqlCommand` s クエリにパラメーター (`@MaxPrice`) が含まれていること、およびパラメーターが `SqlCommand` s に追加され、`Parameters` の変数の値が割り当てられていることです。
+`GetProductsWithPriceLessThan` メソッドの定義とコードは、手順 3. で作成した `GetDiscontinuedProducts` メソッドの定義とコードによく似ています。 唯一の違いは、`GetProductsWithPriceLessThan` メソッドが入力パラメーターとして受け入れ (`price`)、`SqlCommand` s クエリにパラメーター (`@MaxPrice`) が含まれていること、およびパラメーターが `SqlCommand` s に追加され、`Parameters` の変数の値が割り当てられていることです。`price`
 
 このコードを追加した後、SQL Server プロジェクトを再デプロイします。 次に、SQL Server Management Studio に戻り、[ストアドプロシージャ] フォルダーを更新します。 新しいエントリが表示 `GetProductsWithPriceLessThan`ます。 図14に示すように、クエリウィンドウから、コマンド `exec GetProductsWithPriceLessThan 25`を入力して実行します。これにより、$25 未満のすべての製品が一覧表示されます。
 
@@ -448,7 +448,7 @@ Management Studio から、Northwind データベースの [プログラミン�
 
 **図 32**: オブジェクトエクスプローラーに `ManuallyCreatedDBObjects.dll` が表示されている ([クリックすると、フルサイズの画像が表示](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image78.png)されます)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 Microsoft SQL Server 2005 は、共通言語ランタイム (CLR) との統合を提供します。これにより、マネージコードを使用してデータベースオブジェクトを作成できます。 以前は、これらのデータベースオブジェクトは T-sql を使用してのみ作成できましたが、Visual Basic などの .NET プログラミング言語を使用してこれらのオブジェクトを作成できるようになりました。 このチュートリアルでは、2つのマネージストアドプロシージャとマネージユーザー定義関数を作成しました。
 
@@ -456,7 +456,7 @@ Visual Studio s SQL Server プロジェクトの種類により、マネージ�
 
 プログラミングを楽しんでください。
 
-## <a name="further-reading"></a>関連項目
+## <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -468,10 +468,10 @@ Visual Studio s SQL Server プロジェクトの種類により、マネージ�
 - [方法: `Test.sql` スクリプトを編集して SQL オブジェクトを実行する](https://msdn.microsoft.com/library/ms233682(VS.80).aspx)
 - [ユーザー定義関数の概要](http://www.sqlteam.com/item.asp?ItemID=1955)
 - [マネージコードと SQL Server 2005 (ビデオ)](https://channel9.msdn.com/Showpost.aspx?postid=142413)
-- [Transact-sql リファレンス](https://msdn.microsoft.com/library/aa299742(SQL.80).aspx)
+- [Transact-SQL リファレンス](https://msdn.microsoft.com/library/aa299742(SQL.80).aspx)
 - [チュートリアル: マネージコードでのストアドプロシージャの作成](https://msdn.microsoft.com/library/zxsa8hkf(VS.80).aspx)
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
@@ -480,4 +480,4 @@ Visual Studio s SQL Server プロジェクトの種類により、マネージ�
 このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビューアーは、Jacob Lauritsen でした。 この記事の内容を確認するだけでなく、この記事C#のダウンロードに含まれている Visual Express Edition プロジェクトを作成して、マネージデータベースオブジェクトを手動でコンパイルすることもできました。 今後の MSDN 記事を確認することに興味がありますか? その場合は、mitchell@4GuysFromRolla.comの行を削除[します。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [前へ](debugging-stored-procedures-vb.md)
+> [[戻る]](debugging-stored-procedures-vb.md)

@@ -9,11 +9,11 @@ ms.assetid: 3e20e64a-8808-4b49-88d6-014e2629d56f
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/efficiently-paging-through-large-amounts-of-data-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 0c788c4109d0d2839de969c628399290376a1ccd
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74612942"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78476962"
 ---
 # <a name="efficiently-paging-through-large-amounts-of-data-vb"></a>大量のデータを効率的にページングする (VB)
 
@@ -230,7 +230,7 @@ ObjectDataSource が現在、両方の `GetProductsPaged` `startRowIndex` と `m
 これを解決するには、カスタムページングを使用するように ObjectDataSource を構成する必要があります。 これは、次の手順で実現できます。
 
 1. **Objectdatasource s `EnablePaging` プロパティをに設定**します。これにより、`SelectMethod` 2 つの追加パラメーター (先頭行のインデックス ([`StartRowIndexParameterName`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.startrowindexparametername.aspx)) を指定するためのパラメーターと、最大行数を指定するパラメーター ([`MaximumRowsParameterName`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.maximumrowsparametername.aspx)) が `true`になります。
-2. **ObjectDataSource s `StartRowIndexParameterName` と `MaximumRowsParameterName` プロパティを設定**します。これにより `StartRowIndexParameterName` および `MaximumRowsParameterName` プロパティは、カスタムページングのために `SelectMethod` に渡される入力パラメーターの名前を示します。 既定では、これらのパラメーター名は `startIndexRow` および `maximumRows`ます。そのため、BLL で `GetProductsPaged` メソッドを作成するときに、入力パラメーターとしてこれらの値を使用しました。 `startIndex` や `maxRows`など、BLL の `GetProductsPaged` メソッドに異なるパラメーター名を使用することを選択した場合は、ObjectDataSource s `StartRowIndexParameterName` および `MaximumRowsParameterName` の maxRows (`StartRowIndexParameterName` の場合は startIndex など) に適宜設定する必要があります。
+2. **ObjectDataSource s `StartRowIndexParameterName` と `MaximumRowsParameterName` プロパティを設定**します。これにより `StartRowIndexParameterName` および `MaximumRowsParameterName` プロパティは、カスタムページングのために `SelectMethod` に渡される入力パラメーターの名前を示します。 既定では、これらのパラメーター名は `startIndexRow` および `maximumRows`ます。そのため、BLL で `GetProductsPaged` メソッドを作成するときに、入力パラメーターとしてこれらの値を使用しました。 `startIndex` や `maxRows`など、BLL の `GetProductsPaged` メソッドに異なるパラメーター名を使用することを選択した場合は、ObjectDataSource s `StartRowIndexParameterName` および `MaximumRowsParameterName` の maxRows (`StartRowIndexParameterName` の場合は startIndex など) に適宜設定する必要があります。`MaximumRowsParameterName`
 3. **ObjectDataSource s [`SelectCountMethod` プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selectcountmethod(VS.80).aspx)を、ページングされるレコードの総数 (`TotalNumberOfProducts`) を返すメソッドの名前に設定**します。 `ProductsBLL` クラス s `TotalNumberOfProducts` メソッドは、`SELECT COUNT(*) FROM Products` クエリを実行する DAL メソッドを使用して、ページングされているレコードの合計数を返します。 この情報は、ページングインターフェイスを正しく表示するために ObjectDataSource によって必要になります。
 4. ウィザードを使用して ObjectDataSource を構成するときに**objectdatasource s 宣言マークアップから `startRowIndex` および `maximumRows` `<asp:Parameter>` 要素を削除すると**、Visual Studio によって、`GetProductsPaged` メソッドの入力パラメーターに対して2つの `<asp:Parameter>` 要素が自動的に追加されます。 `EnablePaging` を `true`に設定すると、これらのパラメーターは自動的に渡されます。宣言構文にも含まれている場合、ObjectDataSource は、`GetProductsPaged` メソッドに*4*つのパラメーターを渡し、`TotalNumberOfProducts` メソッドに2つのパラメーターを渡すことを試みます。 これらの `<asp:Parameter>` 要素を削除し忘れた場合、ブラウザーを使用してページを閲覧すると、次のようなエラーメッセージが表示されます。 *ObjectDataSource ' ObjectDataSource1 ' は、パラメーター: startRowIndex, maximumRows を持つ非ジェネリックメソッド ' TotalNumberOfProducts ' を見つける*ことができませんでした。
 
@@ -298,16 +298,16 @@ ObjectDataSource が現在、両方の `GetProductsPaged` `startRowIndex` と `m
 
 [SQL Server 2005 を使用した ASP.NET 2.0 でのカスタムページングに関する](http://aspnet.4guysfromrolla.com/articles/031506-1.aspx)記事では、5万レコードを含むデータベーステーブルを使用してページングするときに、これら2つのページング手法のパフォーマンスの違いを示すために実行したいくつかのパフォーマンステストが含まれています。 これらのテストでは、( [SQL Profiler](https://msdn.microsoft.com/library/ms173757.aspx)を使用して) SQL Server レベルでクエリを実行する時間と、 [ASP.NET s トレース機能](https://msdn.microsoft.com/library/y13fw6we.aspx)を使用して ASP.NET ページでクエリを実行する時間の両方を確認しました。 これらのテストは、1つのアクティブなユーザーを使用して開発用ボックスで実行されているため、科学的なものではなく、一般的な web サイトのロードパターンを模倣していないことに注意してください。 とは異なり、結果は、十分な量のデータを処理するときの既定のページングとカスタムページングの実行時間の相対的な違いを示しています。
 
-|  | **平均実行時間 (秒)** | **読み取り** |
+|  | **平均実行時間 (秒)** | **Reads** |
 | --- | --- | --- |
 | **既定のページング SQL Profiler** | 1.411 | 383 |
 | **カスタムページング SQL Profiler** | 0.002 | 29 |
-| **既定のページング ASP.NET トレース** | 2.379 | *該当なし* |
-| **カスタムページング ASP.NET トレース** | 0.029 | *該当なし* |
+| **既定のページング ASP.NET トレース** | 2.379 | *N/A* |
+| **カスタムページング ASP.NET トレース** | 0.029 | *N/A* |
 
 ご覧のように、データの特定のページを取得するには、平均で354回の読み取りを必要とし、時間の経過と共に完了する必要があります。 ASP.NET ページでは、ページを既定のページングを使用したときに要した時間<sup>を1/100 に</sup>近づけることができました。 これらの結果の詳細については、「[マイ記事](http://aspnet.4guysfromrolla.com/articles/031506-1.aspx)」を参照してください。コードとデータベースをダウンロードして、独自の環境でこれらのテストを再現することができます。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 既定のページングは、データ Web コントロールのスマートタグの [ページングを有効にする] チェックボックスをオンにするだけで実装するたいしたですが、このような単純さにはパフォーマンスのコストが伴います。 既定のページングでは、ユーザーがデータの任意のページを要求したときに、すべてのレコードが表示される場合がありますが、*すべて*のレコードが返されます。 このパフォーマンスのオーバーヘッドを回避するために、ObjectDataSource では、別のページングオプションのカスタムページングが提供されています。
 
@@ -317,7 +317,7 @@ ObjectDataSource が現在、両方の `GetProductsPaged` `startRowIndex` と `m
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 

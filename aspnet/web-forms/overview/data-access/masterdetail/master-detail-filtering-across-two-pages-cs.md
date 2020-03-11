@@ -9,11 +9,11 @@ ms.assetid: 552d2d50-fe73-4153-9a7f-2b379bec4625
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-across-two-pages-cs
 msc.type: authoredcontent
 ms.openlocfilehash: ccb3bfa5f215ba6e65b8a10b40041d5c2896c7e3
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74620412"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78424876"
 ---
 # <a name="masterdetail-filtering-across-two-pages-c"></a>2 つのページでマスター/詳細をフィルター処理する (C#)
 
@@ -114,7 +114,7 @@ GridView 行にバインドされている基になるデータに基づいて�
 
 **図 11**: `SupplierID` Querystring 値から *`supplierID`* パラメーター値を設定する ([クリックしてフルサイズのイメージを表示する](master-detail-filtering-across-two-pages-cs/_static/image31.png))
 
-必要な作業は以上です。 図12は、`SupplierListMaster.aspx`から [東京 Traders] リンクをクリックしてアクセスしたときの `ProductsForSupplierDetails.aspx` ページを示しています。
+これですべて完了です。 図12は、`SupplierListMaster.aspx`から [東京 Traders] リンクをクリックしてアクセスしたときの `ProductsForSupplierDetails.aspx` ページを示しています。
 
 [東京 Traders 社によって提供される製品が ![表示されます。](master-detail-filtering-across-two-pages-cs/_static/image33.png)](master-detail-filtering-across-two-pages-cs/_static/image32.png)
 
@@ -168,7 +168,7 @@ GridView 行にバインドされている基になるデータに基づいて�
 
 **図 18**: 業者が製品を提供していないことがユーザーに通知される ([クリックすると、フルサイズの画像が表示](master-detail-filtering-across-two-pages-cs/_static/image52.png)されます)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 マスター/詳細レポートでは、マスターレコードと詳細レコードの両方を1ページに表示できますが、多くの web サイトでは、2つの web ページに分割されています。 このチュートリアルでは、このようなマスター/詳細レポートを実装する方法について説明しました。これには、"マスター" web ページの GridView にサプライヤーを一覧表示し、[詳細] ページに一覧表示されている関連製品を表示します。 マスター web ページの各 supplier 行には、行の `SupplierID` 値に従って渡された詳細ページへのリンクが含まれていました。 このような行固有のリンクは、GridView の [ハイパーリンク] フィールドを使用して簡単に追加できます。
 
@@ -178,7 +178,7 @@ GridView 行にバインドされている基になるデータに基づいて�
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
