@@ -10,11 +10,11 @@ ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity
 msc.type: authoredcontent
 ms.openlocfilehash: 21baedf6285b411f89627df9ca25d47a2a42e387
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519103"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78472222"
 ---
 # <a name="overview-of-custom-storage-providers-for-aspnet-identity"></a>ASP.NET Identity のカスタム ストレージ プロバイダーの概要
 
@@ -250,18 +250,18 @@ Microsoft の Identity. EntityFramework 名前空間[には、](https://msdn.mic
 <a id="other"></a>
 ## <a name="other-resources"></a>その他のリソース
 
-- ブログ: [ASP.NET Identity の実装](http://odetocode.com/blogs/scott/archive/2014/01/20/implementing-asp-net-identity.aspx)
-- チュートリアルと GIT コード: [Simple. Data Asp.Net Id Provider](http://designcoderelease.blogspot.co.uk/2015/03/simpledata-aspnet-identity-provider.html)
+- ブログ:[ASP.NET Identity の実装](http://odetocode.com/blogs/scott/archive/2014/01/20/implementing-asp-net-identity.aspx)
+- チュートリアルと GIT コード:[Simple. Data Asp.Net Id プロバイダー](http://designcoderelease.blogspot.co.uk/2015/03/simpledata-aspnet-identity-provider.html)
 - チュートリアル:[基本的な id アカウントを設定し、外部 DB でポイント](http://typecastexception.com/post/2013/10/27/Configuring-Db-Connection-and-Code-First-Migration-for-Identity-Accounts-in-ASPNET-MVC-5-and-Visual-Studio-2013.aspx)する。 [@xivSolutions](https://twitter.com/xivSolutions)。
-- チュートリアル[: カスタム MySQL ASP.NET Identity ストレージプロバイダーの実装](implementing-a-custom-mysql-aspnet-identity-storage-provider.md)
+- チュートリアル[:カスタム MySQL ASP.NET Identity ストレージプロバイダーの実装](implementing-a-custom-mysql-aspnet-identity-storage-provider.md)
 - [Softfluent](http://www.softfluent.com/)による[Codefluent エンティティ](http://blog.codefluententities.com/2014/04/30/asp-net-identity-v2-and-codefluent-entities/)
 - [Azure Table Storage](https://www.nuget.org/packages/accidentalfish.aspnet.identity.azure/) James randall)。
-- Azure Table Storage: [@stuartleeks](https://twitter.com/stuartleeks)による[tablestorage](https://github.com/stuartleeks/leeksnet.AspNet.Identity.TableStorage) 。
+- Azure Table Storage:[AspNet. TableStorage](https://github.com/stuartleeks/leeksnet.AspNet.Identity.TableStorage) [@stuartleeks](https://twitter.com/stuartleeks)します。
 - [CouchDB/Cloudant by Daniel Wertheim。](https://github.com/danielwertheim/mycouch.aspnet.identity)
-- エラスティック Searc h: Bombsquad AB による[エラスティック id](https://github.com/bmbsqd/elastic-identity) 。
+- エラスティック Searc[h:Bombsquad AB によって](https://github.com/bmbsqd/elastic-identity) エラスティック Id。
 - Jonathan Sheely Jonathan Sheely による[MongoDB](http://www.nuget.org/packages/MongoDB.AspNet.Identity/) 。
 - [N](https://github.com/milesibastos/NHibernate.AspNet.Identity) Io ミル Esi Bastos によって Id が識別されます。
 - [@tourismgeek](https://twitter.com/tourismgeek)による[RavenDB](http://www.nuget.org/packages/AspNet.Identity.RavenDB/1.0.0) 。
 - [RavenDB](https://github.com/ILMServices/RavenDB.AspNet.Identity) [ilmservices](http://www.ilmservice.com/)によって識別されます。
-- Redis: [redis. Identity](https://github.com/aminjam/Redis.AspNet.Identity)
-- "データベースの最初の" ユーザーストアの EF コードを生成する T4 テンプレート: [AspNet. Identity. EntityFramework](https://github.com/cbfrank/AspNet.Identity.EntityFramework)
+- Cache[Redis. AspNet. Identity](https://github.com/aminjam/Redis.AspNet.Identity)
+- "Database first" ユーザーストアの EF コードを生成する T4 テンプレート:[AspNet. EntityFramework](https://github.com/cbfrank/AspNet.Identity.EntityFramework)

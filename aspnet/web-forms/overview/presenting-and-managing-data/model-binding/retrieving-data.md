@@ -9,11 +9,11 @@ ms.assetid: 9f24fb82-c7ac-48da-b8e2-51b3da17e365
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/retrieving-data
 msc.type: authoredcontent
 ms.openlocfilehash: 81cca22cb4752d071d2a68986ae9ac2bed737594
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74633170"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78520024"
 ---
 # <a name="retrieving-and-displaying-data-with-model-binding-and-web-forms"></a>モデルバインドと web フォームを使用したデータの取得と表示
 
@@ -121,7 +121,7 @@ ms.locfileid: "74633170"
 
 このチュートリアルでは、 [Code First Migrations](https://docs.microsoft.com/ef/ef6/modeling/code-first/migrations/)を使用してオブジェクトとデータベーステーブルを作成します。 これらのテーブルには、学生とそのコースに関する情報が格納されます。
 
-   1. [**ツール** > **NuGet パッケージマネージャー** > **パッケージマネージャーコンソール**] を選択します。
+   1. **[ツール]**  >  **[NuGet パッケージ マネージャー]**  >  **[パッケージ マネージャー コンソール]** の順に選択します。
 
    2. **パッケージマネージャーコンソール**で、次のコマンドを実行します。  
       `enable-migrations -ContextTypeName ContosoUniversityModelBinding.Models.SchoolContext`
@@ -158,7 +158,7 @@ ms.locfileid: "74633170"
 
    [!code-aspx-csharp[Main](retrieving-data/samples/sample6.aspx)]
 
-   注意点:
+   注意する点:
    * GridView 要素の `SelectMethod` プロパティに設定されている値に注目してください。 この値は、次の手順で作成する GridView データを取得するために使用するメソッドを指定します。 
    
    * `ItemType` プロパティは、前に作成した `Student` クラスに設定されます。 この設定により、マークアップでクラスのプロパティを参照できます。 たとえば、`Student` クラスには、`Enrollments`という名前のコレクションがあります。 `Item.Enrollments` を使用してそのコレクションを取得し、 [LINQ 構文](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq)を使用して各学生の登録済みクレジットの合計を取得することができます。

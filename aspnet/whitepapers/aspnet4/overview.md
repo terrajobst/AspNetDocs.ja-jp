@@ -9,11 +9,11 @@ ms.assetid: d7729af4-1eda-4ff2-8b61-dbbe4fc11d10
 msc.legacyurl: /whitepapers/aspnet4
 msc.type: content
 ms.openlocfilehash: ecde48f6bd88ee5f569bfeb8b70c26a50bc869c2
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74576870"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78511432"
 ---
 # <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 と Visual Studio 2010 Web 開発の概要
 
@@ -980,7 +980,7 @@ ASP.NET 2.0 以降のバージョンでは、XHTML 標準に準拠するため�
 - *Login*
 - *PasswordRecovery*
 - *ChangePassword*
-- *画面*
+- *ウィザード*
 - *CreateUserWizard*
 
 *Renderoutertable*という名前の新しいプロパティがこれらのコントロールに追加され、外部テーブルをマークアップから削除できるようになりました。 たとえば、次の*FormView*コントロールの例を考えてみます。
@@ -1081,7 +1081,7 @@ ASP.NET *Wizard*および*CreateUserWizard*コントロールは、レンダリ�
 
 [!code-html[Main](overview/samples/sample88.html)]
 
-ASP.NET 3.5 SP1 では、テンプレートの内容を変更することはできますが、*ウィザード*コントロールの出力の制御は制限されています。 ASP.NET 4 では、 *LayoutTemplate*テンプレートを作成し、(予約された名前を使用して)*プレースホルダー*コントロールを挿入して、*ウィザードコントロール*のレンダリング方法を指定できます。 次に例を示します。
+ASP.NET 3.5 SP1 では、テンプレートの内容を変更することはできますが、*ウィザード*コントロールの出力の制御は制限されています。 ASP.NET 4 では、 *LayoutTemplate*テンプレートを作成し、(予約された名前を使用して)*プレースホルダー*コントロールを挿入して、*ウィザードコントロール*のレンダリング方法を指定できます。 次の例はこのことを示します。
 
 [!code-aspx[Main](overview/samples/sample89.aspx)]
 

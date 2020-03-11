@@ -9,11 +9,11 @@ ms.assetid: 9ef3e893-bebe-4b13-9fe5-8b71720dd85e
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/creating-user-accounts-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 01be198c329f372ddcd529ad8a369f2d3426a9fc
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74628460"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78474286"
 ---
 # <a name="creating-user-accounts-vb"></a>ユーザー アカウントを作成する (VB)
 
@@ -29,7 +29,7 @@ ms.locfileid: "74628460"
 
 新しいユーザーアカウントを作成する方法を学習するだけでなく、フォーム認証 *<a id="_msoanchor_2"></a>[の概要](../introduction/an-overview-of-forms-authentication-vb.md)* に関するチュートリアルで最初に作成したデモ web サイトを更新し、 *<a id="_msoanchor_3"></a>[フォーム認証の構成と高度なトピック](../introduction/forms-authentication-configuration-and-advanced-topics-vb.md)* のチュートリアルで強化する必要もあります。 デモ web アプリケーションには、ハードコーディングされたユーザー名とパスワードのペアに対してユーザーの資格情報を検証するログインページがあります。 さらに、`Global.asax` には、認証されたユーザーのカスタム `IPrincipal` と `IIdentity` オブジェクトを作成するコードが含まれています。 ログインページを更新して、メンバーシップフレームワークに対してユーザーの資格情報を検証し、カスタムプリンシパルと id ロジックを削除します。
 
-では、始めましょう。
+作業開始
 
 ## <a name="the-forms-authentication-and-membership-checklist"></a>フォーム認証とメンバーシップのチェックリスト
 
@@ -169,7 +169,7 @@ ASP.NET には、ユーザーインターフェイスを設計するためのナ
 
 **図 6**:さまざまな Web コントロールを `CreatingUserAccounts.aspx Page` に追加します ([クリックすると、フルサイズの画像が表示](creating-user-accounts-vb/_static/image18.png)されます)
 
-`SecurityQuestion` ラベルと `SecurityAnswer` テキストボックスは、事前に定義されたセキュリティの質問を表示し、ユーザーの回答を収集することを目的としています。 セキュリティの質問と回答はユーザーごとに保存されるので、各ユーザーが独自のセキュリティの質問を定義できるようにすることができます。 ただし、この例では、ユニバーサルセキュリティの質問を使用することにしました。好きな色は何ですか?
+`SecurityQuestion` ラベルと `SecurityAnswer` テキストボックスは、事前に定義されたセキュリティの質問を表示し、ユーザーの回答を収集することを目的としています。 セキュリティの質問と回答はユーザーごとに保存されるので、各ユーザーが独自のセキュリティの質問を定義できるようにすることができます。 ただし、この例では、ユニバーサルセキュリティの質問を使用することにしました。好きな色は何ですか。
 
 この事前定義されたセキュリティの質問を実装するには、`passwordQuestion`という名前のページの分離コードクラスに定数を追加し、それにセキュリティの質問を割り当てます。 次に、`Page_Load` イベントハンドラーで、この定数を `SecurityQuestion` ラベルの `Text` プロパティに割り当てます。
 
@@ -337,7 +337,7 @@ CreateUserWizard コントロールに入力したユーザー名とパスワー
 - [マスターページとサイトナビゲーション](https://asp.net/learn/data-access/tutorial-03-vb.aspx)
 - [待機している SQL サイトマッププロバイダー](https://msdn.microsoft.com/msdnmag/issues/06/02/WickedCode/default.aspx)
 
-### <a name="about-the-author"></a>作成者について
+### <a name="about-the-author"></a>著者について
 
 1998以降、Microsoft の Web テクノロジを使用して、Scott Mitchell (複数の ASP/創設者4GuysFromRolla.com の執筆者) が Microsoft の Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は *[、ASP.NET 2.0 を24時間以内に教え](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* ています。 Scott は、 [mitchell@4guysfromrolla.com](mailto:mitchell@4guysfromrolla.com)またはブログで[http://ScottOnWriting.NET](http://scottonwriting.net/)にアクセスできます。
 

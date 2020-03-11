@@ -9,11 +9,11 @@ ms.assetid: f175278c-6079-4d91-b9b4-2493ed43d9ec
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/creating-user-accounts-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 955592320e7d36c7ae3b9c03a361bee2183f1776
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74625480"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78512980"
 ---
 # <a name="creating-user-accounts-c"></a>ユーザー アカウントを作成する (C#)
 
@@ -29,7 +29,7 @@ ms.locfileid: "74625480"
 
 新しいユーザーアカウントを作成する方法を学習するだけでなく、 *<a id="_msoanchor_2"></a>[フォーム認証の概要](../introduction/an-overview-of-forms-authentication-cs.md)* に関するチュートリアルで最初に作成したデモ web サイトを更新し、 *<a id="https://www.asp.net/learn/security/tutorial-03-cs.aspx"></a>フォーム認証の構成と高度なトピック*のチュートリアルで強化する必要もあります。 デモ web アプリケーションには、ハードコーディングされたユーザー名とパスワードのペアに対してユーザーの資格情報を検証するログインページがあります。 さらに、`Global.asax` には、認証されたユーザーのカスタム `IPrincipal` と `IIdentity` オブジェクトを作成するコードが含まれています。 ログインページを更新して、メンバーシップフレームワークに対してユーザーの資格情報を検証し、カスタムプリンシパルと id ロジックを削除します。
 
-では、始めましょう。
+作業開始
 
 ## <a name="the-forms-authentication-and-membership-checklist"></a>フォーム認証とメンバーシップのチェックリスト
 
@@ -334,7 +334,7 @@ CreateUserWizard コントロールに入力したユーザー名とパスワー
 - [マスターページとサイトナビゲーション](https://asp.net/learn/data-access/tutorial-03-vb.aspx)
 - [待機している SQL サイトマッププロバイダー](https://msdn.microsoft.com/msdnmag/issues/06/02/WickedCode/default.aspx)
 
-### <a name="about-the-author"></a>作成者について
+### <a name="about-the-author"></a>著者について
 
 1998以降、Microsoft の Web テクノロジを使用して、Scott Mitchell (複数の ASP/創設者4GuysFromRolla.com の執筆者) が Microsoft の Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は *[、ASP.NET 2.0 を24時間以内に教え](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* ています。 Scott は、 [mitchell@4guysfromrolla.com](mailto:mitchell@4guysfromrolla.com)またはブログで[http://ScottOnWriting.NET](http://scottonwriting.net/)にアクセスできます。
 

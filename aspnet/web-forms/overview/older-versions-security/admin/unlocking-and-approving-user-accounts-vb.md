@@ -9,11 +9,11 @@ ms.assetid: 041854a5-ea8c-4de0-82f1-121ba6cb2893
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/unlocking-and-approving-user-accounts-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 4a7474676b8f502c583e226678de2b275e0ea3c7
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74590590"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78517732"
 ---
 # <a name="unlocking-and-approving-user-accounts-vb"></a>ユーザー アカウントをロック解除し、承認する (VB)
 
@@ -184,7 +184,7 @@ CreateUserWizard コントロールから電子メールを送信するには、
 
 プログラミングを楽しんでください。
 
-### <a name="about-the-author"></a>作成者について
+### <a name="about-the-author"></a>著者について
 
 1998以降、Microsoft の Web テクノロジを使用して、Scott Mitchell (複数の ASP/創設者4GuysFromRolla.com の執筆者) が Microsoft の Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は *[、ASP.NET 2.0 を24時間以内に教え](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* ています。 Scott は、 [mitchell@4guysfromrolla.com](mailto:mitchell@4guysfromrolla.com)またはブログで[http://ScottOnWriting.NET](http://scottonwriting.net/)にアクセスできます。
 

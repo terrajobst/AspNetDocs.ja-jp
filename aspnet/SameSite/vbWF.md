@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 2/15/2019
 uid: samesite/vbWF
 ms.openlocfilehash: 8979edecc5acf7dac81b9f53d31af00389f4727c
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77458385"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78438436"
 ---
 # <a name="samesite-cookie-sample-for-aspnet-472-vb-webforms"></a>ASP.NET 4.7.2 VB WebForms の SameSite cookie サンプル
 .NET Framework 4.7 には[SameSite](https://www.owasp.org/index.php/SameSite)属性のサポートが組み込まれていますが、元の標準に準拠しています。
