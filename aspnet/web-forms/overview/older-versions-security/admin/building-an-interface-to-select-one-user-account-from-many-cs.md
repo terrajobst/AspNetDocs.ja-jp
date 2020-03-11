@@ -9,11 +9,11 @@ ms.assetid: 9e4e687c-b4ec-434f-a4ef-edb0b8f365e4
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 8057cfbcd33c74376076363bc27940cebd522c08
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74576002"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78522028"
 ---
 # <a name="building-an-interface-to-select-one-user-account-from-many-c"></a>多くの中からユーザー アカウントを 1 つ選択するインターフェイスを構築する (C#)
 
@@ -29,7 +29,7 @@ ms.locfileid: "74576002"
 
 このチュートリアルでは、このようなユーザーインターフェイスを作成します。 特に、ユーザーインターフェイスは、ユーザー名の開始文字に基づいて結果をフィルター処理するための一連のリンクボタンと、一致するユーザーを表示する GridView コントロールで構成されています。 まず、GridView のすべてのユーザーアカウントを一覧表示します。 次に、手順3では、[LinkButtons] フィルターを追加します。 手順 4. では、フィルター処理された結果がページングされます。 手順 2. ~ 4. で作成したインターフェイスは、その後のチュートリアルで特定のユーザーアカウントの管理タスクを実行するために使用されます。
 
-では、始めましょう。
+作業開始
 
 ## <a name="step-1-adding-new-aspnet-pages"></a>手順 1: 新しい ASP.NET ページを追加する
 
@@ -218,13 +218,13 @@ GridView は、ObjectDataSource コントロールにバインドされている
 
 **図 9**: 次のリンクをクリックすると、ユーザーアカウントの2ページ目が表示されます ([クリックすると、フルサイズの画像が表示](building-an-interface-to-select-one-user-account-from-many-cs/_static/image27.png)されます)
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 管理者は、多くの場合、アカウントの一覧からユーザーを選択する必要があります。 前のチュートリアルでは、ユーザーに設定されたドロップダウンリストの使用について説明しましたが、この方法はうまくいきません。 このチュートリアルでは、結果がページングされた GridView に表示されるフィルター可能なインターフェイスである、より優れた代替方法について説明します。 このユーザーインターフェイスを使用すると、管理者は数千単位で1つのユーザーアカウントをすばやく効率的に検索して選択できます。
 
 プログラミングを楽しんでください。
 
-### <a name="further-reading"></a>関連項目
+### <a name="further-reading"></a>参考資料
 
 このチュートリアルで説明しているトピックの詳細については、次のリソースを参照してください。
 
@@ -232,7 +232,7 @@ GridView は、ObjectDataSource コントロールにバインドされている
 - [大量のデータを効率的にページングする](https://asp.net/learn/data-access/tutorial-25-cs.aspx)
 - [独自の Web サイト管理ツールのロール](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
 
-### <a name="about-the-author"></a>作成者について
+### <a name="about-the-author"></a>著者について
 
 1998以降、Microsoft の Web テクノロジを使用して、Scott Mitchell (複数の ASP/創設者4GuysFromRolla.com の執筆者) が Microsoft の Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は *[、ASP.NET 2.0 を24時間以内に教え](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* ています。 Scott は、 [mitchell@4guysfromrolla.com](mailto:mitchell@4guysfromrolla.com)またはブログで[http://ScottOnWriting.NET](http://scottonwriting.net/)にアクセスできます。
 
@@ -241,4 +241,4 @@ GridView は、ObjectDataSource コントロールにバインドされている
 このチュートリアルシリーズは、役に立つ多くのレビュー担当者によってレビューされました。 このチュートリアルのリードレビューアーは Alicja Maziarz でした。 今後の MSDN 記事を確認することに興味がありますか? その場合は、 [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)の行を削除します。
 
 > [!div class="step-by-step"]
-> [次へ](recovering-and-changing-passwords-cs.md)
+> [Next](recovering-and-changing-passwords-cs.md)

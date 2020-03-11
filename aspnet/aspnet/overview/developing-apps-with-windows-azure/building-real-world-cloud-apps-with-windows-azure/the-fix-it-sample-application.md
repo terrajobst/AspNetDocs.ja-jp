@@ -9,11 +9,11 @@ ms.assetid: 1bc333c5-f096-4ea7-b170-779accc21c1a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 msc.type: authoredcontent
 ms.openlocfilehash: 896196bdb6a6b0d12a6c798ead510e37dd38a9fc
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77456882"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78471394"
 ---
 # <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>付録: Fix It サンプルアプリケーション (Azure を使用した実際のクラウドアプリの構築)
 
@@ -39,7 +39,7 @@ ms.locfileid: "77456882"
 
 次の一覧には、実稼働アプリケーションで対処する必要がある問題が含まれていますが、1つの理由として、Fix It サンプルアプリケーションの最初のリリースでは対応していないと判断しました。
 
-### <a name="security"></a>セキュリティ
+### <a name="security"></a>Security
 
 - 存在しない所有者にタスクを割り当てることができないようにしてください。
 - 作成したタスク、または自分に割り当てられたタスクだけを表示および変更できることを確認します。
@@ -96,7 +96,7 @@ ASP.NET を使用すると、ユーザー入力テキストボックスにスク
 
 AutoFac によって `FixItTaskRepository` インスタンスが自動的に破棄されるので、明示的に破棄する必要がないことに注意してください。
 
-もう1つのオプションは、`FixItTaskRepository`から `DbContext` メンバー変数を削除し、`using` ステートメント内で各リポジトリメソッド内にローカル `DbContext` 変数を作成することです。 例 :
+もう1つのオプションは、`FixItTaskRepository`から `DbContext` メンバー変数を削除し、`using` ステートメント内で各リポジトリメソッド内にローカル `DbContext` 変数を作成することです。 次に例を示します。
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample2.cs)]
 
@@ -249,7 +249,7 @@ Fix It アプリを実行するには、次の2つの方法があります。
    3. ソリューションエクスプローラーで、FixIt ソリューションを右クリックし、**プロパティ** を選択します。
    4. **[マルチスタートアッププロジェクト]** を選択します。
    5. MyFixIt と MyFixItCloudService の下の **アクション** ドロップダウンリストで、**開始** を選択します。
-   6. **[OK]** をクリックすると、
+   6. **[OK]** をクリックします。
    7. **F5** キーを押して両方のプロジェクトを実行します。
 
       MyFixItCloudService プロジェクトを実行すると、Visual Studio によって Azure コンピューティングエミュレーターが起動されます。 ファイアウォールの構成によっては、エミュレーターをファイアウォールで許可することが必要になる場合があります。
@@ -322,7 +322,7 @@ Fix It アプリを実行するには、次の2つの方法があります。
     スクリプトが失敗した場合、またはエラーが発生した場合 ("New-AzureWebsite: Call Set-Azurewebsite and Select-Azurewebsite first" など)、Azure PowerShell の構成が完了していない可能性があります。
 
     スクリプトが完了したら、[[すべて自動化](automate-everything.md)] の章に示されているように、Azure 管理ポータルを使用して、作成されたリソースを確認できます。
-10. 新しい Azure 環境に FixIt プロジェクトをデプロイするには、 *Azurewebsite. ps1*スクリプトを使用します。 例 :
+10. 新しい Azure 環境に FixIt プロジェクトをデプロイするには、 *Azurewebsite. ps1*スクリプトを使用します。 次に例を示します。
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample28.cmd)]
 

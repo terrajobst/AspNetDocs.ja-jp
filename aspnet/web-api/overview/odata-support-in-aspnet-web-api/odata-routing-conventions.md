@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-routing-conventions
-title: ルーティング規則では、ASP.NET Web API 2 Odata - ASP.NET 4.x
+title: ASP.NET Web API 2 でのルーティング規則-ASP.NET 4.x
 author: MikeWasson
-description: OData エンドポイントの ASP.NET 4.x でその Web API 2 のルーティング規約をについて説明します。
+description: ASP.NET 4.x の Web API 2 が OData エンドポイントに使用するルーティング規則について説明します。
 ms.author: riande
 ms.date: 07/31/2013
 ms.custom: seoapril2019
@@ -10,173 +10,173 @@ ms.assetid: adbc175a-14eb-4ab2-a441-d056ffa8266f
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-routing-conventions
 msc.type: authoredcontent
 ms.openlocfilehash: 63df4a82cd8df92631485b2544117844cfd0ca56
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130463"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78498196"
 ---
-# <a name="routing-conventions-in-aspnet-web-api-2-odata"></a>ルーティング規則では、ASP.NET Web API 2 Odata
+# <a name="routing-conventions-in-aspnet-web-api-2-odata"></a>ASP.NET Web API 2 Odata でのルーティング規則
 
-作成者[Mike Wasson](https://github.com/MikeWasson)
+[Mike Wasson](https://github.com/MikeWasson)
 
-> この記事には、OData エンドポイントの ASP.NET 4.x でその Web API 2 のルーティング規則がについて説明します。
+> この記事では、ASP.NET 4.x の Web API 2 が OData エンドポイントに使用するルーティング規則について説明します。
 
-Web API OData の要求を取得、コント ローラー名とアクション名を要求がマップされます。 マッピングは、HTTP メソッドと URI に基づきます。 たとえば、`GET /odata/Products(1)`マップ`ProductsController.GetProduct`します。
+Web API が OData 要求を取得すると、コントローラー名とアクション名に要求がマップされます。 マッピングは、HTTP メソッドと URI に基づいています。 たとえば、`GET /odata/Products(1)` は `ProductsController.GetProduct`にマップされます。
 
-この記事のパート 1 で、組み込みの OData ルーティング規約を取り上げます。 これらの規則は、OData エンドポイントの向けに設計し、既定の Web API ルーティング システムを置換します。 (呼び出した場合、置換の出力**MapODataRoute**)。
+この記事のパート1では、組み込みの OData ルーティング規則について説明します。 これらの規則は、特に OData エンドポイント専用に設計されており、既定の Web API ルーティングシステムを置き換えます。 (置換は**MapODataRoute**を呼び出すと発生します)。
 
-第 2 部では、カスタム ルーティング規則を追加する方法を紹介します。 現在、組み込みの規則には、OData Uri の全体範囲は取り上げませんが、その他の問題を処理する際に拡張することができます。
+パート2では、カスタムルーティング規則を追加する方法について説明します。 現時点では、組み込み規則は OData Uri の範囲全体をカバーしていませんが、追加のケースを処理するように拡張することができます。
 
-- [組み込みのルーティング規約](#conventions)
-- [カスタム ルーティング規約](#custom)
+- [組み込みのルーティング規則](#conventions)
+- [カスタムルーティング規則](#custom)
 
 <a id="conventions"></a>
-## <a name="built-in-routing-conventions"></a>組み込みのルーティング規約
+## <a name="built-in-routing-conventions"></a>組み込みのルーティング規則
 
-Web API での OData ルーティング規約を説明する前に、OData Uri を理解することをお勧めします。 [OData URI](http://www.odata.org/documentation/odata-v3-documentation/url-conventions/)で構成されます。
+Web API で OData ルーティング規則を記述する前に、OData Uri について理解しておくことをお勧めします。 [ODATA URI](http://www.odata.org/documentation/odata-v3-documentation/url-conventions/)は次の要素で構成されます。
 
-- サービス ルート
-- リソース パス
+- サービスルート
+- リソースパス
 - クエリ オプション
 
 ![](odata-routing-conventions/_static/image1.png)
 
-ルーティングの重要な部分は、リソース パスです。 リソース パスは、セグメントに分割されます。 たとえば、`/Products(1)/Supplier`が 3 つのセグメント。
+ルーティングの場合、重要な部分はリソースパスです。 リソースパスはセグメントに分割されます。 たとえば、`/Products(1)/Supplier` には次の3つのセグメントがあります。
 
-- `Products` "Products"という名前のエンティティ セットを指します。
-- `1` セットから 1 つのエンティティを選択すると、エンティティ キー。
-- `Supplier` 関連エンティティを選択するナビゲーション プロパティです。
+- `Products` は、"Products" という名前のエンティティセットを参照します。
+- `1` は、セットから1つのエンティティを選択するエンティティキーです。
+- `Supplier` は、関連エンティティを選択するナビゲーションプロパティです。
 
-したがってこのパスは、1 の製品の仕入先を取得します。
+このパスは、製品1の供給業者を取得します。
 
 > [!NOTE]
-> OData パス セグメントが URI セグメントを常に対応していません。 たとえば、「1」は、パス セグメントと見なされます。
+> OData パスセグメントは、常に URI セグメントに対応するとは限りません。 たとえば、"1" はパスセグメントと見なされます。
 
-**コント ローラーの名前。** コント ローラー名は常にリソース パスのルートにある設定エンティティから派生します。 たとえば、リソース パスが`/Products(1)/Supplier`、Web API がという名前のコント ローラーの検索`ProductsController`します。
+**コントローラー名。** コントローラー名は、常に、リソースパスのルートにあるエンティティセットから派生します。 たとえば、リソースパスが `/Products(1)/Supplier`場合、Web API は `ProductsController`という名前のコントローラーを検索します。
 
-**アクション名。** アクション名は、次の表に記載されている、パス セグメントと、entity data model (EDM) から派生されます。 場合によってには、アクション名の 2 つの選択肢があります。 たとえば、"Get"または&quot;GetProducts&quot;します。
+**アクション名。** アクション名は、次の表に示すように、パスセグメントと entity data model (EDM) から派生します。 場合によっては、アクション名に2つの選択肢があります。 たとえば、"Get" または &quot;GetProducts&quot;です。
 
-**エンティティを照会します。**
+**エンティティの照会**
 
-| 要求 | URI の例 | アクション名 | アクションの例 |
+| Request | URI の例 | アクション名 | アクションの例 |
 | --- | --- | --- | --- |
-| GET /entityset | /製品 | GetEntitySet または Get | GetProducts |
-| GET /entityset(key) | /Products(1) | GetEntityType または Get | GetProduct |
-| GET /entityset(key)/cast | /Products(1)/Models.Book | GetEntityType または Get | GetBook |
+| GET /entityset | /Products | GetEntitySet または Get | GetProducts |
+| GET /entityset(key) | /製品 (1) | GetEntityType または Get | GetProduct |
+| GET /entityset(key)/cast | /製品 (1)/Models.Book | GetEntityType または Get | GetBook |
 
-詳細については、次を参照してください。[読み取り専用 OData エンドポイントを作成](odata-v3/creating-an-odata-endpoint.md)です。
+詳細については、「読み取り専用の[OData エンドポイントを作成する](odata-v3/creating-an-odata-endpoint.md)」を参照してください。
 
-**作成、更新、およびエンティティの削除**
+**エンティティの作成、更新、および削除**
 
-| 要求 | URI の例 | アクション名 | アクションの例 |
+| Request | URI の例 | アクション名 | アクションの例 |
 | --- | --- | --- | --- |
-| /Entityset を投稿します。 | /製品 | PostEntityType または Post | PostProduct |
-| PUT /entityset(key) | /Products(1) | PutEntityType または Put | PutProduct |
-| /Entityset (キー) を配置/キャスト | /Products(1)/Models.Book | PutEntityType または Put | PutBook |
-| PATCH /entityset(key) | /Products(1) | PatchEntityType または修正プログラム | PatchProduct |
-| PATCH /entityset(key)/cast | /Products(1)/Models.Book | PatchEntityType または修正プログラム | PatchBook |
-| DELETE /entityset(key) | /Products(1) | DeleteEntityType または削除 | DeleteProduct |
-| DELETE /entityset(key)/cast | /Products(1)/Models.Book | DeleteEntityType または削除 | DeleteBook |
+| 投稿/entityset | /Products | PostEntityType または Post | PostProduct |
+| PUT /entityset(key) | /製品 (1) | PutEntityType または Put | PutProduct |
+| PUT/entityset (キー)/cast | /製品 (1)/Models.Book | PutEntityType または Put | PutBook |
+| PATCH /entityset(key) | /製品 (1) | Patch Entitytype または Patch | パッチ製品 |
+| PATCH /entityset(key)/cast | /製品 (1)/Models.Book | Patch Entitytype または Patch | パッチブック |
+| DELETE /entityset(key) | /製品 (1) | DeleteEntityType または Delete | DeleteProduct |
+| DELETE /entityset(key)/cast | /製品 (1)/Models.Book | DeleteEntityType または Delete | DeleteBook |
 
-**ナビゲーション プロパティのクエリを実行します。**
+**ナビゲーションプロパティのクエリ**
 
-| 要求 | URI の例 | アクション名 | アクションの例 |
+| Request | URI の例 | アクション名 | アクションの例 |
 | --- | --- | --- | --- |
-| GET /entityset(key)/navigation | /Products(1)/Supplier | GetNavigationFromEntityType または GetNavigation | GetSupplierFromProduct |
-| キャスト/ナビゲーション/entityset (キー) を取得します。 | /Products(1)/Models.Book/Author | GetNavigationFromEntityType または GetNavigation | GetAuthorFromBook |
+| GET /entityset(key)/navigation | /製品 (1)/仕入先 | GetNavigationFromEntityType または GetNavigation | GetSupplierFromProduct |
+| GET/entityset (キー)/cast/navigation | /Products(1)/Models.Book/Author | GetNavigationFromEntityType または GetNavigation | GetAuthorFromBook |
 
-詳細については、次を参照してください。[操作エンティティ関係](odata-v3/working-with-entity-relations.md)します。
+詳細については、「[エンティティリレーションの操作](odata-v3/working-with-entity-relations.md)」を参照してください。
 
-**作成およびリンクを削除します。**
+**リンクの作成と削除**
 
-| 要求 | URI の例 | アクション名 |
+| Request | URI の例 | アクション名 |
 | --- | --- | --- |
 | POST /entityset(key)/$links/navigation | /Products(1)/$links/Supplier | CreateLink |
-| PUT/entityset (キー)/$links/ナビゲーション | /Products(1)/$links/Supplier | CreateLink |
+| 配置/entityset (キー)/$links/ナビゲーション | /Products(1)/$links/Supplier | CreateLink |
 | DELETE /entityset(key)/$links/navigation | /Products(1)/$links/Supplier | DeleteLink |
-| DELETE /entityset(key)/$links/navigation(relatedKey) | /Products/(1)/$links/Suppliers(1) | DeleteLink |
+| DELETE /entityset(key)/$links/navigation(relatedKey) | /製品/(1)/$links/仕入先 (1) | DeleteLink |
 
-詳細については、次を参照してください。[操作エンティティ関係](odata-v3/working-with-entity-relations.md)します。
+詳細については、「[エンティティリレーションの操作](odata-v3/working-with-entity-relations.md)」を参照してください。
 
 **Properties**
 
-*Web API 2 が必要です。*
+*Web API 2 が必要です*
 
-| 要求 | URI の例 | アクション名 | アクションの例 |
+| Request | URI の例 | アクション名 | アクションの例 |
 | --- | --- | --- | --- |
-| GET /entityset(key)/property | /Products(1)/Name | GetPropertyFromEntityType または GetProperty | GetNameFromProduct |
-| GET /entityset(key)/cast/property | /Products(1)/Models.Book/Author | GetPropertyFromEntityType または GetProperty | GetTitleFromBook |
+| GET /entityset(key)/property | /製品 (1)/Name | GetPropertyFromEntityType または GetProperty | GetNameFromProduct |
+| GET /entityset(key)/cast/property | /Products(1)/Models.Book/Author | GetPropertyFromEntityType または GetProperty | Getタイトル Frombook |
 
 **アクション**
 
-| 要求 | URI の例 | アクション名 | アクションの例 |
+| Request | URI の例 | アクション名 | アクションの例 |
 | --- | --- | --- | --- |
-| POST /entityset(key)/action | /Products(1)/Rate | ActionNameOnEntityType またはアクション名 | RateOnProduct |
-| 事後/entityset (キー) キャスト/アクション | /Products(1)/Models.Book/CheckOut | ActionNameOnEntityType またはアクション名 | CheckOutOnBook |
+| POST /entityset(key)/action | /製品 (1)/レート | ActionNameOnEntityType または ActionName | RateOnProduct |
+| POST/entityset (キー)/cast/action | /Products(1)/Models.Book/CheckOut | ActionNameOnEntityType または ActionName | CheckOutOnBook |
 
-詳細については、次を参照してください。 [OData アクション](odata-v3/odata-actions.md)します。
+詳細については、「 [OData アクション](odata-v3/odata-actions.md)」を参照してください。
 
-**メソッド シグネチャ**
+**メソッドシグネチャ**
 
-メソッド シグネチャの一部のルールを次に示します。
+メソッドシグネチャの規則をいくつか次に示します。
 
-- パスにキーが含まれている場合、アクションが必要という名前のパラメーター*キー*します。
-- 場合は、パスには、ナビゲーション プロパティにキーが含まれている、アクションがという名前のパラメーターを必要*relatedKey*します。
-- 装飾*キー*と*relatedKey*を持つパラメーター、 **[FromODataUri]** パラメーター。
-- POST および PUT 要求は、エンティティ型のパラメーターを受け取る。
-- PATCH 要求は、型のパラメーターを受け取る**デルタ&lt;T&gt;** ここで、 *T*は、エンティティ型です。
+- パスにキーが含まれている場合、アクションには*key*という名前のパラメーターが必要です。
+- パスにナビゲーションプロパティへのキーが含まれている場合、アクションには、[関連性*キー*] という名前のパラメーターが必要です。
+- *キー*および関連性のある*キー*パラメーターを **[fromodatauri]** パラメーターで修飾します。
+- POST および PUT 要求は、エンティティ型のパラメーターを受け取ります。
+- PATCH 要求では、型が**Delta&lt;t&gt;** のパラメーターを受け取ります。ここで、 *t*はエンティティ型です。
 
-リファレンスについては、すべて組み込みの OData ルーティング規約のメソッド シグネチャを示す例を示します。
+ここでは、組み込みの OData ルーティング規則ごとにメソッドシグネチャを示す例を紹介します。
 
 [!code-csharp[Main](odata-routing-conventions/samples/sample1.cs)]
 
 <a id="custom"></a>
-## <a name="custom-routing-conventions"></a>カスタム ルーティング規約
+## <a name="custom-routing-conventions"></a>カスタムルーティング規則
 
-現在、組み込みの規約ではすべての可能な OData Uri は含まれません。 新しい規則を追加するには、実装、 **IODataRoutingConvention**インターフェイス。 このインターフェイスでは、2 つの方法があります。
+現時点では、組み込みの規則は、使用可能なすべての OData Uri に対応しているわけではありません。 **IODataRoutingConvention**インターフェイスを実装することで、新しい規則を追加できます。 このインターフェイスには、次の2つのメソッドがあります。
 
 [!code-csharp[Main](odata-routing-conventions/samples/sample2.cs)]
 
-- **SelectController**コント ローラーの名前を返します。
-- **SelectAction**アクションの名前を返します。
+- **Selectcontroller**はコントローラーの名前を返します。
+- **Selectaction**は、アクションの名前を返します。
 
-両方の方法のその要求には、規則が適用されない場合、メソッドは null を返します。
+どちらの方法でも、規則がその要求に適用されない場合、メソッドは null を返す必要があります。
 
-**ODataPath**パラメーターが解析された OData リソース パスを表します。 一覧が含まれている **[した ODataPathSegment](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatapathsegment.aspx)** リソース パスのセグメントごとに 1 つのインスタンスします。 **した ODataPathSegment** 、抽象クラスです。 各セグメントの種類がから派生したクラスによって表される**した ODataPathSegment**します。
+**ODataPath**パラメーターは、解析された OData リソースパスを表します。 これには、リソースパスのセグメントごとに1つの **[ODataPathSegment](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatapathsegment.aspx)** インスタンスのリストが含まれています。 **ODataPathSegment**は抽象クラスです。各セグメントの種類は、 **ODataPathSegment**から派生したクラスによって表されます。
 
-**ODataPath.TemplatePath**プロパティは、文字列を連結したものを表すすべてのパス セグメント。 たとえば、URI は、 `/Products(1)/Supplier`、パス テンプレートが&quot;~/entityset/key/navigation&quot;します。 セグメントが URI セグメントに直接対応していないことに注意してください。 たとえば、エンティティ キー (1) は、それ自体として表されます。**した ODataPathSegment**します。
+**ODataPath path**プロパティは、すべてのパスセグメントの連結を表す文字列です。 たとえば、URI が `/Products(1)/Supplier`の場合、パステンプレートは次のように &quot;ます&quot;。 セグメントが URI セグメントに直接対応していないことに注意してください。 たとえば、エンティティキー (1) は、それ自体の**ODataPathSegment**として表されます。
 
-実装では通常、 **IODataRoutingConvention**は次の処理します。
+通常、 **IODataRoutingConvention**の実装は次のことを行います。
 
-1. 現在の要求にこの規則が適用されるかどうかをパス テンプレートを比較します。 適用されない場合は、null を返します。
-2. プロパティを使用して、規則が適用される場合、**した ODataPathSegment**インスタンス コント ローラーとアクションの名前を作成します。
-3. 操作については、任意の値をアクション パラメーター (通常はエンティティ キー) にバインドする必要がありますルート ディクショナリに追加します。
+1. パステンプレートを比較して、この規則が現在の要求に適用されるかどうかを確認します。 適用されない場合は、null を返します。
+2. 規則が適用される場合は、 **ODataPathSegment**インスタンスのプロパティを使用して、コントローラー名とアクション名を取得します。
+3. アクションの場合は、アクションパラメーター (通常はエンティティキー) にバインドする必要がある値をルートディクショナリに追加します。
 
-具体的な例を見てみましょう。 組み込みのルーティング規則では、ナビゲーション コレクションにインデックスを作成することはできません。 つまり、次のような Uri の規則はありません。
+具体的な例を見てみましょう。 組み込みのルーティング規則では、ナビゲーションコレクションへのインデックス作成はサポートされていません。 言い換えると、次のような Uri には規則がありません。
 
 [!code-javascript[Main](odata-routing-conventions/samples/sample3.js)]
 
-この種類のクエリを処理する場合は、カスタム ルーティング規則を次に示します。
+この種類のクエリを処理するカスタムルーティング規則を次に示します。
 
 [!code-csharp[Main](odata-routing-conventions/samples/sample4.cs)]
 
-メモ:
+注:
 
-1. 派生した**EntitySetRoutingConvention**ため、 **SelectController**そのクラスのメソッドは、この新しいルーティング規則の適切な。 つまり、再実装する必要はありません**SelectController**します。
-2. パス テンプレートが場合にのみ、GET 要求にのみ、規則が適用される&quot;~/entityset/key/navigation/key&quot;します。
-3. アクション名が&quot;取得 {entitytype}&quot;ここで、 *{entitytype}* ナビゲーション コレクションの種類です。 たとえば、 &quot;GetSupplier&quot;します。 任意の名前付け規則を使用する&#8212;必ずコント ローラーのアクションと一致します。
-4. アクションという 2 つのパラメーターは、*キー*と*relatedKey*します。 (一部の定義済みのパラメーター名の一覧は、次を参照してください[ODataRouteConstants](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatarouteconstants.aspx)。)。
+1. **EntitySetRoutingConvention**から派生します。これは、そのクラスの**selectcontroller**メソッドがこの新しいルーティング規則に適しているためです。 これは、 **Selectcontroller**を再実装する必要がないことを意味します。
+2. この規則は GET 要求のみに適用され、パステンプレートが&quot;&quot;場合にのみ適用されます。
+3. アクション名は &quot;Get {EntityType}&quot;です。ここで、 *{entitytype}* はナビゲーションコレクションの種類です。 たとえば、GetSupplier&quot;&quot;ます。 コントローラーアクションが一致していることを&#8212;確認するだけで、任意の名前付け規則を使用できます。
+4. このアクションでは、 *key*および関連性*キー*という名前の2つのパラメーターを受け取ります。 (定義済みのパラメーター名の一覧については、「 [Odatarouteconstants](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatarouteconstants.aspx)」を参照してください)。
 
-次の手順では、新しい規則をルーティング規則の一覧に追加します。 これは、次のコードに示すように場合に、構成中に発生します。
+次の手順では、新しい規則をルーティング規則の一覧に追加します。 これは、次のコードに示すように、構成中に発生します。
 
 [!code-csharp[Main](odata-routing-conventions/samples/sample5.cs)]
 
-いくつかその他のサンプル ルーティング規約を調べるに便利なを次に示します。
+調査に役立つその他のサンプルルーティング規則を次に示します。
 
 - [CompositeKeyRoutingConvention](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/ODataCompositeKeySample/ODataCompositeKeySample/Extensions/CompositeKeyRoutingConvention.cs)
 - [CustomNavigationRoutingConvention](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/ODataServiceSample/ODataService/Extensions/CustomNavigationRoutingConvention.cs)
 - [NonBindableActionRoutingConvention](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/ODataActionsSample/ODataActionsSample/NonBindableActionRoutingConvention.cs)
 - [ODataVersionRouteConstraint](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/ODataVersioningSample/ODataVersioningSample/Extensions/ODataVersionRouteConstraint.cs)
 
-Web API 自体はオープン ソースの表示できるようにして、[ソース コード](http://aspnetwebstack.codeplex.com/)組み込みのルーティング規則の詳細について。 これらで定義されます、 **System.Web.Http.OData.Routing.Conventions**名前空間。
+もちろん、Web API 自体はオープンソースであるため、組み込みのルーティング規則の[ソースコード](http://aspnetwebstack.codeplex.com/)を確認できます。 これら**は、system.servicemodel**名前空間で定義されています。

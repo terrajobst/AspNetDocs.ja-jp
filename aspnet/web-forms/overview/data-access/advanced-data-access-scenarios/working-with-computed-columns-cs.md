@@ -9,11 +9,11 @@ ms.assetid: 57459065-ed7c-4dfe-ac9c-54c093abc261
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/working-with-computed-columns-cs
 msc.type: authoredcontent
 ms.openlocfilehash: ad6a96f2721510c2478f707c8eed018ae797f27a
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74603269"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78427120"
 ---
 # <a name="working-with-computed-columns-c"></a>計算列を使用する (C#)
 
@@ -50,7 +50,7 @@ Northwind データベースには計算列がないため、自分で追加す�
 
 この計算列を追加すると、画面は図1のスクリーンショットのようになります。
 
-[FullContactName という名前の計算列を [仕入先テーブルに追加するには](working-with-computed-columns-cs/_static/image2.png)](working-with-computed-columns-cs/_static/image1.png)
+[FullContactName という名前の計算列を [仕入先テーブルに追加するには](working-with-computed-columns-cs/_static/image2.png)](working-with-computed-columns-cs/_static/image1.png)!
 
 **図 1**: `FullContactName` という名前の計算列を `Suppliers` テーブルに追加[する (クリックすると、フルサイズの画像が表示](working-with-computed-columns-cs/_static/image3.png)されます)
 
@@ -71,7 +71,7 @@ Microsoft SQL Server の計算列の詳細については、[技術ドキュメ�
 
 図2に示すように、結果には、ldquo の形式を使用して `CompanyName`、`ContactName`、および `ContactTitle` 列を一覧表示する `FullContactName`が含まれています。`ContactName` (`ContactTitle`、`CompanyName`)。
 
-[![FullContactName は、[宛先] 形式 ([部署]、[CompanyName]) を使用します。](working-with-computed-columns-cs/_static/image5.png)](working-with-computed-columns-cs/_static/image4.png)
+[FullContactName は、[宛先] 形式 ([部署]、[CompanyName]) を使用します。](working-with-computed-columns-cs/_static/image5.png)](working-with-computed-columns-cs/_static/image4.png)![
 
 **図 2**: `FullContactName` は `ContactName` (`ContactTitle`、`CompanyName`) の形式を使用します ([クリックすると、フルサイズの画像が表示](working-with-computed-columns-cs/_static/image6.png)されます)。
 
@@ -111,7 +111,7 @@ Microsoft SQL Server の計算列の詳細については、[技術ドキュメ�
 
 ## <a name="step-4-including-the-computed-column-in-the-tableadapter-s-main-query"></a>手順 4: TableAdapter s メインクエリに計算列を含める
 
-ここで、手順 3. で作成した TableAdapter と DataTable を更新して、`FullContactName` 計算列を含める必要があります。 これには 2 つの手順が含まれます。
+ここで、手順 3. で作成した TableAdapter と DataTable を更新して、`FullContactName` 計算列を含める必要があります。 これには、次の 2 つの手順があります。
 
 1. `FullContactName` 計算列を返すように `Suppliers_Select` ストアドプロシージャを更新する
 2. 対応する `FullContactName` 列を含むように DataTable を更新しています。
@@ -130,7 +130,7 @@ Microsoft SQL Server の計算列の詳細については、[技術ドキュメ�
 
 [完了] をクリックしてウィザードを終了します。 これにより、対応する列が `SuppliersDataTable`に自動的に追加されます。 TableAdapter ウィザードは、`FullContactName` 列が計算列であるため、読み取り専用であることを検出するのに十分なスマートです。 その結果、列 s `ReadOnly` プロパティが `true`に設定されます。 これを確認するには、`SuppliersDataTable` から列を選択し、プロパティウィンドウにアクセスします (図7を参照)。 `FullContactName` 列 s `DataType` と `MaxLength` プロパティも、それに応じて設定されることに注意してください。
 
-[FullContactName 列が読み取り専用としてマークされている](working-with-computed-columns-cs/_static/image20.png)](working-with-computed-columns-cs/_static/image19.png)
+[FullContactName 列が読み取り専用としてマークされている](working-with-computed-columns-cs/_static/image20.png)](working-with-computed-columns-cs/_static/image19.png)![
 
 **図 7**: `FullContactName` 列が読み取り専用としてマークされている ([クリックすると、フルサイズの画像が表示](working-with-computed-columns-cs/_static/image21.png)されます)
 
@@ -201,7 +201,7 @@ GridView および ObjectDataSource に対してこれらの編集を行った�
 
 特定の業者の [編集] ボタンをクリックすると、ポストバックが発生し、その行が編集インターフェイスに表示されます (図13を参照)。 最初の3つの列は、既定の編集インターフェイスを表示します。 `Text` プロパティがデータフィールドの値に設定されている TextBox コントロールです。 ただし、`FullContactName` 列はテキストとして残ります。 データソース構成ウィザードの完了時に、BoundFields が GridView に追加されたときに、`FullContactName` BoundField s `ReadOnly` プロパティが `true` に設定されました。これは、`SuppliersDataTable` 内の対応する `FullContactName` 列の `ReadOnly` プロパティが `true`に設定されているためです。 手順 4. で説明したように、TableAdapter によって列が計算列であることが検出されたため、`FullContactName` s `ReadOnly` プロパティが `true` に設定されました。
 
-[![FullContactName 宛先列を編集できない ](working-with-computed-columns-cs/_static/image38.png)](working-with-computed-columns-cs/_static/image37.png)
+[FullContactName 宛先列を編集できない ![](working-with-computed-columns-cs/_static/image38.png)](working-with-computed-columns-cs/_static/image37.png)
 
 **図 13**: `FullContactName` 列は編集できません ([クリックすると、フルサイズの画像が表示](working-with-computed-columns-cs/_static/image39.png)されます)
 
@@ -210,7 +210,7 @@ GridView および ObjectDataSource に対してこれらの編集を行った�
 > [!NOTE]
 > GridView では、現在、編集可能なフィールドに連結フィールドが使用され、その結果、既定の編集インターフェイスが使用されます。 `CompanyName` フィールドは必須であるため、RequiredFieldValidator を含む TemplateField に変換する必要があります。 これは関心のある読者のための演習として残されています。 BoundField を TemplateField に変換し、検証コントロールを追加するための詳細な手順については、「[編集および挿入インターフェイスに検証コントロールを追加する](../editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md)」のチュートリアルを参照してください。
 
-## <a name="summary"></a>要約
+## <a name="summary"></a>まとめ
 
 テーブルのスキーマを定義すると、Microsoft SQL Server によって計算列を含めることができます。 これらは、通常、同じレコード内の他の列の値を参照する式から値が計算される列です。 計算列の値は式に基づいているため、これらは読み取り専用であり、`INSERT` または `UPDATE` ステートメントで値を代入することはできません。 これにより、対応する `INSERT`、`UPDATE`、および `DELETE` ステートメントを自動的に生成しようとする TableAdapter のメインクエリで計算列を使用する場合の課題が生じます。
 
@@ -218,7 +218,7 @@ GridView および ObjectDataSource に対してこれらの編集を行った�
 
 プログラミングを楽しんでください。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>著者について
 
 1998以来、 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)は 7 asp/創設者 of [4GuysFromRolla.com](http://www.4guysfromrolla.com)の執筆者であり、Microsoft Web テクノロジを使用しています。 Scott は、独立したコンサルタント、トレーナー、およびライターとして機能します。 彼の最新の書籍は[ *、ASP.NET 2.0 を24時間以内に教え*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ています。 mitchell@4GuysFromRolla.comでアクセスでき[ます。](mailto:mitchell@4GuysFromRolla.com) または彼のブログを参照してください。これは[http://ScottOnWriting.NET](http://ScottOnWriting.NET)にあります。
 
