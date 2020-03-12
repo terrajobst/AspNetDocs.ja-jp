@@ -8,12 +8,12 @@ ms.date: 11/28/2017
 ms.custom: seoapril2019
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 3e35c2bc0e46dfdb4544b772775eddd533f27be3
-ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
+ms.openlocfilehash: 2717d93f47be9d4a6548731d8deeca312b25f39f
+ms.sourcegitcommit: 9e3ca74997a67c18589729d4b7303799905473eb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78448552"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79084052"
 ---
 # <a name="get-started-with-aspnet-web-api-2-c"></a>ASP.NET Web API 2 (C#) を使ってみる
 
@@ -137,7 +137,7 @@ jQuery を取得するには、いくつかの方法があります。 この例
 
 製品の一覧を取得するには、HTTP GET 要求を &quot;/api&quot;に送信します。
 
-JQuery [Getjson](http://api.jquery.com/jQuery.getJSON/)関数は、AJAX 要求を送信します。 応答には、JSON オブジェクトの配列が含まれます。 `done` 関数は、要求が成功した場合に呼び出されるコールバックを指定します。 コールバックで、DOM を製品情報で更新します。
+JQuery [Getjson](http://api.jquery.com/jQuery.getJSON/)関数は、AJAX 要求を送信します。 応答には、JSON オブジェクトの配列が含まれています。 `done` 関数は、要求が成功した場合に呼び出されるコールバックを指定します。 コールバックで、DOM を製品情報で更新します。
 
 [!code-html[Main](tutorial-your-first-web-api/samples/sample4.html)]
 
@@ -165,7 +165,7 @@ ID で製品を取得するには、ID を入力し、[検索] をクリック�
 
 ## <a name="using-f12-to-view-the-http-request-and-response"></a>F12 を使用した HTTP 要求と応答の表示
 
-HTTP サービスを使用している場合は、HTTP 要求と要求メッセージを確認すると非常に便利です。 これを行うには、Internet Explorer 9 の F12 開発者ツールを使用します。 Internet Explorer 9 で、 **F12**キーを押してツールを開きます。 **[ネットワーク]** タブをクリックし、 **[キャプチャの開始]** をクリックします。 次に、web ページに戻り、 **F5**キーを押して web ページを再読み込みします。 Internet Explorer は、ブラウザーと web サーバー間の HTTP トラフィックをキャプチャします。 [概要] ビューには、ページのすべてのネットワークトラフィックが表示されます。
+HTTP サービスを使用している場合は、HTTP 要求メッセージと応答メッセージを確認すると非常に便利です。 これを行うには、Internet Explorer 9 の F12 開発者ツールを使用します。 Internet Explorer 9 で、 **F12**キーを押してツールを開きます。 **[ネットワーク]** タブをクリックし、 **[キャプチャの開始]** をクリックします。 次に、web ページに戻り、 **F5**キーを押して web ページを再読み込みします。 Internet Explorer は、ブラウザーと web サーバー間の HTTP トラフィックをキャプチャします。 [概要] ビューには、ページのすべてのネットワークトラフィックが表示されます。
 
 ![](tutorial-your-first-web-api/_static/image14.png)
 
