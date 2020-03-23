@@ -6,20 +6,20 @@ ms.author: riande
 ms.date: 2/15/2019
 uid: samesite/CSharpWebForms
 ms.openlocfilehash: 50d4745eca5954275abaa59dab726e7cf7ea193f
-ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
-ms.translationtype: MT
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78422254"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77458421"
 ---
-# <a name="samesite-cookie-sample-for-aspnet-472-c-webforms"></a><span data-ttu-id="d4aac-103">ASP.NET 4.7.2 C# WebForms の SameSite cookie サンプル</span><span class="sxs-lookup"><span data-stu-id="d4aac-103">SameSite cookie sample for ASP.NET 4.7.2 C# WebForms</span></span>
+# <a name="samesite-cookie-sample-for-aspnet-472-c-webforms"></a><span data-ttu-id="b42ee-103">ASP.NET 4.7.2 C# WebForms の SameSite cookie サンプル</span><span class="sxs-lookup"><span data-stu-id="b42ee-103">SameSite cookie sample for ASP.NET 4.7.2 C# WebForms</span></span>
 
-<span data-ttu-id="d4aac-104">.NET Framework 4.7 には[SameSite](https://www.owasp.org/index.php/SameSite)属性のサポートが組み込まれていますが、元の標準に準拠しています。</span><span class="sxs-lookup"><span data-stu-id="d4aac-104">.NET Framework 4.7 has built-in support for the [SameSite](https://www.owasp.org/index.php/SameSite) attribute, but it adheres to the original standard.</span></span>
-<span data-ttu-id="d4aac-105">パッチを適用した動作により、`SameSite.None` の意味が変更され、値がまったく出力されるのではなく、`None`の値を持つ属性が出力されます。</span><span class="sxs-lookup"><span data-stu-id="d4aac-105">The patched behavior changed the meaning of `SameSite.None` to emit the attribute with a value of `None`, rather than not emit the value at all.</span></span> <span data-ttu-id="d4aac-106">値を出力しない場合は、cookie の `SameSite` プロパティを-1 に設定します。</span><span class="sxs-lookup"><span data-stu-id="d4aac-106">If you want to not emit the value you can set the `SameSite` property on a cookie to -1.</span></span>
+<span data-ttu-id="b42ee-104">.NET Framework 4.7 には[SameSite](https://www.owasp.org/index.php/SameSite)属性のサポートが組み込まれていますが、元の標準に準拠しています。</span><span class="sxs-lookup"><span data-stu-id="b42ee-104">.NET Framework 4.7 has built-in support for the [SameSite](https://www.owasp.org/index.php/SameSite) attribute, but it adheres to the original standard.</span></span>
+<span data-ttu-id="b42ee-105">パッチを適用した動作により、`SameSite.None` の意味が変更され、値がまったく出力されるのではなく、`None`の値を持つ属性が出力されます。</span><span class="sxs-lookup"><span data-stu-id="b42ee-105">The patched behavior changed the meaning of `SameSite.None` to emit the attribute with a value of `None`, rather than not emit the value at all.</span></span> <span data-ttu-id="b42ee-106">値を出力しない場合は、cookie の `SameSite` プロパティを-1 に設定します。</span><span class="sxs-lookup"><span data-stu-id="b42ee-106">If you want to not emit the value you can set the `SameSite` property on a cookie to -1.</span></span>
 
-## <a name="sampleCode"></a><span data-ttu-id="d4aac-107">SameSite 属性の書き込み</span><span class="sxs-lookup"><span data-stu-id="d4aac-107">Writing the SameSite attribute</span></span>
+## <a name="writing-the-samesite-attribute"></a><a name="sampleCode"></a><span data-ttu-id="b42ee-107">SameSite 属性の書き込み</span><span class="sxs-lookup"><span data-stu-id="b42ee-107">Writing the SameSite attribute</span></span>
 
-<span data-ttu-id="d4aac-108">SameSite 属性をクッキーに書き込む方法の例を次に示します。</span><span class="sxs-lookup"><span data-stu-id="d4aac-108">Following is an example of how to write a SameSite attribute on a cookie;</span></span>
+<span data-ttu-id="b42ee-108">SameSite 属性をクッキーに書き込む方法の例を次に示します。</span><span class="sxs-lookup"><span data-stu-id="b42ee-108">Following is an example of how to write a SameSite attribute on a cookie;</span></span>
 
 ```c#
 // Create the cookie
@@ -46,7 +46,7 @@ Response.Cookies.Add(sameSiteCookie);
 
 [!INCLUDE[](~/includes/MTcomments.md)]
 
-<span data-ttu-id="d4aac-109">フォーム認証クッキーの既定の sameSite 属性は、のフォーム認証設定の `cookieSameSite` パラメーターで設定され `web.config`</span><span class="sxs-lookup"><span data-stu-id="d4aac-109">The default sameSite attribute for a forms authentication cookie is set in the `cookieSameSite` parameter of the forms authentication settings in `web.config`</span></span> 
+<span data-ttu-id="b42ee-109">フォーム認証クッキーの既定の sameSite 属性は、のフォーム認証設定の `cookieSameSite` パラメーターで設定され `web.config`</span><span class="sxs-lookup"><span data-stu-id="b42ee-109">The default sameSite attribute for a forms authentication cookie is set in the `cookieSameSite` parameter of the forms authentication settings in `web.config`</span></span> 
 
 ```xml
 <system.web>
@@ -57,7 +57,7 @@ Response.Cookies.Add(sameSiteCookie);
 </system.web>
 ```
 
-<span data-ttu-id="d4aac-110">セッション状態の既定の sameSite 属性は、のセッション設定の ' cookieSameSite ' パラメーターでも設定され `web.config`</span><span class="sxs-lookup"><span data-stu-id="d4aac-110">The default sameSite attribute for session state is also set in the 'cookieSameSite' parameter of the session settings in `web.config`</span></span>
+<span data-ttu-id="b42ee-110">セッション状態の既定の sameSite 属性は、のセッション設定の ' cookieSameSite ' パラメーターでも設定され `web.config`</span><span class="sxs-lookup"><span data-stu-id="b42ee-110">The default sameSite attribute for session state is also set in the 'cookieSameSite' parameter of the session settings in `web.config`</span></span>
 
 ```xml
 <system.web>
@@ -66,22 +66,22 @@ Response.Cookies.Add(sameSiteCookie);
 </system.web>
 ```
 
-<span data-ttu-id="d4aac-111">2019年11月の.NETへの更新により、最も互換性のある設定であるフォーム認証とセッションのデフォルト設定が `lax` に変更されましたが、ページをiframeに埋め込む場合、この設定を[なし]に戻し、`none`を追加する必要があります \*ブラウザの機能に応じて[動作を調整するインターセプト](#interception)以下のコード。</span><span class="sxs-lookup"><span data-stu-id="d4aac-111">The November 2019 update to .NET changed the default settings for Forms Authentication and Session to `lax` as is the most compatible setting, however if you embed pages into iframes you may need to revert this setting to None, and then add the [interception](#interception) code shown below to adjust the `none` behavior depending on browser capability.</span></span>
+<span data-ttu-id="b42ee-111">2019年11月の.NETへの更新により、最も互換性のある設定であるフォーム認証とセッションのデフォルト設定が `lax` に変更されましたが、ページをiframeに埋め込む場合、この設定を[なし]に戻し、`none`を追加する必要があります \*ブラウザの機能に応じて[動作を調整するインターセプト](#interception)以下のコード。</span><span class="sxs-lookup"><span data-stu-id="b42ee-111">The November 2019 update to .NET changed the default settings for Forms Authentication and Session to `lax` as is the most compatible setting, however if you embed pages into iframes you may need to revert this setting to None, and then add the [interception](#interception) code shown below to adjust the `none` behavior depending on browser capability.</span></span>
 
-### <a name="running-the-sample"></a><span data-ttu-id="d4aac-112">サンプルの実行</span><span class="sxs-lookup"><span data-stu-id="d4aac-112">Running the sample</span></span>
+### <a name="running-the-sample"></a><span data-ttu-id="b42ee-112">サンプルの実行</span><span class="sxs-lookup"><span data-stu-id="b42ee-112">Running the sample</span></span>
 
-<span data-ttu-id="d4aac-113">サンプルプロジェクトを実行する場合は、最初のページにブラウザーデバッガーを読み込み、それを使用してサイトの cookie のコレクションを表示します。</span><span class="sxs-lookup"><span data-stu-id="d4aac-113">If you run the sample project  load your browser debugger on the initial page and use it to view the cookie collection for the site.</span></span>
-<span data-ttu-id="d4aac-114">これを行うには、Edge と Chrome で `F12`、[`Application`] タブを選択し、[`Storage`] セクションの [`Cookies`] オプションでサイトの URL をクリックします。</span><span class="sxs-lookup"><span data-stu-id="d4aac-114">To do so in Edge and Chrome press `F12` then select the `Application` tab and click the site URL under the `Cookies` option in the `Storage` section.</span></span>
+<span data-ttu-id="b42ee-113">サンプルプロジェクトを実行する場合は、最初のページにブラウザーデバッガーを読み込み、それを使用してサイトの cookie のコレクションを表示します。</span><span class="sxs-lookup"><span data-stu-id="b42ee-113">If you run the sample project  load your browser debugger on the initial page and use it to view the cookie collection for the site.</span></span>
+<span data-ttu-id="b42ee-114">これを行うには、Microsoft Edge と Chrome で `F12`、[`Application`] タブを選択し、[`Storage`] セクションの [`Cookies`] オプションでサイトの URL をクリックします。</span><span class="sxs-lookup"><span data-stu-id="b42ee-114">To do so in Edge and Chrome press `F12` then select the `Application` tab and click the site URL under the `Cookies` option in the `Storage` section.</span></span>
 
 ![ブラウザーデバッガーの Cookie の一覧](sample/img/BrowserDebugger.png)
 
-<span data-ttu-id="d4aac-116">上の図から、[Cookie の作成] ボタンをクリックしたときにサンプルによって作成されたクッキーが、[サンプルコード](#sampleCode)で設定した値と一致する `Lax`の SameSite 属性値を持つことがわかります。</span><span class="sxs-lookup"><span data-stu-id="d4aac-116">You can see from the image above that the cookie created by the sample when you click the "Create Cookies" button has a SameSite attribute value of `Lax`, matching the value set in the [sample code](#sampleCode).</span></span>
+<span data-ttu-id="b42ee-116">上の図から、[Cookie の作成] ボタンをクリックしたときにサンプルによって作成されたクッキーが、[サンプルコード](#sampleCode)で設定した値と一致する `Lax`の SameSite 属性値を持つことがわかります。</span><span class="sxs-lookup"><span data-stu-id="b42ee-116">You can see from the image above that the cookie created by the sample when you click the "Create Cookies" button has a SameSite attribute value of `Lax`, matching the value set in the [sample code](#sampleCode).</span></span>
 
-## <a name="interception"></a><span data-ttu-id="d4aac-117">制御しない cookie を傍受する</span><span class="sxs-lookup"><span data-stu-id="d4aac-117">Intercepting cookies you do not control</span></span>
+## <a name="intercepting-cookies-you-do-not-control"></a><a name="interception"></a><span data-ttu-id="b42ee-117">制御しない cookie を傍受する</span><span class="sxs-lookup"><span data-stu-id="b42ee-117">Intercepting cookies you do not control</span></span>
 
-<span data-ttu-id="d4aac-118">.NET 4.5.2 では、ヘッダーの書き込みをインターセプトするための新しいイベント `Response.AddOnSendingHeaders`導入されました。</span><span class="sxs-lookup"><span data-stu-id="d4aac-118">.NET 4.5.2 introduced a new event for intercepting the writing of headers, `Response.AddOnSendingHeaders`.</span></span> <span data-ttu-id="d4aac-119">これは、クライアントコンピューターに返される前に cookie を傍受するために使用できます。</span><span class="sxs-lookup"><span data-stu-id="d4aac-119">This can be used to intercept cookies before they are returned to the client machine.</span></span> <span data-ttu-id="d4aac-120">このサンプルでは、新しい sameSite の変更がブラウザーでサポートされているかどうかを確認する静的メソッドにイベントを接続します。そうでない場合は、新しい `None` の値が設定されている場合に、属性を出力しないようにクッキーを変更します。</span><span class="sxs-lookup"><span data-stu-id="d4aac-120">In the sample we wire up the event to a static method which checks whether the browser supports the new sameSite changes, and if not, changes the cookies to not emit the attribute if the new `None` value has been set.</span></span>
+<span data-ttu-id="b42ee-118">.NET 4.5.2 では、ヘッダーの書き込みをインターセプトするための新しいイベント `Response.AddOnSendingHeaders`導入されました。</span><span class="sxs-lookup"><span data-stu-id="b42ee-118">.NET 4.5.2 introduced a new event for intercepting the writing of headers, `Response.AddOnSendingHeaders`.</span></span> <span data-ttu-id="b42ee-119">これは、クライアントコンピューターに返される前に cookie を傍受するために使用できます。</span><span class="sxs-lookup"><span data-stu-id="b42ee-119">This can be used to intercept cookies before they are returned to the client machine.</span></span> <span data-ttu-id="b42ee-120">このサンプルでは、新しい sameSite の変更がブラウザーでサポートされているかどうかを確認する静的メソッドにイベントを接続します。そうでない場合は、新しい `None` の値が設定されている場合に、属性を出力しないようにクッキーを変更します。</span><span class="sxs-lookup"><span data-stu-id="b42ee-120">In the sample we wire up the event to a static method which checks whether the browser supports the new sameSite changes, and if not, changes the cookies to not emit the attribute if the new `None` value has been set.</span></span>
 
-<span data-ttu-id="d4aac-121">イベントを処理し、cookie `sameSite` 属性を調整する[例につい](https://github.com/blowdart/AspNetSameSiteSamples/blob/master/AspNet472CSharpWebForms/SameSiteCookieRewriter.cs)ては、「 [global.asax](https://github.com/blowdart/AspNetSameSiteSamples/blob/master/AspNet472CSharpWebForms/Global.asax.cs) 」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="d4aac-121">See [global.asax](https://github.com/blowdart/AspNetSameSiteSamples/blob/master/AspNet472CSharpWebForms/Global.asax.cs) for an example of hooking up the event and [SameSiteCookieRewriter.cs](https://github.com/blowdart/AspNetSameSiteSamples/blob/master/AspNet472CSharpWebForms/SameSiteCookieRewriter.cs) for an example of handling the event and adjusting the cookie `sameSite` attribute.</span></span>
+<span data-ttu-id="b42ee-121">イベントを処理し、cookie `sameSite` 属性を調整する[例につい](https://github.com/blowdart/AspNetSameSiteSamples/blob/master/AspNet472CSharpWebForms/SameSiteCookieRewriter.cs)ては、「 [global.asax](https://github.com/blowdart/AspNetSameSiteSamples/blob/master/AspNet472CSharpWebForms/Global.asax.cs) 」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="b42ee-121">See [global.asax](https://github.com/blowdart/AspNetSameSiteSamples/blob/master/AspNet472CSharpWebForms/Global.asax.cs) for an example of hooking up the event and [SameSiteCookieRewriter.cs](https://github.com/blowdart/AspNetSameSiteSamples/blob/master/AspNet472CSharpWebForms/SameSiteCookieRewriter.cs) for an example of handling the event and adjusting the cookie `sameSite` attribute.</span></span>
 
 ```c#
 public static void FilterSameSiteNoneForIncompatibleUserAgents(object sender)
@@ -109,7 +109,7 @@ public static void FilterSameSiteNoneForIncompatibleUserAgents(object sender)
 }
 ```
 
-<span data-ttu-id="d4aac-122">特定の名前付き cookie の動作は、ほぼ同じように変更できます。次のサンプルでは、`Lax` の既定の認証 cookie を、`None` 値をサポートするブラウザーで `None` に調整するか、`None`をサポートしていないブラウザーで sameSite 属性を削除します。</span><span class="sxs-lookup"><span data-stu-id="d4aac-122">You can change specific named cookie behavior in much the same way; the sample below adjust the default authentication cookie from `Lax` to `None` on browsers which support the `None` value, or removes the sameSite attribute on browsers which do not support `None`.</span></span>
+<span data-ttu-id="b42ee-122">特定の名前付き cookie の動作は、ほぼ同じように変更できます。次のサンプルでは、`Lax` の既定の認証 cookie を、`None` 値をサポートするブラウザーで `None` に調整するか、`None`をサポートしていないブラウザーで sameSite 属性を削除します。</span><span class="sxs-lookup"><span data-stu-id="b42ee-122">You can change specific named cookie behavior in much the same way; the sample below adjust the default authentication cookie from `Lax` to `None` on browsers which support the `None` value, or removes the sameSite attribute on browsers which do not support `None`.</span></span>
 
 ```c#
 public static void AdjustSpecificCookieSettings()
@@ -139,10 +139,10 @@ public static void AdjustSpecificCookieSettings()
 }
 ```
 
-## <a name="more-information"></a><span data-ttu-id="d4aac-123">詳細情報</span><span class="sxs-lookup"><span data-stu-id="d4aac-123">More Information</span></span>
+## <a name="more-information"></a><span data-ttu-id="b42ee-123">詳細情報</span><span class="sxs-lookup"><span data-stu-id="b42ee-123">More Information</span></span>
 
-[<span data-ttu-id="d4aac-124">Chrome の更新</span><span class="sxs-lookup"><span data-stu-id="d4aac-124">Chrome Updates</span></span>](https://www.chromium.org/updates/same-site)
+[<span data-ttu-id="b42ee-124">Chrome の更新</span><span class="sxs-lookup"><span data-stu-id="b42ee-124">Chrome Updates</span></span>](https://www.chromium.org/updates/same-site)
 
-[<span data-ttu-id="d4aac-125">ASP.NET のドキュメント</span><span class="sxs-lookup"><span data-stu-id="d4aac-125">ASP.NET Documentation</span></span>](/aspnet/samesite/system-web-samesite)
+[<span data-ttu-id="b42ee-125">ASP.NET のドキュメント</span><span class="sxs-lookup"><span data-stu-id="b42ee-125">ASP.NET Documentation</span></span>](/aspnet/samesite/system-web-samesite)
 
-[<span data-ttu-id="d4aac-126">.NET SameSite パッチ</span><span class="sxs-lookup"><span data-stu-id="d4aac-126">.NET SameSite Patches</span></span>](/aspnet/samesite/kbs-samesite)
+[<span data-ttu-id="b42ee-126">.NET SameSite パッチ</span><span class="sxs-lookup"><span data-stu-id="b42ee-126">.NET SameSite Patches</span></span>](/aspnet/samesite/kbs-samesite)
