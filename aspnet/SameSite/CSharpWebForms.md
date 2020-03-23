@@ -6,18 +6,18 @@ ms.author: riande
 ms.date: 2/15/2019
 uid: samesite/CSharpWebForms
 ms.openlocfilehash: 50d4745eca5954275abaa59dab726e7cf7ea193f
-ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
-ms.translationtype: MT
+ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78422254"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77458421"
 ---
 # <a name="samesite-cookie-sample-for-aspnet-472-c-webforms"></a>ASP.NET 4.7.2 C# WebForms の SameSite cookie サンプル
 
 .NET Framework 4.7 には[SameSite](https://www.owasp.org/index.php/SameSite)属性のサポートが組み込まれていますが、元の標準に準拠しています。
 パッチを適用した動作により、`SameSite.None` の意味が変更され、値がまったく出力されるのではなく、`None`の値を持つ属性が出力されます。 値を出力しない場合は、cookie の `SameSite` プロパティを-1 に設定します。
 
-## <a name="sampleCode"></a>SameSite 属性の書き込み
+## <a name="writing-the-samesite-attribute"></a><a name="sampleCode"></a>SameSite 属性の書き込み
 
 SameSite 属性をクッキーに書き込む方法の例を次に示します。
 
@@ -71,13 +71,13 @@ Response.Cookies.Add(sameSiteCookie);
 ### <a name="running-the-sample"></a>サンプルの実行
 
 サンプルプロジェクトを実行する場合は、最初のページにブラウザーデバッガーを読み込み、それを使用してサイトの cookie のコレクションを表示します。
-これを行うには、Edge と Chrome で `F12`、[`Application`] タブを選択し、[`Storage`] セクションの [`Cookies`] オプションでサイトの URL をクリックします。
+これを行うには、Microsoft Edge と Chrome で `F12`、[`Application`] タブを選択し、[`Storage`] セクションの [`Cookies`] オプションでサイトの URL をクリックします。
 
 ![ブラウザーデバッガーの Cookie の一覧](sample/img/BrowserDebugger.png)
 
 上の図から、[Cookie の作成] ボタンをクリックしたときにサンプルによって作成されたクッキーが、[サンプルコード](#sampleCode)で設定した値と一致する `Lax`の SameSite 属性値を持つことがわかります。
 
-## <a name="interception"></a>制御しない cookie を傍受する
+## <a name="intercepting-cookies-you-do-not-control"></a><a name="interception"></a>制御しない cookie を傍受する
 
 .NET 4.5.2 では、ヘッダーの書き込みをインターセプトするための新しいイベント `Response.AddOnSendingHeaders`導入されました。 これは、クライアントコンピューターに返される前に cookie を傍受するために使用できます。 このサンプルでは、新しい sameSite の変更がブラウザーでサポートされているかどうかを確認する静的メソッドにイベントを接続します。そうでない場合は、新しい `None` の値が設定されている場合に、属性を出力しないようにクッキーを変更します。
 
