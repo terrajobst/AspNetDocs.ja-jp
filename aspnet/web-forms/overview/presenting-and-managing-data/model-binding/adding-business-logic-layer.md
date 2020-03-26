@@ -1,64 +1,64 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/adding-business-logic-layer
-title: モデル バインディングと web フォームを使用するプロジェクトに追加のビジネス ロジック層 |Microsoft Docs
+title: モデルバインドと web フォームを使用するプロジェクトへのビジネスロジック層の追加 |Microsoft Docs
 author: Rick-Anderson
-description: このチュートリアル シリーズでは、モデル バインドを使用して ASP.NET Web フォーム プロジェクトでの基本的な側面について説明します。 モデル バインドは、データの操作詳細直線にしています.
+description: このチュートリアルシリーズでは、ASP.NET Web フォームプロジェクトでモデルバインドを使用するための基本的な側面を示します。 モデルバインドを使用すると、データの相互作用がより簡単になり-...
 ms.author: riande
 ms.date: 02/27/2014
 ms.assetid: 7ef664b3-1cc8-4cbf-bb18-9f0f3a3ada2b
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/adding-business-logic-layer
 msc.type: authoredcontent
 ms.openlocfilehash: a824d06d3781e11706f2a48d44ea3ad89bdb7c8b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65109172"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78515428"
 ---
-# <a name="adding-business-logic-layer-to-a-project-that-uses-model-binding-and-web-forms"></a>モデル バインディングと web フォームを使用するプロジェクトに追加のビジネス ロジック層
+# <a name="adding-business-logic-layer-to-a-project-that-uses-model-binding-and-web-forms"></a>モデルバインドと web フォームを使用するプロジェクトへのビジネスロジック層の追加
 
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
-> このチュートリアル シリーズでは、モデル バインドを使用して ASP.NET Web フォーム プロジェクトでの基本的な側面について説明します。 モデルのバインドは、(ObjectDataSource や SqlDataSource) などのソース オブジェクトにデータを処理するよりもより簡単にデータの操作を使用します。 このシリーズでは、入門用資料から開始して、後のチュートリアルで高度な概念に移動します。
+> このチュートリアルシリーズでは、ASP.NET Web フォームプロジェクトでモデルバインドを使用するための基本的な側面を示します。 モデルバインドを使用すると、データソースオブジェクト (ObjectDataSource や SqlDataSource など) を処理するよりも、データ操作がより簡単になります。 このシリーズでは、入門資料から開始し、以降のチュートリアルでより高度な概念に移ります。
 > 
-> このチュートリアルでは、ビジネス ロジック層でモデルのバインディングを使用する方法を示します。 現在のページ以外のオブジェクトを使用するデータ メソッドを呼び出すことを指定する OnCallingDataMethods メンバーを設定します。
+> このチュートリアルでは、ビジネスロジック層でモデルバインドを使用する方法について説明します。 現在のページ以外のオブジェクトを使用してデータメソッドを呼び出すように指定するには、OnCallingDataMethods メンバーを設定します。
 > 
-> このチュートリアルで作成したプロジェクトで、[以前](retrieving-data.md)系列の部分。
+> このチュートリアルは、シリーズの[前](retrieving-data.md)のパートで作成したプロジェクトに基づいています。
 > 
-> できます[ダウンロード](https://go.microsoft.com/fwlink/?LinkId=286116)c# または VB. で完全なプロジェクト ダウンロード可能なコードは、Visual Studio 2012 または Visual Studio 2013 のいずれかで動作します。 これは、このチュートリアルで示すように Visual Studio 2013 テンプレートと若干異なる Visual Studio 2012 テンプレートを使用します。
+> 完全なプロジェクトは、またはC# VB で[ダウンロード](https://go.microsoft.com/fwlink/?LinkId=286116)できます。 ダウンロード可能なコードは、Visual Studio 2012 または Visual Studio 2013 で動作します。 このチュートリアルでは、Visual Studio 2012 テンプレートを使用します。これは、このチュートリアルで示した Visual Studio 2013 テンプレートとは少し異なります。
 
-## <a name="what-youll-build"></a>構築します
+## <a name="what-youll-build"></a>ビルドする内容
 
-モデル バインドでは、web ページの分離コード ファイル内、または個別のビジネス ロジック クラスで、データ操作のコードを配置することができます。 前のチュートリアルは、データ操作のコードの分離コード ファイルを使用する方法を説明します。 このアプローチは、小規模なサイトは、大規模なサイトを保守する際に、繰り返しおよびより難解をコーディングする可能性しますが、あります。 プログラムで抽象化レイヤーがないために、分離コード ファイルに含まれているコードをテストする非常に難しいことができます。
+モデルバインドを使用すると、web ページの分離コードファイルまたは別のビジネスロジッククラスにデータの相互作用コードを配置できます。 前のチュートリアルでは、分離コードファイルを使用してデータ相互作用コードを記述する方法を説明しました。 この方法は小規模なサイトに対しては機能しますが、大規模なサイトを維持する場合は、コードの繰り返しにより困難になる可能性があります。 また、抽象化レイヤーが存在しないため、分離コードファイルに存在するコードをプログラムによってテストするのは非常に困難です。
 
-データ操作のコードを集中管理するには、すべてのデータを操作するためのロジックを含むビジネス ロジック層を作成できます。 ビジネス ロジック層は、web ページから呼び出します。 このチュートリアルでは、すべてにビジネス ロジック層では、前のチュートリアルで作成したコードの移動し、ページからそのコードを使用する方法を示します。
+データ相互作用コードを一元化するために、データと対話するためのすべてのロジックを含むビジネスロジック層を作成できます。 次に、web ページからビジネスロジックレイヤーを呼び出します。 このチュートリアルでは、前のチュートリアルで作成したすべてのコードをビジネスロジックレイヤーに移動し、そのコードをページから使用する方法について説明します。
 
-このチュートリアルではあります。
+このチュートリアルでは、次のことについて説明します。
 
-1. ビジネス ロジック層に分離コード ファイルからコードを移動します。
-2. ビジネス ロジック層で、メソッドを呼び出す、データ バインド コントロールを変更します。
+1. 分離コードファイルからビジネスロジック層にコードを移動する
+2. ビジネスロジック層のメソッドを呼び出すようにデータバインドコントロールを変更します。
 
-## <a name="create-business-logic-layer"></a>ビジネス ロジック層を作成します。
+## <a name="create-business-logic-layer"></a>ビジネスロジックレイヤーの作成
 
-ここで、web ページから呼び出されるクラスを作成します。 このクラスのメソッドのように、前のチュートリアルで使用する方法と、値プロバイダー属性が含まれます。
+次に、web ページから呼び出されるクラスを作成します。 このクラスのメソッドは、前のチュートリアルで使用したメソッドに似ており、値プロバイダー属性が含まれています。
 
-最初に、という名前の新しいフォルダーを追加**BLL**します。
+まず、 **BLL**という名前の新しいフォルダーを追加します。
 
-![フォルダーを追加します。](adding-business-logic-layer/_static/image1.png)
+![フォルダーの追加](adding-business-logic-layer/_static/image1.png)
 
-という名前の新しいクラスを作成、BLL フォルダーで**SchoolBL.cs**します。 すべての分離コード ファイル内に置かれていたデータ操作が含まれます。 メソッドは、分離コード ファイル内のメソッドとほぼ同じですが、いくつかの変更が含まれます。
+[BLL] フォルダーで、 **SchoolBL.cs**という名前の新しいクラスを作成します。 これには、分離コードファイルにもともと存在していたすべてのデータ操作が含まれます。 メソッドは分離コードファイルのメソッドとほぼ同じですが、いくつかの変更が含まれます。
 
-最も重要な変更に注意してがのインスタンス内からコードを実行しているされなく**ページ**クラス。 ページ クラスが含まれています、 **tryupdatemodel に渡します**メソッドと**ModelState**プロパティ。 ビジネス ロジック層にこのコードを移動すると、不要になったこれらのメンバーを呼び出すページ クラスのインスタンスがあります。 この問題を回避するには、追加する必要があります、 **ModelMethodContext** tryupdatemodel に渡しますまたは ModelState にアクセスする任意のメソッドのパラメーター。 Tryupdatemodel に渡しますを呼び出したり、ModelState を取得するには、この ModelMethodContext パラメーターを使用します。 この新しいパラメーターに対応する web ページで何も変更する必要はありません。
+注意する必要がある最も重要な変更は、 **Page**クラスのインスタンス内からコードを実行しなくなったことです。 Page クラスには、 **TryUpdateModel**メソッドと**modelstate**プロパティが含まれています。 このコードをビジネスロジック層に移動すると、これらのメンバーを呼び出すためのページクラスのインスタンスがなくなります。 この問題を回避するには、TryUpdateModel または ModelState にアクセスするすべてのメソッドに**Modelmethodcontext**パラメーターを追加する必要があります。 この ModelMethodContext パラメーターを使用して TryUpdateModel を呼び出すか、ModelState を取得します。 この新しいパラメーターを考慮するために、web ページ内の何も変更する必要はありません。
 
-SchoolBL.cs でコードを次のコードに置き換えます。
+SchoolBL.cs のコードを次のコードに置き換えます。
 
 [!code-csharp[Main](adding-business-logic-layer/samples/sample1.cs)]
 
-## <a name="revise-existing-pages-to-retrieve-data-from-business-logic-layer"></a>ビジネス ロジック層からデータを取得する既存のページを修正します。
+## <a name="revise-existing-pages-to-retrieve-data-from-business-logic-layer"></a>既存のページを更新してビジネスロジックレイヤーからデータを取得する
 
-最後に、ビジネス ロジック層を使用する分離コード ファイルにクエリを使用してから、Students.aspx、AddStudent.aspx、Courses.aspx のページが変換されます。
+最後に、分離コードファイルのクエリを使用して、ビジネスロジックレイヤーを使用するように、ページの Student、AddStudent .aspx、および course を変換します。
 
-学生や AddStudent、コースの分離コード ファイルで削除するか、次のクエリ メソッドをコメントします。
+Students、AddStudent、および course の分離コードファイルで、次のクエリメソッドを削除またはコメントアウトします。
 
 - studentsGrid\_GetData
 - studentsGrid\_UpdateItem
@@ -66,33 +66,33 @@ SchoolBL.cs でコードを次のコードに置き換えます。
 - addStudentForm\_InsertItem
 - coursesGrid\_GetData
 
-ようになりましたが必要ないコード データ操作に関連する分離コード ファイルです。
+データ操作に関連するコードが分離コードファイルにないはずです。
 
-**OnCallingDataMethods**イベント ハンドラーでは、データ メソッドを使用するオブジェクトを指定することができます。 Students.aspx では、そのイベント ハンドラーの値を追加し、ビジネス ロジック クラスのメソッドの名前に、データのメソッドの名前を変更します。
+**OnCallingDataMethods**イベントハンドラーを使用すると、データメソッドに使用するオブジェクトを指定できます。 Student で、そのイベントハンドラーの値を追加し、ビジネスロジッククラスのメソッドの名前にデータメソッドの名前を変更します。
 
 [!code-aspx[Main](adding-business-logic-layer/samples/sample2.aspx?highlight=3-4,8)]
 
-Students.aspx の分離コード ファイルでは、CallingDataMethods イベントのイベント ハンドラーを定義します。 このイベント ハンドラーでは、データ操作のビジネス ロジック クラスを指定します。
+Student の分離コードファイルで、CallingDataMethods イベントのイベントハンドラーを定義します。 このイベントハンドラーでは、データ操作のビジネスロジッククラスを指定します。
 
 [!code-csharp[Main](adding-business-logic-layer/samples/sample3.cs)]
 
-AddStudent.aspx で同様に変更します。
+AddStudent .aspx で、同様の変更を行います。
 
 [!code-aspx[Main](adding-business-logic-layer/samples/sample4.aspx?highlight=3-4)]
 
 [!code-csharp[Main](adding-business-logic-layer/samples/sample5.cs)]
 
-Courses.aspx で同様に変更します。
+Course .aspx で、同様の変更を行います。
 
 [!code-aspx[Main](adding-business-logic-layer/samples/sample6.aspx?highlight=3-4)]
 
 [!code-csharp[Main](adding-business-logic-layer/samples/sample7.cs)]
 
-アプリケーションを実行し、以前保持していたとおりに機能のすべてのページことに注意してください。 検証ロジックが正常に動作することもできます。
+アプリケーションを実行して、すべてのページが以前と同じように機能することを確認します。 検証ロジックも正常に機能します。
 
 ## <a name="conclusion"></a>まとめ
 
-このチュートリアルでは、データ アクセス層とビジネス ロジック層を使用するアプリケーションを再構造。 データ コントロールがデータ操作の現在のページではないオブジェクトを使用することを指定しました。
+このチュートリアルでは、データアクセス層とビジネスロジック層を使用するようにアプリケーションを再構築します。 データ操作の現在のページではないオブジェクトをデータコントロールが使用するように指定しました。
 
 > [!div class="step-by-step"]
 > [前へ](using-query-string-values-to-retrieve-data.md)

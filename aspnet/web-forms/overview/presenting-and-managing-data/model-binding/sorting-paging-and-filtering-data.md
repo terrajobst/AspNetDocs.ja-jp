@@ -1,100 +1,100 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/sorting-paging-and-filtering-data
-title: 並べ替え、ページング、およびモデルのバインディングと web フォームを使用してデータをフィルター処理 |Microsoft Docs
+title: モデルバインドと web フォームを使用したデータの並べ替え、ページング、フィルター処理 |Microsoft Docs
 author: Rick-Anderson
-description: このチュートリアル シリーズでは、モデル バインドを使用して ASP.NET Web フォーム プロジェクトでの基本的な側面について説明します。 モデル バインドは、データの操作詳細直線にしています.
+description: このチュートリアルシリーズでは、ASP.NET Web フォームプロジェクトでモデルバインドを使用するための基本的な側面を示します。 モデルバインドを使用すると、データの相互作用がより簡単になり-...
 ms.author: riande
 ms.date: 02/27/2014
 ms.assetid: 266e7866-e327-4687-b29d-627a0925e87d
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/sorting-paging-and-filtering-data
 msc.type: authoredcontent
 ms.openlocfilehash: f8e64392af6110f36c6af98c4e4e9481c94a0d82
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65106934"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78441064"
 ---
-# <a name="sorting-paging-and-filtering-data-with-model-binding-and-web-forms"></a>並べ替え、ページング、およびモデルのバインディングと web フォームを使用してデータをフィルター処理
+# <a name="sorting-paging-and-filtering-data-with-model-binding-and-web-forms"></a>モデルバインドと web フォームを使用したデータの並べ替え、ページング、およびフィルター処理
 
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
-> このチュートリアル シリーズでは、モデル バインドを使用して ASP.NET Web フォーム プロジェクトでの基本的な側面について説明します。 モデルのバインドは、(ObjectDataSource や SqlDataSource) などのソース オブジェクトにデータを処理するよりもより簡単にデータの操作を使用します。 このシリーズでは、入門用資料から開始して、後のチュートリアルで高度な概念に移動します。
+> このチュートリアルシリーズでは、ASP.NET Web フォームプロジェクトでモデルバインドを使用するための基本的な側面を示します。 モデルバインドを使用すると、データソースオブジェクト (ObjectDataSource や SqlDataSource など) を処理するよりも、データ操作がより簡単になります。 このシリーズでは、入門資料から開始し、以降のチュートリアルでより高度な概念に移ります。
 > 
-> このチュートリアルでは、並べ替え、ページング、およびモデル バインドによるデータのフィルター処理を追加する方法を示します。
+> このチュートリアルでは、モデルバインドを使用してデータの並べ替え、ページング、およびフィルター処理を行う方法について説明します。
 > 
-> このチュートリアルは、最初に作成されたプロジェクトでビルド[一部](retrieving-data.md)シリーズの。
+> このチュートリアルは、シリーズの第 1[部](retrieving-data.md)で作成したプロジェクトに基づいています。
 > 
-> できます[ダウンロード](https://go.microsoft.com/fwlink/?LinkId=286116)c# または VB. で完全なプロジェクト ダウンロード可能なコードは、Visual Studio 2012 または Visual Studio 2013 のいずれかで動作します。 これは、このチュートリアルで示すように Visual Studio 2013 テンプレートと若干異なる Visual Studio 2012 テンプレートを使用します。
+> 完全なプロジェクトは、またはC# VB で[ダウンロード](https://go.microsoft.com/fwlink/?LinkId=286116)できます。 ダウンロード可能なコードは、Visual Studio 2012 または Visual Studio 2013 で動作します。 このチュートリアルでは、Visual Studio 2012 テンプレートを使用します。これは、このチュートリアルで示した Visual Studio 2013 テンプレートとは少し異なります。
 
-## <a name="what-youll-build"></a>構築します
+## <a name="what-youll-build"></a>ビルドする内容
 
-このチュートリアルではあります。
+このチュートリアルでは、次のことについて説明します。
 
-1. 並べ替えとデータのページングを有効にします。
-2. ユーザーは選択に基づくデータのフィルター処理を有効にします。
+1. データの並べ替えとページングを有効にする
+2. ユーザーによる選択に基づいたデータのフィルター処理を有効にする
 
-## <a name="add-sorting"></a>並べ替えを追加します。
+## <a name="add-sorting"></a>並べ替えの追加
 
-GridView の並べ替え機能を有効にすることは非常に簡単です。 Student.aspx ファイル内の設定だけ**AllowSorting**に**true** GridView にします。 設定する必要はありません、 **SortExpression** DataField は自動的に使用されるため、各列の値します。 GridView は選択した値で、データの並べ替えを含めるようにクエリを変更します。 次の強調表示されたコードでは、並べ替えを有効にするために必要な追加を示します。
+GridView での並べ替えを有効にするのは非常に簡単です。 Student ファイルでは、GridView で**Allowsorting**を**true**に設定するだけです。 DataField が自動的に使用されるため、各列に**SortExpression**値を設定する必要はありません。 GridView は、選択された値によってデータの順序付けを含むようにクエリを変更します。 下の強調表示されているコードは、並べ替えを有効にするために必要な追加を示しています。
 
 [!code-aspx[Main](sorting-paging-and-filtering-data/samples/sample1.aspx?highlight=5)]
 
-Web アプリケーションを実行し、別の列に値によって並べ替え生徒の記録をテストします。
+Web アプリケーションを実行し、異なる列の値で生徒のレコードの並べ替えをテストします。
 
-![並べ替えの受講者](sorting-paging-and-filtering-data/_static/image2.png)
+![生徒の並べ替え](sorting-paging-and-filtering-data/_static/image2.png)
 
-## <a name="add-paging"></a>ページングを追加します。
+## <a name="add-paging"></a>ページングの追加
 
-ページングを有効にも非常に簡単です。 Gridview では、設定、 **AllowPaging**プロパティを**true**設定と、 **PageSize**プロパティに各ページに表示するレコードの数。 このチュートリアルで 4 に設定できます。
+ページングを有効にすることも非常に簡単です。 GridView で、 **Allowpaging**プロパティを**true**に設定し、 **PageSize**プロパティに、各ページに表示するレコード数を設定します。 このチュートリアルでは、4に設定できます。
 
 [!code-aspx[Main](sorting-paging-and-filtering-data/samples/sample2.aspx?highlight=5)]
 
-Web アプリケーションを実行して、レコードは、1 ページに表示される 4 個のレコードに複数のページに分かれています。 これを注意してください。
+Web アプリケーションを実行すると、レコードが1ページに表示されるレコードが4つ以下の複数のページに分割されていることがわかります。
 
-![ページングを追加します。](sorting-paging-and-filtering-data/_static/image4.png)
+![ページングの追加](sorting-paging-and-filtering-data/_static/image4.png)
 
-クエリの遅延実行では、アプリケーションの効率が向上します。 データ セット全体を取得するには、代わりに、GridView は、現在のページのレコードのみを取得するクエリを変更します。
+クエリの遅延実行により、アプリケーションの効率が向上します。 GridView は、データセット全体を取得するのではなく、現在のページのレコードのみを取得するようにクエリを変更します。
 
-## <a name="filter-records-by-user-selection"></a>ユーザーの選択でレコードをフィルター処理します。
+## <a name="filter-records-by-user-selection"></a>ユーザー選択でレコードをフィルター処理する
 
-モデル バインドでは、モデル バインディングのメソッドでパラメーターの値を設定する方法を指定することを可能にするいくつかの属性を追加します。 これらの属性は、 **System.Web.ModelBinding**名前空間。 Windows コモン コントロールには以下が含まれます。
+モデルバインドでは、モデルバインドメソッドでパラメーターの値を設定する方法を指定できるように、いくつかの属性が追加されます。 これらの属性は、 **System.web バインド**名前空間にあります。 それには以下が含まれます。
 
 - コントロール
 - クッキー
-- フォーム
+- Form
 - Profile
 - QueryString
 - RouteData
 - セッション
 - UserProfile
-- ViewState
+- ビューの状態
 
-このチュートリアルでは、GridView に表示するレコードをフィルター処理するのにコントロールの値を使用します。 追加、**コントロール**属性を前に作成したクエリ メソッド。 [後で](using-query-string-values-to-retrieve-data.md)チュートリアルが適用されます、 **QueryString**属性をクエリ文字列の値からパラメーター値を取得することを指定するパラメーター。
+このチュートリアルでは、コントロールの値を使用して、GridView に表示するレコードをフィルター処理します。 前の手順で作成したクエリメソッドに**コントロール**属性を追加します。 [後](using-query-string-values-to-retrieve-data.md)のチュートリアルでは、パラメーターにクエリ文字列値を使用することを指定するために、 **QueryString**属性をパラメーターに適用します。
 
-まず、ValidationSummary 上には、ドロップ ダウン受講者が示すようにフィルター処理するためのリストを追加します。
+まず、ValidationSummary の上に、表示される学生をフィルター処理するためのドロップダウンリストを追加します。
 
 [!code-aspx[Main](sorting-paging-and-filtering-data/samples/sample3.aspx?highlight=3-11)]
 
-分離コード ファイルで、コントロールから値を受信する select メソッドを変更し、値を提供するコントロールの名前に、パラメーターの名前を設定します。
+分離コードファイルで、コントロールから値を受け取るように選択メソッドを変更し、パラメーターの名前を、値を提供するコントロールの名前に設定します。
 
-追加する必要があります、**を使用して**のステートメント、 **System.Web.ModelBinding**コントロールの属性を解決する名前空間。
+Control 属性を解決するには、 **System.web binding**名前空間の**using**ステートメントを追加する必要があります。
 
 [!code-csharp[Main](sorting-paging-and-filtering-data/samples/sample4.cs)]
 
-次のコードでは、ドロップダウン リストの値に基づいて、返されるデータをフィルター処理する再作業 select メソッドを示します。 指定するパラメーターはこのパラメーターの値が同じ名前のコントロールから取得される前に、コントロールの属性を追加します。
+次のコードは、ドロップダウンリストの値に基づいて、返されたデータをフィルター処理するための選択メソッドを示しています。 パラメーターの前にコントロール属性を追加すると、このパラメーターの値は同じ名前のコントロールから取得されます。
 
 [!code-csharp[Main](sorting-paging-and-filtering-data/samples/sample5.cs)]
 
-Web アプリケーションを実行し、ドロップダウン リストの学生の一覧をフィルター処理から異なる値を選択します。
+Web アプリケーションを実行し、ドロップダウンリストから別の値を選択して、学生の一覧をフィルター処理します。
 
-![フィルターの受講者](sorting-paging-and-filtering-data/_static/image6.png)
+![学生のフィルター処理](sorting-paging-and-filtering-data/_static/image6.png)
 
 ## <a name="conclusion"></a>まとめ
 
-このチュートリアルでは並べ替えおよびデータのページングを有効になります。 有効にしても、コントロールの値によって、データのフィルター処理します。
+このチュートリアルでは、データの並べ替えとページングを有効にしました。 また、コントロールの値によってデータのフィルター処理を有効にしました。
 
-次の[チュートリアル](integrating-jquery-ui.md)に動的なデータ テンプレートの JQuery UI ウィジェットを統合することによって、UI を拡張します。
+次の[チュートリアル](integrating-jquery-ui.md)では、JQuery ui ウィジェットを動的データテンプレートに統合することによって、UI を強化します。
 
 > [!div class="step-by-step"]
 > [前へ](updating-deleting-and-creating-data.md)

@@ -1,55 +1,55 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/using-query-string-values-to-retrieve-data
-title: クエリ文字列の値を使用してモデル バインドでデータをフィルター処理し、web フォーム |Microsoft Docs
+title: クエリ文字列値を使用してモデルバインドと web フォームを使用してデータをフィルター処理する |Microsoft Docs
 author: Rick-Anderson
-description: このチュートリアル シリーズでは、モデル バインドを使用して ASP.NET Web フォーム プロジェクトでの基本的な側面について説明します。 モデル バインドは、データの操作詳細直線にしています.
+description: このチュートリアルシリーズでは、ASP.NET Web フォームプロジェクトでモデルバインドを使用するための基本的な側面を示します。 モデルバインドを使用すると、データの相互作用がより簡単になり-...
 ms.author: riande
 ms.date: 02/27/2014
 ms.assetid: b90978bd-795d-4871-9ade-1671caff5730
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/using-query-string-values-to-retrieve-data
 msc.type: authoredcontent
 ms.openlocfilehash: 143ddcb40b576a3129e659b90bfc8321c061a547
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130237"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78519082"
 ---
-# <a name="using-query-string-values-to-filter-data-with-model-binding-and-web-forms"></a>モデル バインディングと web フォームでデータをフィルター処理クエリ文字列の値を使用します。
+# <a name="using-query-string-values-to-filter-data-with-model-binding-and-web-forms"></a>クエリ文字列値を使用してモデルバインドと web フォームを使用してデータをフィルター処理する
 
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
-> このチュートリアル シリーズでは、モデル バインドを使用して ASP.NET Web フォーム プロジェクトでの基本的な側面について説明します。 モデルのバインドは、(ObjectDataSource や SqlDataSource) などのソース オブジェクトにデータを処理するよりもより簡単にデータの操作を使用します。 このシリーズでは、入門用資料から開始して、後のチュートリアルで高度な概念に移動します。
+> このチュートリアルシリーズでは、ASP.NET Web フォームプロジェクトでモデルバインドを使用するための基本的な側面を示します。 モデルバインドを使用すると、データソースオブジェクト (ObjectDataSource や SqlDataSource など) を処理するよりも、データ操作がより簡単になります。 このシリーズでは、入門資料から開始し、以降のチュートリアルでより高度な概念に移ります。
 > 
-> このチュートリアルでは、クエリ文字列の値を渡すし、その値を使用してモデル バインドでデータを取得する方法を示します。
+> このチュートリアルでは、クエリ文字列に値を渡し、その値を使用してモデルバインドを通じてデータを取得する方法について説明します。
 > 
-> このチュートリアルで作成したプロジェクトで、[以前](retrieving-data.md)系列の部分。
+> このチュートリアルは、シリーズの[前](retrieving-data.md)のパートで作成したプロジェクトに基づいています。
 > 
-> できます[ダウンロード](https://go.microsoft.com/fwlink/?LinkId=286116)c# または VB. で完全なプロジェクト ダウンロード可能なコードは、Visual Studio 2012 または Visual Studio 2013 のいずれかで動作します。 これは、このチュートリアルで示すように Visual Studio 2013 テンプレートと若干異なる Visual Studio 2012 テンプレートを使用します。
+> 完全なプロジェクトは、またはC# VB で[ダウンロード](https://go.microsoft.com/fwlink/?LinkId=286116)できます。 ダウンロード可能なコードは、Visual Studio 2012 または Visual Studio 2013 で動作します。 このチュートリアルでは、Visual Studio 2012 テンプレートを使用します。これは、このチュートリアルで示した Visual Studio 2013 テンプレートとは少し異なります。
 
-## <a name="what-youll-build"></a>構築します
+## <a name="what-youll-build"></a>ビルドする内容
 
-このチュートリアルではあります。
+このチュートリアルでは、次のことについて説明します。
 
-1. 学生の登録済みのコースを表示する新しいページを追加します。
-2. クエリ文字列の値に基づいて選択した学生の登録済みのコースを取得します。
-3. 新しいページに、グリッド ビューからクエリ文字列の値を持つハイパーリンクを追加します。
+1. 学生に登録されたコースを表示する新しいページを追加する
+2. クエリ文字列の値に基づいて、選択した学生の登録済みコースを取得します。
+3. グリッドビューから新しいページにクエリ文字列値を含むハイパーリンクを追加する
 
-このチュートリアルの手順ではどのようなにかなり似ています、以前に[チュートリアル](sorting-paging-and-filtering-data.md)をドロップダウン リストでユーザーの選択に基づいて表示されている受講者をフィルター処理します。 このチュートリアルで使用して、**コントロール**select メソッド パラメーターの値がコントロールから取得されるかを指定する属性。 このチュートリアルで使用する、 **QueryString**クエリ文字列からパラメーターの値を取得することを指定する select メソッドの属性。
+このチュートリアルの手順は、前の[チュートリアル](sorting-paging-and-filtering-data.md)で説明した手順とほぼ同じですが、ドロップダウンリストでのユーザー選択に基づいて、表示される学生をフィルター処理します。 このチュートリアルでは、select メソッドで**control**属性を使用して、パラメーター値がコントロールから取得されるように指定しています。 このチュートリアルでは、select メソッドで**QueryString**属性を使用して、パラメーター値をクエリ文字列から取得するように指定します。
 
-## <a name="add-new-page-for-displaying-a-students-courses"></a>受講者のコースを表示するための新しいページを追加します。
+## <a name="add-new-page-for-displaying-a-students-courses"></a>学生のコースを表示するための新しいページを追加する
 
-Site.master のマスター ページを使用する新しい web フォームを追加し、ページの名前**コース**します。
+.Master マスターページを使用する新しい web フォームを追加し、そのページに**コース**の名前を指定します。
 
-**Courses.aspx**ファイルを選択した受講者コースを表示するグリッド ビューを追加します。
+コースの **.aspx**ファイルで、選択した学生のコースを表示するグリッドビューを追加します。
 
 [!code-aspx[Main](using-query-string-values-to-retrieve-data/samples/sample1.aspx)]
 
-## <a name="define-the-select-method"></a>Select メソッドを定義します。
+## <a name="define-the-select-method"></a>Select メソッドを定義する
 
-**Courses.aspx.cs**、グリッド ビューの指定した名前を持つ select メソッドを追加するは**SelectMethod**プロパティ。 メソッドには、受講者のコースでは、取得するためのクエリを定義し、パラメーターがパラメーターと同じ名前のクエリ文字列値から取得されるかを指定します。
+**Courses.aspx.cs**では、grid ビューの**SelectMethod**プロパティで指定した名前を使用して、select メソッドを追加します。 このメソッドでは、学生のコースを取得するためのクエリを定義し、パラメーターと同じ名前のクエリ文字列値からパラメーターを取得するように指定します。
 
-最初に、次を追加する必要があります**を使用して**ステートメント。
+まず、次の**using**ステートメントを追加する必要があります。
 
 [!code-csharp[Main](using-query-string-values-to-retrieve-data/samples/sample2.cs)]
 
@@ -57,29 +57,29 @@ Site.master のマスター ページを使用する新しい web フォーム�
 
 [!code-csharp[Main](using-query-string-values-to-retrieve-data/samples/sample3.cs)]
 
-クエリ文字列の属性は、このメソッドのパラメーターに StudentID という名前のクエリ文字列値が自動的に割り当てられているを意味します。
+QueryString 属性は、StudentID という名前のクエリ文字列値がこのメソッドのパラメーターに自動的に割り当てられることを意味します。
 
-## <a name="add-hyperlink-with-query-string-value"></a>クエリ文字列の値を持つハイパーリンクを追加します。
+## <a name="add-hyperlink-with-query-string-value"></a>クエリ文字列値を含むハイパーリンクの追加
 
-Students.aspx で、グリッド ビューは、新しいコースのページにリンクするハイパーリンクのフィールドを追加します。 ハイパーリンクは、学生の id を持つクエリ文字列の値が含まれます。
+Student のグリッドビューでは、[新しいコース] ページにリンクするハイパーリンクフィールドを追加します。 ハイパーリンクには、学生の id を持つクエリ文字列値が含まれます。
 
-Students.aspx では、クレジットの合計を次のフィールドをフィールドのすぐ下のグリッド ビューの列に追加します。
+Student で、合計クレジットのフィールドのすぐ下に、次のフィールドをグリッドビューの列に追加します。
 
 [!code-aspx[Main](using-query-string-values-to-retrieve-data/samples/sample4.aspx?highlight=7-8)]
 
-アプリケーションを実行し、グリッド ビューに今すぐコースのリンクが含まれていることを確認します。
+アプリケーションを実行し、グリッドビューに [コース] リンクが表示されていることを確認します。
 
-![ハイパーリンクを追加します。](using-query-string-values-to-retrieve-data/_static/image1.png)
+![ハイパーリンクの追加](using-query-string-values-to-retrieve-data/_static/image1.png)
 
-いずれかのリンクをクリックすると、学生の登録済みのコースを確認します。
+いずれかのリンクをクリックすると、学生の登録済みコースが表示されます。
 
-![コースを表示します。](using-query-string-values-to-retrieve-data/_static/image2.png)
+![コースを表示](using-query-string-values-to-retrieve-data/_static/image2.png)
 
 ## <a name="conclusion"></a>まとめ
 
-このチュートリアルでは、クエリ文字列の値を持つリンクを追加します。 Select メソッドのパラメーター値には、そのクエリ文字列の値を使用します。
+このチュートリアルでは、クエリ文字列値を含むリンクを追加しました。 このクエリ文字列値は、select メソッドのパラメーター値として使用しています。
 
-次の[チュートリアル](adding-business-logic-layer.md)、ビジネス ロジック層とデータ アクセス層に分離コード ファイルからコードを移動します。
+次の[チュートリアル](adding-business-logic-layer.md)では、分離コードファイルのコードをビジネスロジック層とデータアクセス層に移動します。
 
 > [!div class="step-by-step"]
 > [前へ](integrating-jquery-ui.md)
